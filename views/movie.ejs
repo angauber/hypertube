@@ -1,0 +1,19 @@
+<%
+	let seeds = false;
+	let torrent = false;
+
+	for (let i = 0; i < data.torrents.length; i++) {
+		if (data.torrents[i].quality == '1080p') {
+			if (!seeds) {
+				seeds = data.torrents[i].seeds;
+				torrent = i;
+			}
+			if (seeds < data.torrents[i].seeds) {
+				seeds = data.torrents[i].seeds;
+				torrent = i;
+			}
+		}
+	}
+
+	console.log(data.torrents[torrent]);
+%>
