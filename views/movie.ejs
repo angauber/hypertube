@@ -1,19 +1,70 @@
-<%
-	let seeds = false;
-	let torrent = false;
+<!DOCTYPE html>
+<html>
+<head>
+	<link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Material+Icons" rel="stylesheet">
+	<link href="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.min.css" rel="stylesheet">
+	<link href="https://vjs.zencdn.net/7.4.1/video-js.css" rel="stylesheet">
 
-	for (let i = 0; i < data.torrents.length; i++) {
-		if (data.torrents[i].quality == '1080p') {
-			if (!seeds) {
-				seeds = data.torrents[i].seeds;
-				torrent = i;
-			}
-			if (seeds < data.torrents[i].seeds) {
-				seeds = data.torrents[i].seeds;
-				torrent = i;
+	<!-- If you'd like to support IE8 (for Video.js versions prior to v7) -->
+	<script src="https://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+</head>
+<body>
+	<v-app id="app" style="background: #263238;">
+		<v-toolbar dark color="#455B66" style="font-family: roboto;">
+			<v-toolbar-side-icon></v-toolbar-side-icon>
+			<v-toolbar-title id="php" style="cursor: pointer;" class="display-1 font-weight-light">Hypertube</v-toolbar-title>
+			<v-spacer></v-spacer>
+			<v-toolbar-items class="hidden-sm-and-down">
+				<v-text-field
+				hide-details
+				prepend-icon="search"
+				single-line
+				id = "search_input"
+				></v-text-field>
+				<v-btn flat>Link Two</v-btn>
+				<v-btn flat>Link Three</v-btn>
+			</v-toolbar-items>
+		</v-toolbar>
+		<template>
+			<v-container grid-list-md text-xs-center>
+				<v-layout row wrap>
+					<v-flex xs12>
+						<v-card color="#263238">
+							<v-card-text class="display-3 font-weight-light"><%= data.title %></v-card-text>
+							<video id='my-video' class="video-js vjs-default-skin vjs-big-play-centered" controls preload='auto' width="950" height="450" style="display: block; margin: 0 auto;"
+							poster='<%= data.background_image %>' data-setup='{}'>
+							<source src='<%= '/stream?url=' + path %>' type='video/mp4'>
+							</video>
+							<v-card-text class="body-1 mt-4 font-weight-light" style="color: white;"><%= data.description_intro %></v-card-text>
+							<div class="text-xs-center mt-2">
+								<v-rating></v-rating>
+							</div>
+						</v-card>
+					</v-flex>
+				</v-layout>
+			</v-container>
+		</template>
+	</v-app>
+	<script src='https://vjs.zencdn.net/7.4.1/video.js'></script>
+	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+	<script src="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.js"></script>
+	<script>
+		new Vue({
+			el: '#app'
+		})
+	</script>
+	<script>
+		const search = document.getElementById("search_input");
+
+		document.getElementById("php").onclick = function() {
+			window.location.replace('/');
+		}
+		search.onkeyup = function(event) {
+			if (event.keyCode == 13) {
+				window.location.replace('/query?name=' + search.value);
 			}
 		}
-	}
-
-	console.log(data.torrents[torrent]);
-%>
+	</script>
+</body>
+</html>
