@@ -33,8 +33,8 @@
 						<v-card color="#263238">
 							<v-card-text class="display-3 font-weight-light"><%= data.title %></v-card-text>
 							<video id='my-video' class="video-js vjs-default-skin vjs-big-play-centered" controls preload='auto' width="950" height="450" style="display: block; margin: 0 auto;"
-							poster='<%= data.background_image %>' data-setup='{}'>
-							<source src='<%= '/stream?url=' + path %>' type='video/mp4'>
+							poster="<%= data.background_image %>" data-setup='{}'>
+							<source src="/stream?url=<%= path %>" type='video/mp4'>
 							</video>
 							<v-card-text class="body-1 mt-4 font-weight-light" style="color: white;"><%= data.description_intro %></v-card-text>
 							<div class="text-xs-center mt-2">

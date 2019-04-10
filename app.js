@@ -1,32 +1,27 @@
 const express = require('express');
 const request = require('request');
 const fs = require('fs');
+const path = require('path');
 const GrowingFile = require('growing-file');
 const torrent = require('./torrent');
 const app = express();
 
 app.set('view engine', 'ejs');
+app.use('/js', express.static('public/js'));
 
 app.get('/', function(req, res) {
-	request('https://yts.am/api/v2/list_movies.json?sort_by=download_count&limit=50', function (error, response, body) {
-		if (!error && response.statusCode == 200) {
-			const info = JSON.parse(body);
-			if (info.data.movies) {
-				res.render('home.ejs', {'data' : info.data.movies});
-			}
-		}
-	})
+	res.render('home.ejs');
 })
 .get('/query', function(req, res) {
 	if (req.query.name !== undefined) {
-		request('https://yts.am/api/v2/list_movies.json?sort_by=download_count&query_term=' + req.query.name + '&limit=50', function (error, response, body) {
+		request('https://yts.am/api/v2/list_movies.json?sort_by=download_count&query_term=' + req.query.name + '&limit=48', function (error, response, body) {
 			if (!error && response.statusCode == 200) {
 				const info = JSON.parse(body);
 				if (info.data.movies) {
-					res.render('home.ejs', {'data' : info.data.movies});
+					res.render('search.ejs', {'data' : info.data.movies});
 				}
 				else {
-					res.status(404).end();
+					res.render('search.ejs', {'data' : false});
 				}
 			}
 			else {
@@ -59,9 +54,30 @@ app.get('/', function(req, res) {
 		res.status(404).end();
 	}
 })
+.get('/pagination', function(req, res) {
+	if (req.query.page !== undefined) {
+		request('https://yts.am/api/v2/list_movies.json?sort_by=download_count&page=' + req.query.page + '&limit=48', function (error, response, body) {
+			if (!error && response.statusCode == 200) {
+				const info = JSON.parse(body);
+				if (info.data.movies) {
+					res.json({'data' : info.data.movies});
+				}
+				else {
+					res.status(404).end();
+				}
+			}
+			else {
+				res.status(404).end();
+			}
+		})
+	}
+	else {
+		res.status(404).end();
+	}
+})
 .get('/stream', function(req, res) {
 	if (req.query.url !== undefined) {
-		const path = './downloads/' + req.query.url
+		const path = '/sgoinfre/Perso/angauber/hypertube/download/' + req.query.url
 		if (!fs.existsSync(path)) {
 			console.log('error files does not exists');
 			res.status(404).end();
@@ -70,7 +86,11 @@ app.get('/', function(req, res) {
 			res.writeHead(200, {
 				'Content-Type': 'video/mp4'
 			});
-			file = GrowingFile.open(path);
+			file = GrowingFile.open(path, {
+				timeout: 3000,
+				interval: 100,
+				startFromEnd: true
+			});
 			file.pipe(res);
 		}
 	}

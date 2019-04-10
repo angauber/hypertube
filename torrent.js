@@ -1,3 +1,6 @@
+const WebTorrent = require('webtorrent')
+const fs = require('fs');
+
 module.exports = {
 	launch_movie: function (res, movie) {
 		const torrent_url = get_best_torrent(movie.torrents)
@@ -14,9 +17,6 @@ module.exports = {
 		});
 	},
 };
-
-const fs = require('fs');
-const WebTorrent = require('webtorrent');
 
 function movie_exists(imdb_code, callback) {
 	fs.readFile('./data/movies.json', 'utf8', function readFileCallback(err, data){
@@ -75,10 +75,13 @@ function download_torrent(res, movie, url) {
 	let called = false;
 
 	console.log(url);
-	client.add(url, { path: './downloads' }, function (torrent) {
+	client.add(url, { path: '/sgoinfre/Perso/angauber/hypertube/download' }, function (torrent) {
 		console.log('torrent download started')
-		setInterval(function () {
+		const intervalID = setInterval(function () {
 			console.log('Progress: ' + (torrent.progress * 100).toFixed(1) + '%')
+			if (torrent.progress * 100 >= 100) {
+				clearInterval(intervalID);
+			}
 			if ((torrent.progress * 100) > 1 && !called) {
 				called = true;
 				console.log('going to the movie page')
@@ -97,8 +100,8 @@ function get_path(res, movie, files) {
 		const ext = array[array.length - 1]
 
 		if (ext == "mp4") {
-			add_movie(movie.imdb_code, files[i].path)
 			console.log('starting to stream movie')
+			add_movie(movie.imdb_code, files[i].path)
 			res.render('movie.ejs', {'data' : movie, 'path' : files[i].path})
 		}
 	}
