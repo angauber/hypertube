@@ -1,19 +1,34 @@
 const WebTorrent = require('webtorrent')
+const srt2vtt = require('srt2vtt');
 const fs = require('fs');
 
 module.exports = {
 	launch_movie: function (res, movie) {
-		const torrent_url = get_best_torrent(movie.torrents)
-
 		movie_exists(movie.imdb_code, function(path) {
-			if (path) {
-				console.log('movie exists already, launching: ' + path)
-				res.render('movie.ejs', {'data' : movie, 'path' : path})
-			}
-			else {
-				console.log('movie ' + movie.imdb_code + ' isn\'t on server');
-				download_torrent(res, movie, torrent_url)
-			}
+			get_subs(movie.imdb_code).then(function(srt) {
+
+				if (srt !== false) {
+					console.log(srt)
+					let srtData = fs.readFileSync('data/subs/' + movie.imdb_code + '-en/' + srt);
+					srt2vtt(srtData, function(err, vttData) {
+						if (err) throw new Error(err);
+						fs.writeFileSync('data/subs/' + movie.imdb_code + '-en/sub.vtt', vttData);
+						fs.unlink('data/subs/' + movie.imdb_code + '-en/' + srt, (err) => {
+							if (err) throw err;
+							console.log('srt file was deleted');
+						});
+					});
+				}
+				if (path) {
+					console.log('movie exists already, launching: ' + path)
+					res.render('movie.ejs', {'data' : movie, 'path' : path})
+				}
+				else {
+					console.log('movie ' + movie.imdb_code + ' isn\'t on server');
+					const torrent_url = get_best_torrent(movie.torrents)
+					download_torrent(res, movie, torrent_url)
+				}
+			})
 		});
 	},
 };
@@ -78,7 +93,7 @@ function download_torrent(res, movie, url) {
 	client.add(url, { path: '/sgoinfre/Perso/angauber/hypertube/download' }, function (torrent) {
 		console.log('torrent download started')
 		const intervalID = setInterval(function () {
-			console.log('Progress: ' + (torrent.progress * 100).toFixed(1) + '%')
+			console.log('Progress: ' + (torrent.progress * 100).toFixed(1) + '% Downloading at about ' + (torrent.downloadSpeed / 1000000) + ' mB/s')
 			if (torrent.progress * 100 >= 100) {
 				clearInterval(intervalID);
 			}
@@ -107,7 +122,6 @@ function get_path(res, movie, files) {
 	}
 }
 
-
 function get_best_torrent(torrents) {
 	let seeds = false
 	let torrent = false
@@ -125,4 +139,39 @@ function get_best_torrent(torrents) {
 		}
 	}
 	return torrents[torrent].url;
+}
+
+let get_subs = function(imdb) {
+	return new Promise(function(resolve, reject) {
+		const yifysubs = require('yifysubtitles-api');
+		const download = require('download');
+
+		if (!fs.existsSync('data/subs/' + imdb + '-en')) {
+			yifysubs.search({imdbid: imdb, limit: 'best'}).then(function(data) {
+				if (typeof data.en[0].url !== undefined) {
+					console.log(data.en[0].url);
+
+					fs.mkdir('data/subs/' + imdb + '-en', { recursive: true }, (err) => {
+						if (err) throw err;
+					});
+					download(data.en[0].url, 'data/subs/' + imdb + '-en', {extract: true}).then(() => {
+						console.log('done!');
+						fs.readdir('data/subs/' + imdb + '-en', (err, files) => {
+							if (typeof files[0] !== undefined) {
+								resolve(files[0])
+							}
+						});
+					});
+				}
+			})
+		}
+		else {
+			console.log('en subs already exists.. skipping the download part');
+			fs.readdir('data/subs/' + imdb + '-en', (err, files) => {
+				if (files) {
+					resolve(false)
+				}
+			});
+		}
+	})
 }
