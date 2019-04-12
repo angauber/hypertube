@@ -4,16 +4,17 @@ const fs = require('fs');
 
 module.exports = {
 	launch_movie: function (res, movie) {
+		console.log('starting..');
 		movie_exists(movie.imdb_code, function(path) {
+			console.log(path);
 			get_subs(movie.imdb_code).then(function(srt) {
-
 				if (srt !== false) {
 					console.log(srt)
-					let srtData = fs.readFileSync('data/subs/' + movie.imdb_code + '-en/' + srt);
+					let srtData = fs.readFileSync('data/subs/' + movie.imdb_code + '-fr/' + srt);
 					srt2vtt(srtData, function(err, vttData) {
 						if (err) throw new Error(err);
-						fs.writeFileSync('data/subs/' + movie.imdb_code + '-en/sub.vtt', vttData);
-						fs.unlink('data/subs/' + movie.imdb_code + '-en/' + srt, (err) => {
+						fs.writeFileSync('data/subs/' + movie.imdb_code + '-fr/sub.vtt', vttData);
+						fs.unlink('data/subs/' + movie.imdb_code + '-fr/' + srt, (err) => {
 							if (err) throw err;
 							console.log('srt file was deleted');
 						});
@@ -49,7 +50,7 @@ function movie_exists(imdb_code, callback) {
 					}
 				});
 				if (counter == 0)
-				callback(false);
+					callback(false);
 			}
 			else {
 				callback(false);
@@ -146,17 +147,17 @@ let get_subs = function(imdb) {
 		const yifysubs = require('yifysubtitles-api');
 		const download = require('download');
 
-		if (!fs.existsSync('data/subs/' + imdb + '-en')) {
+		if (!fs.existsSync('data/subs/' + imdb + '-fr')) {
 			yifysubs.search({imdbid: imdb, limit: 'best'}).then(function(data) {
-				if (typeof data.en[0].url !== undefined) {
-					console.log(data.en[0].url);
+				if (typeof data.fr[0].url !== undefined) {
+					console.log(data.fr[0].url);
 
-					fs.mkdir('data/subs/' + imdb + '-en', { recursive: true }, (err) => {
+					fs.mkdir('data/subs/' + imdb + '-fr', { recursive: true }, (err) => {
 						if (err) throw err;
 					});
-					download(data.en[0].url, 'data/subs/' + imdb + '-en', {extract: true}).then(() => {
+					download(data.fr[0].url, 'data/subs/' + imdb + '-fr', {extract: true}).then(() => {
 						console.log('done!');
-						fs.readdir('data/subs/' + imdb + '-en', (err, files) => {
+						fs.readdir('data/subs/' + imdb + '-fr', (err, files) => {
 							if (typeof files[0] !== undefined) {
 								resolve(files[0])
 							}
@@ -167,7 +168,7 @@ let get_subs = function(imdb) {
 		}
 		else {
 			console.log('en subs already exists.. skipping the download part');
-			fs.readdir('data/subs/' + imdb + '-en', (err, files) => {
+			fs.readdir('data/subs/' + imdb + '-fr', (err, files) => {
 				if (files) {
 					resolve(false)
 				}

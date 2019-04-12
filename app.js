@@ -57,7 +57,7 @@ app.get('/', function(req, res) {
 })
 .get('/pagination', function(req, res) {
 	if (req.query.page !== undefined) {
-		request('https://yts.am/api/v2/list_movies.json?sort_by=rating&page=' + req.query.page + '&limit=48', function (error, response, body) {
+		request('https://yts.am/api/v2/list_movies.json?sort_by=download_count&page=' + req.query.page + '&limit=48', function (error, response, body) {
 			if (!error && response.statusCode == 200) {
 				const info = JSON.parse(body);
 				if (info.data.movies) {
@@ -98,14 +98,6 @@ app.get('/', function(req, res) {
 	else {
 		res.status(404).end();
 	}
-})
-.get('/test', function(req, res) {
-	const seekTorent = require('seek-torrent');
-
-	(async function () {
-		results = await seekTorrent.search('malcolm', { type: 'series' });
-		console.log(results);
-	})
 })
 .use(function(req, res, next){
 	res.setHeader('Content-Type', 'text/plain');

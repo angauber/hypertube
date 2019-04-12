@@ -4,6 +4,7 @@ new Vue({
 	el: '#app',
 	data() {
 		return {
+			rating: 3,
 			dialog: false,
 			bottom: false,
 			movies: []
