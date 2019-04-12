@@ -5,7 +5,7 @@ const fs = require('fs');
 module.exports = {
 	launch_movie: function (res, movie) {
 		console.log('starting..');
-		movie_exists(movie.imdb_code, function(path) {
+		this.movie_exists(movie.imdb_code, function(path) {
 			console.log(path);
 			get_subs(movie.imdb_code).then(function(srt) {
 				if (srt !== false) {
@@ -26,38 +26,55 @@ module.exports = {
 				}
 				else {
 					console.log('movie ' + movie.imdb_code + ' isn\'t on server');
-					const torrent_url = get_best_torrent(movie.torrents)
+					const torrent_url = module.exports.get_best_torrent(movie.torrents).url
 					download_torrent(res, movie, torrent_url)
 				}
 			})
 		});
 	},
-};
+	movie_exists: function(imdb_code, callback) {
+		fs.readFile('./data/movies.json', 'utf8', function readFileCallback(err, data){
+			if (err){
+				console.log(err);
+			} else {
+				if (data) {
+					let counter = 0
+					let obj = JSON.parse(data);
 
-function movie_exists(imdb_code, callback) {
-	fs.readFile('./data/movies.json', 'utf8', function readFileCallback(err, data){
-		if (err){
-			console.log(err);
-		} else {
-			if (data) {
-				let counter = 0
-				let obj = JSON.parse(data);
-
-				Object.keys(obj.table).forEach(function(key) {
-					if (obj.table[key].imdb == imdb_code) {
-						counter = 1;
-						callback(obj.table[key].path);
-					}
-				});
-				if (counter == 0)
+					Object.keys(obj.table).forEach(function(key) {
+						if (obj.table[key].imdb == imdb_code) {
+							counter = 1;
+							callback(obj.table[key].path);
+						}
+					});
+					if (counter == 0)
 					callback(false);
+				}
+				else {
+					callback(false);
+				}
 			}
-			else {
-				callback(false);
+		});
+	},
+	get_best_torrent: function(torrents) {
+		let seeds = false
+		let torrent = false
+
+		for (let i = 0; i < torrents.length; i++) {
+			if (torrents[i].quality == '1080p') {
+				if (!seeds) {
+					seeds = torrents[i].seeds
+					torrent = i
+				}
+				if (seeds < torrents[i].seeds) {
+					seeds = torrents[i].seeds
+					torrent = i;
+				}
 			}
 		}
-	});
-}
+		return torrents[torrent];
+	},
+};
 
 function add_movie(imdb_code, file_path) {
 	fs.readFile('data/movies.json', 'utf8', function readFileCallback(err, data){
@@ -93,15 +110,16 @@ function download_torrent(res, movie, url) {
 	console.log(url);
 	client.add(url, { path: '/sgoinfre/Perso/angauber/hypertube/download' }, function (torrent) {
 		console.log('torrent download started')
+		get_path(res, movie, torrent.files, false)
 		const intervalID = setInterval(function () {
 			console.log('Progress: ' + (torrent.progress * 100).toFixed(1) + '% Downloading at about ' + (torrent.downloadSpeed / 1000000) + ' mB/s')
 			if (torrent.progress * 100 >= 100) {
 				clearInterval(intervalID);
 			}
-			if ((torrent.progress * 100) > 1 && !called) {
+			if ((torrent.progress * 100) > 1.2 && !called) {
 				called = true;
 				console.log('going to the movie page')
-				get_path(res, movie, torrent.files)
+				get_path(res, movie, torrent.files, true)
 			}
 		}, 5000)
 		torrent.on('done', function () {
@@ -110,36 +128,21 @@ function download_torrent(res, movie, url) {
 	})
 }
 
-function get_path(res, movie, files) {
+function get_path(res, movie, files, bool) {
 	for (let i = 0; i < files.length; i++) {
 		const array = files[i].path.split(".")
 		const ext = array[array.length - 1]
 
 		if (ext == "mp4") {
-			console.log('starting to stream movie')
-			add_movie(movie.imdb_code, files[i].path)
-			res.render('movie.ejs', {'data' : movie, 'path' : files[i].path})
-		}
-	}
-}
-
-function get_best_torrent(torrents) {
-	let seeds = false
-	let torrent = false
-
-	for (let i = 0; i < torrents.length; i++) {
-		if (torrents[i].quality == '1080p') {
-			if (!seeds) {
-				seeds = torrents[i].seeds
-				torrent = i
+			if (bool == true) {
+				console.log('starting to stream movie')
+				res.render('movie.ejs', {'data' : movie, 'path' : files[i].path})
 			}
-			if (seeds < torrents[i].seeds) {
-				seeds = torrents[i].seeds
-				torrent = i;
+			else {
+				add_movie(movie.imdb_code, files[i].path)
 			}
 		}
 	}
-	return torrents[torrent].url;
 }
 
 let get_subs = function(imdb) {

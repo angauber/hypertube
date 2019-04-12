@@ -14,7 +14,7 @@
 		align-items: center;
 		bottom: 0;
 		justify-content: center;
-		background-color: rgba(69, 90, 100, 0.7);
+		background-color: rgba(69, 90, 100, 0.95);
 		position: absolute;
 		width: 100%;
 	}
@@ -28,14 +28,20 @@
 				<v-toolbar-title id="home" style="cursor: pointer" class="display-1 font-weight-light">Hypertube</v-toolbar-title>
 				<v-spacer></v-spacer>
 				<v-toolbar-items class="hidden-sm-and-down">
-					<v-text-field
-					hide-details
-					prepend-icon="search"
-					single-line
-					id = "search_input"
-					></v-text-field>
-					<v-btn flat>Movies</v-btn>
-					<v-btn flat>Tv-shows</v-btn>
+					<v-flex md5 mr-5>
+						<v-text-field
+						hide-details
+						prepend-icon="search"
+						single-line
+						id = "search_input"
+						></v-text-field>
+					</v-flex>
+					<v-flex md2 mt-2 d-flex>
+						<v-select
+						:items="items"
+						solo
+						></v-select>
+					</v-flex>
 				</v-toolbar-items>
 			</v-toolbar>
 			<v-container grid-list-md text-xs-center>
@@ -50,13 +56,9 @@
 					color="primary"
 					dark
 					>
-					<v-card-text>
+					<v-card-text text-xs-center>
 						Please stand by, We are preparing your movie..
-						<v-progress-linear
-						indeterminate
-						color="white"
-						class="mb-0"
-						></v-progress-linear>
+						<v-progress-linear v-model="load_value" color="cyan accent-3" height="10"></v-progress-linear>
 					</v-card-text>
 				</v-card>
 			</v-dialog>
@@ -66,7 +68,7 @@
 						<v-img :src="movie.img" class="grey lighten-2">
 							<v-expand-transition>
 								<div v-if="hover" class="d-flex transition-fast-in-fast-out v-card--reveal display-3 white--text" style="height: 100%;">
-									<v-rating readonly v-model="rating" half-increments></v-rating>
+									<v-rating readonly :value="movie.rating" half-increments></v-rating>
 								</div>
 							</v-expand-transition>
 						</v-img>

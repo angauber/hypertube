@@ -99,6 +99,46 @@ app.get('/', function(req, res) {
 		res.status(404).end();
 	}
 })
+.get('/size', function(req, res) {
+	if (req.query.id !== undefined) {
+		request('https://yts.am/api/v2/movie_details.json?movie_id=' + req.query.id, function (error, response, body) {
+			if (!error && response.statusCode == 200 && body) {
+				const info = JSON.parse(body);
+				if (info.data.movie) {
+					torrent.movie_exists(info.data.movie.imdb_code, function(path) {
+						if (path) {
+							const file = '/sgoinfre/Perso/angauber/hypertube/download/' + path
+							if (!fs.existsSync(file)) {
+								res.json(false)
+							}
+							else {
+								const torrentPSize = torrent.get_best_torrent(info.data.movie.torrents).size_bytes / 100
+								const stats = fs.statSync(file)
+								const fileSize = stats.size
+								if (fileSize > torrentPSize) {
+									res.json('100')
+								}
+								else {
+									res.json((Math.floor((100 * fileSize / torrentPSize))).toString())
+								}
+							}
+						}
+						else {
+							console.log('path is null');
+							res.json(false)
+						}
+					})
+				}
+				else {
+					res.json(false);
+				}
+			}
+			else {
+				res.json(false);
+			}
+		})
+	}
+})
 .use(function(req, res, next){
 	res.setHeader('Content-Type', 'text/plain');
 	res.status(404).send('404 NOT FOUND !');

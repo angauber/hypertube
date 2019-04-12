@@ -4,7 +4,8 @@ new Vue({
 	el: '#app',
 	data() {
 		return {
-			rating: 3,
+			items: ['en', 'fr', 'es', 'it'],
+			load_value: 0,
 			dialog: false,
 			bottom: false,
 			movies: []
@@ -14,6 +15,14 @@ new Vue({
 		goto_movie(id) {
 			this.dialog = true
 			window.location.replace('/movie?id=' + id);
+			setInterval(() => {
+				axios.get('/size?id=' + id).then(response => {
+					if (response.data != false) {
+						this.load_value = parseInt(response.data);
+						console.log(this.load_value);
+					}
+				})
+			}, 1000);
 		},
 		bottomVisible() {
 			if($(window).scrollTop() + $(window).height() == $(document).height()) {
@@ -24,13 +33,13 @@ new Vue({
 			}
 		},
 		addNewPage() {
-			axios.get('/pagination?page=' + page)
-			.then(response => {
+			axios.get('/pagination?page=' + page).then(response => {
 				let api = response.data.data;
 
 				for (let i = 0; i < api.length; i++) {
 					let apiInfo = {
 						img : api[i].large_cover_image,
+						rating : (parseInt(api[i].rating) / 2).toString(),
 						movie_id : api[i].id,
 					};
 					this.movies.push(apiInfo);
