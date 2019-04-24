@@ -4,7 +4,6 @@ new Vue({
 	el: '#app',
 	data() {
 		return {
-			items: ['en', 'fr', 'es', 'it'],
 			load_value: 0,
 			dialog: false,
 			bottom: false,
@@ -39,6 +38,7 @@ new Vue({
 				for (let i = 0; i < api.length; i++) {
 					let apiInfo = {
 						img : api[i].large_cover_image,
+						name : api[i].title,
 						rating : (parseInt(api[i].rating) / 2).toString(),
 						movie_id : api[i].id,
 					};

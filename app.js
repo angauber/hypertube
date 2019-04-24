@@ -4,6 +4,7 @@ const fs = require('fs');
 const path = require('path');
 const GrowingFile = require('growing-file');
 const torrent = require('./torrent');
+const RarbgApi = require('rarbg')
 const app = express();
 
 app.set('view engine', 'ejs');
@@ -23,17 +24,43 @@ app.get('/', function(req, res) {
 		res.status(404).end();
 	}
 })
+.get('/tv', function(req, res) {
+	res.render('tv.ejs')
+})
 .get('/query', function(req, res) {
 	if (req.query.name !== undefined) {
-		request('https://v2.sg.media-imdb.com/suggests/' + req.query.name.charAt(0) + '/' + req.query.name + '.json', function (error, response, body) {
+		request('https://yts.am/api/v2/list_movies.json?sort_by=download_count&query_term=' + req.query.name + '&limit=48', function (error, response, body) {
 			if (!error && response.statusCode == 200) {
-				var jsonpData = body;
-				var startPos = jsonpData.indexOf('({');
-				var endPos = jsonpData.indexOf('})');
-				var jsonString = jsonpData.substring(startPos+1, endPos+1);
-				var json = JSON.parse(jsonString);
-				console.log(json.d);
-				// res.render('search.ejs', {'data' : info.data.movies})
+				const info = JSON.parse(body)
+				if (info.data.movies) {
+					res.render('search.ejs', {'data' : info.data.movies})
+				}
+				else {
+					res.render('search.ejs', {'data' : false});
+				}
+			}
+			else {
+				res.status(404).end();
+			}
+		})
+	}
+	else {
+		res.status(404).end();
+	}
+})
+.get('/tvQuery', function(req, res) {
+	if (req.query.name !== undefined) {
+		request('https://api.themoviedb.org/3/search/tv?api_key=425328382852ef8b6cd2922a26662d56&language=en-US&query=' + req.query.name, function (error, response, body) {
+			if (!error && response.statusCode == 200) {
+				const info = JSON.parse(body);
+
+				console.log(body);
+				if (info.results) {
+					res.render('tvSearch.ejs', {'data' : info.results})
+				}
+				else {
+					res.render('search.ejs', {'data' : false});
+				}
 			}
 			else {
 				res.status(404).end();
@@ -51,6 +78,35 @@ app.get('/', function(req, res) {
 				const info = JSON.parse(body);
 				if (info.data.movie) {
 					torrent.launch_movie(res, info.data.movie)
+				}
+				else {
+					res.status(404).end();
+				}
+			}
+			else {
+				res.status(404).end();
+			}
+		})
+	}
+	else {
+		res.status(404).end();
+	}
+})
+.get('/show', function(req, res) {
+	if (req.query.id !== undefined) {
+		res.render('show.ejs');
+	}
+	else {
+		res.status(404).end();
+	}
+})
+.get('/tvPagination', function(req, res) {
+	if (req.query.page !== undefined) {
+		request('https://api.themoviedb.org/3/tv/popular?api_key=425328382852ef8b6cd2922a26662d56&language=en-US&page=' + req.query.page, function (error, response, body) {
+			if (!error && response.statusCode == 200) {
+				const info = JSON.parse(body);
+				if (info.results) {
+					res.json({'data' : info.results});
 				}
 				else {
 					res.status(404).end();

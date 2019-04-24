@@ -2,6 +2,7 @@ new Vue({
 	el: '#app',
 	data() {
 		return {
+			load_value: 0,
 			dialog: false,
 		}
 	},
@@ -9,6 +10,14 @@ new Vue({
 		goto_movie(id) {
 			this.dialog = true
 			window.location.replace('/movie?id=' + id);
+			setInterval(() => {
+				axios.get('/size?id=' + id).then(response => {
+					if (response.data != false) {
+						this.load_value = parseInt(response.data);
+						console.log(this.load_value);
+					}
+				})
+			}, 1000);
 		}
 	}
 })

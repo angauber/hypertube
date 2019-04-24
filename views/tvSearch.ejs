@@ -26,37 +26,45 @@
 					single-line
 					id = "search_input"
 					></v-text-field>
-					<v-btn flat v-on:click="window.location.replace('/');" color="brown darken-4">Movies</v-btn>
-					<v-btn flat v-on:click="window.location.replace('/tv');">Tv shows</v-btn>
+					<v-btn flat v-on:click="window.location.replace('/');">Movies</v-btn>
+					<v-btn flat v-on:click="window.location.replace('/tv');" color="brown darken-4">Tv shows</v-btn>
 				</v-toolbar-items>
 			</v-toolbar>
 			<v-container grid-list-md text-xs-center>
 				<v-layout row wrap id="movie_list">
 					<v-dialog
-						v-model="dialog"
-						hide-overlay
-						persistent
-						width="300">
-						<v-card
-						color="primary"
-						dark>
-							<v-card-text text-xs-center>
-								Please stand by, We are preparing your movie..
-								<v-progress-linear v-model="load_value" color="cyan accent-3" height="10"></v-progress-linear>
-							</v-card-text>
-						</v-card>
-					</v-dialog>
+					v-model="dialog"
+					hide-overlay
+					persistent
+					width="300"
+					>
+					<v-card
+					color="primary"
+					dark
+					>
+					<v-card-text>
+						Please stand by, We are preparing your movie..
+						<v-progress-linear
+						indeterminate
+						color="white"
+						class="mb-0"
+						></v-progress-linear>
+					</v-card-text>
+					</v-card>
+				</v-dialog>
 					<%
 					for (let i = 0; i < data.length; i++) {
+						if (data[i].poster_path) {
 						%>
-						<v-flex xs2 v-on:click="goto_movie(<%= data[i].id %>)">
+						<v-flex xs2 v-on:click="goto_show(<%= data[i].id %>)">
 							<v-hover>
 								<v-card dark tile flat color="teal lighten-2" width="98%" class="hvr-shrink mb-3" style="cursor: pointer">
-									<v-img src="<%= data[i].large_cover_image %>" class="grey lighten-2">
+									<v-img src="https://image.tmdb.org/t/p/w1280<%= data[i].poster_path %>" class="grey lighten-2">
 								</v-card>
 							</v-hover>
 						</v-flex>
 						<%
+						}
 					}
 					%>
 				</v-layout>
@@ -65,8 +73,6 @@
 	</v-app>
 	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
 	<script src="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.js"></script>
-	<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
-	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 	<script src="/js/search.js"></script>
 </body>
 </html>

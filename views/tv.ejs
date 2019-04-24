@@ -36,38 +36,22 @@
 						id = "search_input"
 						></v-text-field>
 					</v-flex>
-					<v-btn flat color="brown darken-4">Movies</v-btn>
-					<v-btn flat v-on:click="window.location.replace('/tv');">Tv shows</v-btn>
+					<v-btn flat v-on:click="window.location.replace('/');">Movies</v-btn>
+					<v-btn flat color="brown darken-4">Tv shows</v-btn>
 				</v-toolbar-items>
 			</v-toolbar>
 			<v-container grid-list-md text-xs-center>
 				<v-layout row wrap id="movie_list">
-					<v-dialog
-					v-model="dialog"
-					hide-overlay
-					persistent
-					width="300"
-					>
-					<v-card
-					color="primary"
-					dark
-					>
-					<v-card-text text-xs-center>
-						Please stand by, We are preparing your movie..
-						<v-progress-linear v-model="load_value" color="cyan accent-3" height="10"></v-progress-linear>
-					</v-card-text>
-				</v-card>
-			</v-dialog>
-			<v-flex v-for="movie in movies" v-on:click="goto_movie(movie.movie_id)" xs2>
+			<v-flex v-for="show in shows" v-on:click="goto_show(show.show_id)" xs2>
 				<v-hover>
 					<v-card slot-scope="{ hover }" dark tile flat class="hvr-shrink mb-3" color="teal lighten-2" width="95%" style="cursor: pointer;">
-						<v-img :src="movie.img" class="grey lighten-2">
+						<v-img :src="show.img" class="grey lighten-2">
 							<v-expand-transition>
 								<div v-if="hover" class="d-flex transition-fast-in-fast-out v-card--reveal display-3 white--text" style="height: 100%;">
 									<v-container>
 										<v-layout wrap>
-											<p class="headline text-xs-center">{{ movie.name }}</p>
-											<v-rating readonly :value="movie.rating" half-increments></v-rating>
+											<p class="headline text-xs-center">{{ show.name }}</p>
+											<v-rating readonly :value="show.rating" half-increments></v-rating>
 										</v-layout>
 									</v-container>
 								</div>
@@ -89,6 +73,6 @@
 <script src="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.js"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-<script src="/js/home.js"></script>
+<script src="/js/tv.js"></script>
 </body>
 </html>
