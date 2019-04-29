@@ -18,7 +18,10 @@ new Vue({
 					}
 				})
 			}, 1000);
-		}
+		},
+		goto_show(id) {
+			window.location.replace('/show?id=' + id);
+		},
 	}
 })
 

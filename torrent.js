@@ -1,6 +1,6 @@
-const WebTorrent = require('webtorrent')
 const srt2vtt = require('srt2vtt');
 const fs = require('fs');
+const axios = require('axios');
 
 module.exports = {
 	launch_movie: function (res, movie) {
@@ -26,8 +26,10 @@ module.exports = {
 				}
 				else {
 					console.log('movie ' + movie.imdb_code + ' isn\'t on server');
-					const torrent_url = module.exports.get_best_torrent(movie.torrents).url
-					download_torrent(res, movie, torrent_url)
+					const bestTorrent = module.exports.get_best_torrent(movie.torrents)
+					const magnet = 'magnet:?xt=urn:btih:' + bestTorrent.hash + '&dn=' + encodeURI(movie.title_long.replace(' ', '+')) + '+[1080p]+[YTS.AM]&tr=udp%3A%2F%2Fglotorrents.pw%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A80&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Fp4p.arenabg.ch%3A1337&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337'
+					console.log(magnet)
+					download_torrent(res, movie, magnet)
 				}
 			})
 		});
@@ -73,7 +75,7 @@ module.exports = {
 			}
 		}
 		return torrents[torrent];
-	},
+	}
 };
 
 function add_movie(imdb_code, file_path) {
@@ -103,45 +105,51 @@ function add_movie(imdb_code, file_path) {
 	});
 }
 
-function download_torrent(res, movie, url) {
-	const client = new WebTorrent()
+function download_torrent(res, movie, magnet) {
+	const torrentStream = require('torrent-stream');
+	let engine = torrentStream(magnet, {path: '/sgoinfre/Perso/angauber/hypertube/download'});
 	let called = false;
 
-	console.log(url);
-	client.add(url, { path: '/sgoinfre/Perso/angauber/hypertube/download' }, function (torrent) {
-		console.log('torrent download started')
-		get_path(res, movie, torrent.files, false)
-		const intervalID = setInterval(function () {
-			console.log('Progress: ' + (torrent.progress * 100).toFixed(1) + '% Downloading at about ' + (torrent.downloadSpeed / 1000000) + ' mB/s')
-			if (torrent.progress * 100 >= 100) {
-				clearInterval(intervalID);
-			}
-			if ((torrent.progress * 100) > 1.2 && !called) {
-				called = true;
-				console.log('going to the movie page')
-				get_path(res, movie, torrent.files, true)
-			}
-		}, 5000)
-		torrent.on('done', function () {
-			console.log('torrent download finished')
-		})
-	})
-}
-
-function get_path(res, movie, files, bool) {
-	for (let i = 0; i < files.length; i++) {
-		const array = files[i].path.split(".")
-		const ext = array[array.length - 1]
-
-		if (ext == "mp4") {
-			if (bool == true) {
-				console.log('starting to stream movie')
-				res.render('movie.ejs', {'data' : movie, 'path' : files[i].path})
+	engine.on('ready', function() {
+		engine.files.forEach(function(file) {
+			let array = file.path.split(".")
+			let ext = array[array.length - 1]
+			if (ext == "mp4") {
+				file.select();
+				console.log(file.path)
+				get_path(res, movie, file.path, false)
+				const intervalId = setInterval(function () {
+					if (called) {
+						get_path(res, movie, file.path, true)
+						clearInterval(intervalId);
+					}
+					else {
+						axios.get('http://localhost:8008/size?id=' + movie.id).then(response => {
+							if (response.data != false) {
+								let progress = parseInt(response.data);
+								console.log(progress);
+								if (progress == 100) {
+									called = true;
+								}
+							}
+						})
+					}
+				}, 500)
 			}
 			else {
-				add_movie(movie.imdb_code, files[i].path)
+				file.deselect();
 			}
-		}
+		});
+	});
+}
+
+function get_path(res, movie, file, bool) {
+	if (bool == true) {
+		console.log('starting to stream movie in 3 sec')
+		setTimeout(function() {res.render('movie.ejs', {'data' : movie, 'path' : file})}, 3000);
+	}
+	else {
+		add_movie(movie.imdb_code, file)
 	}
 }
 

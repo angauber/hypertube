@@ -21,7 +21,7 @@ new Vue({
 						console.log(this.load_value);
 					}
 				})
-			}, 1000);
+			}, 500);
 		},
 		bottomVisible() {
 			if($(window).scrollTop() + $(window).height() == $(document).height()) {

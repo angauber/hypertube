@@ -4,7 +4,7 @@ const fs = require('fs');
 const path = require('path');
 const GrowingFile = require('growing-file');
 const torrent = require('./torrent');
-const RarbgApi = require('rarbg')
+const RarbgApi = require('rarbg');
 const app = express();
 
 app.set('view engine', 'ejs');
@@ -13,6 +13,30 @@ app.use('/srt', express.static('data/subs'));
 
 app.get('/', function(req, res) {
 	res.render('home.ejs');
+})
+.get('/test', function(req, res) {
+	const rarbg = new RarbgApi()
+	rarbg.search({
+		search_themoviedb: '1399',
+		search_string: 's08 e03 1080p',
+		min_seeders: 10,
+		sort: 'seeders',
+		category: [rarbg.categories.TV_EPISODES, rarbg.categories.TV_HD_EPISODES]
+	}).then(response => {
+		console.log(response[0])
+	}).catch(error => {
+		rarbg.search({
+			search_themoviedb: '1399',
+			search_string: 's08 e03',
+			min_seeders: 1,
+			sort: 'seeders',
+			category: [rarbg.categories.TV_EPISODES, rarbg.categories.TV_HD_EPISODES]
+		}).then(response => {
+			console.log(response[0])
+		}).catch(error => {
+			console.log(error)
+		})
+	})
 })
 .get('/42auth', function(req, res) {
 	if (req.query.code !== undefined) {

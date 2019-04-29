@@ -4,21 +4,6 @@
 	<link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Material+Icons" rel="stylesheet">
 	<link href="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.min.css" rel="stylesheet">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
-	<style>
-	.hvr-shrink:hover, .hvr-shrink:active {
-		-webkit-transform: scale(1.10);
-		transform: scale(1.10);
-		z-index: 2;
-	}
-	.v-card--reveal {
-		align-items: center;
-		bottom: 0;
-		justify-content: center;
-		background-color: rgba(69, 90, 100, 0.95);
-		position: absolute;
-		width: 100%;
-	}
-	</style>
 </head>
 <body>
 	<v-app id="app" style="background: #263238;">
@@ -37,19 +22,39 @@
 						></v-text-field>
 					</v-flex>
 					<v-btn flat v-on:click="window.location.replace('/');">Movies</v-btn>
-					<v-btn flat color="brown darken-4">Tv shows</v-btn>
+					<v-btn flat v-on:click="window.location.replace('/tv');" color="brown darken-4">Tv shows</v-btn>
 				</v-toolbar-items>
 			</v-toolbar>
 			<v-container grid-list-md text-xs-center>
 				<v-layout>
-					<v-flex>
-						<v-img width="30%" src="https://image.tmdb.org/t/p/w1280<%= data.poster_path %>">
+					<v-flex md4>
+						<img :src="img" style="max-width: 100%; height: auto;">
 					</v-flex>
-					<v-flex xs12 sm6 d-flex>
-						<v-select
-							:items="items"
-							label="Standard"
-						></v-select>
+					<v-flex>
+						<v-layout column>
+							<v-flex ml-5 mr-5>
+								<v-select v-on:change="loadEpisodes"
+								:items="seasons"
+								label="Pick a season"
+								></v-select>
+							</v-flex>
+							<v-flex mx-5 my-2 v-for="episode in episodes"> <!-- v-for -->
+								<v-card>
+									<v-layout row>
+										<img height="150px" width="auto" :src="episode.still_path">
+										<v-card-title primary-title>
+											<div>
+												<h3 class="headline mb-0">Episode {{ episode.episode_number }}</h3>
+												<div>{{ episode.overview }}</div>
+											</div>
+										</v-card-title>
+										<v-card-actions>
+											<v-btn flat color="primary" v-on:click="goto_episode(episode)">Play</v-btn>
+										</v-card-actions>
+									</v-layout>
+								</v-card>
+							</v-flex>
+						</v-layout>
 					</v-flex>
 				</v-layout>
 			</v-container>
