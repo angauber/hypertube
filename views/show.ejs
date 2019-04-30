@@ -27,6 +27,22 @@
 			</v-toolbar>
 			<v-container grid-list-md text-xs-center>
 				<v-layout>
+					<v-dialog
+					v-model="dialog"
+					hide-overlay
+					persistent
+					width="300"
+					>
+						<v-card
+						color="primary"
+						dark
+						>
+							<v-card-text text-xs-center>
+								Please stand by, We are preparing your episode..
+								<v-progress-linear v-model="load_value" color="cyan accent-3" height="10"></v-progress-linear>
+							</v-card-text>
+						</v-card>
+					</v-dialog>
 					<v-flex md4>
 						<img :src="img" style="max-width: 100%; height: auto;">
 					</v-flex>
