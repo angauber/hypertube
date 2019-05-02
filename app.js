@@ -12,13 +12,27 @@ app.use('/srt', express.static('data/subs'));
 app.use('/tvSrt', express.static('data/tvSubs'));
 
 app.get('/', function(req, res) {
-	res.render('home.ejs');
+	res.render('login.ejs')
+	// res.render('home.ejs');
 })
 .get('/42auth', function(req, res) {
 	if (typeof req.query.code !== "undefined") {
 		console.log('making reqest');
-		console.log(request.post('https://api.intra.42.fr/oauth/token').form({grand_type: 'client_credentials', client_id: '31d8a3dc762efc192b63a8877cd71ff77a004d348da9e2d92497c806e272c374', client_secret: '8fc87ed6fb9bfd4f623496efdaad63fb87bc473486c24e9a5d03d2a138de1c54', code: req.query.code}));
-		console.log('request post');
+		request.post({url:'https://api.intra.42.fr/oauth/token', form: {grant_type: 'client_credentials', client_id: 'e4c94fbb3b0c602e87b8b6ec7065ed7d474d40adcc4b6450beb63a723d7552a4', client_secret: 'a9eee462c30eb0adfe6f9f28cd6dead2cd877582420306493aec46306ea553d2', code: req.query.code, redirect_uri: 'http://localhost:8008'}}, function(err,httpResponse,body){
+			console.log(body);
+			const info = JSON.parse(body)
+
+			const options = {
+				url: 'https://api.intra.42.fr/v2/me',
+				headers: {
+					'Authorization': 'Bearer ' + info.access_token
+				}
+			};
+			request(options, function(error, response, body) {
+				console.log(body);
+			})
+			res.render('home.ejs')
+		})
 	}
 	else {
 		res.status(404).end();
@@ -191,7 +205,7 @@ app.get('/', function(req, res) {
 })
 .get('/size', function(req, res) {
 	if (typeof req.query.id !== "undefined") {
-if (typeof req.query.tv !== "undefined") {
+		if (typeof req.query.tv !== "undefined") {
 			torrent.episode_exists(req.query.id, function(path, size) {
 				if (path !== "undefined" && size !== "undefined") {
 					const file = '/sgoinfre/Perso/angauber/hypertube/download/' + path
