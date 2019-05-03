@@ -1,4 +1,4 @@
-const srt2vtt = require('srt2vtt');
+const srt2vtt = require('srt-to-vtt')
 const fs = require('fs');
 const axios = require('axios');
 const RarbgApi = require('rarbg');
@@ -11,15 +11,9 @@ module.exports = {
 			get_subs(movie.imdb_code).then(function(srt) {
 				if (srt !== false) {
 					console.log(srt)
-					let srtData = fs.readFileSync('data/subs/' + movie.imdb_code + '-fr/' + srt);
-					srt2vtt(srtData, function(err, vttData) {
-						if (err) throw new Error(err);
-						fs.writeFileSync('data/subs/' + movie.imdb_code + '-fr/sub.vtt', vttData);
-						fs.unlink('data/subs/' + movie.imdb_code + '-fr/' + srt, (err) => {
-							if (err) throw err;
-							console.log('srt file was deleted');
-						});
-					});
+					fs.createReadStream('data/subs/' + movie.imdb_code + '-fr/' + srt)
+					.pipe(srt2vtt())
+					.pipe(fs.createWriteStream('data/subs/' + movie.imdb_code + '-fr/sub.vtt'))
 				}
 				if (path) {
 					console.log('movie exists already, launching: ' + path)
@@ -41,15 +35,9 @@ module.exports = {
 			console.log('path: ' + path);
 			get_episode_subs(episode).then(function(srt) {
 				if (srt !== false) {
-					let srtData = fs.readFileSync('data/tvSubs/' + episode.id + '-fr.srt');
-					srt2vtt(srtData, function(err, vttData) {
-						if (err) throw new Error(err);
-						fs.writeFileSync('data/tvSubs/' + episode.id + '-fr.vtt', vttData);
-						fs.unlink('data/tvSubs/' + episode.id + '-fr.srt', (err) => {
-							if (err) throw err;
-							console.log('srt file was deleted');
-						});
-					});
+					fs.createReadStream('data/tvSubs/' + episode.id + '-fr.srt')
+					.pipe(srt2vtt())
+					.pipe(fs.createWriteStream('data/tvSubs/' + episode.id + '-fr.vtt'))
 				}
 			})
 			if (path) {

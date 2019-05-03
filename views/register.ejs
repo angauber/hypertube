@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Material+Icons" rel="stylesheet">
+	<link href="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.min.css" rel="stylesheet">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+	<style>
+	.clickable {
+		cursor: pointer;
+	}
+	@media screen and (min-width: 1200px) and (max-width: 10000px) {
+		#logbox {
+			width: 15%;
+		}
+	}
+	</style>
+</head>
+<body>
+	<v-app id="app" style="background: #263238;">
+		<template>
+			<v-layout align-center justify-center row fill-height>
+				<v-card dark color="primary" id="logbox">
+					<v-card-text>
+						<p class="display-1 text-xs-center">Sign up</p>
+					</v-card-text>
+					<v-container>
+						<v-layout column>
+							<v-flex>
+								<v-text-field
+								label="First name"
+								:rules="[rules.required, rules.name]"
+								solo
+								></v-text-field>
+							</v-flex>
+							<v-flex>
+								<v-text-field
+								label="Last name"
+								:rules="[rules.required, rules.name]"
+								solo
+								></v-text-field>
+							</v-flex>
+							<v-flex>
+								<v-text-field
+								label="Username"
+								:rules="[rules.required, rules.username]"
+								solo
+								></v-text-field>
+							</v-flex>
+							<v-flex>
+								<v-text-field
+								label="Email"
+								:rules="[rules.required, rules.email]"
+								solo
+								>
+							</v-text-field>
+						</v-flex>
+						<v-flex class="text-xs-center text-sm-center text-md-center text-lg-center">
+							<v-text-field label="Select Image" @click='pickFile' v-model='imageName' prepend-icon='attach_file' solo></v-text-field>
+							<input
+							type="file"
+							style="display: none"
+							ref="image"
+							accept="image/*"
+							@change="onFilePicked"
+							>
+							<img :src="imageUrl" height="150"/>
+						</v-flex>
+						<v-flex>
+							<v-text-field
+							:append-icon="show1 ? 'visibility' : 'visibility_off'"
+							:rules="[rules.required, rules.password]"
+							:type="show1 ? 'text' : 'password'"
+							label="Password"
+							hint="At least 8 characters"
+							class="input-group--focused"
+							@click:append="show1 = !show1"
+							solo
+							></v-text-field>
+						</v-flex>
+						<v-flex>
+							<v-text-field
+							:append-icon="show2 ? 'visibility' : 'visibility_off'"
+							:rules="[rules.required]"
+							:type="show2 ? 'text' : 'password'"
+							label="Repeat password"
+							hint="At least 8 characters"
+							class="input-group--focused"
+							@click:append="show2 = !show2"
+							solo
+							></v-text-field>
+						</v-flex>
+					</v-layout>
+					<v-layout align-center justify-center>
+						<v-btn color="teal">Sign up</v-btn>
+					</v-layout>
+				</v-container>
+				<v-card-text>
+					<p class="clickable body-2 text-xs-center" v-on:click="window.location.replace('/');">Sign in</p>
+				</v-card-text>
+			</v-card>
+		</v-layout>
+	</template>
+</v-app>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script src="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
+new Vue({
+	el: '#app',
+	data () {
+		return {
+			show1: false,
+			show2: false,
+			password: 'Password',
+			imageName: '',
+			imageUrl: '',
+			imageFile: '',
+			rules: {
+				required: value => !!value || 'Required.',
+				name: v => v.length >= 2 || 'Min 2 characters',
+				username: v => v.length >= 4 || 'Min 4 characters',
+				email: v => this.validateEmail(v) || 'Wrong email format',
+				password: v => v.length >= 8 || 'Min 8 characters',
+				emailMatch: () => ('The email and password you entered don\'t match')
+			}
+		}
+	},
+	methods: {
+		validateEmail: function(email) {
+			var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+			return re.test(email);
+		},
+		pickFile () {
+			this.$refs.image.click ()
+		},
+		onFilePicked (e) {
+			const files = e.target.files
+			if(files[0] !== undefined) {
+				this.imageName = files[0].name
+				if(this.imageName.lastIndexOf('.') <= 0) {
+					return
+				}
+				const fr = new FileReader ()
+				fr.readAsDataURL(files[0])
+				fr.addEventListener('load', () => {
+					this.imageUrl = fr.result
+					this.imageFile = files[0] // this is an image file that can be sent to server...
+				})
+			} else {
+				this.imageName = ''
+				this.imageFile = ''
+				this.imageUrl = ''
+			}
+		}
+	}
+})
+</script>
+</body>
+</html>

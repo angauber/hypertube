@@ -2,8 +2,13 @@ const express = require('express');
 const request = require('request');
 const fs = require('fs');
 const path = require('path');
+const session = require('express-session')
 const GrowingFile = require('growing-file');
-const torrent = require('./torrent');
+
+const torrent = require('./controller/torrent')
+const movie = require('./controller/movie')
+const live = require('./controller/live')
+
 const app = express();
 
 app.set('view engine', 'ejs');
@@ -11,35 +16,68 @@ app.use('/js', express.static('public/js'));
 app.use('/srt', express.static('data/subs'));
 app.use('/tvSrt', express.static('data/tvSubs'));
 
+app.set('trust proxy', 1) // trust first proxy
+app.use(session({
+	secret: 'keyboard hype',
+	resave: false,
+	saveUninitialized: true,
+}))
 app.get('/', function(req, res) {
-	res.render('login.ejs')
-	// res.render('home.ejs');
+	if (req.session.token_42) {
+		console.log(req.session.token_42);
+		console.log(req.session.cookie.maxAge / 1000);
+		res.render('home.ejs');
+	} else {
+		res.render('login.ejs')
+	}
 })
-.get('/42auth', function(req, res) {
-	if (typeof req.query.code !== "undefined") {
-		console.log('making reqest');
-		request.post({url:'https://api.intra.42.fr/oauth/token', form: {grant_type: 'client_credentials', client_id: 'e4c94fbb3b0c602e87b8b6ec7065ed7d474d40adcc4b6450beb63a723d7552a4', client_secret: 'a9eee462c30eb0adfe6f9f28cd6dead2cd877582420306493aec46306ea553d2', code: req.query.code, redirect_uri: 'http://localhost:8008'}}, function(err,httpResponse,body){
-			console.log(body);
-			const info = JSON.parse(body)
-
-			const options = {
-				url: 'https://api.intra.42.fr/v2/me',
-				headers: {
-					'Authorization': 'Bearer ' + info.access_token
-				}
-			};
-			request(options, function(error, response, body) {
-				console.log(body);
-			})
-			res.render('home.ejs')
-		})
+.get('/signup', function(req, res) {
+	if (req.session.token_42) {
+		res.render('home.ejs');
+	} else {
+		res.render('not_found.ejs')
+	}
+})
+.get('/stat', function(req, res) {
+	if (req.session.token_42) {
+		res.render('stat.ejs');
 	}
 	else {
-		res.status(404).end();
+		res.render('not_found.ejs')
+	}
+})
+.get('/42auth', function(req, res) {
+	if (req.session.token_42) {
+		res.render('home.ejs');
+	} else {
+		if (typeof req.query.code !== "undefined") {
+			console.log('making reqest');
+			request.post({url:'https://api.intra.42.fr/oauth/token', form: {grant_type: 'authorization_code', client_id: 'e4c94fbb3b0c602e87b8b6ec7065ed7d474d40adcc4b6450beb63a723d7552a4', client_secret: 'a9eee462c30eb0adfe6f9f28cd6dead2cd877582420306493aec46306ea553d2', code: req.query.code, redirect_uri: 'http://localhost:8008/42auth'}}, function(err,httpResponse,body){
+				const info = JSON.parse(body)
+
+				if (typeof info.access_token != "undefined") {
+					req.session.cookie.maxAge = parseInt(info.expires_in) * 1000
+					req.session.token_42 = info.access_token
+
+					res.render('home.ejs')
+				}
+				else {
+					res.render('login.ejs')
+				}
+			})
+		}
+		else {
+			res.render('login.ejs')
+		}
 	}
 })
 .get('/tv', function(req, res) {
-	res.render('tv.ejs')
+	if (req.session.token_42) {
+		res.render('tv.ejs')
+	}
+	else {
+		res.render('not_found.ejs')
+	}
 })
 .get('/query', function(req, res) {
 	if (typeof req.query.name !== "undefined") {
@@ -87,20 +125,7 @@ app.get('/', function(req, res) {
 })
 .get('/movie', function(req, res) {
 	if (typeof req.query.id !== "undefined") {
-		request('https://yts.am/api/v2/movie_details.json?movie_id=' + req.query.id, function (error, response, body) {
-			if (!error && response.statusCode == 200) {
-				const info = JSON.parse(body);
-				if (info.data.movie) {
-					torrent.launch_movie(res, info.data.movie)
-				}
-				else {
-					res.status(404).end();
-				}
-			}
-			else {
-				res.status(404).end();
-			}
-		})
+		movie.start_movie(req.query.id, res)
 	}
 	else {
 		res.status(404).end();
@@ -182,7 +207,7 @@ app.get('/', function(req, res) {
 .get('/stream', function(req, res) {
 	if (typeof req.query.url !== "undefined") {
 		console.log(req.query.url);
-		const path = '/sgoinfre/Perso/angauber/hypertube/download/' + req.query.url.replace(' ', '+')
+		const path = '/sgoinfre/Perso/angauber/hypertube/download/' + req.query.url
 		if (!fs.existsSync(path)) {
 			console.log('error files does not exists');
 			res.status(404).end();
@@ -270,9 +295,16 @@ app.get('/', function(req, res) {
 		}
 	}
 })
+.get('/time', function(req, res) {
+	console.log('time called');
+	if (typeof req.query.type !== "undefined" && typeof req.query.id !== "undefined" && typeof req.query.time !== "undefined") {
+		live.register_time(req.session, req.query.type, req.query.id, req.query.time);
+	}
+})
 .use(function(req, res, next){
-	res.setHeader('Content-Type', 'text/plain');
-	res.status(404).send('404 NOT FOUND !');
+	res.render('not_found.ejs')
+	// res.setHeader('Content-Type', 'text/plain');
+	// res.status(404).send('404 NOT FOUND !');
 });
 
 app.listen(8008);
