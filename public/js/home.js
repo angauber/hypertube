@@ -14,6 +14,7 @@ new Vue({
 		goto_movie(id) {
 			this.dialog = true
 			window.location.replace('/movie?id=' + id);
+			console.log(id);
 			setInterval(() => {
 				axios.get('/size?id=' + id).then(response => {
 					if (response.data != false) {

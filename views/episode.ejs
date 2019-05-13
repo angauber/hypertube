@@ -28,9 +28,8 @@
 		<template>
 			<v-container grid-list-md text-xs-center>
 				<v-layout row wrap>
-					<v-flex xs12>
-						<v-card color="#263238">
-							<% console.log(path); %>
+					<v-flex xs12 class="calin">
+						<v-card color="#263238" id="<%= data.id %>">
 							<v-card-text class="display-3 font-weight-light"><%= data.name %> - s<%
 								if (parseInt(data.season_number) < 10) {
 									__append(0);
@@ -63,21 +62,28 @@
 		<script src='https://vjs.zencdn.net/7.4.1/video.js'></script>
 		<script src="https://cdn.jsdelivr.net/npm/vue"></script>
 		<script src="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.js"></script>
+		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 		<script>
 		new Vue({
 			el: '#app'
 		})
-		</script>
-		<script>
 		const search = document.getElementById("search_input");
 
 		document.getElementById("php").onclick = function() {
 			window.location.replace('/');
 		}
+
 		search.onkeyup = function(event) {
 			if (event.keyCode == 13) {
 				window.location.replace('/tvQuery?name=' + search.value);
 			}
+		}
+
+		window.onbeforeunload = function() {
+			const time = document.getElementById("my-video_html5_api").currentTime;
+			const id = document.getElementsByClassName('calin')[0].children[0].id;
+
+			axios.get('/time?type=tv&id=' + id + '&time=' + time);
 		}
 		</script>
 	</body>

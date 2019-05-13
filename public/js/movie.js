@@ -19,5 +19,4 @@ window.onbeforeunload = function() {
 	const time = document.getElementById("my-video_html5_api").currentTime;
 
 	axios.get('/time?type=movie&id=' + id + '&time=' + time);
-	alert('fdp');
 }
