@@ -24,6 +24,7 @@
   "dependencies": {
     "addic7ed-api": "^1.8.2",
     "axios": "^0.18.0",
+    "cloudscraper": "^4.1.1",
     "download": "^7.1.0",
     "ejs": "^2.6.1",
     "express": "^4.16.4",

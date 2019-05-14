@@ -1,10 +1,12 @@
-const express = require('express');
+const express = require('express')
 const session = require('express-session')
 
 const torrent = require('./controller/torrent')
 const auth = require('./controller/auth')
 const movie = require('./controller/movie')
 const live = require('./controller/live')
+
+const request = require('request')
 
 const app = express();
 
@@ -32,7 +34,7 @@ app.get('/', function(req, res) {
 	if (req.session.token_42) {
 		res.render('home.ejs');
 	} else {
-		res.render('not_found.ejs')
+		res.render('register.ejs')
 	}
 })
 .get('/stat', function(req, res) {

@@ -4,6 +4,27 @@
 	<link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Material+Icons" rel="stylesheet">
 	<link href="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.min.css" rel="stylesheet">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+	<style>
+	.countup {
+		margin-bottom: 20px;
+	}
+	.countup .timeel {
+		display: inline-block;
+		padding: 10px;
+		background: #151515;
+		margin: 0;
+		color: white;
+		min-width: 2.6rem;
+		margin-left: 13px;
+		border-radius: 10px 0 0 10px;
+	}
+	.countup span[class*="timeRef"] {
+		border-radius: 0 10px 10px 0;
+		margin-left: 0;
+		background: #e8c152;
+		color: black;
+	}
+	</style>
 </head>
 <body>
 	<v-app id="app" style="background: #263238;">
@@ -18,20 +39,30 @@
 					<v-btn flat color="brown darken-4">Stats</v-btn>
 				</v-toolbar-items>
 			</v-toolbar>
-			<v-layout align-center justify-center column>
-				<v-flex style="border: 2px solid blue">
+			<v-layout row>
+				<v-flex style="border: 2px solid blue" xs6 offset-xs3>
 					<v-layout row>
-						<img :src="img" style="width: 200px; height: 200px; object-fit: cover;">
-						<v-flex ml-5>
-							<p>{{ username }}</p>
-							<p>{{ name }}</p>
-							<p>Total watch Time: {{ time }}</p>
-							<p>Total data consumed: {{ size }}</p>
+						<v-flex style="border: 2px solid purple">
+							<v-img :src="img" aspect-ratio="1" style="max-width: 80%; object-fit: cover;">
+						</v-flex>
+						<v-flex style="border: 2px solid black">
+							<v-flex class="headline grey--text text--lighten-2">{{ username }}</v-flex>
+							<v-flex class="headline grey--text text--lighten-2">{{ name }}</v-flex>
+							<div class="countup mt-5" id="countup1">
+								<span class="headline grey--text text--lighten-2">Total watch time: </span>
+								<span class="timeel hours">{{ hours }}</span>
+								<span class="timeel timeRefHours">hours</span>
+								<span class="timeel minutes">{{ minutes }}</span>
+								<span class="timeel timeRefMinutes">minutes</span>
+							</div>
+							<v-flex class="headline grey--text text--lighten-2">Total data consumed: {{ size }}</v-flex>
 						</v-flex>
 					</v-layout>
-				</v-flex>
-				<v-flex>
-					<p>history:</p>
+					<v-layout column mt-5 style="border: 2px solid yellow">
+						<v-flex>
+							<p>History</p>
+						</v-flex>
+					</v-layout>
 				</v-flex>
 			</v-layout>
 		</template>

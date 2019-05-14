@@ -5,7 +5,8 @@ let vm = new Vue({
 			img: '',
 			username: '',
 			name: '',
-			time: '',
+			hours: '',
+			minutes: '',
 			size: ''
 		}
 	}
@@ -26,7 +27,7 @@ window.onload = function() {
 		for (let i = 0; i < log.length; i++) {
 			total += parseInt(log[i].time);
 		}
-		vm.time = toHHMMSS(total);
+		toHHMMSS(total);
 	});
 
 	document.getElementById("home").onclick = function() {
@@ -40,5 +41,6 @@ function toHHMMSS (sec_num) {
 
 	if (hours   < 10) {hours   = "0"+hours;}
 	if (minutes < 10) {minutes = "0"+minutes;}
-	return hours +' hour(s) ' + minutes + ' minute(s)';
+	vm.hours = hours;
+	vm.minutes = minutes;
 }

@@ -3,6 +3,8 @@ const fs = require('fs');
 const axios = require('axios');
 const RarbgApi = require('rarbg');
 
+const files = require('../model/files.js')
+
 module.exports = {
 	launch_movie: function (res, movie) {
 		console.log('starting..');
@@ -24,6 +26,7 @@ module.exports = {
 					const bestTorrent = module.exports.get_best_torrent(movie.torrents)
 					const magnet = 'magnet:?xt=urn:btih:' + bestTorrent.hash + '&dn=' + encodeURI(movie.title_long.replace(' ', '+')) + '+[1080p]+[YTS.AM]&tr=udp%3A%2F%2Fglotorrents.pw%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A80&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Fp4p.arenabg.ch%3A1337&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337'
 					console.log(magnet)
+					movie.size = bestTorrent.size_bytes
 					download_torrent(res, movie, magnet, false)
 				}
 			})
@@ -54,52 +57,26 @@ module.exports = {
 		})
 	},
 	movie_exists: function(imdb_code, callback) {
-		fs.readFile('./data/movies.json', 'utf8', function readFileCallback(err, data){
-			if (err){
-				console.log(err);
-			} else {
-				if (data) {
-					let counter = 0
-					let obj = JSON.parse(data);
-
-					Object.keys(obj.table).forEach(function(key) {
-						if (obj.table[key].imdb == imdb_code) {
-							counter = 1;
-							callback(obj.table[key].path);
-						}
-					});
-					if (counter == 0)
-					callback(false);
-				}
-				else {
-					callback(false);
-				}
+		files.find_movie(imdb_code).then(function(result) {
+			console.log(result);
+			if (typeof result[0] !== "undefined") {
+				callback(result[0].path);
 			}
-		});
+			else {
+				callback(false);
+			}
+		})
 	},
 	episode_exists: function (id, callback) {
-		fs.readFile('./data/episodes.json', 'utf8', function readFileCallback(err, data){
-			if (err){
-				console.log(err);
-			} else {
-				if (data) {
-					let counter = 0
-					let obj = JSON.parse(data);
-
-					Object.keys(obj.table).forEach(function(key) {
-						if (obj.table[key].id == id) {
-							counter = 1;
-							callback(obj.table[key].path, obj.table[key].size);
-						}
-					});
-					if (counter == 0)
-					callback(false);
-				}
-				else {
-					callback(false);
-				}
+		files.find_episode(id).then(function(result) {
+			console.log(result);
+			if (typeof result[0] !== "undefined") {
+				callback(result[0].path);
 			}
-		});
+			else {
+				callback(false);
+			}
+		})
 	},
 	get_best_torrent: function(torrents) {
 		let seeds = false
@@ -120,60 +97,6 @@ module.exports = {
 		return torrents[torrent];
 	}
 };
-
-function add_movie(imdb_code, file_path) {
-	fs.readFile('data/movies.json', 'utf8', function readFileCallback(err, data){
-		if (err){
-			console.log(err);
-		} else {
-			if (data) {
-				obj = JSON.parse(data); //now it an object
-				obj.table.push({imdb: imdb_code, path: file_path}); //add some data
-				json = JSON.stringify(obj); //convert it back to json
-				fs.writeFile('data/movies.json', json, 'utf8', function(err) {
-					if (err) throw err;
-				});
-			}
-			else {
-				var obj = {
-					table: []
-				};
-				obj.table.push({imdb: imdb_code, path: file_path});
-				var json = JSON.stringify(obj);
-				fs.writeFile('data/movies.json', json, 'utf8', function(err) {
-					if (err) throw err;
-				});
-			}
-		}
-	});
-}
-
-function add_episode(id, file_path, file_length) {
-	fs.readFile('data/movies.json', 'utf8', function readFileCallback(err, data){
-		if (err){
-			console.log(err);
-		} else {
-			if (data) {
-				obj = JSON.parse(data); //now it an object
-				obj.table.push({id: id, path: file_path, size: file_length}); //add some data
-				json = JSON.stringify(obj); //convert it back to json
-				fs.writeFile('data/episodes.json', json, 'utf8', function(err) {
-					if (err) throw err;
-				});
-			}
-			else {
-				var obj = {
-					table: []
-				};
-				obj.table.push({id: id, path: file_path, size: file_length});
-				var json = JSON.stringify(obj);
-				fs.writeFile('data/episodes.json', json, 'utf8', function(err) {
-					if (err) throw err;
-				});
-			}
-		}
-	});
-}
 
 function download_torrent(res, movie, magnet, isTvShow) {
 	const torrentStream = require('torrent-stream');
@@ -243,7 +166,8 @@ function get_path(res, movie, file, bool) {
 		setTimeout(function() {res.render('movie.ejs', {'data' : movie, 'path' : file})}, 3000);
 	}
 	else {
-		add_movie(movie.imdb_code, file)
+		console.log(movie);
+		files.add_movie(movie.imdb_code, movie.size, file)
 	}
 }
 
@@ -254,7 +178,7 @@ function get_tv_path(res, episode, file, bool) {
 		setTimeout(function() {res.render('episode.ejs', {'data' : episode, 'path' : file.path})}, 2000);
 	}
 	else {
-		add_episode(episode.id, file.path, file.length)
+		files.add_episode(episode.id, file.length, file.path)
 	}
 }
 
