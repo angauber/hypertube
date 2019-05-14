@@ -21,6 +21,9 @@ new Vue({
 						this.load_value = parseInt(response.data);
 						console.log(this.load_value);
 					}
+					else {
+						console.log(response);
+					}
 				})
 			}, 500);
 		},

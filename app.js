@@ -62,7 +62,7 @@ app.get('/', function(req, res) {
 })
 .get('/query', function(req, res) {
 	if (req.session.token_42) {
-		movie.query(req)
+		movie.query(req, res)
 	}
 	else {
 		res.render('not_found.ejs')
@@ -70,7 +70,7 @@ app.get('/', function(req, res) {
 })
 .get('/tvQuery', function(req, res) {
 	if (req.session.token_42) {
-		movie.tv_query(req)
+		movie.tv_query(req, res)
 	}
 	else {
 		res.render('not_found.ejs')
@@ -148,6 +148,9 @@ app.get('/', function(req, res) {
 })
 .get('/getUserStats', function(req, res) {
 	live.user_stats(req, res);
+})
+.get('/clear', function(req, res) {
+	movie.clear();
 })
 .use(function(req, res, next){
 	res.render('not_found.ejs')

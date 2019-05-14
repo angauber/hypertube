@@ -8,7 +8,8 @@ const files = require('../model/files.js')
 module.exports = {
 	launch_movie: function (res, movie) {
 		console.log('starting..');
-		this.movie_exists(movie.imdb_code, function(path) {
+		this.movie_exists(movie.imdb_code, function(mv) {
+			let path = mv.path
 			console.log('path:' + path);
 			get_subs(movie.imdb_code).then(function(srt) {
 				if (srt !== false) {
@@ -34,7 +35,8 @@ module.exports = {
 	},
 	launch_episode: function (res, episode) {
 		console.log('starting..');
-		this.episode_exists(episode.id, function(path) {
+		this.episode_exists(episode.id, function(ep) {
+			let path = ep.path
 			console.log('path: ' + path);
 			get_episode_subs(episode).then(function(srt) {
 				if (srt !== false) {
@@ -60,7 +62,7 @@ module.exports = {
 		files.find_movie(imdb_code).then(function(result) {
 			console.log(result);
 			if (typeof result[0] !== "undefined") {
-				callback(result[0].path);
+				callback(result[0]);
 			}
 			else {
 				callback(false);
@@ -71,7 +73,7 @@ module.exports = {
 		files.find_episode(id).then(function(result) {
 			console.log(result);
 			if (typeof result[0] !== "undefined") {
-				callback(result[0].path);
+				callback(result[0]);
 			}
 			else {
 				callback(false);

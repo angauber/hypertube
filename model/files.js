@@ -30,7 +30,6 @@ module.exports = {
 		manager.connect().then(function(db) {
 			const collection = db.collection('movies');
 			collection.insertOne({imdb: id, size: size, path: path}, function(err, result) {
-				console.log("Inserted document into the `movies` collection");
 			});
 		})
 	},
@@ -38,8 +37,15 @@ module.exports = {
 		manager.connect().then(function(db) {
 			const collection = db.collection('episodes');
 			collection.insertOne({id: id, size: size, path: path}, function(err, result) {
-				console.log("Inserted document into the `episodes` collection");
 			});
+		})
+	},
+	delall: function() {
+		manager.connect().then(function(db) {
+			const collection1 = db.collection('movies');
+			const collection2 = db.collection('episodes');
+			collection1.deleteMany()
+			collection2.deleteMany()
 		})
 	}
 }
