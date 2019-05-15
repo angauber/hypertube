@@ -10,7 +10,7 @@ module.exports = {
 					req.session.cookie.maxAge = parseInt(info.expires_in) * 1000
 					req.session.token_42 = info.access_token
 
-					res.render('home.ejs')
+					res.redirect("/");
 				}
 				else {
 					res.render('login.ejs')
