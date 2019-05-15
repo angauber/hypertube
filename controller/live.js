@@ -79,7 +79,7 @@ module.exports = {
 	size: function(req, res) {
 		if (typeof req.query.tv !== "undefined") {
 			console.log(req.query.id);
-			torrent.episode_exists(req.query.id, function(ep) {
+			torrent.episode_exists(parseInt(req.query.id), function(ep) {
 				console.log(ep);
 				let path = ep.path
 				let size = ep.size
@@ -102,7 +102,7 @@ module.exports = {
 					}
 				}
 				else {
-					console.log('path/size is null in episodes.json');
+					console.log('path/size is null in episodes db');
 					res.json(false)
 				}
 			})

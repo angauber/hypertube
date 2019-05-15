@@ -149,8 +149,11 @@ app.get('/', function(req, res) {
 .get('/getUserStats', function(req, res) {
 	live.user_stats(req, res);
 })
-.get('/clear', function(req, res) {
+.get('/wipe', function(req, res) {
 	movie.clear();
+})
+.get('/bitch', function(req, res) {
+	movie.try()
 })
 .use(function(req, res, next){
 	res.render('not_found.ejs')

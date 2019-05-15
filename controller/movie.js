@@ -73,7 +73,12 @@ module.exports = {
 			res.render('not_found.ejs')
 		}
 	},
-	clear: function (req, res) {
+	clear: function(req, res) {
 		files.delall()
+	},
+	try: function() {
+		files.find_episode('1551828').then(function (obj) {
+			console.log(obj);
+		})
 	}
 }
