@@ -21,7 +21,7 @@
 	.countup span[class*="timeRef"] {
 		border-radius: 0 10px 10px 0;
 		margin-left: 0;
-		background: #e8c152;
+		background: #48BEFF;
 		color: black;
 	}
 	</style>
@@ -36,12 +36,12 @@
 				<v-toolbar-items class="hidden-sm-and-down">
 					<v-btn flat v-on:click="window.location.replace('/');">Movies</v-btn>
 					<v-btn flat v-on:click="window.location.replace('/tv');">Tv shows</v-btn>
-					<v-btn flat color="brown darken-4">Stats</v-btn>
+					<v-btn flat color="#342A21">Stats</v-btn>
 				</v-toolbar-items>
 			</v-toolbar>
 			<v-layout row>
 				<v-flex style="border: 2px solid blue" xs6 offset-xs3>
-					<v-layout row>
+					<v-layout row mt-5>
 						<v-flex style="border: 2px solid purple">
 							<v-img :src="img" aspect-ratio="1" style="max-width: 80%; object-fit: cover;">
 						</v-flex>
@@ -60,7 +60,6 @@
 					</v-layout>
 					<v-layout column mt-5 style="border: 2px solid yellow">
 							<v-flex display-5>History</v-flex>
-							
 					</v-layout>
 				</v-flex>
 			</v-layout>

@@ -37,7 +37,7 @@ app.get('/', function(req, res) {
 		res.render('register.ejs')
 	}
 })
-.get('/stat', function(req, res) {
+.get('/stats', function(req, res) {
 	if (req.session.token_42) {
 		res.render('stat.ejs');
 	}
