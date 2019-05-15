@@ -21,8 +21,9 @@
 				single-line
 				id="search_input"
 				></v-text-field>
-				<v-btn flat>Movies</v-btn>
-				<v-btn flat>tv Shows</v-btn>
+				<v-btn flat v-on:click="window.location.replace('/');">Movies</v-btn>
+				<v-btn flat v-on:click="window.location.replace('/tv');" color="#342A21">Tv shows</v-btn>
+				<v-btn flat v-on:click="window.location.replace('/stats');">Stats</v-btn>
 			</v-toolbar-items>
 		</v-toolbar>
 		<template>
