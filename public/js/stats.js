@@ -7,7 +7,8 @@ let vm = new Vue({
 			name: '',
 			hours: '',
 			minutes: '',
-			size: ''
+			size: '',
+			data: {}
 		}
 	}
 })

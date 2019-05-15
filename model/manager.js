@@ -10,8 +10,6 @@ module.exports = {
 
 			mongoClient.connect(url, {useNewUrlParser: true }, function(err, client) {
 				assert.equal(null, err);
-				console.log("Connected successfully to server");
-
 				resolve(client.db(dbName));
 			})
 		})

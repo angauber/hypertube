@@ -78,10 +78,15 @@ module.exports = {
 	},
 	size: function(req, res) {
 		if (typeof req.query.tv !== "undefined") {
-			torrent.episode_exists(req.query.id, function(path, size) {
+			console.log(req.query.id);
+			torrent.episode_exists(parseInt(req.query.id), function(ep) {
+				console.log(ep);
+				let path = ep.path
+				let size = ep.size
 				if (path !== "undefined" && size !== "undefined") {
 					const file = '/sgoinfre/Perso/angauber/hypertube/download/' + path
 					if (!fs.existsSync(file)) {
+						console.log(path);
 						res.json(false)
 					}
 					else {
@@ -97,45 +102,42 @@ module.exports = {
 					}
 				}
 				else {
-					console.log('path/size is null in episodes.json');
+					console.log('path/size is null in episodes db');
 					res.json(false)
 				}
 			})
 		}
 		else {
-			request('https://yts.am/api/v2/movie_details.json?movie_id=' + req.query.id, function (error, response, body) { // better keep track of the size in the db to fetch it now..
-				if (!error && response.statusCode == 200 && body) {
-					const info = JSON.parse(body);
-					if (info.data.movie) {
-						torrent.movie_exists(info.data.movie.imdb_code, function(path) {
-							if (path) {
-								const file = '/sgoinfre/Perso/angauber/hypertube/download/' + path
-								if (!fs.existsSync(file)) {
-									res.json(false)
-								}
-								else {
-									const torrentPSize = torrent.get_best_torrent(info.data.movie.torrents).size_bytes / 100
-									const stats = fs.statSync(file)
-									const fileSize = stats.size
-									if (fileSize > torrentPSize) {
-										res.json('100')
-									}
-									else {
-										res.json((Math.floor((100 * fileSize / torrentPSize))).toString())
-									}
-								}
-							}
-							else {
-								console.log('path is null');
+			cloudscraper.get('https://yts.am/api/v2/movie_details.json?movie_id=' + req.query.id).then(function(response) {
+				const info = JSON.parse(response);
+				if (info.data.movie) {
+					torrent.movie_exists(info.data.movie.imdb_code, function(mv) {
+						let path = mv.path
+						if (path) {
+							const file = '/sgoinfre/Perso/angauber/hypertube/download/' + path
+							if (!fs.existsSync(file)) {
 								res.json(false)
 							}
-						})
-					}
-					else {
-						res.json(false);
-					}
+							else {
+								const torrentPSize = torrent.get_best_torrent(info.data.movie.torrents).size_bytes / 100
+								const stats = fs.statSync(file)
+								const fileSize = stats.size
+								if (fileSize > torrentPSize) {
+									res.json('100')
+								}
+								else {
+									res.json((Math.floor((100 * fileSize / torrentPSize))).toString())
+								}
+							}
+						}
+						else {
+							console.log('path is null');
+							res.json(false)
+						}
+					})
 				}
 				else {
+					console.log(info);
 					res.json(false);
 				}
 			})
@@ -153,6 +155,23 @@ module.exports = {
 					obj.name = info.displayname
 					obj.img = info.image_url
 					stat.find({auth: '42', id: info.id}).then(function(result) {
+						console.log(result);
+						for (let i = 0; i < result.length; i++) {
+							if (result[i].type == "movie") {
+								cloudscraper.get('https://yts.am/api/v2/movie_details.json?movie_id=' + result[i].code).then(function(response) {
+									const info = JSON.parse(response);
+									if (info.data.movie) {
+										console.log(info.data.movie);
+									}
+									else {
+										res.render('not_found.ejs')
+									}
+								})
+							}
+							else {
+
+							}
+						}
 						obj.history = result;
 						res.json(JSON.stringify(obj))
 					})

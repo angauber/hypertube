@@ -2,6 +2,8 @@ const cloudscraper = require('cloudscraper');
 const torrent = require('./torrent');
 const request = require('request');
 
+const files = require('../model/files');
+
 module.exports = {
 	start_movie: function(id, res) {
 		cloudscraper.get('https://yts.am/api/v2/movie_details.json?movie_id=' + id).then(function(response) {
@@ -32,7 +34,7 @@ module.exports = {
 			}
 		})
 	},
-	query: function(req) {
+	query: function(req, res) {
 		if (typeof req.query.name !== "undefined") {
 			cloudscraper.get('https://yts.am/api/v2/list_movies.json?sort_by=download_count&query_term=' + req.query.name + '&limit=48').then(function(response) {
 				const info = JSON.parse(response)
@@ -48,7 +50,7 @@ module.exports = {
 			res.render('not_found.ejs')
 		}
 	},
-	tv_query: function (req) {
+	tv_query: function (req, res) {
 		if (typeof req.query.name !== "undefined") {
 			request('https://api.themoviedb.org/3/search/tv?api_key=425328382852ef8b6cd2922a26662d56&language=en-US&query=' + req.query.name, function (error, response, body) {
 				if (!error && response.statusCode == 200) {
@@ -70,5 +72,13 @@ module.exports = {
 		else {
 			res.render('not_found.ejs')
 		}
+	},
+	clear: function(req, res) {
+		files.delall()
+	},
+	try: function() {
+		files.find_episode('1551828').then(function (obj) {
+			console.log(obj);
+		})
 	}
 }
