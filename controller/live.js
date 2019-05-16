@@ -242,5 +242,5 @@ let download_finished = function(path) {
 			}
 		})
 		resolve(false);
-	}
+	})
 }

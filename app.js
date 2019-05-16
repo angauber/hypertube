@@ -10,10 +10,13 @@ const request = require('request')
 
 const app = express();
 
+let formRouter = require('./routes/form');
+
 app.set('view engine', 'ejs');
 app.use('/js', express.static('public/js'));
 app.use('/srt', express.static('data/subs'));
 app.use('/tvSrt', express.static('data/tvSubs'));
+app.use('/form/', formRouter);
 
 app.set('trust proxy', 1) // trust first proxy
 app.use(session({
