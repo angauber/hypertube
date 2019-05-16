@@ -18,14 +18,14 @@
 <body>
 	<v-app id="app" style="background: #263238;">
 		<template>
-			
 				<v-layout align-center justify-center row fill-height>
 					<v-card dark color="primary" id="logbox">
 						<v-card-text>
 							<p class="display-1 text-xs-center">Sign up</p>
 						</v-card-text>
 						<v-form
-							ref="form"
+							ref="register"
+							action='register'
 						>
 							<v-container>
 								<v-layout column>
@@ -95,7 +95,7 @@
 								</v-flex>
 							</v-layout>
 							<v-layout align-center justify-center>
-								<v-btn color="teal">Sign up</v-btn>
+								<v-btn type='submit' color="teal">Sign up</v-btn>
 							</v-layout>
 						</v-container>
 						</v-form>
