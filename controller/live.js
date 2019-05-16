@@ -4,7 +4,10 @@ const fs = require('fs');
 const growingFile = require('growing-file');
 const torrent = require('./torrent')
 
+const tailing = require('tailing-stream');
+
 const stat = require('../model/stat');
+const files = require('../model/files')
 
 module.exports = {
 	register_time: function(session, type, id, time) {
@@ -62,18 +65,44 @@ module.exports = {
 		const path = '/sgoinfre/Perso/angauber/hypertube/download/' + req.query.url
 		if (!fs.existsSync(path)) {
 			console.log('error files does not exists');
-			res.render('not_found.ejs')
 		}
 		else {
-			res.writeHead(200, {
-				'Content-Type': 'video/mp4'
-			});
-			file = growingFile.open(path, {
-				timeout: 3000,
-				interval: 100,
-				startFromEnd: true
-			});
-			file.pipe(res);
+			if (download_finished(path)) {
+				const range = req.headers.range
+				if (range) {
+					const stat = fs.statSync(path)
+					const fileSize = stat.size
+					const parts = range.replace(/bytes=/, "").split("-")
+					const start = parseInt(parts[0], 10)
+					const end = parts[1]
+					? parseInt(parts[1], 10)
+					: fileSize-1
+					const chunksize = (end-start)+1
+					const file = fs.createReadStream(path, {start, end})
+					const head = {
+						'Content-Range': `bytes ${start}-${end}/${fileSize}`,
+						'Accept-Ranges': 'bytes',
+						'Content-Length': chunksize,
+						'Content-Type': 'video/mp4',
+					}
+					res.writeHead(206, head);
+					file.pipe(res);
+				} else {
+					const head = {
+						'Content-Length': fileSize,
+						'Content-Type': 'video/mp4',
+					}
+					res.writeHead(200, head)
+					fs.createReadStream(path).pipe(res)
+				}
+			}
+			else {
+				res.writeHead(200, {
+					'Content-Type': 'video/mp4'
+				});
+				const stream = growingFile.open(path)
+				stream.pipe(res)
+			}
 		}
 	},
 	size: function(req, res) {
@@ -182,5 +211,36 @@ module.exports = {
 		else {
 			res.json(false)
 		}
+	}
+}
+
+let download_finished = function(path) {
+	return new Promise(function(resolve, reject) {
+		files.find_movie(path).then(function(res) {
+			if (typeof res[0] !== "undefined") {
+				if (res[0].downloaded) {
+					resolve(true);
+				}
+				else {
+					resolve(false);
+				}
+			}
+			else {
+				files.find_episode(path).then(function(res) {
+					if (typeof res[0] !== "undefined") {
+						if (res[0].downloaded) {
+							resolve(true);
+						}
+						else {
+							resolve(false);
+						}
+					}
+					else {
+						resolve(false);
+					}
+				})
+			}
+		})
+		resolve(false);
 	}
 }

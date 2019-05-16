@@ -104,6 +104,7 @@ function download_torrent(res, movie, magnet, isTvShow) {
 	const torrentStream = require('torrent-stream');
 	let engine = torrentStream(magnet, {path: '/sgoinfre/Perso/angauber/hypertube/download'});
 	let called = false;
+	let please;
 
 	engine.on('ready', function() {
 		engine.files.forEach(function(file) {
@@ -112,6 +113,7 @@ function download_torrent(res, movie, magnet, isTvShow) {
 			if (ext == "mp4" || ext == "mkv") {
 				file.select();
 				console.log(file.path)
+ 				please = file.path
 				if (isTvShow) {
 					get_tv_path(res, movie, file, false)
 				}
@@ -160,6 +162,16 @@ function download_torrent(res, movie, magnet, isTvShow) {
 			}
 		});
 	});
+	engine.on('idle', function(res) {
+		console.log(res);
+		console.log('all files have been downloaded');
+		if (isTvShow) {
+			files.update_episode(please, {downloaded: true})
+		}
+		else {
+			files.update_movie(please, {downloaded: true})
+		}
+	})
 }
 
 function get_path(res, movie, file, bool) {
