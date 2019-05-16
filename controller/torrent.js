@@ -59,7 +59,7 @@ module.exports = {
 		})
 	},
 	movie_exists: function(imdb_code, callback) {
-		files.find_movie(imdb_code).then(function(result) {
+		files.find_movie({imdb: imdb_code}).then(function(result) {
 			console.log(result);
 			if (typeof result[0] !== "undefined") {
 				callback(result[0]);
@@ -70,7 +70,7 @@ module.exports = {
 		})
 	},
 	episode_exists: function (id, callback) {
-		files.find_episode(id).then(function(result) {
+		files.find_episode({id: id}).then(function(result) {
 			console.log(result);
 			if (typeof result[0] !== "undefined") {
 				callback(result[0]);
@@ -162,13 +162,14 @@ function download_torrent(res, movie, magnet, isTvShow) {
 			}
 		});
 	});
-	engine.on('idle', function(res) {
-		console.log(res);
+	engine.on('idle', function() {
 		console.log('all files have been downloaded');
 		if (isTvShow) {
 			files.update_episode(please, {downloaded: true})
 		}
 		else {
+			console.log('updating movie');
+			console.log(please);
 			files.update_movie(please, {downloaded: true})
 		}
 	})

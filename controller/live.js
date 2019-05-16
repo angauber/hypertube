@@ -67,42 +67,44 @@ module.exports = {
 			console.log('error files does not exists');
 		}
 		else {
-			if (download_finished(path)) {
-				const range = req.headers.range
-				if (range) {
+			download_finished(req.query.url).then(function(finished) {
+				console.log(finished);
+				if (finished) {
+					const range = req.headers.range
 					const stat = fs.statSync(path)
 					const fileSize = stat.size
-					const parts = range.replace(/bytes=/, "").split("-")
-					const start = parseInt(parts[0], 10)
-					const end = parts[1]
-					? parseInt(parts[1], 10)
-					: fileSize-1
-					const chunksize = (end-start)+1
-					const file = fs.createReadStream(path, {start, end})
-					const head = {
-						'Content-Range': `bytes ${start}-${end}/${fileSize}`,
-						'Accept-Ranges': 'bytes',
-						'Content-Length': chunksize,
-						'Content-Type': 'video/mp4',
+					if (range) {
+						const parts = range.replace(/bytes=/, "").split("-")
+						const start = parseInt(parts[0], 10)
+						const end = parts[1]
+						? parseInt(parts[1], 10)
+						: fileSize-1
+						const chunksize = (end-start)+1
+						const file = fs.createReadStream(path, {start, end})
+						const head = {
+							'Content-Range': `bytes ${start}-${end}/${fileSize}`,
+							'Accept-Ranges': 'bytes',
+							'Content-Length': chunksize,
+							'Content-Type': 'video/mp4',
+						}
+						res.writeHead(206, head);
+						file.pipe(res);
+					} else {
+						const head = {
+							'Content-Type': 'video/mp4',
+						}
+						res.writeHead(200, head)
+						fs.createReadStream(path).pipe(res)
 					}
-					res.writeHead(206, head);
-					file.pipe(res);
-				} else {
-					const head = {
-						'Content-Length': fileSize,
-						'Content-Type': 'video/mp4',
-					}
-					res.writeHead(200, head)
-					fs.createReadStream(path).pipe(res)
 				}
-			}
-			else {
-				res.writeHead(200, {
-					'Content-Type': 'video/mp4'
-				});
-				const stream = growingFile.open(path)
-				stream.pipe(res)
-			}
+				else {
+					res.writeHead(200, {
+						'Content-Type': 'video/mp4'
+					});
+					const stream = growingFile.open(path)
+					stream.pipe(res)
+				}
+			})
 		}
 	},
 	size: function(req, res) {
@@ -216,9 +218,10 @@ module.exports = {
 
 let download_finished = function(path) {
 	return new Promise(function(resolve, reject) {
-		files.find_movie(path).then(function(res) {
+		files.find_movie({path: path}).then(function(res) {
 			if (typeof res[0] !== "undefined") {
-				if (res[0].downloaded) {
+				console.log(res[0]);
+				if (res[0].downloaded === true) {
 					resolve(true);
 				}
 				else {
@@ -226,9 +229,10 @@ let download_finished = function(path) {
 				}
 			}
 			else {
-				files.find_episode(path).then(function(res) {
+				files.find_episode({path: path}).then(function(res) {
 					if (typeof res[0] !== "undefined") {
-						if (res[0].downloaded) {
+						console.log(res[0]);
+						if (res[0].downloaded == true) {
 							resolve(true);
 						}
 						else {
@@ -241,6 +245,5 @@ let download_finished = function(path) {
 				})
 			}
 		})
-		resolve(false);
-	}
+	})
 }

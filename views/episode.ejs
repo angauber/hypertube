@@ -29,63 +29,80 @@
 		<template>
 			<v-container grid-list-md text-xs-center>
 				<v-layout row wrap>
-					<v-flex xs12 class="calin">
-						<v-card color="#263238" id="<%= data.id %>">
-							<v-card-text class="display-3 font-weight-light"><%= data.name %> - s<%
-								if (parseInt(data.season_number) < 10) {
-									__append(0);
-								}
-								__append(data.season_number);
-								%>
-								e<%
-								if (parseInt(data.episode_number)) {
-									__append(0);
-								}
-								__append(data.episode_number);
-								%>
-							</v-card-text>
-							<video id='my-video' class="video-js vjs-default-skin vjs-big-play-centered" controls preload='auto' width="950" height="450" style="display: block; margin: 0 auto;"
-							poster="https://image.tmdb.org/t/p/w1280/<%= data.still_path %>" data-setup='{}'>
-							<source src="/stream?url=<%= path %>" type='video/mp4'>
-								<track kind="captions" src="/tvSrt/<%= data.id %>-fr.vtt" srclang="fr" label="French" default>
-								</video>
-								<v-card-text class="body-1 mt-4 font-weight-light" style="color: white;"><%= data.overview %></v-card-text>
-								<div class="text-xs-center mt-2">
-									<v-rating></v-rating>
-								</div>
-								<v-btn my-5 color="info" v-on:click="window.location.replace('/show?id=' + <%= data.show_id %>);">More episodes</v-btn>
-							</v-card>
-						</v-flex>
-					</v-layout>
-				</v-container>
-			</template>
-		</v-app>
-		<script src='https://vjs.zencdn.net/7.4.1/video.js'></script>
-		<script src="https://cdn.jsdelivr.net/npm/vue"></script>
-		<script src="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.js"></script>
-		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-		<script>
-		new Vue({
-			el: '#app'
-		})
-		const search = document.getElementById("search_input");
+					<!-- <v-alert
+					:value="true"
+					type="warning"
+					dismissible
+					>
+					This content haven't been totally downloaded on our servers yet, you wont be able to navigate through it's flow.
+				</v-alert> -->
+				<v-flex xs12 class="calin">
+					<v-card color="#263238" id="<%= data.id %>">
+						<v-card-text class="display-3 font-weight-light"><%= data.name %> - s<%
+							if (parseInt(data.season_number) < 10) {
+								__append(0);
+							}
+							__append(data.season_number);
+							%>
+							e<%
+							if (parseInt(data.episode_number)) {
+								__append(0);
+							}
+							__append(data.episode_number);
+							%>
+						</v-card-text>
+						<video id='my-video' class="video-js vjs-default-skin vjs-big-play-centered" controls preload='auto' width="950" height="450" style="display: block; margin: 0 auto;"
+						poster="https://image.tmdb.org/t/p/w1280/<%= data.still_path %>" data-setup='{}'>
+						<source src="/stream?url=<%= path %>" type='video/mp4'>
+							<track kind="captions" src="/tvSrt/<%= data.id %>-fr.vtt" srclang="fr" label="French" default>
+							</video>
+							<v-card-text class="body-1 mt-4 font-weight-light" style="color: white;"><%= data.overview %></v-card-text>
+							<div class="text-xs-center mt-2">
+								<v-rating></v-rating>
+							</div>
+							<v-btn mb-5 color="info" v-on:click="window.location.replace('/show?id=' + <%= data.show_id %>);">More episodes</v-btn>
+						</v-card>
+					</v-flex>
+				</v-layout>
+				<template>
+					<li transition="slide">
+				      <div class="msg">
+				        <div class="msg-body">
+				          <p class="name">angauber<span class="date">28/07/2018 18:17</span></p>
+				          <p>Meerci beauocup por ce suoer episode !!!</p>
+				        </div>
+				      </div>
+				    </li>
+				</template>
+			</v-container>
+		</template>
+	</v-app>
+	<script src='https://vjs.zencdn.net/7.4.1/video.js'></script>
+	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+	<script src="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.js"></script>
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+	<script>
+	new Vue({
+		el: '#app'
+	})
+	const search = document.getElementById("search_input");
 
-		document.getElementById("php").onclick = function() {
-			window.location.replace('/');
+	document.getElementById("php").onclick = function() {
+		window.location.replace('/');
+	}
+
+	search.onkeyup = function(event) {
+		if (event.keyCode == 13) {
+			window.location.replace('/tvQuery?name=' + search.value);
 		}
+	}
 
-		search.onkeyup = function(event) {
-			if (event.keyCode == 13) {
-				window.location.replace('/tvQuery?name=' + search.value);
-			}
-		}
+	window.onbeforeunload = function() {
+		const time = document.getElementById("my-video_html5_api").currentTime;
+		const id = document.getElementsByClassName('calin')[0].children[0].id;
 
-		window.onbeforeunload = function() {
-			const time = document.getElementById("my-video_html5_api").currentTime;
-			const id = document.getElementsByClassName('calin')[0].children[0].id;
-
-			axios.get('/time?type=tv&id=' + id + '&time=' + time);
-		}
-		</script>
-	</body>
-	</html>
+		axios.get('/time?type=tv&id=' + id + '&time=' + time);
+	}
+	</script>
+</body>
+</html>
