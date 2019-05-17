@@ -1,19 +1,27 @@
 const express = require('express')
 const session = require('express-session')
+const bodyParser = require('body-parser')
 
 const torrent = require('./controller/torrent')
 const auth = require('./controller/auth')
 const movie = require('./controller/movie')
 const live = require('./controller/live')
+const comment = require('./controller/comment')
 
 const request = require('request')
 
 const app = express();
 
+let formRouter = require('./routes/form');
+
 app.set('view engine', 'ejs');
+
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
 app.use('/js', express.static('public/js'));
 app.use('/srt', express.static('data/subs'));
 app.use('/tvSrt', express.static('data/tvSubs'));
+app.use('/form/', formRouter);
 
 app.set('trust proxy', 1) // trust first proxy
 app.use(session({
@@ -138,7 +146,6 @@ app.get('/', function(req, res) {
 	}
 })
 .get('/time', function(req, res) {
-	console.log('time called');
 	if (typeof req.query.type !== "undefined" && typeof req.query.id !== "undefined" && typeof req.query.time !== "undefined") {
 		live.register_time(req.session, req.query.type, req.query.id, req.query.time);
 	}
@@ -146,9 +153,17 @@ app.get('/', function(req, res) {
 		res.render('not_found.ejs')
 	}
 })
+.post('/comments', function(req, res) {
+	comment.get_comments(req, res)
+})
+// post request
+.post("/comment", function(req) {
+	comment.add_comment(req)
+})
 .get('/getUserStats', function(req, res) {
 	live.user_stats(req, res);
 })
+// production tests
 .get('/wipe', function(req, res) {
 	movie.clear();
 })

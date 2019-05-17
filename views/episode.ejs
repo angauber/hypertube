@@ -27,7 +27,7 @@
 			</v-toolbar-items>
 		</v-toolbar>
 		<template>
-			<v-container grid-list-md text-xs-center>
+			<v-container text-xs-center>
 				<v-layout row wrap>
 					<!-- <v-alert
 					:value="true"
@@ -64,16 +64,37 @@
 						</v-card>
 					</v-flex>
 				</v-layout>
-				<template>
-					<li transition="slide">
-				      <div class="msg">
-				        <div class="msg-body">
-				          <p class="name">angauber<span class="date">28/07/2018 18:17</span></p>
-				          <p>Meerci beauocup por ce suoer episode !!!</p>
-				        </div>
-				      </div>
-				    </li>
-				</template>
+				<v-flex elevation-2 mt-4>
+					<v-layout row xs8 offset-xs1>
+						<v-flex xs8 offset-xs1>
+							<v-textarea
+								v-model="message"
+								hint="message need to be 4-200 chars"
+								label="Type your comment here.."
+							></v-textarea>
+						</v-flex>
+						<v-flex mt-5>
+							<v-btn secondary v-on:click="add_comment();">Submit</v-btn>
+						</v-flex>
+					</v-layout>
+					<v-layout row wrap>
+						<v-flex v-for="elem in messages" xs10 offset-xs1 my-4 style="border-bottom: 1px solid black">
+							<v-layout row>
+								<v-flex class="person" shrink>
+									<v-flex mt-2 ml-2>
+										<v-img :src="elem.img" aspect-ratio="1" style="max-width: 100%; border-radius: 50%; object-fit: cover;">
+									</v-flex>
+									<v-flex ml-3 mb-2 title font-weight-regular style="color: #e3f2fd;">{{ elem.username }}</v-flex>
+								</v-flex>
+								<v-layout column>
+									<v-flex ml-4 font-weight-light text-xs-right mr-5>{{ elem.time }}</v-flex>
+									<v-flex class="content" grow text-xs-left offset-xs1 font-weight-light title style="color: #e3f2fd;">{{ elem.message }}</v-flex>
+								</v-layout>
+							</v-layout>
+						</v-flex>
+					</v-layout>
+					<!-- <v-btn color="info">Load more</v-btn> -->
+				</v-flex>
 			</v-container>
 		</template>
 	</v-app>
@@ -81,28 +102,6 @@
 	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
 	<script src="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.js"></script>
 	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-	<script>
-	new Vue({
-		el: '#app'
-	})
-	const search = document.getElementById("search_input");
-
-	document.getElementById("php").onclick = function() {
-		window.location.replace('/');
-	}
-
-	search.onkeyup = function(event) {
-		if (event.keyCode == 13) {
-			window.location.replace('/tvQuery?name=' + search.value);
-		}
-	}
-
-	window.onbeforeunload = function() {
-		const time = document.getElementById("my-video_html5_api").currentTime;
-		const id = document.getElementsByClassName('calin')[0].children[0].id;
-
-		axios.get('/time?type=tv&id=' + id + '&time=' + time);
-	}
-	</script>
+	<script src="/js/episode.js"></script>
 </body>
 </html>

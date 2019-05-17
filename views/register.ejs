@@ -10,7 +10,7 @@
 	}
 	@media screen and (min-width: 1200px) and (max-width: 10000px) {
 		#logbox {
-			width: 15%;
+			width: 30%;
 		}
 	}
 	</style>
@@ -18,87 +18,93 @@
 <body>
 	<v-app id="app" style="background: #263238;">
 		<template>
-			<v-layout align-center justify-center row fill-height>
-				<v-card dark color="primary" id="logbox">
+				<v-layout align-center justify-center row fill-height>
+					<v-card dark color="primary" id="logbox">
+						<v-card-text>
+							<p class="display-1 text-xs-center">Sign up</p>
+						</v-card-text>
+						<v-form
+							ref="register"
+							action='register'
+						>
+							<v-container>
+								<v-layout column>
+									<v-flex>
+										<v-text-field
+										label="First name"
+										:rules="[rules.required, rules.name]"
+										solo
+										></v-text-field>
+									</v-flex>
+									<v-flex>
+										<v-text-field
+										label="Last name"
+										:rules="[rules.required, rules.name]"
+										solo
+										></v-text-field>
+									</v-flex>
+									<v-flex>
+										<v-text-field
+										label="Username"
+										:rules="[rules.required, rules.username]"
+										solo
+										></v-text-field>
+									</v-flex>
+									<v-flex>
+										<v-text-field
+										label="Email"
+										:rules="[rules.required, rules.email]"
+										solo
+										>
+									</v-text-field>
+								</v-flex>
+								<v-flex class="text-xs-center text-sm-center text-md-center text-lg-center">
+									<v-text-field label="Select Image" @click='pickFile' v-model='imageName' prepend-icon='attach_file' solo></v-text-field>
+									<input
+									type="file"
+									style="display: none"
+									ref="image"
+									accept="image/*"
+									@change="onFilePicked"
+									>
+									<img :src="imageUrl" height="150"/>
+								</v-flex>
+								<v-flex>
+									<v-text-field
+									:append-icon="show1 ? 'visibility' : 'visibility_off'"
+									:rules="[rules.required, rules.password]"
+									:type="show1 ? 'text' : 'password'"
+									label="Password"
+									hint="At least 8 characters"
+									class="input-group--focused"
+									@click:append="show1 = !show1"
+									solo
+									></v-text-field>
+								</v-flex>
+								<v-flex>
+									<v-text-field
+									:append-icon="show2 ? 'visibility' : 'visibility_off'"
+									:rules="[rules.required]"
+									:type="show2 ? 'text' : 'password'"
+									label="Repeat password"
+									hint="At least 8 characters"
+									class="input-group--focused"
+									@click:append="show2 = !show2"
+									solo
+									></v-text-field>
+								</v-flex>
+							</v-layout>
+							<v-layout align-center justify-center>
+								<v-btn type='submit' color="teal">Sign up</v-btn>
+							</v-layout>
+						</v-container>
+						</v-form>
 					<v-card-text>
-						<p class="display-1 text-xs-center">Sign up</p>
+						<p class="clickable body-2 text-xs-center" v-on:click="window.location.replace('/');">Sign in</p>
 					</v-card-text>
-					<v-container>
-						<v-layout column>
-							<v-flex>
-								<v-text-field
-								label="First name"
-								:rules="[rules.required, rules.name]"
-								solo
-								></v-text-field>
-							</v-flex>
-							<v-flex>
-								<v-text-field
-								label="Last name"
-								:rules="[rules.required, rules.name]"
-								solo
-								></v-text-field>
-							</v-flex>
-							<v-flex>
-								<v-text-field
-								label="Username"
-								:rules="[rules.required, rules.username]"
-								solo
-								></v-text-field>
-							</v-flex>
-							<v-flex>
-								<v-text-field
-								label="Email"
-								:rules="[rules.required, rules.email]"
-								solo
-								>
-							</v-text-field>
-						</v-flex>
-						<v-flex class="text-xs-center text-sm-center text-md-center text-lg-center">
-							<v-text-field label="Select Image" @click='pickFile' v-model='imageName' prepend-icon='attach_file' solo></v-text-field>
-							<input
-							type="file"
-							style="display: none"
-							ref="image"
-							accept="image/*"
-							@change="onFilePicked"
-							>
-							<img :src="imageUrl" height="150"/>
-						</v-flex>
-						<v-flex>
-							<v-text-field
-							:append-icon="show1 ? 'visibility' : 'visibility_off'"
-							:rules="[rules.required, rules.password]"
-							:type="show1 ? 'text' : 'password'"
-							label="Password"
-							hint="At least 8 characters"
-							class="input-group--focused"
-							@click:append="show1 = !show1"
-							solo
-							></v-text-field>
-						</v-flex>
-						<v-flex>
-							<v-text-field
-							:append-icon="show2 ? 'visibility' : 'visibility_off'"
-							:rules="[rules.required]"
-							:type="show2 ? 'text' : 'password'"
-							label="Repeat password"
-							hint="At least 8 characters"
-							class="input-group--focused"
-							@click:append="show2 = !show2"
-							solo
-							></v-text-field>
-						</v-flex>
-					</v-layout>
-					<v-layout align-center justify-center>
-						<v-btn color="teal">Sign up</v-btn>
-					</v-layout>
-				</v-container>
-				<v-card-text>
-					<p class="clickable body-2 text-xs-center" v-on:click="window.location.replace('/');">Sign in</p>
-				</v-card-text>
-			</v-card>
-		</v-layout>
+				</v-card>
+			</v-layout>
+
 	</template>
 </v-app>
 <script src="https://cdn.jsdelivr.net/npm/vue"></script>
@@ -156,5 +162,9 @@ new Vue({
 	}
 })
 </script>
+
+<style lang="stylus" scoped>
+
+</style>
 </body>
 </html>

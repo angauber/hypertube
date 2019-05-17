@@ -175,7 +175,7 @@ module.exports = {
 		}
 	},
 	user_stats: function(req, res) {
-		if (typeof req.session.token_42 != "undefined") {
+		if (typeof req.session.token_42 !== "undefined") {
 			request('https://api.intra.42.fr/v2/me?access_token=' + req.session.token_42, function (error, response, body) {
 				const info = JSON.parse(body)
 				if (typeof info.id !== "undefined") {
@@ -206,7 +206,6 @@ module.exports = {
 						obj.history = result;
 						res.json(JSON.stringify(obj))
 					})
-					// stat.remove({auth: '42', id: info.id})
 				}
 			})
 		}
@@ -246,4 +245,5 @@ let download_finished = function(path) {
 			}
 		})
 	})
+
 }
