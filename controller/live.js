@@ -2,7 +2,8 @@ const request = require('request');
 const cloudscraper = require('cloudscraper');
 const fs = require('fs');
 const growingFile = require('growing-file');
-const torrent = require('./torrent')
+const torrent = require('./torrent');
+const users = require('../model/users');
 
 const tailing = require('tailing-stream');
 
@@ -69,6 +70,8 @@ module.exports = {
 		else {
 			download_finished(req.query.url).then(function(finished) {
 				console.log(finished);
+				let split = req.query.url.split(".")
+				let ext = split[split.length - 1]
 				if (finished) {
 					const range = req.headers.range
 					const stat = fs.statSync(path)
@@ -98,11 +101,27 @@ module.exports = {
 					}
 				}
 				else {
-					res.writeHead(200, {
-						'Content-Type': 'video/mp4'
-					});
-					const stream = growingFile.open(path)
-					stream.pipe(res)
+					// if (ext == "mp4") {
+						res.writeHead(200, {
+							'Content-Type': 'video/mp4'
+						});
+						const stream = growingFile.open(path)
+						stream.pipe(res)
+					// }
+					// else {
+					// 	console.log('plzzzz');
+					// 	res.writeHead(206, { 'Content-Type': 'video/mp4' });
+					// 	const stream = growingFile.open(path)
+					// 	Transcoder = require('stream-transcoder');
+					//
+					// 	new Transcoder(stream)
+					// 	.videoCodec('h264')
+					// 	.format('mp4')
+					// 	.on('finish', function() {
+					// 		next();
+					// 	})
+					// 	.stream().pipe(res);
+					// }
 				}
 			})
 		}
@@ -175,43 +194,34 @@ module.exports = {
 		}
 	},
 	user_stats: function(req, res) {
-		if (typeof req.session.token_42 !== "undefined") {
-			request('https://api.intra.42.fr/v2/me?access_token=' + req.session.token_42, function (error, response, body) {
-				const info = JSON.parse(body)
-				if (typeof info.id !== "undefined") {
-					let obj = {};
-
-					obj.id = info.id
-					obj.login = info.login
-					obj.name = info.displayname
-					obj.img = info.image_url
-					stat.find({auth: '42', id: info.id}).then(function(result) {
-						console.log(result);
-						for (let i = 0; i < result.length; i++) {
-							if (result[i].type == "movie") {
-								cloudscraper.get('https://yts.am/api/v2/movie_details.json?movie_id=' + result[i].code).then(function(response) {
-									const info = JSON.parse(response);
-									if (info.data.movie) {
-										console.log(info.data.movie);
-									}
-									else {
-										res.render('not_found.ejs')
-									}
-								})
+		console.log('entering stats');
+		console.log(req.session.oauth);
+		console.log(req.session.user_id);
+		users.find({oauth: req.session.oauth, id: req.session.user_id}).then(function(result) {
+			const obj = result[0]
+			console.log(obj);
+			stat.find({auth: req.session.oauth, id: req.session.user_id}).then(function(result) {
+				console.log(result);
+				for (let i = 0; i < result.length; i++) {
+					if (result[i].type == "movie") {
+						cloudscraper.get('https://yts.am/api/v2/movie_details.json?movie_id=' + result[i].code).then(function(response) {
+							const info = JSON.parse(response);
+							if (info.data.movie) {
+								console.log(info.data.movie);
 							}
 							else {
-
+								res.json(false)
 							}
-						}
-						obj.history = result;
-						res.json(JSON.stringify(obj))
-					})
+						})
+					}
+					else {
+
+					}
 				}
+				obj.history = result;
+				res.json(JSON.stringify(obj))
 			})
-		}
-		else {
-			res.json(false)
-		}
+		})
 	}
 }
 

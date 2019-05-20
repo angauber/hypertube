@@ -19,7 +19,7 @@ let vm = new Vue({
 					type: 'tv',
 					id: id
 				}).then(function() {
-					this.message = '';
+					vm.message = '';
 					axios.post('/comments', {
 						type: 'tv',
 						id: id
@@ -41,9 +41,7 @@ let vm = new Vue({
 				id: id
 			}).then(function(res) {
 				console.log(res.data);
-				for (let i = 0; i < res.data.length; i++) {
-					vm.messages.push(res.data[i]);
-				}
+				vm.messages = res.data
 			})
 		}
 	}

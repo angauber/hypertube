@@ -30,23 +30,21 @@ app.use(session({
 	saveUninitialized: true,
 }))
 app.get('/', function(req, res) {
-	if (req.session.token_42) {
-		console.log(req.session.token_42);
-		console.log(req.session.cookie.maxAge / 1000);
+	if (req.session.user_id) {
 		res.render('home.ejs');
 	} else {
 		res.render('login.ejs')
 	}
 })
 .get('/signup', function(req, res) {
-	if (req.session.token_42) {
+	if (req.session.user_id) {
 		res.render('home.ejs');
 	} else {
 		res.render('register.ejs')
 	}
 })
 .get('/stats', function(req, res) {
-	if (req.session.token_42) {
+	if (req.session.user_id) {
 		res.render('stat.ejs');
 	}
 	else {
@@ -54,14 +52,14 @@ app.get('/', function(req, res) {
 	}
 })
 .get('/42auth', function(req, res) {
-	if (req.session.token_42) {
+	if (req.session.user_id) {
 		res.render('home.ejs');
 	} else {
 		auth.oauth_42(req, res)
 	}
 })
 .get('/tv', function(req, res) {
-	if (req.session.token_42) {
+	if (req.session.user_id) {
 		res.render('tv.ejs')
 	}
 	else {
@@ -69,7 +67,7 @@ app.get('/', function(req, res) {
 	}
 })
 .get('/query', function(req, res) {
-	if (req.session.token_42) {
+	if (req.session.user_id) {
 		movie.query(req, res)
 	}
 	else {
@@ -77,7 +75,7 @@ app.get('/', function(req, res) {
 	}
 })
 .get('/tvQuery', function(req, res) {
-	if (req.session.token_42) {
+	if (req.session.user_id) {
 		movie.tv_query(req, res)
 	}
 	else {
@@ -157,8 +155,8 @@ app.get('/', function(req, res) {
 	comment.get_comments(req, res)
 })
 // post request
-.post("/comment", function(req) {
-	comment.add_comment(req)
+.post("/comment", function(req, res) {
+	comment.add_comment(req, res)
 })
 .get('/getUserStats', function(req, res) {
 	live.user_stats(req, res);

@@ -4,7 +4,6 @@ let vm = new Vue({
 		return {
 			img: '',
 			username: '',
-			name: '',
 			hours: '',
 			minutes: '',
 			size: '',
@@ -18,8 +17,7 @@ window.onload = function() {
 		const data = JSON.parse(response.data);
 		console.log(data);
 		vm.img = data.img;
-		vm.username = data.login;
-		vm.name = data.name;
+		vm.username = data.username;
 
 		let log = data.history;
 		console.log(log);
