@@ -18,6 +18,7 @@
 <body>
 	<v-app id="app" style="background: #263238;">
 		<template>
+				<div class="error" style="text-align: center"></div>
 				<v-layout align-center justify-center row fill-height>
 					<v-card dark color="primary" id="logbox">
 						<v-card-text>
@@ -25,11 +26,14 @@
 						</v-card-text>
 						<v-form
 							ref="register-form"
+							id="register-form"
 						>
 							<v-container>
 								<v-layout column>
 									<v-flex>
 										<v-text-field
+										name="firstName"
+										value="alexandre"
 										label="First name"
 										:rules="[rules.required, rules.name]"
 										solo
@@ -37,6 +41,8 @@
 									</v-flex>
 									<v-flex>
 										<v-text-field
+										value="barbosa"
+										name="lastName"
 										label="Last name"
 										:rules="[rules.required, rules.name]"
 										solo
@@ -44,6 +50,8 @@
 									</v-flex>
 									<v-flex>
 										<v-text-field
+										name="username"
+										value="kys3r"
 										label="Username"
 										:rules="[rules.required, rules.username]"
 										solo
@@ -51,15 +59,51 @@
 									</v-flex>
 									<v-flex>
 										<v-text-field
+										name="email"
+										value="kawaboog@gmail.com"
 										label="Email"
 										:rules="[rules.required, rules.email]"
 										solo
 										>
 									</v-text-field>
 								</v-flex>
-								<v-flex class="text-xs-center text-sm-center text-md-center text-lg-center">
+								<fieldset>
+									<label>
+										<input type="radio" name="picture" value="1" checked>
+										<img class="img-form" src="/img/1.png">
+									</label>
+
+									<label>
+										<input type="radio" name="picture" value="2">
+										<img class="img-form" src="/img/2.png">
+									</label>
+								</fieldset>
+								<fieldset>
+									<label>
+										<input type="radio" name="language" value="fr" checked>
+										<img class="flag-img-form" src="/img/fr.png">
+									</label>
+
+									<label>
+										<input type="radio" name="language" value="en">
+										<img class="flag-img-form" src="/img/en.png">
+									</label>
+									
+									<label>
+										<input type="radio" name="language" value="es">
+										<img class="flag-img-form" src="/img/es.png">
+									</label>
+
+									<label>
+										<input type="radio" name="language" value="de">
+										<img class="flag-img-form" src="/img/de.png">
+									</label>
+								</fieldset>
+								
+								<!-- <v-flex class="text-xs-center text-sm-center text-md-center text-lg-center">
 									<v-text-field label="Select Image" @click='pickFile' v-model='imageName' prepend-icon='attach_file' solo></v-text-field>
 									<input
+									name='file'
 									type="file"
 									style="display: none"
 									ref="image"
@@ -67,9 +111,11 @@
 									@change="onFilePicked"
 									>
 									<img :src="imageUrl" height="150"/>
-								</v-flex>
+								</v-flex> -->
 								<v-flex>
 									<v-text-field
+									name="password"
+									value="adminadmin69"
 									:append-icon="show1 ? 'visibility' : 'visibility_off'"
 									:rules="[rules.required, rules.password]"
 									:type="show1 ? 'text' : 'password'"
@@ -82,6 +128,8 @@
 								</v-flex>
 								<v-flex>
 									<v-text-field
+									name="confirmPassword"
+									value="adminadmin69"
 									:append-icon="show2 ? 'visibility' : 'visibility_off'"
 									:rules="[rules.required]"
 									:type="show2 ? 'text' : 'password'"
@@ -106,10 +154,13 @@
 		
 	</template>
 </v-app>
+	
+
 <script src="https://cdn.jsdelivr.net/npm/vue"></script>
 <script src="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.js"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="/js/ajax.js"></script>
 <script>
 new Vue({
 	el: '#app',
@@ -162,8 +213,16 @@ new Vue({
 })
 </script>
 
-<style lang="stylus" scoped>
-	
+<style scoped>
+	.img-form {
+		width: 40%;
+	}
+	.flag-img-form {
+		width: 10%;
+	}
+	fieldset {
+    	border: 0;
+	}
 </style>
 </body>
 </html>

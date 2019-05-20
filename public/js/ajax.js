@@ -1,9 +1,15 @@
 $(document).ready(() => {
 	$("#register-form").on("submit", function (e) {
-		console.log("UGVTYUFITYFITY");
 		e.preventDefault();
 		$.post("/form/register", $(this).serialize(), function (data) {
-			document.location.href="/";
+			if (data == '1') {
+				$(".errMessage").remove();
+                document.location.href="/signup";
+            }
+            else {
+                $(".errMessage").remove();
+                $( ".error" ).append( "<div class='errMessage'><h4> Error : " + data + "</h4></div>" );
+            }
 		});
 	})
 });

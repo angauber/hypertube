@@ -24,6 +24,7 @@
   "dependencies": {
     "addic7ed-api": "^1.8.2",
     "axios": "^0.18.0",
+    "bcrypt": "^3.0.6",
     "body-parser": "^1.19.0",
     "cloudscraper": "^4.1.1",
     "download": "^7.1.0",
@@ -32,6 +33,8 @@
     "express-session": "^1.16.1",
     "growing-file": "^0.1.3",
     "mongodb": "^3.2.3",
+    "mongoose": "^5.5.9",
+    "mongoose-type-email": "^1.0.11",
     "oauth": "^0.9.15",
     "rarbg": "^1.2.7",
     "request": "^2.88.0",

@@ -18,6 +18,7 @@ app.set('view engine', 'ejs');
 
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
+app.use('/img', express.static('public/img'));
 app.use('/js', express.static('public/js'));
 app.use('/srt', express.static('data/subs'));
 app.use('/tvSrt', express.static('data/tvSubs'));
