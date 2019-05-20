@@ -24,4 +24,15 @@ module.exports = {
 			});
 		})
 	},
+	update: function(auth, id, obj) {
+		manager.connect().then(function(db) {
+			const collection = db.collection('users');
+			collection.updateOne(
+				{oauth: auth, id: id},
+				{
+					$set: obj
+				}
+			)
+		})
+	}
 }

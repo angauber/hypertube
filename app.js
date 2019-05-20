@@ -48,7 +48,15 @@ app.get('/', function(req, res) {
 		res.render('stat.ejs');
 	}
 	else {
-		res.render('not_found.ejs')
+		res.render('login.ejs')
+	}
+})
+.get('/user', function(req, res) {
+	if (req.session.user_id) {
+		res.render('profile.ejs');
+	}
+	else {
+		res.render('login.ejs')
 	}
 })
 .get('/42auth', function(req, res) {
@@ -63,7 +71,7 @@ app.get('/', function(req, res) {
 		res.render('tv.ejs')
 	}
 	else {
-		res.render('not_found.ejs')
+		res.render('login.ejs')
 	}
 })
 .get('/query', function(req, res) {
@@ -71,7 +79,7 @@ app.get('/', function(req, res) {
 		movie.query(req, res)
 	}
 	else {
-		res.render('not_found.ejs')
+		res.render('login.ejs')
 	}
 })
 .get('/tvQuery', function(req, res) {
@@ -79,24 +87,14 @@ app.get('/', function(req, res) {
 		movie.tv_query(req, res)
 	}
 	else {
-		res.render('not_found.ejs')
+		res.render('login.ejs')
 	}
 })
 .get('/movie', function(req, res) {
-	if (typeof req.query.id !== "undefined") {
-		movie.start_movie(req.query.id, res)
-	}
-	else {
-		res.render('not_found.ejs')
-	}
+	movie.start_movie(req, res)
 })
 .get('/episode', function(req, res) {
-	if (typeof req.query.id !== "undefined" && typeof req.query.name !== "undefined" && typeof req.query.season !== "undefined" && typeof req.query.episode != "undefined") {
-		movie.start_episode(req, res)
-	}
-	else {
-		res.render('not_found.ejs')
-	}
+	movie.start_episode(req, res)
 })
 .get('/show', function(req, res) {
 	if (typeof req.query.id !== "undefined") {
@@ -151,15 +149,22 @@ app.get('/', function(req, res) {
 		res.render('not_found.ejs')
 	}
 })
+// post request
+
 .post('/comments', function(req, res) {
 	comment.get_comments(req, res)
 })
-// post request
 .post("/comment", function(req, res) {
 	comment.add_comment(req, res)
 })
+.post("/change_language", function(req, res) {
+	live.change_language(req, res)
+})
 .get('/getUserStats', function(req, res) {
-	live.user_stats(req, res);
+	live.user_stats(req, res)
+})
+.get('/getUserStatsById', function(req, res) {
+	live.user(req, res)
 })
 // production tests
 .get('/wipe', function(req, res) {
@@ -168,10 +173,8 @@ app.get('/', function(req, res) {
 .get('/bitch', function(req, res) {
 	movie.try()
 })
-.use(function(req, res, next){
+.use(function(req, res, next) {
 	res.render('not_found.ejs')
-	// res.setHeader('Content-Type', 'text/plain');
-	// res.status(404).send('404 NOT FOUND !');
 });
 
 app.listen(8008);

@@ -31,6 +31,8 @@ module.exports = {
 						if (typeof user[0] !== "undefined") {
 							obj[j] = {};
 							obj[j].sort = i
+							obj[j].oauth = result[i].auth
+							obj[j].user_id = result[i].id
 							obj[j].message = result[i].message
 							obj[j].time = result[i].time
 							obj[j].username = user[0].username

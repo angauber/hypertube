@@ -29,6 +29,9 @@ let vm = new Vue({
 					})
 				})
 			}
+		},
+		goto_user(type, id) {
+			window.open('/user?type=' + type + '&id=' + id);
 		}
 	},
 	mounted() {

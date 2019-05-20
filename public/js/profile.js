@@ -2,13 +2,13 @@ let vm = new Vue({
 	el: '#app',
 	data() {
 		return {
+			empty: false,
 			img: '',
 			username: '',
 			hours: '',
 			minutes: '',
 			size: '',
 			selected: '',
-			items: ['en', 'fr', 'es', 'de'],
 			data: {}
 		}
 	},
@@ -23,20 +23,25 @@ let vm = new Vue({
 })
 
 window.onload = function() {
-	axios.get('/getUserStats').then(response => {
+	let params = window.location.search.substring(1).split('&');
+	axios.get('/getUserStatsById?' + params[0] + '&' + params[1]).then(response => {
 		const data = JSON.parse(response.data);
 		console.log(data);
-		vm.img = data.img;
-		vm.username = data.username;
-		vm.selected = data.language;
-		let log = data.history;
-		console.log(log);
+		if (data != false) {
+			vm.img = data.img;
+			vm.username = data.username;
+			vm.selected = data.language;
+			let log = data.history;
 
-		let total = 0;
-		for (let i = 0; i < log.length; i++) {
-			total += parseInt(log[i].time);
+			let total = 0;
+			for (let i = 0; i < log.length; i++) {
+				total += parseInt(log[i].time);
+			}
+			toHHMMSS(total);
 		}
-		toHHMMSS(total);
+		else {
+			vm.empty = true;
+		}
 	});
 
 	document.getElementById("home").onclick = function() {

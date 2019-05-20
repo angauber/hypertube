@@ -15,7 +15,7 @@ module.exports = {
 						if (typeof info.id !== "undefined") {
 							users.find({oauth: '42', id: info.id}).then(function(result) {
 								if (result.length === 0) {
-									users.add({oauth: '42', id: info.id, username: info.login, img: info.image_url})
+									users.add({oauth: '42', id: info.id, username: info.login, img: info.image_url, language: 'en'})
 								}
 								req.session.cookie.maxAge = parseInt(info.expires_in) * 1000
 								req.session.oauth = '42'

@@ -63,7 +63,7 @@
 										<v-flex mt-2 ml-2>
 											<v-img :src="elem.img" aspect-ratio="1" style="max-width: 100%; border-radius: 50%; object-fit: cover;">
 										</v-flex>
-										<v-flex ml-3 mb-2 title font-weight-regular style="color: #e3f2fd;">{{ elem.username }}</v-flex>
+										<v-flex ml-3 mb-2 title font-weight-regular v-on:click="goto_user(elem.oauth, elem.user_id);" style="color: #e3f2fd; cursor: pointer;">{{ elem.username }}</v-flex>
 									</v-flex>
 									<v-layout column>
 										<v-flex ml-4 font-weight-light text-xs-right mr-5>{{ elem.time }}</v-flex>

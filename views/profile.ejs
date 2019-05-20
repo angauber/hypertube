@@ -49,13 +49,9 @@
 							<v-flex class="headline grey--text text--lighten-2">{{ username }}</v-flex>
 							<v-layout row align-left>
 								<v-flex class="headline grey--text text--lighten-2" shrink mt-3>Subtitles language&nbsp&nbsp</v-flex>
-								<v-flex md1 d-flex grow>
-									<v-select
-										v-model="selected"
-										:items="items"
-									></v-select>
+								<v-flex md1 d-flex grow display-1 mt-2>
+									{{ selected }}
 								</v-flex>
-								<v-btn class="mt-3 ml-5" v-on:click="change_lang();">Update</v-btn>
 							</v-layout>
 							<div class="countup" id="countup1">
 								<span class="headline grey--text text--lighten-2">Total watch time: </span>

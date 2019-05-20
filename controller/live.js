@@ -12,11 +12,8 @@ const files = require('../model/files')
 
 module.exports = {
 	register_time: function(session, type, id, time) {
-		stat.find({}).then(function(res) {
-			console.log(res);
-		})
 		if ((type == 'tv' || type == 'movie') && parseInt(time) > 0) {
-			if (typeof session.token_42 != "undefined") {
+			if (typeof session.oauth !== "undefined" && typeof session.user_id !== "undefined") {
 				request('https://api.intra.42.fr/v2/me?access_token=' + session.token_42, function (error, response, body) {
 					const info = JSON.parse(body)
 					if (typeof info.id !== "undefined") {
@@ -102,11 +99,11 @@ module.exports = {
 				}
 				else {
 					// if (ext == "mp4") {
-						res.writeHead(200, {
-							'Content-Type': 'video/mp4'
-						});
-						const stream = growingFile.open(path)
-						stream.pipe(res)
+					res.writeHead(200, {
+						'Content-Type': 'video/mp4'
+					});
+					const stream = growingFile.open(path)
+					stream.pipe(res)
 					// }
 					// else {
 					// 	console.log('plzzzz');
@@ -194,20 +191,49 @@ module.exports = {
 		}
 	},
 	user_stats: function(req, res) {
-		console.log('entering stats');
-		console.log(req.session.oauth);
-		console.log(req.session.user_id);
-		users.find({oauth: req.session.oauth, id: req.session.user_id}).then(function(result) {
-			const obj = result[0]
-			console.log(obj);
-			stat.find({auth: req.session.oauth, id: req.session.user_id}).then(function(result) {
-				console.log(result);
-				for (let i = 0; i < result.length; i++) {
-					if (result[i].type == "movie") {
-						cloudscraper.get('https://yts.am/api/v2/movie_details.json?movie_id=' + result[i].code).then(function(response) {
-							const info = JSON.parse(response);
-							if (info.data.movie) {
-								console.log(info.data.movie);
+		if (typeof req.session.oauth !== "undefined" && typeof req.session.user_id !== "undefined") {
+			users.find({oauth: req.session.oauth, id: req.session.user_id}).then(function(result) {
+				const obj = result[0]
+				console.log(obj);
+				stat.find({auth: req.session.oauth, id: req.session.user_id}).then(function(result) {
+					console.log(result);
+					// for (let i = 0; i < result.length; i++) {
+					// 	if (result[i].type == "movie") {
+					// 		cloudscraper.get('https://yts.am/api/v2/movie_details.json?movie_id=' + result[i].code).then(function(response) {
+					// 			const info = JSON.parse(response);
+					// 			if (info.data.movie) {
+					// 				console.log(info.data.movie);
+					// 			}
+					// 			else {
+					// 				res.json(false)
+					// 			}
+					// 		})
+					// 	}
+					// 	else {
+					//
+					// 	}
+					// }
+					obj.history = result;
+					res.json(JSON.stringify(obj))
+				})
+			})
+		}
+		else {
+			res.json(false)
+		}
+	},
+	user: function(req, res) {
+		if (typeof req.session.oauth !== "undefined" && typeof req.session.user_id !== "undefined") {
+			if (typeof req.query.type !== "undefined" && typeof req.query.id !== "undefined") {
+				users.find({oauth: req.query.type, id: parseInt(req.query.id)}).then(function(result) {
+					if (result[0]) {
+						const obj = result[0]
+						console.log(obj)
+						stat.find({auth: req.query.type, id: parseInt(req.query.id)}).then(function(result) {
+							console.log(result)
+							if (result) {
+								obj.history = result
+								res.json(JSON.stringify(obj))
 							}
 							else {
 								res.json(false)
@@ -215,13 +241,24 @@ module.exports = {
 						})
 					}
 					else {
-
+						res.json(false)
 					}
-				}
-				obj.history = result;
-				res.json(JSON.stringify(obj))
-			})
-		})
+				})
+			}
+			else {
+				res.json(false)
+			}
+		}
+		else {
+			res.josn(false)
+		}
+	},
+	change_language: function(req, res) {
+		if (typeof req.session.oauth !== "undefined" && typeof req.session.user_id !== "undefined") {
+			if (typeof req.body.language !== "undefined" && (req.body.language === "en" || req.body.language === "fr" || req.body.language === "es" || req.body.language === "de")) {
+				users.update(req.session.oauth, req.session.user_id, {language: req.body.language})
+			}
+		}
 	}
 }
 
