@@ -13,7 +13,6 @@ let vm = new Vue({
 	},
 	methods: {
 		goto_episode(episode) {
-			// console.log(episode);
 			this.dialog = true
 			window.location.replace('/episode?id=' + episode.show_id + '&name=' + this.name + '&season=' + episode.season_number + '&episode=' + episode.episode_number)
 			setInterval(() => {
