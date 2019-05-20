@@ -1,7 +1,7 @@
 let express = require('express');
 let router = express.Router();
 
-router.post('/register', (req, res) =>
+router.post('/comment', (req, res) =>
 {
 	console.log(req.body);
 });

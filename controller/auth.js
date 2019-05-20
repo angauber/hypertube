@@ -20,5 +20,15 @@ module.exports = {
 		else {
 			res.render('login.ejs')
 		}
+	},
+	get_42_token: function() {
+		return new Promise(function(resolve, reject) {
+			request.post({url:'https://api.intra.42.fr/oauth/token', form: {grant_type: 'client_credentials', client_id: 'e4c94fbb3b0c602e87b8b6ec7065ed7d474d40adcc4b6450beb63a723d7552a4', client_secret: 'a9eee462c30eb0adfe6f9f28cd6dead2cd877582420306493aec46306ea553d2'}}, function(err,httpResponse,body){
+				const info = JSON.parse(body)
+				if (typeof info.access_token != "undefined") {
+					resolve(info.access_token)
+				}
+			})
+		})
 	}
 }
