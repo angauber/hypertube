@@ -38,14 +38,22 @@ new Vue({
 		addNewPage() {
 			axios.get('/pagination?page=' + page).then(response => {
 				let api = response.data.data;
-
+				let viewed;
 				for (let i = 0; i < api.length; i++) {
+					viewed = false;
+					for (let j = 0; j < this.history.length; j++) {
+						if (parseInt(this.history[j].code) == parseInt(api[i].id)) {
+							viewed = true
+						}
+					}
 					let apiInfo = {
 						img : api[i].large_cover_image,
 						name : api[i].title,
 						rating : (parseInt(api[i].rating) / 2).toString(),
 						movie_id : api[i].id,
+						viewed : viewed
 					};
+					console.log(apiInfo.viewed);
 					this.movies.push(apiInfo);
 				}
 			})
@@ -64,6 +72,10 @@ new Vue({
 			this.bottom = this.bottomVisible()
 		})
 		this.addNewPage();
+		axios.get('/getUserStats').then(response => {
+			const data = JSON.parse(response.data);
+			this.history = data.history;
+		});
 	}
 })
 
