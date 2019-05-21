@@ -59,14 +59,12 @@ module.exports = {
 		})
 	},
 	stream: function(req, res) {
-		console.log(req.query.url);
 		const path = '/sgoinfre/Perso/angauber/hypertube/download/' + req.query.url
 		if (!fs.existsSync(path)) {
 			console.log('error files does not exists');
 		}
 		else {
 			download_finished(req.query.url).then(function(finished) {
-				console.log(finished);
 				let split = req.query.url.split(".")
 				let ext = split[split.length - 1]
 				if (finished) {
@@ -98,27 +96,29 @@ module.exports = {
 					}
 				}
 				else {
-					// if (ext == "mp4") {
-					res.writeHead(200, {
-						'Content-Type': 'video/mp4'
-					});
-					const stream = growingFile.open(path)
-					stream.pipe(res)
-					// }
-					// else {
-					// 	console.log('plzzzz');
-					// 	res.writeHead(206, { 'Content-Type': 'video/mp4' });
-					// 	const stream = growingFile.open(path)
-					// 	Transcoder = require('stream-transcoder');
-					//
-					// 	new Transcoder(stream)
-					// 	.videoCodec('h264')
-					// 	.format('mp4')
-					// 	.on('finish', function() {
-					// 		next();
-					// 	})
-					// 	.stream().pipe(res);
-					// }
+					if (ext == "mp4") {
+						res.writeHead(206, {
+							'Content-Type': 'video/mp4'
+						});
+						const stream = growingFile.open(path)
+						stream.pipe(res)
+					}
+					else {
+						console.log('marverick');
+						const hbjs = require('handbrake-js')
+
+						hbjs.spawn({ input: path, output: 'something.mp4' })
+						.on('error', err => {
+							// invalid user input, no video found etc
+						})
+						.on('progress', progress => {
+							console.log(
+								'Percent complete: %s, ETA: %s',
+								progress.percentComplete,
+								progress.eta
+							)
+						})
+					}
 				}
 			})
 		}

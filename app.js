@@ -149,6 +149,10 @@ app.get('/', function(req, res) {
 		res.render('not_found.ejs')
 	}
 })
+.get('/logout', function(req, res) {
+	req.session.destroy()
+	res.redirect('/')
+})
 // post request
 
 .post('/comments', function(req, res) {
