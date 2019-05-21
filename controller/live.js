@@ -96,29 +96,12 @@ module.exports = {
 					}
 				}
 				else {
-					if (ext == "mp4") {
-						res.writeHead(206, {
-							'Content-Type': 'video/mp4'
-						});
-						const stream = growingFile.open(path)
-						stream.pipe(res)
-					}
-					else {
-						console.log('marverick');
-						const hbjs = require('handbrake-js')
-
-						hbjs.spawn({ input: path, output: 'something.mp4' })
-						.on('error', err => {
-							// invalid user input, no video found etc
-						})
-						.on('progress', progress => {
-							console.log(
-								'Percent complete: %s, ETA: %s',
-								progress.percentComplete,
-								progress.eta
-							)
-						})
-					}
+					console.log(path);
+					res.writeHead(200, {
+						'Content-Type': 'video/mp4'
+					});
+					const stream = growingFile.open(path)
+					stream.pipe(res)
 				}
 			})
 		}

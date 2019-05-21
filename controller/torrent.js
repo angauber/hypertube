@@ -177,7 +177,7 @@ function download_torrent(res, movie, magnet, isTvShow) {
 function get_path(res, movie, file, bool) {
 	if (bool == true) {
 		console.log('starting to stream movie in 3 sec')
-		setTimeout(function() {res.render('movie.ejs', {'data' : movie, 'path' : file, 'language': language})}, 3000);
+		setTimeout(function() {res.render('movie.ejs', {'data' : movie, 'path' : file, 'language': movie.language})}, 3000);
 	}
 	else {
 		console.log(movie);
