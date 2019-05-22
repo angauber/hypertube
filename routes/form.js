@@ -31,7 +31,7 @@ router.get('/active_account', (req, res) =>
 			res.status(200).send(error);
 		}
 		else {
-			res.status(200).send('1');
+			res.redirect('/');
 		}
 	})
 });
