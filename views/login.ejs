@@ -24,24 +24,33 @@
 						<p class="display-1 text-xs-center">Sign in</p>
 					</v-card-text>
 					<v-container>
-						<v-layout column>
-							<v-flex>
-								<v-text-field
-								label="Username"
-								solo
-								></v-text-field>
-							</v-flex>
-							<v-flex>
-								<v-text-field
-								solo
-								type="password"
-								label="Password"
-								></v-text-field>
-							</v-flex>
-						</v-layout>
-						<v-layout align-center justify-center>
-							<v-btn color="#5F5AA2">Login</v-btn>
-						</v-layout>
+						<v-form
+							ref="signin-form"
+							id="signin-form"
+						>
+							<v-layout column>
+								<v-flex>
+									<v-text-field
+									value="kys3r"
+									label="Username"
+									name="username"
+									solo
+									></v-text-field>
+								</v-flex>
+								<v-flex>
+									<v-text-field
+									solo
+									value="adminadmin69"
+									name="password"
+									type="password"
+									label="Password"
+									></v-text-field>
+								</v-flex>
+							</v-layout>
+							<v-layout align-center justify-center>
+								<v-btn type='submit' color="#5F5AA2">Login</v-btn>
+							</v-layout>
+						</v-form>
 						<v-layout align-center justify-center mt-4>
 							<div style="width: 60px; height: 60px; margin-right: 20px">
 								<v-img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/42_Logo.svg/1024px-42_Logo.svg.png"
@@ -75,6 +84,7 @@
 	<script src="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.js"></script>
 	<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
 	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+	<script src="/js/ajax.js"></script>
 	<script>new Vue({
 		el: '#app',
 		data () {

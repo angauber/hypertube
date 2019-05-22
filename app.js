@@ -14,6 +14,14 @@ const app = express();
 
 let formRouter = require('./routes/form');
 
+const Db = require('./setup/setup.js');
+
+app.use(session({
+	secret: 'keyboard hype',
+	resave: false,
+	saveUninitialized: true,
+}))
+
 app.set('view engine', 'ejs');
 
 app.use(bodyParser.urlencoded({ extended: false }))
@@ -25,11 +33,8 @@ app.use('/tvSrt', express.static('data/tvSubs'));
 app.use('/form/', formRouter);
 
 app.set('trust proxy', 1) // trust first proxy
-app.use(session({
-	secret: 'keyboard hype',
-	resave: false,
-	saveUninitialized: true,
-}))
+
+
 app.get('/', function(req, res) {
 	if (req.session.user_id) {
 		res.render('home.ejs');
@@ -179,3 +184,4 @@ app.get('/', function(req, res) {
 });
 
 app.listen(8008);
+module.exports = app;

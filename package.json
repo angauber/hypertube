@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/angauber/hypertube#readme",
   "dependencies": {
+    "@sendgrid/mail": "^6.4.0",
     "addic7ed-api": "^1.8.2",
     "axios": "^0.18.0",
     "bcrypt": "^3.0.6",
@@ -36,7 +37,9 @@
     "mongodb": "^3.2.3",
     "mongoose": "^5.5.9",
     "mongoose-type-email": "^1.0.11",
+    "nodemailer": "^6.1.1",
     "oauth": "^0.9.15",
+    "rand-token": "^0.4.0",
     "rarbg": "^1.2.7",
     "request": "^2.88.0",
     "simple-oauth2": "^2.2.1",

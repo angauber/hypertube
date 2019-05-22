@@ -2,7 +2,12 @@ const 	Parsing = require('../model/parsing.js'),
 		Models = require('../setup/schemas'),
 		Users = Models.Users,
 		SaltRounds = 8,
-		Bcrypt = require('bcrypt');
+		Bcrypt = require('bcrypt'),
+		Select = require('../model/select.js'),
+		Insert = require('../model/insert.js'),
+		Update = require('../model/update.js'),
+		Email = require('../model/email.js'),
+		Lib = require('../lib/lib.js')
 
 module.exports =
 {
@@ -40,72 +45,47 @@ module.exports =
 															callback(err);
 														else
 														{
-															this.insertUser(body, (errInsert, successInsert) =>
+															Select.isLogin(body.username, (errLogin, successLogin) =>
 															{
-																if (errInsert) {
-																	callback(errInsert);
-																}
-																else {
-																	callback(null, 1);
-																}
+																if (errLogin)
+																	callback(errLogin);
+																else if (successLogin == 0)
+																	Select.isEmail(body.email, (errEmail, successEmail) =>
+																	{
+																		if (errEmail)
+																			callback(errEmail);
+																		else if (successEmail == 0)
+																		{
+																			let token = Lib.createToken();
+																			Insert.insertToken(body.username, token, (errToken, successToken) =>
+																			{
+																				if (errToken)
+																					callback(errToken);
+																				else
+																					this.insertUser(body, (errInsert, successInsert) =>
+																					{
+																						if (errInsert)
+																							callback(errInsert);
+																						else
+																							Email.accountConfirmationMail(body.email, token, (errMail, successMail) =>
+																							{
+																								if(errMail)
+																									callback(errMail);
+																								else
+																									callback(null, '1');
+																							})
+																					})
+																			})
+																		}
+																		else
+																			callback('L\'email existe deja');
+																	})
+																else
+																	callback('Le username existe deja');
 															})
 															
 														}
 													})
-													
-													// Select.isLogin(body.login, (errLogin, successLogin) =>
-													// {
-													// 	if (errLogin)
-													// 		callback(errLogin);
-													// 	else if (successLogin == 0)
-													// 		Select.isEmail(body.email, (errEmail, successEmail) =>
-													// 		{
-													// 			if (errEmail)
-													// 				callback(errEmail);
-													// 			else if (successEmail == 0)
-													// 			{
-													// 				Bcrypt.genSalt(saltRounds, (errHash, salt) =>
-													// 				{
-													// 				    Bcrypt.hash(body.password, salt, (errHash, hash) =>
-													// 					{
-													// 						if (errHash)
-													// 							callback("Error Password")
-													// 						else
-													// 						{
-													// 							body.lastName = body.lastName.toLowerCase();
-													// 							body.firstName = body.firstName.toLowerCase();
-													// 							body.login = body.login.toLowerCase();
-													// 							body.email = body.email.toLowerCase();
-													// 							body.password = hash;
-													// 							Insert.insertUser(body, (errInsert, successInsert) =>
-													// 							{
-													// 								if(errInsert)
-													// 									callback(errInsert);
-													// 								else
-													// 									Insert.insertToken(body.login, (errToken, successToken) =>
-													// 									{
-													// 										if (errToken)
-													// 											callback(errToken);
-													// 										else
-													// 											Email.accountConfirmationMail(body.email, successToken, (errMail, successMail) =>
-													// 											{
-													// 												if(errMail)
-													// 													callback(errMail);
-													// 												else
-													// 													callback(null, '1');
-													// 											})
-													// 									})
-													// 							});
-													// 						}
-													// 				    });
-													// 				});
-													// 			}
-													// 			else
-													// 				callback('L\'email existe deja');
-													// 		})
-													// 	else
-													// 		callback('Le login existe deja');
-													// })
 											})
 									})
 							})
@@ -140,5 +120,30 @@ module.exports =
 						callback('Error insert user');
 				});
 		});
-	}
+	},
+
+	activeAccount(token, callback)
+	{
+		Select.isToken(token, (errToken, successToken) =>
+		{
+			if (errToken)
+				callback("ERROR activeAccount")
+			else
+				Select.getLoginByToken(token, (errTokenLogin, successTokenLogin) =>
+				{
+					if (errTokenLogin)
+						callback("ERROR activeAccount")
+					else
+						Update.activeAccount(successTokenLogin, (errUpdate, successUpdate) =>
+						{
+							if (errUpdate)
+								callback("ERROR activeAccount")
+							else
+							{
+								callback(null, '1');
+							}
+						})
+				})
+		})
+	},
 }
