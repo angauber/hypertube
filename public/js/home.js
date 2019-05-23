@@ -57,7 +57,8 @@ new Vue({
 					this.movies.push(apiInfo);
 				}
 			})
-		}
+		},
+		
 	},
 	watch: {
 		bottom(bottom) {
