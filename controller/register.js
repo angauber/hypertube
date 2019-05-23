@@ -67,12 +67,19 @@ module.exports =
 																						if (errInsert)
 																							callback(errInsert);
 																						else
-																							Email.accountConfirmationMail(body.email, token, (errMail, successMail) =>
+																							Update.updateId(body.username, (errorId, successId) =>
 																							{
-																								if(errMail)
-																									callback(errMail);
+																								if (errorId)
+																									callback(errorId);
 																								else
-																									callback(null, '1');
+																									Email.accountConfirmationMail(body.email, token, (errMail, successMail) =>
+																									{
+																										if(errMail)
+																											callback(errMail);
+																										else
+																											callback(null, '1');
+																									})
+																								
 																							})
 																					})
 																			})
@@ -99,26 +106,31 @@ module.exports =
 	{
 		Bcrypt.hash(body.password, SaltRounds, (err, hash) =>
 		{
-				let userInsert = new Users({
-				 	username : body.username,
-					firstName : body.firstName,
-					lastName : body.lastName,
-					img : body.picture,
-					oauth : '0',
-					email : body.email,
-					password : hash,
-					language : body.language,
-					typeOfUser : 'user',
-					isActive : false,
-					banned : false,
-				});
-				userInsert.save((err, res) =>
-				{
-					if (res)
-						callback(null, 1);
-					else
-						callback('Error insert user');
-				});
+			if (body.picture == '0')
+				body.picture = 'https://www.reseau-immd.fr/wp-content/uploads/2017/10/if_users-10_984119.png';
+			else
+				body.picture = 'https://www.reseau-immd.fr/wp-content/uploads/2017/10/if_users-3_984116.png'
+			let userInsert = new Users({
+			 	username : body.username,
+				firstName : body.firstName,
+				lastName : body.lastName,
+				id : 'tmp',
+				img : body.picture,
+				oauth : '0',
+				email : body.email,
+				password : hash,
+				language : body.language,
+				typeOfUser : 'user',
+				isActive : false,
+				banned : false,
+			});
+			userInsert.save((err, res) =>
+			{
+				if (res)
+					callback(null, 1);
+				else
+					callback('Error insert user');
+			});
 		});
 	},
 
