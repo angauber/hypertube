@@ -30,6 +30,7 @@ app.use('/img', express.static('public/img'));
 app.use('/js', express.static('public/js'));
 app.use('/srt', express.static('data/subs'));
 app.use('/tvSrt', express.static('data/tvSubs'));
+app.use('/npm', express.static('node_modules'));
 app.use('/form/', formRouter);
 
 app.set('trust proxy', 1) // trust first proxy
@@ -154,6 +155,10 @@ app.get('/', function(req, res) {
 	else {
 		res.render('not_found.ejs')
 	}
+})
+.get('/logout', function(req, res) {
+	req.session.destroy()
+	res.redirect('/')
 })
 // post request
 

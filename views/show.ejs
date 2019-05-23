@@ -24,6 +24,7 @@
 					<v-btn flat v-on:click="window.location.replace('/');">Movies</v-btn>
 					<v-btn flat v-on:click="window.location.replace('/tv');" color="#342A21">Tv shows</v-btn>
 					<v-btn flat v-on:click="window.location.replace('/stats');">Stats</v-btn>
+					<v-btn flat v-on:click="window.location.replace('/logout')">logout</v-btn>
 				</v-toolbar-items>
 			</v-toolbar>
 			<v-container grid-list-md text-xs-center>
@@ -57,7 +58,7 @@
 							</v-flex>
 							<v-flex mx-5 my-2 v-for="episode in episodes"> <!-- v-for -->
 								<v-card>
-									<v-layout row>
+									<v-layout align-center justify-space-between row fill-height>
 										<img height="150px" width="auto" :src="episode.still_path">
 										<v-card-title primary-title>
 											<div>

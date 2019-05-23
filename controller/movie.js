@@ -3,6 +3,7 @@ const torrent = require('./torrent');
 const request = require('request');
 
 const files = require('../model/files');
+const users = require('../model/users');
 
 module.exports = {
 	start_movie: function(req, res) {
@@ -11,7 +12,12 @@ module.exports = {
 				cloudscraper.get('https://yts.am/api/v2/movie_details.json?movie_id=' + req.query.id).then(function(response) {
 					const info = JSON.parse(response);
 					if (info.data.movie) {
-						torrent.launch_movie(res, info.data.movie)
+						users.find({oauth: req.session.oauth, id: parseInt(req.session.user_id)}).then(function(response) {
+							if (typeof response[0].language !== "undefined") {
+								console.log('launcinggggg');
+								torrent.launch_movie(res, info.data.movie, response[0].language)
+							}
+						})
 					}
 					else {
 						res.render('not_found.ejs')
@@ -35,7 +41,12 @@ module.exports = {
 						if (info.episode_number !== "undefined") {
 							info.name = req.query.name
 							info.show_id = req.query.id
-							torrent.launch_episode(res, info)
+							users.find({oauth: req.session.oauth, id: parseInt(req.session.user_id)}).then(function(response) {
+								if (typeof response[0].language !== "undefined") {
+									console.log('launcinggggg');
+									torrent.launch_episode(res, info, response[0].language)
+								}
+							})
 						}
 						else {
 							res.render('not_found.ejs')

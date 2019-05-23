@@ -6,21 +6,20 @@ const RarbgApi = require('rarbg');
 const files = require('../model/files.js')
 
 module.exports = {
-	launch_movie: function (res, movie) {
-		console.log('starting..');
+	launch_movie: function (res, movie, language) {
 		this.movie_exists(movie.imdb_code, function(mv) {
 			let path = mv.path
 			console.log('path:' + path);
-			get_subs(movie.imdb_code).then(function(srt) {
+			get_subs(movie.imdb_code, language).then(function(srt) {
 				if (srt !== false) {
 					console.log(srt)
-					fs.createReadStream('data/subs/' + movie.imdb_code + '-fr/' + srt)
+					fs.createReadStream('data/subs/' + movie.imdb_code + '-' + language + '/' + srt)
 					.pipe(srt2vtt())
-					.pipe(fs.createWriteStream('data/subs/' + movie.imdb_code + '-fr/sub.vtt'))
+					.pipe(fs.createWriteStream('data/subs/' + movie.imdb_code + '-' + language + '/sub.vtt'))
 				}
 				if (path) {
 					console.log('movie exists already, launching: ' + path)
-					res.render('movie.ejs', {'data' : movie, 'path' : path})
+					res.render('movie.ejs', {'data' : movie, 'path' : path, 'language' : language})
 				}
 				else {
 					console.log('movie ' + movie.imdb_code + ' isn\'t on server');
@@ -28,31 +27,31 @@ module.exports = {
 					const magnet = 'magnet:?xt=urn:btih:' + bestTorrent.hash + '&dn=' + encodeURI(movie.title_long.replace(' ', '+')) + '+[1080p]+[YTS.AM]&tr=udp%3A%2F%2Fglotorrents.pw%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A80&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Fp4p.arenabg.ch%3A1337&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337'
 					console.log(magnet)
 					movie.size = bestTorrent.size_bytes
+					movie.language = language
 					download_torrent(res, movie, magnet, false)
 				}
 			})
 		})
 	},
-	launch_episode: function (res, episode) {
-		console.log('starting..');
+	launch_episode: function (res, episode, language) {
 		this.episode_exists(episode.id, function(ep) {
 			let path = ep.path
-			console.log('path: ' + path);
-			get_episode_subs(episode).then(function(srt) {
+			get_episode_subs(episode, language).then(function(srt) {
 				if (srt !== false) {
-					fs.createReadStream('data/tvSubs/' + episode.id + '-fr.srt')
+					fs.createReadStream('data/tvSubs/' + episode.id + '-' + language + '.srt')
 					.pipe(srt2vtt())
-					.pipe(fs.createWriteStream('data/tvSubs/' + episode.id + '-fr.vtt'))
+					.pipe(fs.createWriteStream('data/tvSubs/' + episode.id + '-' + language + '.vtt'))
 				}
 			})
 			if (path) {
 				console.log('episode exists already, launching: ' + path)
-				res.render('episode.ejs', {'data' : episode, 'path' : path})
+				res.render('episode.ejs', {'data' : episode, 'path' : path, 'language' : language})
 			}
 			else {
 				console.log('episode ' + episode.id + ' isn\'t on server');
 				get_episode_magnet(episode).then(function(magnet) {
 					console.log('magnet-link:' + magnet)
+					episode.language = language
 					download_torrent(res, episode, magnet, true)
 				})
 			}
@@ -113,7 +112,8 @@ function download_torrent(res, movie, magnet, isTvShow) {
 			if (ext == "mp4" || ext == "mkv") {
 				file.select();
 				console.log(file.path)
- 				please = file.path
+				console.log('FILE SELECTED');
+				please = file.path
 				if (isTvShow) {
 					get_tv_path(res, movie, file, false)
 				}
@@ -161,10 +161,12 @@ function download_torrent(res, movie, magnet, isTvShow) {
 				file.deselect();
 			}
 		});
-	});
+	})
 	engine.on('idle', function() {
 		console.log('all files have been downloaded');
 		if (isTvShow) {
+			console.log('updating episode');
+			console.log(please);
 			files.update_episode(please, {downloaded: true})
 		}
 		else {
@@ -178,7 +180,7 @@ function download_torrent(res, movie, magnet, isTvShow) {
 function get_path(res, movie, file, bool) {
 	if (bool == true) {
 		console.log('starting to stream movie in 3 sec')
-		setTimeout(function() {res.render('movie.ejs', {'data' : movie, 'path' : file})}, 3000);
+		setTimeout(function() {res.render('movie.ejs', {'data' : movie, 'path' : file, 'language': movie.language})}, 3000);
 	}
 	else {
 		console.log(movie);
@@ -190,62 +192,145 @@ function get_tv_path(res, episode, file, bool) {
 	if (bool == true) {
 		console.log('starting to stream movie in 2 sec')
 		console.log(file.path);
-		setTimeout(function() {res.render('episode.ejs', {'data' : episode, 'path' : file.path})}, 2000);
+		setTimeout(function() {res.render('episode.ejs', {'data' : episode, 'path' : file.path, 'language': episode.language})}, 2000);
 	}
 	else {
 		files.add_episode(episode.id, file.length, file.path)
 	}
 }
 
-let get_episode_subs = function(episode) {
+let get_episode_subs = function(episode, language) {
 	return new Promise(function(resolve, reject) {
-		if (!fs.existsSync('data/tvSubs/' + episode.id + '-fr.srt')) {
+		if (!fs.existsSync('data/tvSubs/' + episode.id + '-' + language + '.srt')) {
 			const addic7edApi = require('addic7ed-api');
 
-			addic7edApi.search(episode.name, episode.season_number, episode.episode_number, 'fre').then(function (subtitlesList) {
-				let subInfo = subtitlesList[0];
-				if (subInfo) {
-					addic7edApi.download(subInfo, './data/tvSubs/' + episode.id + '-fr.srt').then(function () {
-						console.log('Subtitles file saved.');
-						resolve(true);
-					})
-				}
-			})
+			if (language == 'fr') {
+				addic7edApi.search(episode.name, episode.season_number, episode.episode_number, 'fre').then(function (subtitlesList) {
+					let subInfo = subtitlesList[0];
+					if (subInfo) {
+						addic7edApi.download(subInfo, './data/tvSubs/' + episode.id + '-fr.srt').then(function () {
+							console.log('Subtitles file saved.');
+							resolve(true);
+						})
+					}
+				})
+			}
+			else if (language == 'en') {
+				addic7edApi.search(episode.name, episode.season_number, episode.episode_number, 'eng').then(function (subtitlesList) {
+					let subInfo = subtitlesList[0];
+					if (subInfo) {
+						addic7edApi.download(subInfo, './data/tvSubs/' + episode.id + '-en.srt').then(function () {
+							console.log('Subtitles file saved.');
+							resolve(true);
+						})
+					}
+				})
+			}
+			else if (language == 'es') {
+				addic7edApi.search(episode.name, episode.season_number, episode.episode_number, 'spa').then(function (subtitlesList) {
+					let subInfo = subtitlesList[0];
+					if (subInfo) {
+						addic7edApi.download(subInfo, './data/tvSubs/' + episode.id + '-es.srt').then(function () {
+							console.log('Subtitles file saved.');
+							resolve(true);
+						})
+					}
+				})
+			}
+			else {
+				console.log('searcging for deuitsh subs');
+				addic7edApi.search(episode.name, episode.season_number, episode.episode_number, 'ger').then(function (subtitlesList) {
+					console.log('found those subs:' + subtitlesList);
+					console.log(subtitlesList);
+					let subInfo = subtitlesList[0];
+					if (subInfo) {
+						addic7edApi.download(subInfo, './data/tvSubs/' + episode.id + '-de.srt').then(function () {
+							console.log('Subtitles file saved.');
+							resolve(true);
+						})
+					}
+				})
+			}
 		}
 		else {
-			console.log('fr subs already exists.. skipping the download part');
+			console.log(language + ' subs already exists.. skipping the download part');
 			resolve(false);
 		}
 	})
 }
 
-let get_subs = function(imdb) {
+let get_subs = function(imdb, language) {
 	return new Promise(function(resolve, reject) {
 		const yifysubs = require('yifysubtitles-api');
 		const download = require('download');
 
-		if (!fs.existsSync('data/subs/' + imdb + '-fr')) {
+		if (!fs.existsSync('data/subs/' + imdb + '-' + language)) {
 			yifysubs.search({imdbid: imdb, limit: 'best'}).then(function(data) {
-				if (typeof data.fr[0].url !== undefined) {
-					console.log(data.fr[0].url);
+				if (language == 'fr') {
+					if (typeof data.fr[0].url !== "undefined") {
+						console.log(data.fr[0].url);
 
-					fs.mkdir('data/subs/' + imdb + '-fr', { recursive: true }, (err) => {
-						if (err) throw err;
-					});
-					download(data.fr[0].url, 'data/subs/' + imdb + '-fr', {extract: true}).then(() => {
-						console.log('done!');
-						fs.readdir('data/subs/' + imdb + '-fr', (err, files) => {
-							if (typeof files[0] !== undefined) {
-								resolve(files[0])
-							}
+						fs.mkdir('data/subs/' + imdb + '-fr', { recursive: true }, (err) => {
+							if (err) throw err;
 						});
-					});
+						download(data.fr[0].url, 'data/subs/' + imdb + '-fr', {extract: true}).then(() => {
+							console.log('done!');
+							fs.readdir('data/subs/' + imdb + '-fr', (err, files) => {
+								if (typeof files[0] !== "undefined") {
+									resolve(files[0])
+								}
+							});
+						});
+					}
+				}
+				else if (language == 'en') {
+					if (typeof data.en[0].url !== "undefined") {
+						fs.mkdir('data/subs/' + imdb + '-en', { recursive: true }, (err) => {
+							if (err) throw err;
+						});
+						download(data.en[0].url, 'data/subs/' + imdb + '-en', {extract: true}).then(() => {
+							fs.readdir('data/subs/' + imdb + '-en', (err, files) => {
+								if (typeof files[0] !== "undefined") {
+									resolve(files[0])
+								}
+							});
+						});
+					}
+				}
+				else if (language == 'es') {
+					if (typeof data.es[0].url !== "undefined") {
+						fs.mkdir('data/subs/' + imdb + '-es', { recursive: true }, (err) => {
+							if (err) throw err;
+						});
+						download(data.es[0].url, 'data/subs/' + imdb + '-es', {extract: true}).then(() => {
+							fs.readdir('data/subs/' + imdb + '-es', (err, files) => {
+								if (typeof files[0] !== "undefined") {
+									resolve(files[0])
+								}
+							});
+						});
+					}
+				}
+				else {
+					if (typeof data.de[0].url !== undefined) {
+						fs.mkdir('data/subs/' + imdb + '-de', { recursive: true }, (err) => {
+							if (err) throw err;
+						});
+						console.log(data);
+						download(data.de[0].url, 'data/subs/' + imdb + '-de', {extract: true}).then(() => {
+							fs.readdir('data/subs/' + imdb + '-de', (err, files) => {
+								if (typeof files[0] !== undefined) {
+									resolve(files[0])
+								}
+							});
+						});
+					}
 				}
 			})
 		}
 		else {
-			console.log('en subs already exists.. skipping the download part');
-			fs.readdir('data/subs/' + imdb + '-fr', (err, files) => {
+			console.log(language + ' subs already exists.. skipping the download part');
+			fs.readdir('data/subs/' + imdb + '-' + language, (err, files) => {
 				if (files) {
 					resolve(false)
 				}

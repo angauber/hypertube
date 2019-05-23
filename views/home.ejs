@@ -3,6 +3,7 @@
 <head>
 	<link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Material+Icons" rel="stylesheet">
 	<link href="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
 	<style>
 	.hvr-shrink:hover, .hvr-shrink:active {
@@ -39,6 +40,7 @@
 					<v-btn flat color="#342A21">Movies</v-btn>
 					<v-btn flat v-on:click="window.location.replace('/tv');">Tv shows</v-btn>
 					<v-btn flat v-on:click="window.location.replace('/stats');">Stats</v-btn>
+					<v-btn flat v-on:click="window.location.replace('/logout')">logout</v-btn>
 				</v-toolbar-items>
 			</v-toolbar>
 			<v-container grid-list-md text-xs-center>
@@ -61,14 +63,16 @@
 			</v-dialog>
 			<v-flex v-for="movie in movies" v-on:click="goto_movie(movie.movie_id)" xs2>
 				<v-hover>
-					<v-card slot-scope="{ hover }" dark tile flat class="hvr-shrink mb-3" color="teal lighten-2" width="95%" style="cursor: pointer;">
+					<v-card slot-scope="{ hover }" dark tile flat class="hvr-shrink mb-3" color="teal lighten-2" width="95%" style="cursor: pointer; position: relative;">
 						<v-img :src="movie.img" class="grey lighten-2">
+							<i style="font-size: 2rem; position: absolute; top: 10px; right: 10px; color: #00FA9A" class="fas fa-check-circle mb-5" v-if="movie.viewed == true">
+							</i>
 							<v-expand-transition>
 								<div v-if="hover" class="d-flex transition-fast-in-fast-out v-card--reveal display-3 white--text" style="height: 100%;">
 									<v-container>
-										<v-layout wrap>
-											<p class="headline text-xs-center">{{ movie.name }}</p>
-											<v-rating readonly :value="movie.rating" half-increments></v-rating>
+										<v-layout align-center justify-space-around column fill-height>
+											<p class="title text-xs-center">{{ movie.name }}</p>
+											<v-rating small readonly :value="movie.rating" half-increments style="height: 10%;"></v-rating>
 										</v-layout>
 									</v-container>
 								</div>
