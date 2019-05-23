@@ -1,6 +1,8 @@
 const request = require('request');
 const cloudscraper = require('cloudscraper');
 const fs = require('fs');
+const pump = require('pump');
+const ffmpeg = require('fluent-ffmpeg');
 const growingFile = require('growing-file');
 const torrent = require('./torrent');
 const users = require('../model/users');
@@ -33,12 +35,12 @@ module.exports = {
 	pagination: function(req, res) {
 		cloudscraper.get('https://yts.am/api/v2/list_movies.json?sort_by=download_count&page=' + req.query.page + '&limit=48').then(function(response) {
 			// console.log(response);
-			const info = JSON.parse(response);
+			const info = JSON.parse(response)
 			if (info.data.movies) {
-				res.json({'data' : info.data.movies});
+				res.json({'data' : info.data.movies})
 			}
 			else {
-				res.render('not_found.ejs')
+				res.json(false)
 			}
 		})
 	},
@@ -61,6 +63,7 @@ module.exports = {
 	stream: function(req, res) {
 		const path = '/sgoinfre/Perso/angauber/hypertube/download/' + req.query.url
 		if (!fs.existsSync(path)) {
+			console.log(path);
 			console.log('error files does not exists');
 		}
 		else {
@@ -71,37 +74,72 @@ module.exports = {
 					const range = req.headers.range
 					const stat = fs.statSync(path)
 					const fileSize = stat.size
-					if (range) {
-						const parts = range.replace(/bytes=/, "").split("-")
-						const start = parseInt(parts[0], 10)
-						const end = parts[1]
-						? parseInt(parts[1], 10)
-						: fileSize-1
-						const chunksize = (end-start)+1
-						const file = fs.createReadStream(path, {start, end})
-						const head = {
-							'Content-Range': `bytes ${start}-${end}/${fileSize}`,
-							'Accept-Ranges': 'bytes',
-							'Content-Length': chunksize,
-							'Content-Type': 'video/mp4',
+					if (ext == "mkv") {
+						console.log('finishewd mkv');
+						res.contentType('video/webm');
+						let conversion = ffmpeg(path)
+						.withVideoCodec("libvpx")
+						.withVideoBitrate("1000")
+						.withAudioCodec("libvorbis")
+						.withAudioBitrate("256k")
+						.audioChannels(2)
+						.format("matroska")
+						pump(conversion, res);
+					}
+					else {
+						if (range) {
+							const parts = range.replace(/bytes=/, "").split("-")
+							const start = parseInt(parts[0], 10)
+							const end = parts[1]
+							? parseInt(parts[1], 10)
+							: fileSize - 1
+							const chunksize = (end-start) + 1
+							const file = fs.createReadStream(path, {start, end})
+							const head = {
+								'Content-Range': `bytes ${start}-${end}/${fileSize}`,
+								'Accept-Ranges': 'bytes',
+								'Content-Length': chunksize,
+								'Content-Type': 'video/mp4',
+							}
+							res.writeHead(206, head);
+							file.pipe(res);
+						} else {
+							const head = {
+								'Content-Type': 'video/mp4',
+							}
+							res.writeHead(200, head)
+							fs.createReadStream(path).pipe(res)
 						}
-						res.writeHead(206, head);
-						file.pipe(res);
-					} else {
-						const head = {
-							'Content-Type': 'video/mp4',
-						}
-						res.writeHead(200, head)
-						fs.createReadStream(path).pipe(res)
 					}
 				}
 				else {
-					console.log(path);
-					res.writeHead(200, {
-						'Content-Type': 'video/mp4'
-					});
-					const stream = growingFile.open(path)
-					stream.pipe(res)
+					if (ext == "mkv") {
+						console.log('matrsifdb');
+						const stream = growingFile.open(path)
+
+						let conversion = ffmpeg(stream)
+						.withVideoCodec("libvpx")
+						.withVideoBitrate("1000")
+						.withAudioCodec("libvorbis")
+						.withAudioBitrate("256k")
+						.audioChannels(2)
+						.outputOptions([
+							"-preset ultrafast",
+							"-deadline realtime",
+							"-error-resilient 1",
+							"-movflags +faststart",
+						])
+						.format("matroska")
+						res.contentType('video/webm');
+						pump(conversion, res);
+					}
+					else {
+						res.writeHead(200, {
+							'Content-Type': 'video/mp4'
+						});
+						const stream = growingFile.open(path)
+						stream.pipe(res)
+					}
 				}
 			})
 		}
@@ -176,6 +214,7 @@ module.exports = {
 	user_stats: function(req, res) {
 		if (typeof req.session.oauth !== "undefined" && typeof req.session.user_id !== "undefined") {
 			users.find({oauth: req.session.oauth, id: req.session.user_id}).then(function(result) {
+				console.log(req.session);
 				const obj = result[0]
 				console.log(obj);
 				stat.find({auth: req.session.oauth, id: req.session.user_id}).then(function(result) {
@@ -196,7 +235,10 @@ module.exports = {
 					//
 					// 	}
 					// }
-					obj.history = result;
+					if (!result)
+						obj.history = []
+					else
+						obj.history = result;
 					res.json(JSON.stringify(obj))
 				})
 			})

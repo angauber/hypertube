@@ -112,6 +112,7 @@ function download_torrent(res, movie, magnet, isTvShow) {
 			if (ext == "mp4" || ext == "mkv") {
 				file.select();
 				console.log(file.path)
+				console.log('FILE SELECTED');
 				please = file.path
 				if (isTvShow) {
 					get_tv_path(res, movie, file, false)
@@ -160,10 +161,12 @@ function download_torrent(res, movie, magnet, isTvShow) {
 				file.deselect();
 			}
 		});
-	});
+	})
 	engine.on('idle', function() {
 		console.log('all files have been downloaded');
 		if (isTvShow) {
+			console.log('updating episode');
+			console.log(please);
 			files.update_episode(please, {downloaded: true})
 		}
 		else {

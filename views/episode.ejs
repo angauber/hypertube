@@ -4,7 +4,8 @@
 	<meta charset="UTF-8">
 	<link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Material+Icons" rel="stylesheet">
 	<link href="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.min.css" rel="stylesheet">
-	<link href="https://vjs.zencdn.net/7.4.1/video-js.css" rel="stylesheet">
+	<link href="npm/video.js/dist/video-js.min.css" rel="stylesheet">
+	<link href="https://unpkg.com/silvermine-videojs-quality-selector@1.1.2/dist/css/quality-selector.css" rel="stylesheet">
 
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
 </head>
@@ -52,57 +53,66 @@
 							__append(data.episode_number);
 							%>
 						</v-card-text>
-						<video id='my-video' class="video-js vjs-default-skin vjs-big-play-centered" controls preload='auto' width="950" height="450" style="display: block; margin: 0 auto;"
-						poster="https://image.tmdb.org/t/p/w1280/<%= data.still_path %>" data-setup='{}'>
-						<source src="/stream?url=<%= path %>" type='video/mp4'>
+						<video id='my-video' class="video-js vjs-default-skin vjs-big-play-centered" controls preload='auto' width="950" height="450" style="display: block; margin: 0 auto;" poster="https://image.tmdb.org/t/p/w1280/<%= data.still_path %>" data-setup='{}'>
+							<source src="/stream?url=<%= path %>&res=1080" type='video/mp4' label='1080p' res='1080' selected="true" >
+							<source src="/stream?url=<%= path %>&res=720" type='video/mp4' label='720p' res='720' >
+							<source src="/stream?url=<%= path %>&res=480" type='video/mp4' label='480p' res='480' >
+							<source src="/stream?url=<%= path %>&res=144" type='video/mp4' label='144p' res='144' >
 							<track kind="captions" src="/tvSrt/<%= data.id %>-<%= language %>.vtt" label="<%= language %>" default>
-							</video>
-							<v-card-text class="body-1 mt-4 font-weight-light" style="color: white;"><%= data.overview %></v-card-text>
-							<div class="text-xs-center mt-2">
-								<v-rating></v-rating>
-							</div>
-							<v-btn mb-5 color="info" v-on:click="window.location.replace('/show?id=' + <%= data.show_id %>);">More episodes</v-btn>
-						</v-card>
+						</video>
+						<v-card-text class="body-1 mt-4 font-weight-light" style="color: white;"><%= data.overview %></v-card-text>
+						<div class="text-xs-center mt-2">
+							<v-rating></v-rating>
+						</div>
+						<v-btn mb-5 color="info" v-on:click="window.location.replace('/show?id=' + <%= data.show_id %>);">More episodes</v-btn>
+					</v-card>
+				</v-flex>
+			</v-layout>
+			<v-flex elevation-2 mt-4>
+				<v-layout row xs8 offset-xs1>
+					<v-flex xs8 offset-xs1>
+						<v-textarea
+							v-model="message"
+							hint="message need to be 4-200 chars"
+							label="Type your comment here.."
+						></v-textarea>
+					</v-flex>
+					<v-flex mt-5>
+						<v-btn secondary v-on:click="add_comment();">Submit</v-btn>
 					</v-flex>
 				</v-layout>
-				<v-flex elevation-2 mt-4>
-					<v-layout row xs8 offset-xs1>
-						<v-flex xs8 offset-xs1>
-							<v-textarea
-								v-model="message"
-								hint="message need to be 4-200 chars"
-								label="Type your comment here.."
-							></v-textarea>
-						</v-flex>
-						<v-flex mt-5>
-							<v-btn secondary v-on:click="add_comment();">Submit</v-btn>
-						</v-flex>
-					</v-layout>
-					<v-layout row wrap>
-						<v-flex v-for="elem in messages" xs10 offset-xs1 my-4 style="border-bottom: 1px solid black">
-							<v-layout row>
-								<v-flex class="person" shrink>
-									<v-flex mt-2 ml-2>
-										<v-img :src="elem.img" aspect-ratio="1" style="max-width: 100%; border-radius: 50%; object-fit: cover;">
-									</v-flex>
-									<v-flex ml-3 mb-2 title font-weight-regular v-on:click="goto_user(elem.oauth, elem.user_id);" style="color: #e3f2fd; cursor: pointer;">{{ elem.username }}</v-flex>
+				<v-layout row wrap>
+					<v-flex v-for="elem in messages" xs10 offset-xs1 my-4 style="border-bottom: 1px solid black">
+						<v-layout row>
+							<v-flex class="person" shrink>
+								<v-flex mt-2 ml-2>
+									<v-img :src="elem.img" aspect-ratio="1" style="max-width: 100%; border-radius: 50%; object-fit: cover;">
 								</v-flex>
-								<v-layout column>
-									<v-flex ml-4 font-weight-light text-xs-right mr-5>{{ elem.time }}</v-flex>
+								<v-flex ml-3 mb-2 title font-weight-regular v-on:click="goto_user(elem.oauth, elem.user_id);" style="color: #e3f2fd; cursor: pointer;">{{ elem.username }}</v-flex>
+							</v-flex>
+							<v-layout column>
+								<v-flex ml-4 font-weight-light text-xs-right mr-5>{{ elem.time }}</v-flex>
 									<v-flex class="content" grow text-xs-left offset-xs1 font-weight-light title style="color: #e3f2fd;">{{ elem.message }}</v-flex>
-								</v-layout>
 							</v-layout>
-						</v-flex>
-					</v-layout>
-					<!-- <v-btn color="info">Load more</v-btn> -->
-				</v-flex>
-			</v-container>
-		</template>
-	</v-app>
-	<script src='https://vjs.zencdn.net/7.4.1/video.js'></script>
-	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
-	<script src="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.js"></script>
-	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-	<script src="/js/episode.js"></script>
+						</v-layout>
+					</v-flex>
+				</v-layout>
+				<!-- <v-btn color="info">Load more</v-btn> -->
+			</v-flex>
+		</v-container>
+	</template>
+</v-app>
+<script src="npm/video.js/dist/video.min.js"></script>
+<script src="npm/silvermine-videojs-quality-selector/dist/js/silvermine-videojs-quality-selector.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script src="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
+window.onload = function() {
+	var player = videojs('my-video');
+	player.controlBar.addChild('QualitySelector');
+}
+</script>
+<script src="/js/episode.js"></script>
 </body>
 </html>

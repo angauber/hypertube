@@ -1,0 +1,4991 @@
+﻿1
+00:00:20,087 --> 00:00:21,713
+MAX (ERZÄHLT):
+<i>Mein Name ist Max.</i>
+
+2
+00:00:22,757 --> 00:00:25,165
+<i>Meine Welt ist Feuer und Blut.</i>
+
+3
+00:00:26,052 --> 00:00:27,595
+MANN 1:
+<i>Warum lasst ihr diese Menschen leiden?</i>
+
+4
+00:00:27,845 --> 00:00:29,174
+MANN 2:
+<i>Es geht ums Öl, Idiot.</i>
+
+5
+00:00:29,430 --> 00:00:31,887
+MANN 3: <i>Ölkriege.</i>
+MANN 4: <i>Wir töten für Benzin.</i>
+
+6
+00:00:32,141 --> 00:00:33,802
+FRAU 1:
+<i>Auf der Welt gibt es kaum noch Wasser.</i>
+
+7
+00:00:34,060 --> 00:00:35,804
+MANN 5:
+<i>Jetzt gibt es Wasserkriege.</i>
+
+8
+00:00:37,521 --> 00:00:39,895
+MAX:
+<i>Früher war ich ein Cop.</i>
+
+9
+00:00:40,149 --> 00:00:42,688
+<i>Ein Vollstrecker
+auf der Suche nach Gerechtigkeit.</i>
+
+10
+00:00:42,943 --> 00:00:44,522
+MANN 6: <i>Wir nähern uns
+dem endgültigen Kontrollverlust.</i>
+
+11
+00:00:44,779 --> 00:00:47,864
+MANN 7: <i>Die Menschheit bricht alle Gesetze
+und terrorisiert sich selbst.</i>
+
+12
+00:00:48,115 --> 00:00:49,445
+MANN 8:
+<i>Thermonukleare Gefechte.</i>
+
+13
+00:00:49,700 --> 00:00:50,864
+FRAU 2:
+<i>Die Erde ist übersäuert.</i>
+
+14
+00:00:51,118 --> 00:00:52,364
+FRAU 3:
+<i>Unsere Knochen sind vergiftet.</i>
+
+15
+00:00:52,620 --> 00:00:54,578
+FRAU 4:
+<i>Wir wurden zu Halb-Leben.</i>
+
+16
+00:00:55,623 --> 00:00:57,451
+MAX:
+<i>Als die Welt zerfiel,</i>
+
+17
+00:00:57,708 --> 00:01:00,627
+<i>war jeder von uns
+auf seine Weise gebrochen.</i>
+
+18
+00:01:01,170 --> 00:01:04,338
+<i>Es war schwer zu sagen,
+wer verrückter war.</i>
+
+19
+00:01:06,300 --> 00:01:07,499
+<i>Ich</i>
+
+20
+00:01:07,885 --> 00:01:09,630
+<i>oder alle anderen.</i>
+
+21
+00:01:12,306 --> 00:01:13,470
+MÄDCHEN:
+<i>Hallo?</i>
+
+22
+00:01:16,060 --> 00:01:17,520
+<i>Wo bist du?</i>
+
+23
+00:01:24,944 --> 00:01:26,059
+<i>Wo bist du, Max?</i>
+
+24
+00:01:26,320 --> 00:01:28,278
+MAX: <i>Da sind sie wieder.</i>
+FRAU: <i>Max Rockatansky.</i>
+
+25
+00:01:28,531 --> 00:01:31,698
+MAX: <i>Kriechen tief in den schwarzen Abgrund
+meines Gehirns.</i>
+
+26
+00:01:31,951 --> 00:01:33,944
+MÄDCHEN: <i>Hilf uns, Max.</i>
+FRAU: <i>Du hast versprochen, uns zu helfen.</i>
+
+27
+00:01:34,203 --> 00:01:35,615
+(QUETSCHGERÄUSCH)
+
+28
+00:01:38,249 --> 00:01:40,124
+<i>Ich sage mir,</i>
+
+29
+00:01:40,376 --> 00:01:42,453
+<i>sie können mir nichts anhaben.</i>
+
+30
+00:01:44,338 --> 00:01:46,131
+<i>Sie sind lange tot.</i>
+
+31
+00:01:54,265 --> 00:01:57,018
+(MOTOR GEHT AN UND SURRT)
+
+32
+00:01:57,268 --> 00:01:59,178
+(MOTOR HEULT AUF)
+
+33
+00:02:10,865 --> 00:02:14,614
+(MÄNNER RUFEN UND JUBELN)
+
+34
+00:02:21,667 --> 00:02:23,827
+(MÄNNER RUFEN WEITER)
+
+35
+00:02:27,840 --> 00:02:29,122
+(ÄCHZEN ERTÖNT)
+
+36
+00:02:41,729 --> 00:02:43,723
+(SCHNAPPT NACH LUFT)
+
+37
+00:02:44,023 --> 00:02:45,055
+MAX:
+<i>Ich bin der Einzige,</i>
+
+38
+00:02:45,316 --> 00:02:48,401
+<i>der vor den Lebenden
+und den Toten flieht.</i>
+
+39
+00:02:49,528 --> 00:02:51,818
+<i>Gejagt von Plünderern.</i>
+
+40
+00:02:52,531 --> 00:02:55,368
+<i>Heimgesucht von denen,
+die ich nicht beschützen konnte.</i>
+
+41
+00:03:02,708 --> 00:03:04,501
+(MÄNNER LACHEN)
+
+42
+00:03:04,752 --> 00:03:07,244
+MAX:
+<i>So existiere ich in diesem Wüstenland.</i>
+
+43
+00:03:08,130 --> 00:03:08,961
+(PISTOLE KLICKT)
+
+44
+00:03:12,301 --> 00:03:16,300
+<i>Ein Mann, reduziert
+auf einen einzigen Instinkt:</i>
+
+45
+00:03:17,056 --> 00:03:18,468
+<i>Überleben.</i>
+
+46
+00:03:36,575 --> 00:03:39,696
+(SURRT)
+
+47
+00:03:47,795 --> 00:03:51,247
+UNIVERSALSPENDER
+
+48
+00:03:57,263 --> 00:03:58,639
+(ÄCHZT)
+
+49
+00:04:08,232 --> 00:04:10,190
+(GRUPPE SCHREIT)
+
+50
+00:04:38,971 --> 00:04:39,754
+Max?
+
+51
+00:04:40,014 --> 00:04:40,880
+Bist du das?
+
+52
+00:04:42,058 --> 00:04:42,889
+Wo warst du?
+
+53
+00:04:45,061 --> 00:04:46,971
+Hilf uns. Wo warst du?
+
+54
+00:04:47,229 --> 00:04:48,012
+Wo warst du, Max?
+
+55
+00:04:50,524 --> 00:04:51,106
+(SCHREIEN)
+
+56
+00:05:04,997 --> 00:05:05,994
+Wo warst du, Max?
+
+57
+00:05:06,624 --> 00:05:07,241
+Lauf nicht weg!
+
+58
+00:05:08,376 --> 00:05:09,408
+Du hast uns sterben lassen.
+
+59
+00:05:10,961 --> 00:05:12,338
+Du hast uns sterben lassen!
+
+60
+00:05:12,588 --> 00:05:13,787
+Du hast uns sterben lassen!
+
+61
+00:05:14,674 --> 00:05:15,588
+MÄDCHEN:
+Du hast versprochen, uns zu helfen!
+
+62
+00:05:15,841 --> 00:05:16,624
+Warum?
+
+63
+00:05:27,228 --> 00:05:28,225
+(MÄNNER RUFEN)
+
+64
+00:05:35,820 --> 00:05:37,101
+Zeugen!
+
+65
+00:05:37,321 --> 00:05:38,864
+(LACHT)
+
+66
+00:05:39,198 --> 00:05:40,480
+Packt ihn!
+
+67
+00:06:11,105 --> 00:06:14,475
+(KNARRT)
+
+68
+00:06:27,496 --> 00:06:29,739
+(HUSTET)
+
+69
+00:06:30,041 --> 00:06:31,702
+Wir sind War Boys!
+
+70
+00:06:31,959 --> 00:06:32,874
+GRUPPE:
+War Boys!
+
+71
+00:06:33,127 --> 00:06:34,955
+MANN 1:
+Kamakrazee War Boys!
+
+72
+00:06:35,212 --> 00:06:35,995
+GRUPPE:
+War Boys!
+
+73
+00:06:36,255 --> 00:06:38,379
+MANN 1:
+Fucacima kamakrazee
+
+74
+00:06:38,632 --> 00:06:39,914
+War Boys!
+
+75
+00:06:40,176 --> 00:06:42,134
+Angedockt!
+
+76
+00:06:42,928 --> 00:06:43,795
+Heute fahren wir
+
+77
+00:06:44,055 --> 00:06:45,384
+nach Gas Town!
+
+78
+00:06:45,639 --> 00:06:46,969
+GRUPPE:
+Gas Town!
+
+79
+00:06:47,224 --> 00:06:49,218
+MANN 2:
+Heute liefern wir Aqua Cola.
+
+80
+00:06:49,894 --> 00:06:51,270
+GRUPPE:
+Aqua Cola!
+
+81
+00:06:51,687 --> 00:06:54,310
+MANN 2: Heute liefern wir Gemüse!
+GRUPPE: Gemüse!
+
+82
+00:06:54,815 --> 00:06:55,979
+MANN 2:
+Und heute liefern wir
+
+83
+00:06:56,233 --> 00:06:57,433
+Muttermilch!
+
+84
+00:06:57,693 --> 00:06:59,188
+GRUPPE:
+Muttermilch!
+
+85
+00:07:07,870 --> 00:07:10,825
+(GRUPPE SPRICHT UNVERSTÄNDLICHEN
+SPRECHGESANG)
+
+86
+00:07:11,999 --> 00:07:15,998
+(SPRECHGESANG GEHT WEITER)
+
+87
+00:07:20,174 --> 00:07:20,875
+(KEUCHT)
+
+88
+00:07:21,634 --> 00:07:23,509
+(KEUCHT WEITER)
+
+89
+00:07:23,928 --> 00:07:27,380
+GRUPPE (IM SPRECHGESANG):
+<i>Joe! Joe! Joe! Immortan Joe!</i>
+
+90
+00:07:48,077 --> 00:07:50,284
+Kommt auf Touren für Immortan Joe!
+
+91
+00:07:51,497 --> 00:07:55,496
+(MENGE BRÜLLT)
+
+92
+00:07:58,629 --> 00:07:59,294
+(BRÜLLEN HÖRT AUF)
+
+93
+00:07:59,547 --> 00:08:03,546
+Und wieder entsenden wir
+meinen Tankzug,
+
+94
+00:08:03,801 --> 00:08:06,127
+und holen Benzin aus Gas Town,
+
+95
+00:08:06,387 --> 00:08:09,140
+und Munition von der Bullet Farm.
+
+96
+00:08:09,682 --> 00:08:13,348
+Und wieder grüße ich meinen Imperator,
+
+97
+00:08:13,602 --> 00:08:15,228
+Furiosa!
+
+98
+00:08:15,479 --> 00:08:16,394
+Und ich grüße
+
+99
+00:08:16,647 --> 00:08:19,270
+meine halblebenden War Boys,
+
+100
+00:08:19,525 --> 00:08:21,851
+die mit mir in die Ewigkeit fahren,
+
+101
+00:08:22,153 --> 00:08:24,479
+auf den Highways von Walhalla!
+
+102
+00:08:24,739 --> 00:08:27,112
+GRUPPE:
+<i>V8! V8! V8! V8!</i>
+
+103
+00:08:27,366 --> 00:08:29,989
+Ich bin euer Erlöser.
+
+104
+00:08:30,244 --> 00:08:32,570
+Allein durch meine Hand
+
+105
+00:08:32,830 --> 00:08:35,867
+werdet ihr euch erheben aus der Asche
+
+106
+00:08:36,125 --> 00:08:37,075
+dieser Welt.
+
+107
+00:08:37,335 --> 00:08:41,333
+(LAUTES DURCHEINANDERRUFEN)
+
+108
+00:08:43,591 --> 00:08:45,216
+(RUFEN HÖRT AUF)
+
+109
+00:08:45,468 --> 00:08:47,711
+Es kommt. Seid bereit.
+
+110
+00:08:47,970 --> 00:08:51,921
+FRAU:
+Ja. Ja. Ja. Es kommt.
+
+111
+00:08:52,183 --> 00:08:55,434
+(GRUPPE STÖHNT UND
+INSEKTEN SUMMEN)
+
+112
+00:08:57,855 --> 00:09:00,561
+(KNARREN ERTÖNT)
+
+113
+00:09:03,486 --> 00:09:07,484
+(MENGE JUBELT)
+
+114
+00:09:12,370 --> 00:09:14,992
+(RUFEN UND JUBELN)
+
+115
+00:09:32,098 --> 00:09:33,344
+(AUFSCHLAG ERTÖNT)
+
+116
+00:09:36,977 --> 00:09:40,976
+(DURCHEINANDERGEREDE)
+
+117
+00:09:48,572 --> 00:09:50,613
+Meine Freunde! Werdet nicht
+
+118
+00:09:50,866 --> 00:09:52,990
+süchtig nach Wasser!
+
+119
+00:09:53,244 --> 00:09:54,822
+Es lässt euch nicht mehr los!
+
+120
+00:09:55,162 --> 00:09:58,034
+Und ihr werdet den Mangel
+daran verfluchen!
+
+121
+00:10:22,940 --> 00:10:24,400
+MANN:
+Runter mit euch!
+
+122
+00:10:26,068 --> 00:10:27,978
+Werft sie alle runter!
+
+123
+00:10:28,529 --> 00:10:29,526
+Runter!
+
+124
+00:10:29,780 --> 00:10:31,573
+Werft alle runter!
+
+125
+00:10:32,491 --> 00:10:34,651
+Runter!
+
+126
+00:10:39,123 --> 00:10:42,078
+Meldung an Gas Town.
+Der Konvoi ist unterwegs.
+
+127
+00:11:08,653 --> 00:11:09,270
+MANN:
+Hier ist ein War Boy,
+
+128
+00:11:09,528 --> 00:11:11,273
+der trocknet mir aus.
+
+129
+00:11:11,864 --> 00:11:13,573
+Häng dieses Voll-Leben dran.
+
+130
+00:11:16,702 --> 00:11:17,533
+(MAX ÄCHZT)
+
+131
+00:11:17,787 --> 00:11:19,827
+MANN: Hey! Vorsicht.
+Das ist ein Universalspender.
+
+132
+00:11:49,694 --> 00:11:50,893
+(MOTOR HEULT AUF)
+
+133
+00:11:58,953 --> 00:12:00,863
+(REIFEN QUIETSCHEN)
+
+134
+00:12:17,346 --> 00:12:19,423
+Boss, fahren wir nicht nach Gas Town?
+
+135
+00:12:21,892 --> 00:12:23,352
+Zur Bullet Farm?
+
+136
+00:12:25,730 --> 00:12:27,391
+Wir fahren nach Osten.
+
+137
+00:12:29,150 --> 00:12:31,143
+Ich gebe es so weiter.
+
+138
+00:12:31,986 --> 00:12:33,267
+Neue Befehle!
+
+139
+00:12:33,529 --> 00:12:35,190
+Thunder vor! Thunder vor!
+
+140
+00:12:35,614 --> 00:12:36,896
+Das ist keine Versorgungstour!
+
+141
+00:12:37,908 --> 00:12:38,858
+Los. Los.
+
+142
+00:12:39,118 --> 00:12:41,657
+- Ace, was ist denn los?
+- Los. Wir fahren nach Osten.
+
+143
+00:12:41,912 --> 00:12:44,286
+- Warum denn?
+- Weiß nicht. Das ist der Befehl.
+
+144
+00:13:02,308 --> 00:13:02,925
+Moo.
+
+145
+00:13:03,184 --> 00:13:04,216
+- MANN: Hey, Pa.
+- Hmm?
+
+146
+00:13:04,477 --> 00:13:06,020
+Weißt du was davon?
+
+147
+00:13:06,854 --> 00:13:09,428
+Deine Lieferung
+fährt nicht nach Gas Town.
+
+148
+00:13:19,075 --> 00:13:20,902
+CORPUS:
+Sie hat die Route verlassen.
+
+149
+00:13:21,327 --> 00:13:23,202
+In feindliches Territorium.
+
+150
+00:13:25,373 --> 00:13:26,453
+RICTUS:
+Warum macht sie das, Dad?
+
+151
+00:13:28,751 --> 00:13:29,368
+Lass mich sehen, lass mich sehen.
+
+152
+00:13:29,627 --> 00:13:30,328
+Rictus.
+
+153
+00:13:30,586 --> 00:13:32,046
+- Ich will das sehen!
+- Rictus.
+
+154
+00:13:32,296 --> 00:13:34,539
+Sieh nach, was Dad so aufregt!
+
+155
+00:14:02,535 --> 00:14:04,113
+Splendid!
+
+156
+00:14:05,287 --> 00:14:06,996
+Angharad!
+
+157
+00:14:07,248 --> 00:14:11,033
+Unsere Babys
+werden keine Kriegsherren
+
+158
+00:14:16,507 --> 00:14:17,457
+Wo sind sie?
+
+159
+00:14:17,717 --> 00:14:19,544
+Sie sind nicht dein Eigentum!
+
+160
+00:14:19,802 --> 00:14:20,585
+Miss Giddy?
+
+161
+00:14:21,012 --> 00:14:22,590
+Man kann einen Menschen nicht besitzen!
+
+162
+00:14:24,015 --> 00:14:26,055
+Früher oder später
+schlägt jemand zurück!
+
+163
+00:14:26,308 --> 00:14:28,386
+Wohin entführt sie sie?
+
+164
+00:14:28,644 --> 00:14:30,852
+Sie hat sie nicht entführt.
+Sie wollten weg!
+
+165
+00:14:32,940 --> 00:14:34,400
+Wohin bringt sie sie?
+
+166
+00:14:34,650 --> 00:14:36,525
+Sehr weit weg von dir.
+
+167
+00:14:37,028 --> 00:14:38,487
+(KREISCHT)
+
+168
+00:14:40,531 --> 00:14:44,530
+(TROMMELN ERTÖNEN)
+
+169
+00:14:53,294 --> 00:14:55,453
+(SCHREIEN)
+
+170
+00:14:55,713 --> 00:14:59,712
+(MOTOREN HEULEN AUF)
+
+171
+00:15:01,677 --> 00:15:03,920
+Hey. Hey, was ist los?
+
+172
+00:15:04,180 --> 00:15:05,805
+(MÄNNER RUFEN UNVERSTÄNDLICH)
+
+173
+00:15:06,057 --> 00:15:07,220
+Slit!
+
+174
+00:15:07,892 --> 00:15:09,387
+Was ist denn los? Slit!
+
+175
+00:15:09,643 --> 00:15:12,349
+Verrat! Betrug!
+Ein Imperator hat sich abgesetzt.
+
+176
+00:15:12,605 --> 00:15:13,270
+Ein Imperator?
+
+177
+00:15:13,522 --> 00:15:14,104
+Wer?
+
+178
+00:15:14,357 --> 00:15:17,193
+Furiosa! Sie hat Sachen
+von Immortan Joe gestohlen.
+
+179
+00:15:17,443 --> 00:15:18,274
+Was denn?
+
+180
+00:15:18,736 --> 00:15:20,646
+Brüter! Seine besten Brüter!
+
+181
+00:15:20,905 --> 00:15:23,397
+Er will sie wiederhaben!
+Ohne ein gekrümmtes Haar!
+
+182
+00:15:30,331 --> 00:15:32,289
+Durch meine Taten ehre ich ihn.
+
+183
+00:15:32,541 --> 00:15:33,622
+V8.
+
+184
+00:15:37,213 --> 00:15:39,206
+GRUPPE:
+<i>V8! V8! V8!</i>
+
+185
+00:15:39,465 --> 00:15:41,209
+(ÄCHZT)
+
+186
+00:15:45,638 --> 00:15:46,385
+Das ist mein Lenkrad.
+
+187
+00:15:46,639 --> 00:15:47,422
+Ich fahre.
+
+188
+00:15:47,682 --> 00:15:48,631
+Du bist mein Lanzer.
+
+189
+00:15:48,891 --> 00:15:50,267
+Ich habe mich zum Fahrer ernannt.
+
+190
+00:15:50,685 --> 00:15:52,061
+Heute nicht.
+Heute ist mein Tag.
+
+191
+00:15:52,311 --> 00:15:53,094
+Sieh dich an.
+
+192
+00:15:53,354 --> 00:15:55,182
+Wer nicht stehen kann,
+kann nicht in den Krieg.
+
+193
+00:15:55,439 --> 00:15:56,685
+Er hat recht, Junge.
+
+194
+00:15:56,941 --> 00:15:59,100
+Ich bleibe nicht hier
+und gehe einfach so ein.
+
+195
+00:15:59,402 --> 00:16:00,861
+Du bist doch schon eine Leiche.
+
+196
+00:16:01,112 --> 00:16:03,271
+- Ich brauche nur eine Auffrischung, Saft.
+- Dafür ist keine Zeit!
+
+197
+00:16:04,031 --> 00:16:05,063
+Wir nehmen meinen Blutbeutel.
+
+198
+00:16:05,324 --> 00:16:07,318
+Wir nehmen ihn mit
+und schnallen ihn auf den Lanzersitz.
+
+199
+00:16:07,576 --> 00:16:09,321
+Er hat einen Maulkorb.
+Das ist ein wildes Tier.
+
+200
+00:16:09,578 --> 00:16:10,160
+Richtig.
+
+201
+00:16:10,413 --> 00:16:12,620
+Hochoktanes verrücktes Blut
+füllt meine Adern.
+
+202
+00:16:17,712 --> 00:16:18,578
+Wenn ich sterbe,
+
+203
+00:16:20,006 --> 00:16:21,999
+dann ehrenvoll auf der Fury Road.
+
+204
+00:16:22,466 --> 00:16:25,089
+(ÄCHZT)
+
+205
+00:16:25,344 --> 00:16:27,089
+(KEUCHT)
+
+206
+00:16:28,514 --> 00:16:30,424
+Ja. Ja.
+
+207
+00:16:30,683 --> 00:16:33,934
+Organic, schnall seinen Blutbeutel an.
+
+208
+00:16:34,353 --> 00:16:35,385
+Ja? Geht klar.
+
+209
+00:16:37,857 --> 00:16:41,855
+(RUFEN UND JUBELN)
+
+210
+00:16:42,111 --> 00:16:44,152
+(ÄCHZT UND JUBELT DANN)
+
+211
+00:16:45,406 --> 00:16:47,067
+Wie viel können sie mir noch nehmen?
+
+212
+00:16:47,325 --> 00:16:49,532
+Erst mein Blut,
+jetzt noch meinen Wagen!
+
+213
+00:16:53,164 --> 00:16:56,783
+(TROMMELN ERTÖNEN)
+
+214
+00:17:06,052 --> 00:17:10,050
+(SPIELT ROCKRIFF)
+
+215
+00:17:27,615 --> 00:17:28,612
+Immortan!
+
+216
+00:17:29,992 --> 00:17:31,487
+Immortan Joe!
+
+217
+00:17:32,995 --> 00:17:33,826
+(SCHNAPPT NACH LUFT)
+
+218
+00:17:34,413 --> 00:17:35,825
+Er hat mich angesehen!
+
+219
+00:17:36,457 --> 00:17:39,329
+- Er hat mich direkt angesehen!
+- Er meinte deinen Blutbeutel!
+
+220
+00:17:39,585 --> 00:17:41,875
+Er hat sich umgedreht
+und mir direkt in die Augen gesehen.
+
+221
+00:17:42,129 --> 00:17:44,289
+Er hat den Horizont beobachtet.
+
+222
+00:17:44,715 --> 00:17:45,795
+Nein.
+
+223
+00:17:46,133 --> 00:17:47,214
+Ich werde erwartet.
+
+224
+00:17:47,760 --> 00:17:49,884
+Erwartet in Walhalla!
+
+225
+00:17:50,096 --> 00:17:50,761
+(MOTOR HEULT AUF)
+
+226
+00:17:52,348 --> 00:17:54,425
+<i>Confucamus!</i>
+
+227
+00:17:56,852 --> 00:17:57,885
+Immortan!
+
+228
+00:17:59,271 --> 00:18:00,767
+Ja!
+
+229
+00:18:20,126 --> 00:18:21,918
+Hey! Da hinten!
+
+230
+00:18:22,169 --> 00:18:23,119
+Da hinten!
+
+231
+00:18:28,009 --> 00:18:29,005
+Boss!
+
+232
+00:18:29,969 --> 00:18:30,966
+Da sind Wagen aus der Zitadelle.
+
+233
+00:18:31,512 --> 00:18:32,509
+Die feuern Leuchtsignale ab,
+
+234
+00:18:33,139 --> 00:18:34,254
+fordern Verstärkung von Gas Town
+
+235
+00:18:34,515 --> 00:18:36,094
+und der Bullet Farm.
+
+236
+00:18:36,350 --> 00:18:37,098
+Was bedeutet das?
+
+237
+00:18:37,351 --> 00:18:38,681
+Absicherung? Täuschung?
+
+238
+00:18:40,062 --> 00:18:41,605
+Ein Umweg.
+
+239
+00:18:56,954 --> 00:19:00,953
+MANN (IN FREMDSPRACHE): Was macht
+dieser Tankzug in unserem Revier?
+
+240
+00:19:01,959 --> 00:19:04,000
+Dumm... aber willkommen.
+
+241
+00:19:13,763 --> 00:19:14,759
+FURIOSA:
+Augen rechts!
+
+242
+00:19:18,100 --> 00:19:19,181
+MANN 1:
+Buzzards!
+
+243
+00:19:19,435 --> 00:19:22,353
+- Buzzards von rechts! Achtung! Achtung!
+- Buzzards rechts!
+
+244
+00:19:22,605 --> 00:19:23,685
+- Achtung!
+- MANN 2: Achtung!
+
+245
+00:19:24,148 --> 00:19:25,145
+(MÄNNER RUFEN UNVERSTÄNDLICH)
+
+246
+00:19:26,442 --> 00:19:29,527
+Drehen wir um und treiben sie
+dem Gefolge in die Arme?
+
+247
+00:19:31,197 --> 00:19:32,740
+FURIOSA:
+Nein! Wir schaffen das!
+
+248
+00:19:33,699 --> 00:19:34,945
+Wir greifen an!
+
+249
+00:19:35,201 --> 00:19:35,783
+(HUPE ERTÖNT)
+
+250
+00:19:38,371 --> 00:19:40,411
+Thunder scharf!
+Es geht los!
+
+251
+00:19:43,542 --> 00:19:45,335
+Bereit für Gefecht!
+
+252
+00:19:48,798 --> 00:19:50,257
+(SURRT)
+
+253
+00:20:00,559 --> 00:20:03,396
+(MÄNNER RUFEN)
+
+254
+00:20:08,359 --> 00:20:09,735
+(SCHREIT)
+
+255
+00:20:11,529 --> 00:20:12,312
+(ÄCHZT)
+
+256
+00:20:14,782 --> 00:20:15,280
+Morsov!
+
+257
+00:20:19,161 --> 00:20:19,944
+MANN:
+Kommt schon, Buzzards!
+
+258
+00:20:20,162 --> 00:20:21,243
+(KNIRSCHEN UND SCHLEIFEN ERTÖNT)
+
+259
+00:20:32,800 --> 00:20:33,501
+Krieg!
+
+260
+00:20:42,309 --> 00:20:43,591
+Bereit!
+
+261
+00:21:27,730 --> 00:21:29,273
+NUX:
+Sie gehört uns, Slit!
+
+262
+00:21:29,523 --> 00:21:30,141
+Sie gehört uns.
+
+263
+00:21:30,399 --> 00:21:32,808
+SLIT: Erst schaffen wir ihr
+die Buzzards vom Hals!
+
+264
+00:21:38,908 --> 00:21:39,525
+Feuer frei!
+
+265
+00:21:40,284 --> 00:21:41,151
+(ÄCHZT)
+
+266
+00:21:42,244 --> 00:21:43,574
+(SLIT ÄCHZT
+UND MAX SCHNAPPT NACH LUFT)
+
+267
+00:21:43,996 --> 00:21:45,076
+Das war mein Kopf!
+
+268
+00:21:52,463 --> 00:21:53,744
+(LACHT HYSTERISCH)
+
+269
+00:21:56,592 --> 00:21:58,550
+(SCHREIT)
+
+270
+00:22:12,733 --> 00:22:13,730
+(RUFT)
+
+271
+00:22:20,408 --> 00:22:22,448
+Steh auf! Du kannst es!
+
+272
+00:22:27,623 --> 00:22:28,703
+Morsov!
+
+273
+00:22:30,167 --> 00:22:32,244
+- Morsov!
+- MANN 1: Nein!
+
+274
+00:22:32,503 --> 00:22:34,212
+- Seid meine Zeugen!
+- MANN 2: Seine Zeugen!
+
+275
+00:22:34,463 --> 00:22:35,294
+Seine Zeugen!
+
+276
+00:22:35,756 --> 00:22:36,623
+Aah!
+
+277
+00:22:40,011 --> 00:22:40,628
+(SCHREIT)
+
+278
+00:22:40,886 --> 00:22:41,967
+Ja!
+
+279
+00:22:46,559 --> 00:22:47,259
+Zeugen!
+
+280
+00:22:47,518 --> 00:22:48,219
+GRUPPE:
+Zeugen!
+
+281
+00:22:49,895 --> 00:22:51,889
+MANN:
+Mittelmäßig, Morsov!
+
+282
+00:22:52,148 --> 00:22:54,355
+- Mittelmäßig!
+- Hurra!
+
+283
+00:22:57,862 --> 00:22:58,728
+(LKW-HUPE ERTÖNT)
+
+284
+00:23:13,377 --> 00:23:15,003
+(MÄNNER RUFEN)
+
+285
+00:23:16,881 --> 00:23:17,498
+BEIDE:
+Aah!
+
+286
+00:23:22,511 --> 00:23:23,461
+(MANN RUFT)
+
+287
+00:23:26,098 --> 00:23:27,510
+(MÄNNER RUFEN)
+
+288
+00:23:27,767 --> 00:23:28,763
+Bring mich ran!
+
+289
+00:23:33,064 --> 00:23:34,144
+MANN:
+Sie kommen!
+
+290
+00:23:44,450 --> 00:23:45,696
+(ÄCHZT UND LACHT DANN)
+
+291
+00:23:51,874 --> 00:23:53,868
+Wir können da unten nicht atmen!
+
+292
+00:23:54,126 --> 00:23:54,993
+Bleib in Deckung!
+
+293
+00:23:56,087 --> 00:23:56,787
+Na los!
+
+294
+00:23:56,962 --> 00:23:57,959
+(SURRT)
+
+295
+00:24:00,299 --> 00:24:01,331
+Aah!
+
+296
+00:24:04,011 --> 00:24:05,506
+(ÄCHZT)
+
+297
+00:24:06,764 --> 00:24:08,093
+(MOTOR HEULT AUF)
+
+298
+00:24:09,392 --> 00:24:10,388
+MANN:
+Achtung!
+
+299
+00:24:11,727 --> 00:24:12,309
+Jetzt! Los!
+
+300
+00:24:12,561 --> 00:24:13,095
+Hydraulik!
+
+301
+00:24:13,354 --> 00:24:14,351
+Hydraulik!
+
+302
+00:24:18,234 --> 00:24:19,065
+Aah!
+
+303
+00:24:20,903 --> 00:24:21,568
+(ÄCHZT)
+
+304
+00:24:25,241 --> 00:24:25,906
+(ÄCHZT)
+
+305
+00:24:36,585 --> 00:24:37,701
+Yeah!
+
+306
+00:24:42,842 --> 00:24:45,049
+Jetzt bringen wir die Beute nach Hause.
+
+307
+00:24:45,636 --> 00:24:47,511
+(MOTOR HEULT AUF)
+
+308
+00:24:48,472 --> 00:24:49,553
+(ÄCHZT)
+
+309
+00:24:49,807 --> 00:24:51,183
+(ÄCHZT)
+
+310
+00:25:01,068 --> 00:25:05,067
+(MÄNNER RUFEN UND JUBELN)
+
+311
+00:25:11,537 --> 00:25:13,578
+Sie denkt, sie kann uns abhängen, Dad.
+
+312
+00:25:13,831 --> 00:25:15,659
+Sie denkt, wir sind dumm.
+
+313
+00:25:16,042 --> 00:25:18,284
+Sie denkt, sie kann uns da drin abhängen!
+
+314
+00:25:37,063 --> 00:25:37,929
+SLIT:
+Vollgas!
+
+315
+00:25:38,647 --> 00:25:39,929
+Vollgas!
+
+316
+00:25:46,030 --> 00:25:47,027
+Warum nicht stoppen?
+
+317
+00:25:48,991 --> 00:25:50,023
+Crew! Aus dem Weg!
+
+318
+00:25:50,284 --> 00:25:50,985
+Aus dem Weg!
+
+319
+00:25:51,243 --> 00:25:52,443
+Was hast du getan?
+
+320
+00:25:52,703 --> 00:25:53,819
+Was hast du getan?
+
+321
+00:25:55,998 --> 00:25:57,458
+(MÄNNER RUFEN)
+
+322
+00:25:57,708 --> 00:25:58,290
+Yeah.
+
+323
+00:26:15,976 --> 00:26:17,887
+Wir brauchen Gegengewicht.
+Bring den Blutbeutel nach hinten!
+
+324
+00:26:29,073 --> 00:26:31,399
+Jagt sie! Jagt sie!
+
+325
+00:26:31,659 --> 00:26:33,035
+(SPIELT HEAVY METAL-RIFF)
+
+326
+00:26:42,586 --> 00:26:43,667
+(ÄCHZT)
+
+327
+00:26:49,176 --> 00:26:50,458
+(MOTOR HEULT AUF)
+
+328
+00:26:53,931 --> 00:26:55,592
+(MÄNNER SCHREIEN)
+
+329
+00:26:57,351 --> 00:26:58,218
+Hey, Kopf!
+
+330
+00:26:58,477 --> 00:26:59,641
+Sag Bye-Bye zum Hals!
+
+331
+00:26:59,895 --> 00:27:00,845
+(RUFT)
+
+332
+00:27:01,063 --> 00:27:01,764
+Wir fahren rein, Slit!
+
+333
+00:27:09,030 --> 00:27:10,026
+(ÄCHZT)
+
+334
+00:27:21,751 --> 00:27:22,831
+(ÄCHZT)
+
+335
+00:27:25,254 --> 00:27:26,002
+(DONNER GROLLT)
+
+336
+00:27:46,150 --> 00:27:46,767
+(GANG KRACHT)
+
+337
+00:27:47,026 --> 00:27:48,225
+(MOTOR HEULT AUF)
+
+338
+00:27:58,371 --> 00:27:59,949
+(DONNER GROLLT WEITER)
+
+339
+00:28:04,669 --> 00:28:07,243
+(RUFT)
+
+340
+00:28:15,721 --> 00:28:17,382
+(RUFT)
+
+341
+00:28:22,853 --> 00:28:25,262
+(SCHREIT)
+
+342
+00:28:45,543 --> 00:28:46,208
+Oh, was für ein Tag!
+
+343
+00:28:46,460 --> 00:28:48,205
+Was für ein schöner Tag!
+
+344
+00:28:50,840 --> 00:28:51,671
+(GAS ZISCHT)
+
+345
+00:28:52,717 --> 00:28:53,880
+(MOTOR HEULT AUF)
+
+346
+00:29:07,857 --> 00:29:08,439
+Ich bin der Mann,
+
+347
+00:29:09,817 --> 00:29:11,016
+der auf der Sonne reitet.
+
+348
+00:29:13,863 --> 00:29:15,572
+Direkt nach Walhalla!
+
+349
+00:29:18,451 --> 00:29:19,032
+Sei mein Zeuge,
+
+350
+00:29:19,285 --> 00:29:20,068
+Blutbeutel!
+
+351
+00:29:24,332 --> 00:29:25,743
+Zeuge!
+
+352
+00:29:30,087 --> 00:29:31,286
+(ÄCHZT)
+
+353
+00:29:49,732 --> 00:29:51,891
+Ich lebe, ich sterbe, ich lebe wieder!
+
+354
+00:29:58,491 --> 00:29:59,488
+Aah!
+
+355
+00:31:05,349 --> 00:31:06,975
+(SCHNAPPT NACH LUFT)
+
+356
+00:31:22,908 --> 00:31:24,534
+(ÄCHZT)
+
+357
+00:31:45,306 --> 00:31:47,632
+(ÄCHZT)
+
+358
+00:32:11,374 --> 00:32:13,083
+(GERÄUSCH ERTÖNT)
+
+359
+00:32:13,918 --> 00:32:15,746
+(GERÄUSCH ERTÖNT WEITER)
+
+360
+00:33:34,957 --> 00:33:36,369
+Wir gehen nicht mehr zurück.
+
+361
+00:34:05,237 --> 00:34:05,855
+Wasser.
+
+362
+00:34:56,664 --> 00:34:57,365
+(ÄCHZT)
+
+363
+00:34:58,916 --> 00:34:59,533
+Ah.
+
+364
+00:35:02,086 --> 00:35:02,703
+Du.
+
+365
+00:35:18,144 --> 00:35:20,600
+THE DAG:
+Angharad, ist das nur der Wind
+
+366
+00:35:21,272 --> 00:35:23,016
+oder eine wildgewordene Meute?
+
+367
+00:35:32,658 --> 00:35:34,367
+(ÄCHZT)
+
+368
+00:35:44,170 --> 00:35:44,752
+(ÄCHZT)
+
+369
+00:36:24,960 --> 00:36:26,586
+Ah!
+
+370
+00:36:38,099 --> 00:36:39,760
+(MÄDCHEN SCHNAPPEN NACH LUFT)
+
+371
+00:36:52,738 --> 00:36:53,937
+Ich hab es!
+
+372
+00:36:57,952 --> 00:36:59,151
+(ÄCHZEN)
+
+373
+00:37:04,125 --> 00:37:05,584
+Aah!
+
+374
+00:37:20,391 --> 00:37:21,886
+(ÄCHZT)
+
+375
+00:37:23,144 --> 00:37:23,975
+(PISTOLE KLICKT)
+
+376
+00:37:24,729 --> 00:37:25,844
+(FRAU KREISCHT)
+
+377
+00:37:27,940 --> 00:37:30,479
+(KEUCHT)
+
+378
+00:37:33,696 --> 00:37:35,108
+(LACHT)
+
+379
+00:37:35,364 --> 00:37:38,319
+Unser Ruhm, Blutbeutel!
+Wir haben sie lebend erwischt.
+
+380
+00:37:38,576 --> 00:37:40,902
+Er zerfetzt sie. Zerfetzt sie!
+
+381
+00:37:41,162 --> 00:37:42,491
+Bolzenschneider.
+
+382
+00:37:43,080 --> 00:37:44,161
+Kette.
+
+383
+00:37:45,875 --> 00:37:46,990
+Hey, hey!
+
+384
+00:37:50,588 --> 00:37:52,297
+Oh, sieh sie bloß an.
+
+385
+00:37:52,757 --> 00:37:55,130
+Dieser Glanz. Wie Chrom.
+
+386
+00:37:55,593 --> 00:37:56,839
+Er wird so dankbar sein.
+
+387
+00:37:57,887 --> 00:37:59,299
+Wir können uns alles wünschen.
+
+388
+00:38:00,389 --> 00:38:02,134
+Ich will den Tankzug fahren.
+
+389
+00:38:03,392 --> 00:38:05,433
+- Was willst du?
+- Das ist meine Jacke.
+
+390
+00:38:05,603 --> 00:38:07,312
+He, he. Klar.
+
+391
+00:38:07,980 --> 00:38:09,606
+Du kannst dir mehr wünschen als eine Jacke.
+
+392
+00:38:09,774 --> 00:38:11,150
+SPLENDID:
+Wir fahren zum Grünen Ort.
+
+393
+00:38:11,400 --> 00:38:13,109
+Warte, nur wir 2. Ah!
+
+394
+00:38:14,862 --> 00:38:15,729
+(MÄDCHEN KREISCHEN)
+
+395
+00:38:26,749 --> 00:38:29,206
+Wir fahren zum Grünen Ort
+der vielen Mütter.
+
+396
+00:38:29,627 --> 00:38:30,244
+(MOTOR STARTET)
+
+397
+00:38:47,770 --> 00:38:49,349
+Ist es schlimm?
+
+398
+00:38:49,605 --> 00:38:51,765
+- Es tut weh.
+- Hier draußen tut alles weh.
+
+399
+00:38:54,860 --> 00:38:56,404
+Wollt ihr das hier überstehen?
+
+400
+00:39:00,116 --> 00:39:01,112
+Dann tut, was ich sage.
+
+401
+00:39:06,497 --> 00:39:08,372
+Nehmt mit, was ihr könnt, und lauft.
+
+402
+00:39:15,172 --> 00:39:16,169
+Tsa!
+
+403
+00:39:16,882 --> 00:39:18,426
+(MAX ÄCHZT UND GANG KRACHT)
+
+404
+00:39:25,808 --> 00:39:29,510
+(MOTOR KNATTERT UND MAX STÖHNT)
+
+405
+00:39:34,358 --> 00:39:37,146
+(MOTOR SCHLEIFT UND STIRBT)
+
+406
+00:39:46,579 --> 00:39:47,860
+(SEUFZT)
+
+407
+00:39:50,958 --> 00:39:52,370
+Motorsperre.
+
+408
+00:39:53,961 --> 00:39:55,540
+Habe die Sequenz selbst konstruiert.
+
+409
+00:39:55,796 --> 00:39:57,707
+Dieser Tank fährt
+ohne mich nirgendwo hin.
+
+410
+00:40:01,552 --> 00:40:02,834
+Steig ein.
+
+411
+00:40:04,221 --> 00:40:05,633
+Nicht ohne die andern.
+
+412
+00:40:14,065 --> 00:40:15,228
+Dann warten wir.
+
+413
+00:40:24,116 --> 00:40:26,573
+Du zählst auf die Dankbarkeit
+eines sehr bösen Mannes.
+
+414
+00:40:26,827 --> 00:40:29,782
+Eine seiner Frauen hast du schon beschädigt.
+Wie dankbar wird er noch sein?
+
+415
+00:40:36,921 --> 00:40:40,089
+Du sitzt auf einer 2.000 PS
+nitrobetriebenen Kampfmaschine.
+
+416
+00:40:41,050 --> 00:40:43,423
+Du hast noch 5 Minuten Vorsprung,
+würde ich sagen.
+
+417
+00:40:51,644 --> 00:40:53,222
+Willst du dieses Ding
+vom Gesicht loswerden?
+
+418
+00:41:06,075 --> 00:41:07,107
+Fahren wir.
+
+419
+00:41:21,716 --> 00:41:23,045
+Aah, ah-ah.
+
+420
+00:41:28,889 --> 00:41:31,298
+(SURRT)
+
+421
+00:41:35,771 --> 00:41:38,310
+(MOTOR STARTET)
+
+422
+00:41:51,620 --> 00:41:55,156
+Von allen Beinen musstest du ausgerechnet
+das von seinem Liebling anschießen.
+
+423
+00:42:13,934 --> 00:42:15,430
+(ÄCHZT)
+
+424
+00:42:15,853 --> 00:42:16,850
+Smeg!
+
+425
+00:42:37,333 --> 00:42:38,876
+Du musst es nicht machen,
+nur weil er es will.
+
+426
+00:42:39,126 --> 00:42:41,416
+- Was hat sie denn für eine Wahl?
+- TOAST: Er tut uns nichts, er braucht uns.
+
+427
+00:42:41,671 --> 00:42:42,585
+- Wozu?
+- Zum Verhandeln.
+
+428
+00:42:42,838 --> 00:42:43,871
+THE DAG:
+Er wird uns was tun.
+
+429
+00:42:44,131 --> 00:42:45,792
+CHEEDO: Denkst du,
+er kommt mit an den Grünen Ort?
+
+430
+00:42:46,050 --> 00:42:47,130
+THE DAG: Niemals!
+Er ist ein verrückter Smeg
+
+431
+00:42:47,385 --> 00:42:49,010
+und frisst Schlengel.
+
+432
+00:43:15,746 --> 00:43:16,827
+Fahr da nicht rein.
+
+433
+00:43:17,081 --> 00:43:18,161
+Hinter dir.
+
+434
+00:43:18,582 --> 00:43:19,912
+Hä?
+
+435
+00:43:23,004 --> 00:43:24,463
+Die Gas Town Boys.
+
+436
+00:43:24,714 --> 00:43:25,580
+(MAX ÄCHZT, DANN ÄCHZT TOAST)
+
+437
+00:43:26,257 --> 00:43:28,085
+Nicht die Ware beschädigen.
+
+438
+00:43:34,598 --> 00:43:36,010
+FURIOSA:
+Was seht ihr?
+
+439
+00:43:38,352 --> 00:43:39,764
+SPLENDID:
+Riesen-Trucks,
+
+440
+00:43:41,480 --> 00:43:42,857
+Späher,
+
+441
+00:43:43,566 --> 00:43:44,646
+Feuerwerfer.
+
+442
+00:43:46,485 --> 00:43:49,060
+Und da ist auch
+der Menschenfresser persönlich.
+
+443
+00:43:50,197 --> 00:43:52,238
+Er will den Schaden schätzen.
+
+444
+00:43:52,450 --> 00:43:53,400
+Hmm.
+
+445
+00:43:56,996 --> 00:43:58,906
+(POLTERN ERTÖNT)
+
+446
+00:44:03,336 --> 00:44:03,917
+(MOTOR HEULT AUF)
+
+447
+00:44:04,628 --> 00:44:06,373
+Aah!
+
+448
+00:44:08,299 --> 00:44:10,458
+Irgendwas hängt da hinten fest.
+
+449
+00:44:10,718 --> 00:44:12,047
+Wahrscheinlich der Benzintank.
+
+450
+00:44:12,928 --> 00:44:13,759
+MAX:
+Nein, nein.
+
+451
+00:44:15,306 --> 00:44:16,007
+Ich gehe.
+
+452
+00:45:02,228 --> 00:45:04,020
+(HYDRAULIK ZISCHT)
+
+453
+00:45:40,224 --> 00:45:41,719
+- Dreckstück! Du hast ihn verraten!
+- MÄDCHEN: Ah!
+
+454
+00:45:42,184 --> 00:45:44,641
+(ÄCHZT)
+
+455
+00:45:45,563 --> 00:45:46,310
+(ÄCHZT)
+
+456
+00:45:46,564 --> 00:45:47,395
+SPLENDID:
+Nicht unnötig töten!
+
+457
+00:45:48,024 --> 00:45:49,851
+- Dieser War Boy will mich töten!
+- Es war abgemacht!
+
+458
+00:45:50,526 --> 00:45:52,401
+Er ist ein Kamakrazee!
+
+459
+00:45:52,862 --> 00:45:54,855
+Er ist nur ein Junge
+am Ende seines Halb-Lebens!
+
+460
+00:45:55,114 --> 00:45:57,155
+Nein, ich lebe,
+ich sterbe und lebe wieder!
+
+461
+00:45:57,908 --> 00:45:59,368
+CAPABLE: Haltet ihn fest!
+SPLENDID: Fesselt ihn!
+
+462
+00:45:59,618 --> 00:46:00,568
+Werft ihn raus!
+
+463
+00:46:01,037 --> 00:46:02,152
+CAPABLE:
+Schmeißt ihn raus!
+
+464
+00:46:03,289 --> 00:46:04,998
+Ihr habt noch mehr Freunde.
+
+465
+00:46:05,207 --> 00:46:07,035
+(NUX LACHT)
+
+466
+00:46:07,293 --> 00:46:08,705
+Bullet Farmer.
+
+467
+00:46:08,961 --> 00:46:11,121
+- Sie kommen von der Bullet Farm.
+- Ja?
+
+468
+00:46:12,256 --> 00:46:14,049
+Es ist vorbei.
+Ihr könnt ihm nicht trotzen.
+
+469
+00:46:14,425 --> 00:46:15,339
+Das werden wir ja sehen, Kleiner!
+
+470
+00:46:15,593 --> 00:46:16,340
+NUX:
+Er kann
+
+471
+00:46:16,594 --> 00:46:18,718
+- auf der Sonne reiten!
+- SPLENDID: Er hat dich gründlich verarscht!
+
+472
+00:46:18,971 --> 00:46:20,514
+- Ein verlogener alter Mann.
+- NUX: Durch seine Hand
+
+473
+00:46:20,765 --> 00:46:22,592
+- werden wir uns erheben!
+- SPLENDID: Er hat uns
+
+474
+00:46:22,850 --> 00:46:24,393
+unsere Bestimmung
+auf den Rücken gebrannt!
+
+475
+00:46:24,643 --> 00:46:26,269
+Zuchtvieh! Schlachtfutter!
+
+476
+00:46:26,520 --> 00:46:27,435
+Nein, ich werde erwartet.
+
+477
+00:46:27,688 --> 00:46:28,685
+CAPABLE:
+Du bist das Schlachtfutter
+
+478
+00:46:28,856 --> 00:46:29,972
+- eines alten Mannes!
+- SPLENDID: Der alles
+
+479
+00:46:30,232 --> 00:46:31,609
+- und jeden tötet.
+- NUX: Wir sind nicht schuld!
+
+480
+00:46:32,360 --> 00:46:33,689
+Wer hat dann die Welt getötet?
+
+481
+00:46:34,487 --> 00:46:35,733
+(ÄCHZT)
+
+482
+00:46:44,288 --> 00:46:46,661
+(KEUCHT)
+
+483
+00:47:01,847 --> 00:47:03,806
+FURIOSA: Wir haben eine Abmachung
+für eine sichere Durchfahrt.
+
+484
+00:47:04,642 --> 00:47:06,386
+Keine Ahnung, ob die noch gilt.
+
+485
+00:47:07,228 --> 00:47:08,260
+Geht wieder runter.
+
+486
+00:47:08,521 --> 00:47:10,064
+Lasst die Luke offen.
+
+487
+00:47:17,279 --> 00:47:18,312
+Dich brauche ich hier.
+
+488
+00:47:20,700 --> 00:47:22,195
+Du musst vielleicht den Tank fahren.
+
+489
+00:47:23,744 --> 00:47:24,990
+Mm.
+
+490
+00:47:27,707 --> 00:47:28,372
+Du.
+
+491
+00:47:29,792 --> 00:47:30,824
+Du bleibst.
+
+492
+00:47:32,044 --> 00:47:33,124
+Du bleibst da.
+
+493
+00:47:36,716 --> 00:47:39,089
+Du darfst nicht gesehen werden.
+
+494
+00:47:39,343 --> 00:47:41,136
+Ich sollte allein kommen.
+
+495
+00:47:41,387 --> 00:47:42,882
+So war's abgemacht.
+
+496
+00:47:49,520 --> 00:47:50,684
+MAX:
+Runter.
+
+497
+00:48:11,584 --> 00:48:12,415
+Hey,
+
+498
+00:48:13,544 --> 00:48:14,708
+wie heißt du?
+
+499
+00:48:16,589 --> 00:48:17,586
+Wie soll ich dich nennen?
+
+500
+00:48:19,050 --> 00:48:20,165
+Ist das wichtig?
+
+501
+00:48:22,595 --> 00:48:23,627
+Na gut.
+
+502
+00:48:24,180 --> 00:48:25,260
+Wenn ich "Idiot" rufe,
+
+503
+00:48:25,514 --> 00:48:27,804
+fährst du so schnell weg wie du kannst.
+
+504
+00:48:29,643 --> 00:48:30,925
+Das ist die Sequenz:
+
+505
+00:48:31,771 --> 00:48:33,396
+1. 1, 2.
+
+506
+00:48:33,647 --> 00:48:34,680
+1.
+
+507
+00:48:35,358 --> 00:48:37,766
+Rot. Schwarz. Start.
+
+508
+00:48:38,486 --> 00:48:39,685
+Hast du's?
+
+509
+00:50:05,239 --> 00:50:06,651
+FURIOSA:
+Es ist alles hier!
+
+510
+00:50:07,908 --> 00:50:10,863
+3.000 Gallonen Benzin,
+wie ihr es wolltet.
+
+511
+00:50:14,915 --> 00:50:16,624
+Ich werde jetzt den Tank abkoppeln.
+
+512
+00:50:18,627 --> 00:50:20,123
+Und ihr blockiert den Weg.
+
+513
+00:50:21,839 --> 00:50:22,955
+(MOTOREN HEULEN AUF)
+
+514
+00:50:28,763 --> 00:50:30,044
+MANN:
+Du hast gesagt,
+
+515
+00:50:30,306 --> 00:50:31,766
+dich verfolgen "ein paar Wagen."
+
+516
+00:50:32,266 --> 00:50:33,465
+"Vielleicht."
+
+517
+00:50:33,809 --> 00:50:34,925
+Es sind 3 Kriegstrupps!
+
+518
+00:50:37,021 --> 00:50:38,682
+Tja, ich hatte wohl kein Glück.
+
+519
+00:50:39,273 --> 00:50:40,649
+Dann los jetzt!
+
+520
+00:50:45,279 --> 00:50:46,110
+(SCHNAPPT NACH LUFT)
+
+521
+00:51:01,629 --> 00:51:02,412
+(HUSTET)
+
+522
+00:51:03,589 --> 00:51:04,420
+(FRAU SCHNAPPT NACH LUFT)
+
+523
+00:51:07,593 --> 00:51:08,376
+FURIOSA:
+Idiot!
+
+524
+00:51:08,552 --> 00:51:10,131
+(SCHÜSSE FALLEN)
+
+525
+00:51:25,027 --> 00:51:25,609
+(ÄCHZT)
+
+526
+00:51:49,343 --> 00:51:50,673
+MANN:
+Das ist unser Benzin!
+
+527
+00:51:50,928 --> 00:51:52,922
+(SCHREIT)
+
+528
+00:52:05,443 --> 00:52:07,401
+MANN 1:
+Macht Platz für den Spalter!
+
+529
+00:52:07,653 --> 00:52:10,323
+(MÄNNER RUFEN)
+
+530
+00:52:22,585 --> 00:52:23,700
+IMMORTAN:
+Sobald ich drüben bin,
+
+531
+00:52:23,961 --> 00:52:26,169
+räumt die Felsen weg
+und bringt alle rüber.
+
+532
+00:52:26,422 --> 00:52:27,372
+MANN:
+Immortan!
+
+533
+00:52:28,174 --> 00:52:29,669
+Immortan Joe!
+
+534
+00:52:29,925 --> 00:52:33,177
+Hier ist ein War Boy!
+Er sagt, er war auf dem Tankzug.
+
+535
+00:52:35,598 --> 00:52:37,473
+Du! Geh an Bord!
+
+536
+00:52:39,602 --> 00:52:40,978
+MANN:
+Hey. Hey!
+
+537
+00:52:41,979 --> 00:52:43,178
+Ich habe seinen Stiefel!
+
+538
+00:52:43,439 --> 00:52:45,433
+Ich habe den Stiefel vom Blutbeutel!
+
+539
+00:52:45,941 --> 00:52:47,353
+Nehmt mich!
+
+540
+00:52:47,735 --> 00:52:49,195
+Ich habe seinen Stiefel!
+
+541
+00:52:51,322 --> 00:52:53,814
+Das alles nur wegen Streit in der Familie.
+
+542
+00:52:54,575 --> 00:52:56,485
+Und gesunden Babys.
+
+543
+00:52:57,078 --> 00:52:58,489
+(SPOTTET)
+
+544
+00:52:59,205 --> 00:53:02,575
+(MÄNNER RUFEN UND JUBELN)
+
+545
+00:53:45,543 --> 00:53:46,919
+(FRAUEN SCHNAPPEN NACH LUFT)
+
+546
+00:54:10,818 --> 00:54:14,153
+(WIMMERT)
+
+547
+00:54:40,473 --> 00:54:42,513
+(MÄNNER RUFEN)
+
+548
+00:54:52,193 --> 00:54:52,775
+Aah!
+
+549
+00:55:02,286 --> 00:55:03,236
+(SCHNAPPT NACH LUFT)
+
+550
+00:55:04,789 --> 00:55:05,703
+FURIOSA:
+Lade das Gewehr nach.
+
+551
+00:55:06,415 --> 00:55:07,116
+Ich kann nicht.
+
+552
+00:55:14,340 --> 00:55:15,005
+Gewehr!
+
+553
+00:55:16,842 --> 00:55:17,508
+Das Gewehr!
+
+554
+00:55:17,760 --> 00:55:18,342
+Es ist noch nicht geladen!
+
+555
+00:55:18,594 --> 00:55:19,211
+Los!
+
+556
+00:55:19,470 --> 00:55:20,052
+Wir hatten eine Abmachung!
+
+557
+00:55:22,556 --> 00:55:23,222
+Ah!
+
+558
+00:55:23,474 --> 00:55:24,091
+(SCHNAPPT NACH LUFT)
+
+559
+00:55:54,296 --> 00:55:57,548
+(MÄNNER RUFEN)
+
+560
+00:56:00,469 --> 00:56:02,048
+(ÄCHZT)
+
+561
+00:56:07,518 --> 00:56:08,550
+(ÄCHZT WEITER)
+
+562
+00:56:09,311 --> 00:56:10,511
+Rictus!
+
+563
+00:56:10,980 --> 00:56:12,012
+Die Frauen!
+
+564
+00:56:12,273 --> 00:56:13,602
+RICTUS:
+Kein Feuer mehr!
+
+565
+00:56:20,281 --> 00:56:21,610
+IMMORTAN:
+Splendid!
+
+566
+00:56:22,116 --> 00:56:23,232
+Splendid!
+
+567
+00:56:23,492 --> 00:56:24,359
+Das ist mein Kind!
+
+568
+00:56:26,078 --> 00:56:26,993
+Mein Eigentum!
+
+569
+00:56:29,081 --> 00:56:29,912
+Immorta...
+
+570
+00:56:39,633 --> 00:56:43,502
+Immortan. Wenn ich's auf den Tank schaffe,
+gibt es einen Weg rein.
+
+571
+00:56:43,763 --> 00:56:45,721
+- Wie ist dein Name?
+- Ich heiße Nux.
+
+572
+00:56:46,098 --> 00:56:48,388
+Ich ramme ihr das ins Rückgrat,
+dann lebt sie noch für dich.
+
+573
+00:56:48,642 --> 00:56:49,592
+IMMORTAN:
+Nein.
+
+574
+00:56:49,852 --> 00:56:51,478
+Schieß ihr in den Kopf,
+
+575
+00:56:51,729 --> 00:56:54,435
+halte den Tank an und bring mir
+meine Schätze zurück.
+
+576
+00:56:54,815 --> 00:56:57,105
+Und ich persönlich bringe dich
+
+577
+00:56:57,735 --> 00:56:58,815
+an die Tore
+
+578
+00:56:59,070 --> 00:57:00,316
+von Walhalla.
+
+579
+00:57:00,946 --> 00:57:02,062
+Werde ich erwartet?
+
+580
+00:57:02,948 --> 00:57:04,360
+Du wirst auf ewig fahren.
+
+581
+00:57:04,825 --> 00:57:06,902
+In Glanz und Chrom.
+
+582
+00:57:08,454 --> 00:57:09,618
+Rictus!
+
+583
+00:57:10,373 --> 00:57:11,951
+Hilf ihm rüber!
+
+584
+00:57:14,126 --> 00:57:14,708
+Fertig?
+
+585
+00:57:15,378 --> 00:57:16,577
+Dann los!
+
+586
+00:57:17,588 --> 00:57:18,419
+(ÄCHZT)
+
+587
+00:57:19,090 --> 00:57:21,546
+(ÄCHZT)
+
+588
+00:57:25,012 --> 00:57:26,389
+Aah!
+
+589
+00:57:27,181 --> 00:57:28,213
+(ÄCHZT)
+
+590
+00:57:28,474 --> 00:57:29,139
+Mittelmäßig!
+
+591
+00:58:00,006 --> 00:58:01,002
+Schlengel!
+
+592
+00:58:04,301 --> 00:58:05,334
+(ÄCHZT)
+
+593
+00:58:06,929 --> 00:58:08,175
+(ÄCHZT)
+
+594
+00:58:21,944 --> 00:58:22,645
+CHEEDO:
+Achtung!
+
+595
+00:58:25,740 --> 00:58:26,440
+IMMORTAN:
+Angharad!
+
+596
+00:58:27,450 --> 00:58:28,150
+Weg da!
+
+597
+00:58:47,178 --> 00:58:47,760
+(SCHNAPPT NACH LUFT)
+
+598
+00:58:48,512 --> 00:58:49,676
+(SCHNAPPT NACH LUFT)
+
+599
+00:58:49,930 --> 00:58:50,714
+Nein!
+
+600
+00:58:51,265 --> 00:58:51,882
+Angharad!
+
+601
+00:59:06,739 --> 00:59:08,982
+Stopp! Dreh auf der Stelle um!
+
+602
+00:59:09,950 --> 00:59:11,410
+Wir müssen sie holen!
+
+603
+00:59:12,745 --> 00:59:13,659
+Nein.
+
+604
+00:59:13,913 --> 00:59:15,408
+Sag ihm, dass er umdrehen soll!
+
+605
+00:59:15,665 --> 00:59:16,697
+Hast du's gesehen?
+
+606
+00:59:17,249 --> 00:59:19,160
+Sie wurde überfahren.
+
+607
+00:59:19,418 --> 00:59:20,795
+Hast du's gesehen?
+
+608
+00:59:22,463 --> 00:59:24,172
+Sie wurde überfahren.
+
+609
+00:59:25,383 --> 00:59:26,546
+Wir fahren weiter.
+
+610
+00:59:26,801 --> 00:59:27,833
+- CHEEDO: Nein!
+- Wir fahren weiter!
+
+611
+00:59:28,094 --> 00:59:29,174
+CHEEDO:
+Er weiß doch gar nicht, was er redet!
+
+612
+00:59:30,971 --> 00:59:32,965
+Was auch immer passiert,
+wir fahren zum Grünen Ort.
+
+613
+00:59:33,224 --> 00:59:35,597
+Dieser blöde Grüne Ort. Wir wissen
+nicht mal, wo wir ihn finden sollen.
+
+614
+00:59:39,021 --> 00:59:41,940
+(MASCHINENPISTOLE FEUERT)
+
+615
+00:59:43,567 --> 00:59:44,600
+(IMMORTAN ÄCHZT)
+
+616
+00:59:48,239 --> 00:59:50,731
+- Alles in Ordnung?
+- Los, weiter!
+
+617
+00:59:50,950 --> 00:59:52,362
+(IMMORTAN ÄCHZT)
+
+618
+00:59:52,618 --> 00:59:54,908
+(ÄCHZT)
+
+619
+01:00:12,221 --> 01:00:14,262
+(MOTOR SCHEPPERT UND ZISCHT DANN)
+
+620
+01:00:28,738 --> 01:00:29,937
+CAPABLE:
+Cheedo!
+
+621
+01:00:30,448 --> 01:00:31,859
+THE DAG:
+Cheedo, sei nicht dumm.
+
+622
+01:00:32,116 --> 01:00:32,864
+CAPABLE:
+Bleib stehen!
+
+623
+01:00:33,117 --> 01:00:34,660
+Er wird uns vergeben. Ich weiß es.
+
+624
+01:00:34,910 --> 01:00:36,074
+Wir können nicht mehr zurück!
+
+625
+01:00:36,329 --> 01:00:37,990
+CHEEDO: Wir waren seine Schätze!
+CAPABLE: Cheedo!
+
+626
+01:00:38,414 --> 01:00:41,120
+CHEEDO: Wir wurden beschützt!
+Er hat uns ein schönes Leben geschenkt!
+
+627
+01:00:41,375 --> 01:00:43,168
+- Was ist daran falsch?
+- THE DAG: Wir sind keine Sachen!
+
+628
+01:00:44,378 --> 01:00:45,209
+CHEEDO:
+Nein!
+
+629
+01:00:45,379 --> 01:00:46,210
+(SCHNAPPT NACH LUFT)
+
+630
+01:00:46,547 --> 01:00:47,544
+THE DAG:
+Wir sind keine Sachen!
+
+631
+01:00:48,215 --> 01:00:49,046
+CAPABLE:
+Wir sind keine Sachen.
+
+632
+01:00:49,300 --> 01:00:52,218
+- Ach, ich will das nicht mehr hören!
+- Das waren ihre Worte!
+
+633
+01:00:52,470 --> 01:00:53,633
+Und jetzt ist sie tot!
+
+634
+01:00:55,056 --> 01:00:56,171
+THE DAG:
+Du kannst noch
+
+635
+01:00:56,432 --> 01:00:57,892
+so verzweifelt sein,
+du gehst
+
+636
+01:00:58,351 --> 01:01:00,143
+nicht wieder zu ihm zurück.
+
+637
+01:01:00,394 --> 01:01:01,309
+Angharad!
+
+638
+01:01:01,562 --> 01:01:03,437
+Komm jetzt!
+
+639
+01:01:20,623 --> 01:01:23,162
+Also, äh,
+
+640
+01:01:23,501 --> 01:01:25,044
+wo ist dieser
+
+641
+01:01:26,504 --> 01:01:28,129
+Grüne Ort?
+
+642
+01:01:29,215 --> 01:01:31,374
+Wir fahren die Nacht durch,
+Richtung Osten.
+
+643
+01:01:33,803 --> 01:01:35,132
+Wir müssen den Bestand prüfen.
+
+644
+01:01:35,388 --> 01:01:36,634
+Ordnet jeder Waffe
+die richtige Munition zu.
+
+645
+01:01:41,769 --> 01:01:43,312
+Ich gehe runter,
+und mache ein paar Reparaturen.
+
+646
+01:01:43,562 --> 01:01:44,974
+Wir brauchen hinten noch jemanden.
+
+647
+01:01:45,231 --> 01:01:45,978
+Das mache ich.
+
+648
+01:01:46,232 --> 01:01:46,932
+Nein.
+
+649
+01:01:47,191 --> 01:01:48,935
+Ich will, dass ihr zusammenbleibt.
+
+650
+01:01:49,527 --> 01:01:50,773
+Ich kann das.
+
+651
+01:02:16,512 --> 01:02:20,131
+(NUX ÄCHZT UND WIMMERT)
+
+652
+01:02:23,894 --> 01:02:25,094
+Was machst du denn hier?
+
+653
+01:02:26,439 --> 01:02:27,768
+Er hat's gesehen.
+
+654
+01:02:28,357 --> 01:02:29,769
+Er hat alles gesehen.
+
+655
+01:02:31,193 --> 01:02:33,685
+Mein Blutbeutel fährt den Tank,
+der sie getötet hat.
+
+656
+01:02:38,284 --> 01:02:39,862
+(WIMMERT)
+
+657
+01:02:41,454 --> 01:02:42,653
+Hör auf damit.
+
+658
+01:02:43,998 --> 01:02:45,992
+Sch. Sch, sch, sch.
+
+659
+01:02:46,250 --> 01:02:47,330
+Hör auf.
+
+660
+01:02:57,470 --> 01:03:00,258
+3-mal standen mir die Tore offen.
+
+661
+01:03:00,556 --> 01:03:01,553
+Welche Tore?
+
+662
+01:03:02,266 --> 01:03:04,059
+Ich wurde in Walhalla erwartet.
+
+663
+01:03:04,393 --> 01:03:05,888
+Sie riefen meinen Namen.
+
+664
+01:03:06,687 --> 01:03:10,437
+Ich sollte mit den Unsterblichen wandeln. Mit
+den Helden aus aller Zeit an einer Tafel sitzen.
+
+665
+01:03:13,819 --> 01:03:16,857
+Ich würde sagen, deine Bestimmung
+war es, das nicht zu tun.
+
+666
+01:03:18,699 --> 01:03:21,369
+Ich dachte, ich wurde verschont
+für etwas Größeres.
+
+667
+01:03:21,619 --> 01:03:25,071
+Ich durfte eins der Jagdfahrzeuge fahren.
+
+668
+01:03:25,915 --> 01:03:29,036
+Larry und Barry haben sogar aufgehört,
+an mir zu nagen.
+
+669
+01:03:29,418 --> 01:03:31,079
+Wer sind Larry und Barry?
+
+670
+01:03:31,962 --> 01:03:33,209
+Meine Freunde.
+
+671
+01:03:33,756 --> 01:03:35,037
+Larry und Barry.
+
+672
+01:03:37,093 --> 01:03:39,667
+Wenn sie mich nicht kriegen,
+dann das Fieber in der Nacht.
+
+673
+01:04:04,203 --> 01:04:07,988
+Also, für diesen Big Boy hier haben wir
+nur noch 4, der ist so gut wie nutzlos.
+
+674
+01:04:09,458 --> 01:04:10,539
+Aber
+
+675
+01:04:10,793 --> 01:04:14,792
+dafür können wir den Kleinen hier
+noch 29-mal zum Schuss bringen.
+
+676
+01:04:17,216 --> 01:04:19,340
+Angharad nannte sie immer Anti-Saat.
+
+677
+01:04:20,094 --> 01:04:22,503
+Ist sie ausgesät,
+siehst du etwas sterben.
+
+678
+01:04:42,450 --> 01:04:44,075
+(KNARREN ERTÖNT)
+
+679
+01:05:00,468 --> 01:05:02,378
+(MÄNNER RUFEN)
+
+680
+01:05:02,636 --> 01:05:05,555
+(SPIELT ROCKRIFF)
+
+681
+01:05:38,214 --> 01:05:40,338
+MANN:
+Halt an! Halt an, Bruder!
+
+682
+01:05:44,929 --> 01:05:48,678
+(SPIELT BEDROHLICHEN RIFF)
+
+683
+01:05:51,644 --> 01:05:53,851
+(MÄNNER RUFEN)
+
+684
+01:05:57,775 --> 01:06:00,896
+Wir haben schon
+30.000 Einheiten Benzin verbraucht,
+
+685
+01:06:01,153 --> 01:06:04,025
+19 Kanister Nitro, 12 Kampf-Bikes,
+
+686
+01:06:05,116 --> 01:06:05,781
+7 Jagdfahrzeuge.
+
+687
+01:06:06,784 --> 01:06:07,900
+Die Verluste nehmen zu.
+
+688
+01:06:08,160 --> 01:06:09,241
+Und jetzt, Sir,
+
+689
+01:06:09,537 --> 01:06:12,455
+führst du uns auch noch
+geradewegs in dieses Sumpfland.
+
+690
+01:06:12,999 --> 01:06:14,162
+MANN:
+Hey, Joe!
+
+691
+01:06:15,084 --> 01:06:16,164
+Boss!
+
+692
+01:06:18,212 --> 01:06:20,419
+Deine Kleine atmet nicht mehr lange.
+
+693
+01:06:21,048 --> 01:06:22,958
+Was ist mit dem Kind?
+
+694
+01:06:32,184 --> 01:06:33,680
+Kommst du, Bruder?
+
+695
+01:06:33,936 --> 01:06:35,016
+Warte!
+
+696
+01:06:36,147 --> 01:06:37,856
+Ist verdammt still hier drin.
+
+697
+01:06:38,107 --> 01:06:39,271
+Hol es raus.
+
+698
+01:06:39,525 --> 01:06:40,771
+Hol es raus!
+
+699
+01:06:43,612 --> 01:06:45,736
+Macht schon!
+Ich wurde zu einer Folter gerufen!
+
+700
+01:06:46,490 --> 01:06:47,487
+Geduld!
+
+701
+01:06:49,285 --> 01:06:51,777
+Gut, dann ergib dich hier
+deinem Kummer, Daddy.
+
+702
+01:06:52,038 --> 01:06:55,205
+- Ich hole sie dir.
+- Vorsichtig! Beschädige nicht sein Eigentum!
+
+703
+01:06:57,835 --> 01:07:00,078
+Nur ein fauchender Schuss
+
+704
+01:07:00,713 --> 01:07:02,374
+für Furiosa.
+
+705
+01:07:02,631 --> 01:07:03,581
+Los!
+
+706
+01:07:03,841 --> 01:07:04,791
+Yeah!
+
+707
+01:07:11,098 --> 01:07:13,555
+So eine Schande aber auch. He.
+
+708
+01:07:13,809 --> 01:07:14,925
+Komm.
+
+709
+01:07:16,062 --> 01:07:16,928
+Ein Monat länger,
+
+710
+01:07:17,897 --> 01:07:19,725
+und dein Menschlein hätte leben können!
+
+711
+01:07:19,982 --> 01:07:21,312
+War es männlich?
+
+712
+01:07:21,567 --> 01:07:23,146
+A-1, ein Alpha Prime.
+
+713
+01:07:26,364 --> 01:07:27,645
+Hey, Rictus!
+
+714
+01:07:28,991 --> 01:07:30,700
+Hast einen kleinen Bruder verloren!
+
+715
+01:07:33,162 --> 01:07:34,906
+Perfekt in jeder Hinsicht.
+
+716
+01:07:37,708 --> 01:07:39,251
+Ich hatte einen kleinen Bruder!
+
+717
+01:07:39,669 --> 01:07:41,627
+Ich hatte einen kleinen Bruder!
+
+718
+01:07:41,879 --> 01:07:43,671
+Und er war perfekt!
+
+719
+01:07:43,923 --> 01:07:45,798
+Perfekt in jeder Hinsicht!
+
+720
+01:08:16,539 --> 01:08:17,702
+Komm schon.
+
+721
+01:08:17,915 --> 01:08:19,494
+(MOTOR HEULT AUF)
+
+722
+01:08:27,008 --> 01:08:28,752
+Wir wollten nicht
+die Frauen erschießen, Sir.
+
+723
+01:08:29,010 --> 01:08:30,090
+Nur eine Probe.
+
+724
+01:08:31,012 --> 01:08:32,471
+(ÄCHZT)
+
+725
+01:08:41,439 --> 01:08:43,017
+Er will helfen.
+
+726
+01:08:43,274 --> 01:08:44,057
+Wer?
+
+727
+01:08:44,316 --> 01:08:45,646
+Der War Boy!
+
+728
+01:08:45,901 --> 01:08:47,313
+Wo kommt der denn plötzlich her?
+
+729
+01:08:47,570 --> 01:08:48,899
+Ich dachte, wir haben
+ihn rausgeschmissen.
+
+730
+01:08:53,409 --> 01:08:54,406
+Da ist eine Anhöhe.
+
+731
+01:08:54,660 --> 01:08:56,535
+- Hinter dem Ding da.
+- Er meint den Baum.
+
+732
+01:08:56,871 --> 01:08:58,449
+Ja. Baum!
+
+733
+01:08:59,957 --> 01:09:00,705
+FURIOSA:
+Überlass ihn mir.
+
+734
+01:09:00,958 --> 01:09:04,459
+Hat einer von euch das Licht bemerkt?
+Und dass geschossen wird?
+
+735
+01:09:05,087 --> 01:09:05,835
+Steig aus.
+
+736
+01:09:06,088 --> 01:09:07,204
+Ich kann das.
+Ich kenne die Maschine.
+
+737
+01:09:07,465 --> 01:09:09,043
+CAPABLE: Das stimmt.
+Er ist Mechaniker.
+
+738
+01:09:14,638 --> 01:09:15,635
+Du hast noch 2 Schuss!
+
+739
+01:09:22,021 --> 01:09:23,137
+Pass auf ihn auf.
+
+740
+01:09:38,829 --> 01:09:39,826
+(PISTOLENSCHÜSSE ERTÖNEN)
+
+741
+01:09:40,790 --> 01:09:42,368
+Nicht atmen.
+
+742
+01:09:43,334 --> 01:09:44,615
+Ah!
+
+743
+01:09:46,337 --> 01:09:46,919
+TOAST:
+Hey!
+
+744
+01:09:47,171 --> 01:09:48,500
+Hey! Hey!
+
+745
+01:09:48,756 --> 01:09:49,753
+War Boy!
+
+746
+01:09:50,007 --> 01:09:52,582
+Ich befestige die Winde
+an dem Baumding!
+
+747
+01:09:53,552 --> 01:09:54,668
+Nimm du es.
+
+748
+01:09:54,929 --> 01:09:56,638
+Holen wir die Motorhauben.
+
+749
+01:09:57,890 --> 01:09:58,840
+Du fährst den Tank!
+
+750
+01:09:59,100 --> 01:10:00,927
+- Halt eine Fackel hoch!
+- Ich halte eine Fackel hoch!
+
+751
+01:10:01,727 --> 01:10:04,100
+- Näher!
+- Sie ist direkt vor deinen Augen!
+
+752
+01:10:05,147 --> 01:10:06,097
+Aah!
+
+753
+01:10:14,615 --> 01:10:16,194
+(MOTOR HEULT AUF)
+
+754
+01:10:16,450 --> 01:10:18,159
+Los! Los!
+
+755
+01:10:24,542 --> 01:10:25,741
+Blutbeutel!
+
+756
+01:10:26,794 --> 01:10:28,538
+(KEUCHT)
+
+757
+01:10:32,216 --> 01:10:34,589
+Ich bin die Waage der Gerechtigkeit!
+
+758
+01:10:34,927 --> 01:10:37,419
+Dirigent der Chöre des Verderbens!
+
+759
+01:10:38,514 --> 01:10:40,306
+Sing, Bruder Heckler!
+
+760
+01:10:41,976 --> 01:10:43,554
+Sing, Bruder Koch!
+
+761
+01:10:46,522 --> 01:10:50,058
+Singt, Brüder! Singt! Singt!
+
+762
+01:10:51,193 --> 01:10:52,226
+Wissen die nicht,
+dass sie auf uns schießen?
+
+763
+01:10:53,279 --> 01:10:54,311
+(SCHNAPPT NACH LUFT)
+
+764
+01:11:05,499 --> 01:11:07,043
+(KUGELN PRALLEN AB)
+
+765
+01:11:07,251 --> 01:11:08,450
+Waffenfieber!
+
+766
+01:11:13,424 --> 01:11:14,670
+(MOTOR HEULT AUF)
+
+767
+01:11:18,471 --> 01:11:20,381
+(ÄCHZT)
+
+768
+01:11:29,148 --> 01:11:29,730
+(ÄCHZT)
+
+769
+01:11:35,446 --> 01:11:37,321
+(KEUCHT)
+
+770
+01:11:37,573 --> 01:11:38,238
+(ÄCHZT)
+
+771
+01:11:45,831 --> 01:11:48,620
+(KNARRT)
+
+772
+01:12:00,596 --> 01:12:02,139
+(LACHT)
+
+773
+01:12:18,739 --> 01:12:21,029
+Dass ich mal so was Glanzvolles mache,
+hätte ich nie gedacht.
+
+774
+01:12:21,575 --> 01:12:23,035
+Was ist mit den Maschinen?
+
+775
+01:12:23,703 --> 01:12:25,114
+Sehr heiß und auch sehr durstig.
+
+776
+01:12:30,001 --> 01:12:33,999
+Hey. Ihr müsst den Tankzug noch einen
+halben Kilometer von hier wegfahren.
+
+777
+01:12:35,172 --> 01:12:38,091
+Und wenn du nicht zurück bist,
+wenn die Motoren abgekühlt sind?
+
+778
+01:12:40,261 --> 01:12:41,839
+Dann fahrt ihr weiter.
+
+779
+01:12:51,272 --> 01:12:53,312
+Was glaubst du, wird er tun?
+
+780
+01:12:54,400 --> 01:12:55,943
+FURIOSA:
+Zuerst Rache nehmen.
+
+781
+01:12:59,322 --> 01:13:00,521
+Fahren wir!
+
+782
+01:13:13,711 --> 01:13:15,087
+(KEUCHT)
+
+783
+01:13:23,137 --> 01:13:26,340
+(SCHÜSSE ERTÖNEN IN DER FERNE)
+
+784
+01:13:27,725 --> 01:13:29,101
+(EXPLOSION ERTÖNT)
+
+785
+01:13:31,395 --> 01:13:32,143
+(VÖGEL KRÄCHZEN)
+
+786
+01:13:36,108 --> 01:13:37,936
+(VÖGEL KRÄCHZEN)
+
+787
+01:13:38,361 --> 01:13:40,983
+(VÖGEL KRÄCHZEN WEITER)
+
+788
+01:14:20,319 --> 01:14:22,894
+- Bist du verletzt?
+- Hä?
+
+789
+01:14:23,155 --> 01:14:24,354
+Du blutest.
+
+790
+01:14:25,074 --> 01:14:26,569
+Ist nicht sein Blut.
+
+791
+01:14:28,369 --> 01:14:29,745
+Was ist das?
+
+792
+01:14:30,663 --> 01:14:31,827
+Das ist Muttermilch.
+
+793
+01:14:51,726 --> 01:14:54,015
+(VÖGEL KRÄCHZEN)
+
+794
+01:15:14,373 --> 01:15:15,370
+Alles ok.
+
+795
+01:15:15,624 --> 01:15:16,657
+Schlaf.
+
+796
+01:15:17,877 --> 01:15:19,372
+Ruh dich ein bisschen aus.
+
+797
+01:15:29,847 --> 01:15:32,421
+Woher weißt du,
+dass dieser Ort existiert?
+
+798
+01:15:35,102 --> 01:15:36,598
+Ich bin dort geboren.
+
+799
+01:15:38,898 --> 01:15:39,978
+Und warum bist du weggegangen?
+
+800
+01:15:40,399 --> 01:15:41,563
+Bin ich nicht.
+
+801
+01:15:43,152 --> 01:15:45,062
+Als Kind wurde ich entführt.
+
+802
+01:15:46,822 --> 01:15:47,938
+Gestohlen.
+
+803
+01:15:53,996 --> 01:15:55,705
+Hast du das schon mal versucht?
+
+804
+01:15:56,374 --> 01:15:57,750
+Viele Male.
+
+805
+01:15:58,751 --> 01:16:01,041
+Jetzt, wo ich einen Tankzug fahre,
+
+806
+01:16:02,630 --> 01:16:04,789
+ist das die beste Chance, die ich je hatte.
+
+807
+01:16:05,883 --> 01:16:07,047
+Und sie?
+
+808
+01:16:08,969 --> 01:16:10,595
+Sie suchen nach Hoffnung.
+
+809
+01:16:11,639 --> 01:16:13,015
+Und was suchst du?
+
+810
+01:16:18,479 --> 01:16:19,760
+Nach Erlösung.
+
+811
+01:17:03,232 --> 01:17:05,641
+Hey, was ist das?
+
+812
+01:17:18,247 --> 01:17:20,371
+Ich erinnere mich an so etwas wie das da.
+
+813
+01:17:32,636 --> 01:17:34,180
+FRAU:
+Helft mir!
+
+814
+01:17:35,389 --> 01:17:37,015
+(WEINT)
+
+815
+01:17:37,183 --> 01:17:38,844
+Helft mir!
+
+816
+01:17:42,355 --> 01:17:43,636
+- Helft mir, bitte!
+- Ah, ah.
+
+817
+01:17:43,898 --> 01:17:45,144
+Bitte!
+
+818
+01:17:45,858 --> 01:17:46,974
+Das ist eine Falle.
+
+819
+01:17:48,444 --> 01:17:49,820
+Ihr bleibt hier.
+
+820
+01:17:55,076 --> 01:17:57,947
+FRAU: Beeilt euch, bitte, schnell!
+Sie kommen zurück!
+
+821
+01:17:59,372 --> 01:18:00,203
+FURIOSA:
+Ich bin eine
+
+822
+01:18:00,456 --> 01:18:01,702
+der Vuvalini!
+
+823
+01:18:02,667 --> 01:18:04,459
+Der vielen Mütter!
+
+824
+01:18:06,045 --> 01:18:09,248
+Meine Einweihungsmutter
+war K.T. Concannon!
+
+825
+01:18:10,424 --> 01:18:13,094
+Ich bin die Tochter von Mary Jabassa.
+
+826
+01:18:14,303 --> 01:18:17,139
+Mein Clan war Swaddle Dog!
+
+827
+01:18:18,307 --> 01:18:21,226
+(RUFT)
+
+828
+01:18:21,477 --> 01:18:23,554
+(MOTOREN TÖSEN)
+
+829
+01:19:04,353 --> 01:19:05,635
+Ich bin es.
+
+830
+01:19:13,696 --> 01:19:15,440
+Es ist was in ihren Augen.
+
+831
+01:19:15,990 --> 01:19:18,067
+Vielleicht ist sie Jabassas Kind.
+
+832
+01:19:23,164 --> 01:19:24,078
+Das ist unsere Furiosa.
+
+833
+01:19:27,626 --> 01:19:29,003
+Wie lange ist es her?
+
+834
+01:19:30,629 --> 01:19:32,006
+7.000 Tage.
+
+835
+01:19:32,631 --> 01:19:34,709
+Plus die, an die ich mich nicht erinnere.
+
+836
+01:19:36,135 --> 01:19:37,167
+Furiosa.
+
+837
+01:19:38,596 --> 01:19:40,257
+Was ist mit deiner Mutter?
+
+838
+01:19:41,724 --> 01:19:43,053
+Sie ist gestorben.
+
+839
+01:19:43,893 --> 01:19:45,554
+Am dritten Tag.
+
+840
+01:19:52,735 --> 01:19:53,815
+Von wo seid ihr gekommen?
+
+841
+01:19:54,195 --> 01:19:57,896
+Von Westen.
+Der Zitadelle. Jenseits der Berge.
+
+842
+01:20:02,203 --> 01:20:02,820
+Die Männer.
+
+843
+01:20:03,079 --> 01:20:04,242
+Wer sind sie?
+
+844
+01:20:04,497 --> 01:20:05,826
+Ihr könnt ihnen vertrauen.
+
+845
+01:20:06,248 --> 01:20:07,909
+Sie haben uns geholfen.
+
+846
+01:20:19,804 --> 01:20:22,011
+Wo hast du diese Kreaturen gefunden?
+
+847
+01:20:24,600 --> 01:20:25,882
+Sie sind so weich.
+
+848
+01:20:26,602 --> 01:20:28,014
+Diese hat sogar noch alle Zähne!
+
+849
+01:20:28,270 --> 01:20:31,723
+(ALTE FRAUEN LACHEN)
+
+850
+01:20:33,567 --> 01:20:34,683
+Oh.
+
+851
+01:20:34,944 --> 01:20:36,854
+(GRUPPE LACHT)
+
+852
+01:20:37,113 --> 01:20:39,237
+Ich will es ihnen unbedingt zeigen.
+
+853
+01:20:39,865 --> 01:20:40,981
+Zeigen?
+
+854
+01:20:42,159 --> 01:20:43,405
+Was zeigen?
+
+855
+01:20:43,661 --> 01:20:44,907
+Mein Zuhause.
+
+856
+01:20:48,916 --> 01:20:50,411
+Den Grünen Ort.
+
+857
+01:20:50,668 --> 01:20:52,792
+Aber wenn ihr
+von Westen gekommen seid,
+
+858
+01:20:53,838 --> 01:20:55,381
+seid ihr durchgefahren.
+
+859
+01:20:56,716 --> 01:20:58,175
+Die Krähen.
+
+860
+01:20:58,467 --> 01:21:00,959
+Dieser unheimliche Ort
+mit all den Krähen.
+
+861
+01:21:02,054 --> 01:21:03,384
+- Die Erde.
+- Wir mussten da weg.
+
+862
+01:21:03,639 --> 01:21:05,432
+- Wir hatten kein Wasser.
+- Das Wasser war verschmutzt.
+
+863
+01:21:05,683 --> 01:21:07,308
+Sie war vergiftet. Sauer.
+
+864
+01:21:07,560 --> 01:21:08,936
+FRAU 1:
+Und dann kamen die Krähen.
+
+865
+01:21:09,186 --> 01:21:10,931
+FRAU 2:
+Wir konnten nichts anbauen.
+
+866
+01:21:11,188 --> 01:21:12,518
+FRAU 3:
+Wo sind die anderen?
+
+867
+01:21:12,773 --> 01:21:13,723
+FRAU 1:
+Welche anderen?
+
+868
+01:21:13,983 --> 01:21:15,146
+FRAU 3:
+Die vielen Mütter.
+
+869
+01:21:15,401 --> 01:21:16,896
+FRAU 1:
+Nur wir sind noch übrig.
+
+870
+01:21:57,485 --> 01:22:00,107
+(SCHREIT QUALVOLL)
+
+871
+01:22:17,838 --> 01:22:18,954
+CHEEDO:
+Seht.
+
+872
+01:22:21,676 --> 01:22:23,918
+Das nennt man einen Satelliten.
+
+873
+01:22:24,679 --> 01:22:26,921
+TOAST:
+Miss Giddy hat uns davon erzählt.
+
+874
+01:22:27,515 --> 01:22:30,351
+Damit hat man Nachrichten
+um die Erde geschickt.
+
+875
+01:22:31,143 --> 01:22:32,687
+TV-Serien.
+
+876
+01:22:32,937 --> 01:22:35,227
+Jeder in der alten Welt hatte
+eine Lieblingsserie.
+
+877
+01:22:37,566 --> 01:22:38,397
+CHEEDO:
+Glaubt ihr, da draußen
+
+878
+01:22:38,651 --> 01:22:39,932
+ist noch jemand?
+
+879
+01:22:41,153 --> 01:22:42,697
+Und sendet Serien?
+
+880
+01:22:42,989 --> 01:22:44,318
+VALKYRIE:
+Wer weiß?
+
+881
+01:22:45,449 --> 01:22:47,692
+Das ist die Ebene der Stille.
+
+882
+01:22:50,329 --> 01:22:52,370
+Bleib wo du bist, kleiner Joe.
+
+883
+01:22:52,623 --> 01:22:54,747
+Hier draußen gibt's nichts Neues.
+
+884
+01:22:55,001 --> 01:22:56,579
+Du bekommst ein Baby?
+
+885
+01:22:57,670 --> 01:22:59,130
+Warlord Junior.
+
+886
+01:22:59,380 --> 01:23:00,626
+Wird bestimmt hässlich.
+
+887
+01:23:01,257 --> 01:23:02,669
+Könnte auch ein Mädchen sein.
+
+888
+01:23:04,552 --> 01:23:06,130
+Damit tötest du Menschen, ja?
+
+889
+01:23:06,429 --> 01:23:08,469
+Jeden, der mir hier draußen begegnet ist.
+
+890
+01:23:08,723 --> 01:23:11,049
+Kopfschüsse. Allesamt.
+Zack. Genau ins Genick.
+
+891
+01:23:11,308 --> 01:23:13,267
+Ich dachte, ihr Frauen
+wärt da schon weiter.
+
+892
+01:23:17,898 --> 01:23:19,062
+Komm her.
+
+893
+01:23:26,782 --> 01:23:27,779
+Sieh mal rein.
+
+894
+01:23:28,784 --> 01:23:30,030
+THE DAG:
+Saat.
+
+895
+01:23:31,037 --> 01:23:32,496
+Aus meiner Heimat.
+
+896
+01:23:32,747 --> 01:23:34,906
+Erbstücke.
+Ursprünglich.
+
+897
+01:23:35,583 --> 01:23:37,411
+Wann immer es geht, pflanze ich.
+
+898
+01:23:37,668 --> 01:23:38,665
+Wo?
+
+899
+01:23:39,045 --> 01:23:41,963
+Noch ist keine angewachsen.
+Die Erde ist zu sauer.
+
+900
+01:23:42,298 --> 01:23:44,042
+Ah. So viele verschiedene.
+
+901
+01:23:44,342 --> 01:23:46,382
+Bäume, Blumen, Früchte.
+
+902
+01:23:47,345 --> 01:23:49,469
+Damals hatte man ausreichend davon.
+
+903
+01:23:50,181 --> 01:23:52,388
+Damals war es nicht nötig,
+jemanden zu töten.
+
+904
+01:24:08,032 --> 01:24:08,863
+Kann ich mit dir reden?
+
+905
+01:24:29,095 --> 01:24:31,005
+Ich habe mit den anderen gesprochen.
+
+906
+01:24:37,812 --> 01:24:41,063
+Das hier ist die beste Chance,
+um die Salzwüste zu durchqueren.
+
+907
+01:24:43,234 --> 01:24:47,233
+Wenn wir den Benzintank hier lassen und
+die Motorräder so voll beladen wie möglich,
+
+908
+01:24:47,488 --> 01:24:49,980
+können wir vielleicht 160 Tage fahren.
+
+909
+01:24:52,702 --> 01:24:54,660
+Eins von den Bikes ist für dich.
+
+910
+01:24:55,788 --> 01:24:57,034
+Vollgetankt.
+
+911
+01:25:00,167 --> 01:25:02,327
+Du darfst uns sehr gern begleiten.
+
+912
+01:25:06,340 --> 01:25:08,298
+Na, ich schlage mich allein durch.
+
+913
+01:25:14,974 --> 01:25:17,051
+Hoffnung ist ein Fehler.
+
+914
+01:25:23,941 --> 01:25:26,610
+Wenn du nicht reparieren kannst,
+was kaputt ist,
+
+915
+01:25:29,196 --> 01:25:30,775
+wirst du verrückt.
+
+916
+01:25:46,964 --> 01:25:48,590
+MÄDCHEN:
+<i>Wo bist du, Max?</i>
+
+917
+01:25:50,634 --> 01:25:51,916
+<i>Wo bist du?</i>
+
+918
+01:25:53,554 --> 01:25:55,595
+<i>Du hast versprochen, uns zu helfen.</i>
+
+919
+01:26:06,025 --> 01:26:08,268
+<i>Komm schon, Pa! Los jetzt.</i>
+
+920
+01:26:40,226 --> 01:26:41,306
+Also,
+
+921
+01:26:42,645 --> 01:26:44,804
+das ist euer Weg nach Hause.
+
+922
+01:26:48,317 --> 01:26:49,349
+Wir fahren zurück?
+
+923
+01:26:49,819 --> 01:26:51,362
+Mm.
+
+924
+01:26:51,612 --> 01:26:53,405
+- Wieder zurück?
+- Ja.
+
+925
+01:26:53,656 --> 01:26:55,365
+Ich dachte, du bist nicht mehr verrückt.
+
+926
+01:26:55,616 --> 01:26:56,815
+Was sagen sie?
+
+927
+01:26:57,076 --> 01:26:59,283
+Er will dahin zurück,
+wo sie hergekommen sind.
+
+928
+01:26:59,537 --> 01:27:00,700
+Zur Zitadelle.
+
+929
+01:27:01,455 --> 01:27:03,116
+Und was gibt es in der Zitadelle?
+
+930
+01:27:03,874 --> 01:27:05,074
+Grün.
+
+931
+01:27:05,334 --> 01:27:06,664
+TOAST:
+Und Wasser.
+
+932
+01:27:07,920 --> 01:27:11,789
+Eine unglaubliche Menge klares Wasser.
+Und viel Getreide.
+
+933
+01:27:12,049 --> 01:27:14,209
+Es gibt dort alles.
+Solange man keine Höhenangst hat.
+
+934
+01:27:14,468 --> 01:27:15,845
+Und das Wasser, woher kommt es?
+
+935
+01:27:16,095 --> 01:27:19,761
+Aus der Erde, er pumpt es hoch. Er nennt
+es Aqua Cola und behält alles für sich.
+
+936
+01:27:20,016 --> 01:27:22,258
+THE DAG: Und weil es ihm gehört,
+gehören alle ihm.
+
+937
+01:27:22,518 --> 01:27:23,682
+Ich kann ihn jetzt schon nicht leiden.
+
+938
+01:27:23,936 --> 01:27:26,309
+Es dauert 2 Wochen,
+die Berge zu umfahren.
+
+939
+01:27:26,564 --> 01:27:27,478
+MAX:
+Nein.
+
+940
+01:27:27,732 --> 01:27:30,437
+Ich schlage vor, wir fahren
+denselben Weg zurück.
+
+941
+01:27:31,986 --> 01:27:33,564
+Durch den Canyon.
+
+942
+01:27:34,613 --> 01:27:38,482
+Er ist offen, davon können wir ausgehen.
+Er ist mit seinen ganzen Kriegstrupps durch.
+
+943
+01:27:38,993 --> 01:27:42,363
+Wir nehmen den Tankzug
+und fahren direkt mitten durch sie durch.
+
+944
+01:27:42,621 --> 01:27:43,618
+Den Benzintank können wir am Pass
+
+945
+01:27:43,873 --> 01:27:45,119
+abkoppeln.
+
+946
+01:27:45,499 --> 01:27:46,995
+Und so den Weg hinter uns schließen.
+
+947
+01:27:47,251 --> 01:27:48,367
+Kaboom.
+
+948
+01:27:48,627 --> 01:27:49,827
+(GRUPPE LACHT)
+
+949
+01:27:51,213 --> 01:27:53,752
+Und wie genau
+nehmen wir die Zitadelle ein?
+
+950
+01:27:54,300 --> 01:27:56,092
+Vorausgesetzt, wir leben dann noch.
+
+951
+01:27:56,344 --> 01:27:58,918
+TOAST: Wenn wir den Pass
+blockieren können, ist es einfach.
+
+952
+01:27:59,180 --> 01:28:02,929
+Nur die unerfahrenen Jungen sind noch da.
+Und die War Boys sind zu krank.
+
+953
+01:28:03,642 --> 01:28:05,387
+CAPABLE:
+Und wir haben Nux bei uns.
+
+954
+01:28:06,062 --> 01:28:07,261
+Er ist ein War Boy.
+
+955
+01:28:07,521 --> 01:28:10,144
+Er bringt das, was gestohlen wurde,
+wieder nach Hause, so wie er sollte.
+
+956
+01:28:13,569 --> 01:28:14,733
+NUX:
+Ja.
+
+957
+01:28:15,696 --> 01:28:17,275
+Fühlt sich wie Hoffnung an.
+
+958
+01:28:18,491 --> 01:28:20,034
+FRAU:
+Mir gefällt dieser Plan.
+
+959
+01:28:20,618 --> 01:28:21,615
+Wir können von vorn anfangen.
+
+960
+01:28:22,286 --> 01:28:23,947
+Wie in der alten Zeit!
+
+961
+01:28:25,539 --> 01:28:26,739
+MAX:
+Hör zu.
+
+962
+01:28:27,458 --> 01:28:29,167
+Es wird ein harter Tag.
+
+963
+01:28:29,627 --> 01:28:32,712
+Doch ich garantiere dir, wenn ihr
+160 Tage in diese Richtung fahrt,
+
+964
+01:28:35,049 --> 01:28:37,089
+ist da nichts außer Salz.
+
+965
+01:28:39,553 --> 01:28:42,425
+In die andere Richtung
+könnten wir zumindest
+
+966
+01:28:43,933 --> 01:28:45,179
+zusammen
+
+967
+01:28:46,769 --> 01:28:48,846
+so etwas wie eine Erlösung finden.
+
+968
+01:29:05,413 --> 01:29:08,830
+(SUMMT)
+
+969
+01:29:19,635 --> 01:29:21,012
+MANN:
+Der Tankzug!
+
+970
+01:29:21,303 --> 01:29:23,214
+Da ist der Tankzug!
+
+971
+01:29:33,232 --> 01:29:34,431
+Das sind sie wieder.
+
+972
+01:29:34,692 --> 01:29:35,938
+Warum fahren sie wieder zurück?
+
+973
+01:29:36,402 --> 01:29:38,063
+Vielleicht ergeben sie sich ja?
+
+974
+01:29:38,779 --> 01:29:40,275
+Sie fahren Richtung Canyon.
+
+975
+01:29:42,158 --> 01:29:45,113
+Sie wollen zurück zur Zitadelle!
+
+976
+01:29:45,369 --> 01:29:47,030
+Sie wissen, dass sie unbewacht ist!
+
+977
+01:29:47,288 --> 01:29:48,368
+Verflucht!
+
+978
+01:29:49,749 --> 01:29:50,864
+MANN:
+Los geht's!
+
+979
+01:29:51,417 --> 01:29:52,497
+(ÄCHZT)
+
+980
+01:29:55,046 --> 01:29:56,292
+(GITARRE SPIELT HEAVY-METAL-RIFF)
+
+981
+01:29:56,589 --> 01:29:58,084
+(GRUPPE SCHREIT)
+
+982
+01:30:01,177 --> 01:30:02,423
+Fahrt los!
+
+983
+01:30:03,846 --> 01:30:05,590
+(EXPLOSION ERTÖNT IN DER FERNE)
+
+984
+01:30:13,397 --> 01:30:15,307
+(RUMPELN ERTÖNT IN DER FERNE)
+
+985
+01:30:24,784 --> 01:30:26,279
+- Was machst du?
+- Beten.
+
+986
+01:30:26,535 --> 01:30:27,485
+Zu wem?
+
+987
+01:30:27,745 --> 01:30:29,205
+Zu jedem, der zuhört.
+
+988
+01:30:52,186 --> 01:30:52,803
+(PISTOLE KLICKT)
+
+989
+01:30:53,521 --> 01:30:54,553
+Es geht los, Ladys!
+
+990
+01:30:57,233 --> 01:30:58,479
+Das ist meiner!
+
+991
+01:31:02,863 --> 01:31:04,822
+Er will sich vor uns setzen,
+um die Reifen zu erwischen.
+
+992
+01:31:12,123 --> 01:31:13,155
+Jag nicht meinen Motor in die Luft.
+
+993
+01:31:13,708 --> 01:31:14,704
+Ich schubs ihn nur an.
+
+994
+01:31:14,959 --> 01:31:16,039
+Ein kleines bisschen.
+
+995
+01:31:24,510 --> 01:31:25,127
+(MOTOR HEULT AUF)
+
+996
+01:31:29,015 --> 01:31:31,970
+Du Stück Dreck!
+Du hast ihn verraten!
+
+997
+01:31:36,856 --> 01:31:37,639
+Yeah!
+
+998
+01:31:48,951 --> 01:31:50,577
+(HUSTET)
+
+999
+01:31:54,123 --> 01:31:54,788
+(ÄCHZT)
+
+1000
+01:31:56,000 --> 01:31:56,783
+Geh!
+
+1001
+01:31:56,959 --> 01:31:58,502
+(NUX HUSTET WEITER)
+
+1002
+01:31:58,753 --> 01:32:00,296
+Aah! Aah!
+
+1003
+01:32:10,306 --> 01:32:11,422
+Ha!
+
+1004
+01:32:12,433 --> 01:32:13,098
+Aah!
+
+1005
+01:32:14,268 --> 01:32:14,850
+(LACHT)
+
+1006
+01:32:18,898 --> 01:32:19,812
+(SURRT)
+
+1007
+01:32:23,194 --> 01:32:23,776
+Ich muss langsamer fahren.
+
+1008
+01:32:24,904 --> 01:32:27,312
+Der erste Motor ist tot.
+Der zweite auch gleich.
+
+1009
+01:32:27,573 --> 01:32:28,155
+Ok.
+
+1010
+01:32:29,075 --> 01:32:30,071
+Hast du einen schwarzen Daumen?
+
+1011
+01:32:30,242 --> 01:32:31,275
+Mhm.
+
+1012
+01:32:31,535 --> 01:32:32,781
+Dann Motor 1. Los.
+
+1013
+01:32:33,037 --> 01:32:34,366
+Du und ich, fünftes Rad.
+
+1014
+01:32:34,789 --> 01:32:35,904
+Wir koppeln den Tank ab.
+
+1015
+01:32:48,552 --> 01:32:49,467
+Ein Mann, eine Kugel.
+
+1016
+01:33:01,857 --> 01:33:03,234
+(ÄCHZT)
+
+1017
+01:33:07,446 --> 01:33:09,072
+- Ich kann nichts sehen.
+- Maadi! Maadi!
+
+1018
+01:33:09,323 --> 01:33:10,487
+Nichts sehen.
+
+1019
+01:33:30,511 --> 01:33:31,294
+Oh.
+
+1020
+01:33:32,513 --> 01:33:33,712
+(LACHT)
+
+1021
+01:33:49,905 --> 01:33:50,855
+Hey!
+
+1022
+01:33:51,115 --> 01:33:52,610
+Harpunen und Pflüge!
+
+1023
+01:33:53,034 --> 01:33:54,233
+Sie bremsen uns!
+
+1024
+01:34:05,504 --> 01:34:07,712
+3 Bolzen drin lassen. 3.
+
+1025
+01:34:17,892 --> 01:34:19,435
+(ÄCHZT)
+
+1026
+01:34:36,035 --> 01:34:36,736
+(SCHNAPPEN NACH LUFT)
+
+1027
+01:34:45,044 --> 01:34:45,626
+(SCHREIT)
+
+1028
+01:35:02,687 --> 01:35:04,230
+(ÄCHZT)
+
+1029
+01:35:24,458 --> 01:35:25,373
+(ÄCHZT)
+
+1030
+01:35:26,252 --> 01:35:26,999
+FRAU:
+Hey, du!
+
+1031
+01:35:42,893 --> 01:35:44,175
+Alles ok?
+
+1032
+01:35:46,897 --> 01:35:48,523
+Ich glaube, sie ist verletzt.
+
+1033
+01:36:06,208 --> 01:36:07,372
+(ÄCHZT)
+
+1034
+01:36:12,381 --> 01:36:13,164
+Hey!
+
+1035
+01:36:27,772 --> 01:36:28,353
+(ÄCHZT)
+
+1036
+01:36:39,533 --> 01:36:40,067
+Nein!
+
+1037
+01:36:40,534 --> 01:36:41,116
+(SCHREIT)
+
+1038
+01:36:44,497 --> 01:36:45,447
+FURIOSA:
+Nein!
+
+1039
+01:36:50,294 --> 01:36:51,624
+MÄDCHEN:
+<i>Hey.</i>
+
+1040
+01:36:52,171 --> 01:36:52,836
+<i>Bleib bei mir.</i>
+
+1041
+01:36:53,422 --> 01:36:55,167
+<i>- Bleib bei mir.</i>
+- FRAU: Bleib bei mir.
+
+1042
+01:36:55,424 --> 01:36:56,801
+<i>- Hey.</i>
+- Hey! Hörst du mich?
+
+1043
+01:36:58,678 --> 01:36:59,627
+MANN: Erledige das!
+Ich töte die andere.
+
+1044
+01:37:08,312 --> 01:37:08,977
+Ah!
+
+1045
+01:37:24,036 --> 01:37:25,413
+(ÄCHZT)
+
+1046
+01:37:34,714 --> 01:37:36,375
+(SCHREIT)
+
+1047
+01:38:03,784 --> 01:38:04,651
+(PIEPST)
+
+1048
+01:38:04,910 --> 01:38:06,287
+(SURRT)
+
+1049
+01:38:19,050 --> 01:38:19,631
+(ÄCHZT)
+
+1050
+01:38:30,519 --> 01:38:31,137
+Walhalla!
+
+1051
+01:38:43,741 --> 01:38:44,857
+(WIMMERT)
+
+1052
+01:38:45,743 --> 01:38:46,907
+Aah!
+
+1053
+01:38:47,161 --> 01:38:47,743
+(SCHREIT)
+
+1054
+01:38:52,875 --> 01:38:53,457
+Ha!
+
+1055
+01:39:12,228 --> 01:39:13,059
+Motor 1 läuft wieder.
+
+1056
+01:39:14,188 --> 01:39:15,352
+Erst mal.
+
+1057
+01:39:24,782 --> 01:39:25,696
+(KNOCHEN KNACKEN UND MANN SCHREIT)
+
+1058
+01:39:27,076 --> 01:39:28,275
+(WIMMERT)
+
+1059
+01:39:50,266 --> 01:39:51,595
+(ÄCHZT)
+
+1060
+01:39:54,895 --> 01:39:55,643
+(SCHREIT)
+
+1061
+01:40:03,571 --> 01:40:04,983
+Sie ist verletzt!
+
+1062
+01:40:05,239 --> 01:40:06,271
+Sehr schwer verletzt!
+
+1063
+01:40:20,963 --> 01:40:22,293
+(ÄCHZT)
+
+1064
+01:40:26,260 --> 01:40:27,459
+(ÄCHZT)
+
+1065
+01:40:27,720 --> 01:40:28,385
+Aah!
+
+1066
+01:40:39,940 --> 01:40:42,349
+(EXPLOSION ERTÖNT IN DER FERNE)
+
+1067
+01:40:59,794 --> 01:41:01,419
+(LAUTE ROCKMUSIK ERTÖNT)
+
+1068
+01:41:29,323 --> 01:41:30,783
+(MOTOR HEULT AUF)
+
+1069
+01:41:33,285 --> 01:41:33,867
+(ÄCHZT)
+
+1070
+01:41:34,829 --> 01:41:36,407
+(KNARREN ERTÖNT
+UND MOTOR KNATTERT)
+
+1071
+01:41:36,664 --> 01:41:37,329
+Hörst du das?
+
+1072
+01:41:38,332 --> 01:41:39,911
+Gleich sehen wir
+2 explodierende V8.
+
+1073
+01:41:41,460 --> 01:41:43,169
+Ich will, dass du weiterfährst.
+
+1074
+01:41:45,381 --> 01:41:47,042
+Ich schaffe ihn aus dem Weg.
+
+1075
+01:42:33,679 --> 01:42:34,427
+(ÄCHZT)
+
+1076
+01:42:54,075 --> 01:42:55,356
+CHEEDO:
+Rictus!
+
+1077
+01:42:56,452 --> 01:42:57,283
+Nimm mich!
+
+1078
+01:43:03,709 --> 01:43:04,706
+(SPIELT BEDROHLICHEN RIFF)
+
+1079
+01:43:10,883 --> 01:43:11,631
+Cheedo!
+
+1080
+01:43:11,884 --> 01:43:13,427
+- Was machst du?
+- Gutes Mädchen.
+
+1081
+01:43:17,765 --> 01:43:18,881
+- Komm her.
+- Aah!
+
+1082
+01:43:21,185 --> 01:43:22,467
+Aah!
+
+1083
+01:43:24,313 --> 01:43:25,180
+Hey, Großer!
+
+1084
+01:43:26,273 --> 01:43:27,934
+Aah!
+
+1085
+01:43:31,445 --> 01:43:33,273
+Hier! Hier!
+
+1086
+01:43:34,865 --> 01:43:36,740
+(ÄCHZT)
+
+1087
+01:43:46,002 --> 01:43:47,248
+(ÄCHZT)
+
+1088
+01:43:51,549 --> 01:43:52,131
+Ah!
+
+1089
+01:43:53,926 --> 01:43:54,508
+(FAUCHT)
+
+1090
+01:43:55,261 --> 01:43:56,673
+(FURIOSA ÄCHZT UND SCHREIT)
+
+1091
+01:44:25,207 --> 01:44:26,038
+(ÄCHZT)
+
+1092
+01:44:27,168 --> 01:44:28,331
+Kennst du mich noch?
+
+1093
+01:44:31,172 --> 01:44:32,003
+Aah!
+
+1094
+01:44:35,009 --> 01:44:36,588
+(ÄCHZT)
+
+1095
+01:44:49,690 --> 01:44:50,722
+Er ist tot!
+
+1096
+01:44:51,567 --> 01:44:52,731
+Er ist tot.
+
+1097
+01:45:11,754 --> 01:45:14,709
+Wenn du drüben bist, klemme ich
+das Pedal fest und komme nach.
+
+1098
+01:45:15,508 --> 01:45:16,540
+FRAU:
+Komm schon!
+
+1099
+01:45:17,635 --> 01:45:20,174
+Schnell! Wir sind gleich am Pass.
+
+1100
+01:45:41,033 --> 01:45:41,734
+(KEUCHT)
+
+1101
+01:45:45,913 --> 01:45:46,661
+(REIFEN QUIETSCHEN)
+
+1102
+01:45:55,006 --> 01:45:55,753
+(RICTUS ÄCHZT)
+
+1103
+01:46:07,810 --> 01:46:09,389
+Sei mein Zeuge.
+
+1104
+01:46:15,860 --> 01:46:16,857
+Rictus!
+
+1105
+01:47:06,202 --> 01:47:07,863
+(FURIOSA RÖCHELT)
+
+1106
+01:47:12,458 --> 01:47:14,084
+Warum macht sie dieses Geräusch?
+
+1107
+01:47:14,335 --> 01:47:16,044
+Sie pumpt immer mehr Luft
+in ihre Brusthöhle.
+
+1108
+01:47:16,921 --> 01:47:18,464
+Das engt ihre Lungen ein,
+
+1109
+01:47:18,714 --> 01:47:20,507
+bei jedem Atmer.
+
+1110
+01:47:26,263 --> 01:47:27,427
+Ich kriege das hin.
+
+1111
+01:47:30,393 --> 01:47:31,852
+Tut mir sehr leid.
+
+1112
+01:47:32,269 --> 01:47:32,935
+(SCHNAPPT NACH LUFT)
+
+1113
+01:47:34,605 --> 01:47:35,851
+Ich weiß. Ich weiß.
+
+1114
+01:47:37,108 --> 01:47:38,437
+Halt das da fest.
+
+1115
+01:47:39,318 --> 01:47:40,398
+Gut so.
+
+1116
+01:47:40,945 --> 01:47:43,781
+Leg das drauf. Fest drücken. Hey.
+
+1117
+01:47:45,157 --> 01:47:45,823
+Hey.
+
+1118
+01:47:46,075 --> 01:47:47,191
+Nach Hause.
+
+1119
+01:47:50,454 --> 01:47:53,824
+(FLÜSTERT UNVERSTÄNDLICH)
+
+1120
+01:47:54,500 --> 01:47:55,829
+Nach Hause bringen.
+
+1121
+01:48:02,258 --> 01:48:04,298
+- Nein, nein, nein, nein.
+- Sie stirbt.
+
+1122
+01:48:04,552 --> 01:48:05,833
+Sie verliert zu viel Blut.
+
+1123
+01:48:07,430 --> 01:48:08,510
+Halte das.
+
+1124
+01:48:09,348 --> 01:48:09,930
+Wir brauchen diese.
+
+1125
+01:48:11,267 --> 01:48:12,430
+Nadel.
+
+1126
+01:48:13,436 --> 01:48:14,302
+Komm schon.
+
+1127
+01:48:15,730 --> 01:48:16,395
+Nimm das.
+
+1128
+01:48:19,567 --> 01:48:20,350
+Haltet sie wach.
+
+1129
+01:48:21,277 --> 01:48:22,523
+Furiosa.
+
+1130
+01:48:26,198 --> 01:48:28,358
+Ok, es fließt nicht.
+
+1131
+01:48:29,035 --> 01:48:30,234
+Das haben wir gleich.
+
+1132
+01:48:31,120 --> 01:48:33,030
+Halt's nach oben.
+Nach oben halten.
+
+1133
+01:48:34,623 --> 01:48:35,787
+Ok.
+
+1134
+01:48:36,167 --> 01:48:36,832
+Tut mir leid.
+
+1135
+01:48:39,253 --> 01:48:41,710
+Ja, gut so. Ok. So ist gut.
+
+1136
+01:48:54,226 --> 01:48:55,426
+Max.
+
+1137
+01:48:56,771 --> 01:48:58,266
+Mein Name ist Max.
+
+1138
+01:48:59,774 --> 01:49:02,313
+Yeah. Mm-hm.
+
+1139
+01:49:02,652 --> 01:49:04,063
+Mm.
+
+1140
+01:49:07,031 --> 01:49:08,610
+Das ist mein Name.
+
+1141
+01:49:21,420 --> 01:49:24,956
+(DURCHEINANDERGEREDE)
+
+1142
+01:49:33,849 --> 01:49:37,848
+(GÄNGE KNIRSCHEN
+UND KETTEN KLIRREN)
+
+1143
+01:49:50,491 --> 01:49:51,239
+Bremsen!
+
+1144
+01:49:51,867 --> 01:49:52,533
+(PFEIFT)
+
+1145
+01:49:54,578 --> 01:49:56,537
+(KNARRT)
+
+1146
+01:49:57,039 --> 01:49:58,155
+Zeigt euch.
+
+1147
+01:50:17,309 --> 01:50:18,591
+Er hat da irgendwas.
+
+1148
+01:50:23,482 --> 01:50:25,642
+(GRUPPE SCHNAPPT NACH LUFT)
+
+1149
+01:50:25,860 --> 01:50:26,810
+Das ist Immortan Joe.
+
+1150
+01:50:27,570 --> 01:50:28,982
+MANN!:
+Immortan Joe ist tot!
+
+1151
+01:50:29,947 --> 01:50:32,902
+(MENGE SCHREIT)
+
+1152
+01:50:56,182 --> 01:50:57,428
+MANN 2:
+Furiosa!
+
+1153
+01:50:57,725 --> 01:50:58,889
+Furiosa!
+
+1154
+01:50:59,143 --> 01:51:00,223
+MANN 3:
+Furiosa!
+
+1155
+01:51:00,478 --> 01:51:01,593
+Furiosa!
+
+1156
+01:51:02,563 --> 01:51:03,762
+GRUPPE:
+Furiosa!
+
+1157
+01:51:04,148 --> 01:51:05,560
+Sie ist wieder da.
+
+1158
+01:51:05,816 --> 01:51:08,391
+GRUPPE (IM SPRECHGESANG):
+<i>Lasst sie rauf! Lasst sie rauf!</i>
+
+1159
+01:51:08,653 --> 01:51:10,112
+<i>Lasst sie rauf!</i>
+
+1160
+01:51:10,363 --> 01:51:12,487
+<i>Lasst sie rauf! Lasst sie rauf!</i>
+
+1161
+01:51:12,657 --> 01:51:15,030
+(KEUCHT)
+
+1162
+01:51:15,826 --> 01:51:16,823
+JUNGE 1:
+Los, kommt!
+
+1163
+01:51:17,078 --> 01:51:18,573
+JUNGE 2:
+Lasst sie rauf! Kommt schon.
+
+1164
+01:51:21,499 --> 01:51:23,077
+(MENGE JUBELT)
+
+1165
+01:51:23,334 --> 01:51:24,995
+(KNARRT)
+
+1166
+01:51:29,006 --> 01:51:30,667
+(MOTOR HEULT AUF)
+
+1167
+01:51:34,428 --> 01:51:36,303
+(MENGE BRÜLLT)
+
+1168
+01:51:51,112 --> 01:51:52,393
+FRAU:
+Kommt rauf.
+
+1169
+01:51:55,866 --> 01:51:58,275
+(MENGE BRÜLLT WEITER)
+
+1170
+01:53:07,146 --> 01:53:09,685
+"Wohin müssen wir gehen,
+
+1171
+01:53:10,858 --> 01:53:14,857
+wir, die wir dieses Wüstenland durchstreifen,
+auf der Suche nach unserem besseren Ich?"
+
+1172
+01:57:31,285 --> 01:57:33,985
+In Gedenken an
+JACO ESPACH
+
+1173
+02:00:15,000 --> 02:00:17,500
+[German - SDH]
+
