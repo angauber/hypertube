@@ -178,7 +178,6 @@ module.exports =
 		sgMail.setApiKey('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');
 		if (sgMail.send(msg))
 		{
-			console.log('OK');
 			callback(null, 1);
 		}
 		else

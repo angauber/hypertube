@@ -53,10 +53,18 @@ router.post('/signin', (req, res) =>
 					}
 					else
 					{
-						req.session.oauth = false;
-						req.session.user_id = success;
-						req.session.save();
-						res.status(200).send('1');
+						Select.isActive(req.body.username, (errActive, successActive) =>
+						{
+							if (errActive) {
+								res.status(200).send(errActive);
+							}
+							else {
+								req.session.oauth = false;
+								req.session.user_id = success;
+								req.session.save();
+								res.status(200).send('1');
+							}
+						})
 					}
 				})
 				
