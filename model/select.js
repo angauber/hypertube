@@ -91,4 +91,24 @@ module.exports =
 				callback("Cette utilisateur n'existe pas");
 		});
 	},
+
+	isActive(username, callback)
+	{
+		Users.find({ username : username }, (err, ret) =>
+		{
+			if (err)
+				callback(0);
+			else if (ret)
+			{
+				if (ret[0].isActive == true) {
+					callback(null, 1);
+				}
+				else {
+					callback("Confirm your account");
+				}
+			}
+			else
+				callback(0);
+		});
+	}
 }
