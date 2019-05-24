@@ -73,6 +73,13 @@ app.get('/', function(req, res) {
 		auth.oauth_42(req, res)
 	}
 })
+.get('/gitauth', function(req, res) {
+	if (req.session.user_id) {
+		res.render('home.ejs');
+	} else {
+		auth.oauth_git(req, res)
+	}
+})
 .get('/tv', function(req, res) {
 	if (req.session.user_id) {
 		res.render('tv.ejs')
@@ -181,12 +188,8 @@ app.get('/', function(req, res) {
 .get('/wipe', function(req, res) {
 	movie.clear();
 })
-.get('/bitch', function(req, res) {
-	movie.try()
-})
-.get('/disconnect', function(req, res) {
-	req.session.destroy();
-	res.redirect('/');
+.get('/try', function(req, res) {
+	movie.try();
 })
 .use(function(req, res, next) {
 	res.render('not_found.ejs')

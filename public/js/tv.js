@@ -22,19 +22,22 @@ new Vue({
 			}
 		},
 		addNewPage() {
-			axios.get('/tvPagination?page=' + page).then(response => {
-				let api = response.data.data;
+			for (let j = 0; j < 3; j++) {
+				axios.get('/tvPagination?page=' + page).then(response => {
+					let api = response.data.data;
 
-				for (let i = 0; i < api.length; i++) {
-					let apiInfo = {
-						img : 'https://image.tmdb.org/t/p/w1280' + api[i].poster_path,
-						name : api[i].original_name,
-						rating : (parseInt(api[i].vote_average) / 2).toString(),
-						show_id : api[i].id,
-					};
-					this.shows.push(apiInfo);
-				}
-			})
+					for (let i = 0; i < api.length; i++) {
+						let apiInfo = {
+							img : 'https://image.tmdb.org/t/p/w1280' + api[i].poster_path,
+							name : api[i].original_name,
+							rating : (parseInt(api[i].vote_average) / 2).toString(),
+							show_id : api[i].id,
+						};
+						this.shows.push(apiInfo);
+					}
+				})
+				page++;
+			}
 		}
 	},
 	watch: {

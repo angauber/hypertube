@@ -7,28 +7,33 @@ const files = require('../model/files.js')
 
 module.exports = {
 	launch_movie: function (res, movie, language) {
-		this.movie_exists(movie.imdb_code, function(mv) {
+		this.movie_exists(movie.id, function(mv) {
 			let path = mv.path
 			console.log('path:' + path);
-			get_subs(movie.imdb_code, language).then(function(srt) {
+			console.log(language);
+			get_subs(movie.imdb_id, language).then(function(srt) {
 				if (srt !== false) {
 					console.log(srt)
-					fs.createReadStream('data/subs/' + movie.imdb_code + '-' + language + '/' + srt)
+					fs.createReadStream('data/subs/' + movie.imdb_id + '-' + language + '/' + srt)
 					.pipe(srt2vtt())
-					.pipe(fs.createWriteStream('data/subs/' + movie.imdb_code + '-' + language + '/sub.vtt'))
+					.pipe(fs.createWriteStream('data/subs/' + movie.imdb_id + '-' + language + '/sub.vtt'))
 				}
 				if (path) {
 					console.log('movie exists already, launching: ' + path)
 					res.render('movie.ejs', {'data' : movie, 'path' : path, 'language' : language})
 				}
 				else {
-					console.log('movie ' + movie.imdb_code + ' isn\'t on server');
-					const bestTorrent = module.exports.get_best_torrent(movie.torrents)
-					const magnet = 'magnet:?xt=urn:btih:' + bestTorrent.hash + '&dn=' + encodeURI(movie.title_long.replace(' ', '+')) + '+[1080p]+[YTS.AM]&tr=udp%3A%2F%2Fglotorrents.pw%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A80&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Fp4p.arenabg.ch%3A1337&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337'
-					console.log(magnet)
-					movie.size = bestTorrent.size_bytes
-					movie.language = language
-					download_torrent(res, movie, magnet, false)
+					console.log('movie ' + movie.id + ' isn\'t on server');
+					get_movie_magnet(movie.id).then(function(magnet) {
+						console.log(magnet);
+						if (!magnet) {
+							res.render('not_found.ejs')
+						}
+						else {
+							movie.language = language
+							download_torrent(res, movie, magnet, false)
+						}
+					})
 				}
 			})
 		})
@@ -57,8 +62,8 @@ module.exports = {
 			}
 		})
 	},
-	movie_exists: function(imdb_code, callback) {
-		files.find_movie({imdb: imdb_code}).then(function(result) {
+	movie_exists: function(id, callback) {
+		files.find_movie({id: id}).then(function(result) {
 			console.log(result);
 			if (typeof result[0] !== "undefined") {
 				callback(result[0]);
@@ -110,15 +115,13 @@ function download_torrent(res, movie, magnet, isTvShow) {
 			let array = file.path.split(".")
 			let ext = array[array.length - 1]
 			if (ext == "mp4" || ext == "mkv") {
-				file.select();
-				console.log(file.path)
-				console.log('FILE SELECTED');
+				file.select()
 				please = file.path
 				if (isTvShow) {
 					get_tv_path(res, movie, file, false)
 				}
 				else {
-					get_path(res, movie, file.path, false)
+					get_path(res, movie, file, false)
 				}
 				const intervalId = setInterval(function () {
 					if (called) {
@@ -126,7 +129,7 @@ function download_torrent(res, movie, magnet, isTvShow) {
 							get_tv_path(res, movie, file, true)
 						}
 						else {
-							get_path(res, movie, file.path, true)
+							get_path(res, movie, file, true)
 						}
 						clearInterval(intervalId);
 					}
@@ -157,8 +160,7 @@ function download_torrent(res, movie, magnet, isTvShow) {
 				}, 500)
 			}
 			else {
-				// console.log(file.name);
-				file.deselect();
+				file.deselect()
 			}
 		});
 	})
@@ -180,11 +182,11 @@ function download_torrent(res, movie, magnet, isTvShow) {
 function get_path(res, movie, file, bool) {
 	if (bool == true) {
 		console.log('starting to stream movie in 3 sec')
-		setTimeout(function() {res.render('movie.ejs', {'data' : movie, 'path' : file, 'language': movie.language})}, 3000);
+		setTimeout(function() {res.render('movie.ejs', {'data' : movie, 'path' : file.path, 'language': movie.language})}, 3000);
 	}
 	else {
 		console.log(movie);
-		files.add_movie(movie.imdb_code, movie.size, file)
+		files.add_movie(movie.id, file.length, file.path)
 	}
 }
 
@@ -267,9 +269,7 @@ let get_subs = function(imdb, language) {
 		if (!fs.existsSync('data/subs/' + imdb + '-' + language)) {
 			yifysubs.search({imdbid: imdb, limit: 'best'}).then(function(data) {
 				if (language == 'fr') {
-					if (typeof data.fr[0].url !== "undefined") {
-						console.log(data.fr[0].url);
-
+					if (typeof data.fr !== "undefined") {
 						fs.mkdir('data/subs/' + imdb + '-fr', { recursive: true }, (err) => {
 							if (err) throw err;
 						});
@@ -282,9 +282,12 @@ let get_subs = function(imdb, language) {
 							});
 						});
 					}
+					else {
+						resolve(false)
+					}
 				}
 				else if (language == 'en') {
-					if (typeof data.en[0].url !== "undefined") {
+					if (typeof data.en !== "undefined") {
 						fs.mkdir('data/subs/' + imdb + '-en', { recursive: true }, (err) => {
 							if (err) throw err;
 						});
@@ -296,9 +299,12 @@ let get_subs = function(imdb, language) {
 							});
 						});
 					}
+					else {
+						resolve(false)
+					}
 				}
 				else if (language == 'es') {
-					if (typeof data.es[0].url !== "undefined") {
+					if (typeof data.es !== "undefined") {
 						fs.mkdir('data/subs/' + imdb + '-es', { recursive: true }, (err) => {
 							if (err) throw err;
 						});
@@ -312,7 +318,7 @@ let get_subs = function(imdb, language) {
 					}
 				}
 				else {
-					if (typeof data.de[0].url !== undefined) {
+					if (typeof data.de !== "undefined") {
 						fs.mkdir('data/subs/' + imdb + '-de', { recursive: true }, (err) => {
 							if (err) throw err;
 						});
@@ -325,6 +331,9 @@ let get_subs = function(imdb, language) {
 							});
 						});
 					}
+					else {
+						resolve(false)
+					}
 				}
 			})
 		}
@@ -336,6 +345,34 @@ let get_subs = function(imdb, language) {
 				}
 			});
 		}
+	})
+}
+
+let get_movie_magnet = function(id) {
+	return new Promise(function(resolve, reject) {
+		console.log(id);
+		const rarbg = new RarbgApi()
+		rarbg.search({
+			search_themoviedb: id,
+			search_string: ' 1080p',
+			sort: 'seeders',
+			category: [rarbg.categories.MOVIES_X264, rarbg.categories.MOVIES_X264_1080, rarbg.categories.MOVIES_X264_720],
+			min_seeders: 50
+		}).then(response => {
+			resolve(response[0].download)
+		}).catch(error => {
+			rarbg.search({
+				search_themoviedb: id,
+				sort: 'seeders',
+				category: [rarbg.categories.MOVIES_X264, rarbg.categories.MOVIES_X264_1080, rarbg.categories.MOVIES_X264_720],
+				min_seeders: 1
+			}).then(response => {
+				resolve(response[0].download)
+			}).catch(error => {
+				console.log('Ooops no torrent founds')
+				resolve(false)
+			})
+		})
 	})
 }
 
@@ -361,7 +398,7 @@ let get_episode_magnet = function(show) {
 			search_string: season + ' ' + episode + ' 1080p',
 			min_seeders: 10,
 			sort: 'seeders',
-			category: [rarbg.categories.TV_EPISODES, rarbg.categories.TV_HD_EPISODES]
+			category: [rarbg.categories.TV_HD_EPISODES]
 		}).then(response => {
 			resolve(response[0].download)
 		}).catch(error => {
@@ -374,8 +411,8 @@ let get_episode_magnet = function(show) {
 			}).then(response => {
 				resolve(response[0].download)
 			}).catch(error => {
-				console.log(error)
-				res.status(404).end()
+				console.log('Ooops no torrent founds')
+				resolve(false)
 			})
 		})
 	})

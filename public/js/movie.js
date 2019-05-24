@@ -30,8 +30,8 @@ let vm = new Vue({
 				})
 			}
 		},
-		goto_user(type, id) {
-			window.open('/user?type=' + type + '&id=' + id);
+		goto_user(type, user_id) {
+			window.open('/user?type=' + type + '&id=' + user_id);
 		}
 	},
 	mounted() {
@@ -63,6 +63,5 @@ search.onkeyup = function(event) {
 
 window.onbeforeunload = function() {
 	const time = document.getElementById("my-video_html5_api").currentTime;
-
 	axios.get('/time?type=movie&id=' + id + '&time=' + time);
 }
