@@ -106,6 +106,7 @@ function download_torrent(res, movie, magnet, isTvShow) {
 	let called = false;
 	let please;
 
+	console.log('STARTED MEIN FURRER');
 	engine.on('ready', function() {
 		engine.files.forEach(function(file) {
 			let array = file.path.split(".")
@@ -122,6 +123,7 @@ function download_torrent(res, movie, magnet, isTvShow) {
 				}
 				const intervalId = setInterval(function () {
 					if (called) {
+						console.log('FIRST PERCENT');
 						if (isTvShow) {
 							get_tv_path(res, movie, file, true)
 						}

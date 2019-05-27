@@ -174,7 +174,7 @@ app.get('/', function(req, res) {
 	}
 })
 .get('/size', function(req, res) {
-	if (typeof req.query.id !== "undefined" && req.session.user_id) {
+	if (typeof req.query.id !== "undefined") {
 		live.size(req, res)
 	}
 	else {

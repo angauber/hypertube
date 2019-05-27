@@ -54,7 +54,7 @@
 						<v-flex xs2 v-on:click="goto_movie(<%= data[i].id %>)">
 							<v-hover>
 								<v-card dark tile flat color="teal lighten-2" width="98%" class="hvr-shrink mb-3" style="cursor: pointer">
-									<v-img src="https://image.tmdb.org/t/p/w1280/<%= data[i].poster_path %>" class="grey lighten-2">
+									<v-img src="<%= data[i].large_cover_image %>" class="grey lighten-2">
 								</v-card>
 							</v-hover>
 						</v-flex>
