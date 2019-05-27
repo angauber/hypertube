@@ -58,7 +58,7 @@ new Vue({
 				}
 			})
 		},
-		
+
 	},
 	watch: {
 		bottom(bottom) {

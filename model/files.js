@@ -29,7 +29,7 @@ module.exports = {
 	add_movie: function(id, size, path) {
 		manager.connect().then(function(db) {
 			const collection = db.collection('movies');
-			collection.insertOne({imdb: id, size: size, path: path}, function(err, result) {
+			collection.insertOne({id: id, size: size, path: path}, function(err, result) {
 			});
 		})
 	},

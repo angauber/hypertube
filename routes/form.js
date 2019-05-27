@@ -114,7 +114,7 @@ router.post('/signin', (req, res) =>
 								res.status(200).send(errActive);
 							}
 							else {
-								req.session.oauth = false;
+								req.session.oauth = 0;
 								req.session.user_id = success;
 								req.session.save();
 								res.status(200).send('1');
@@ -122,7 +122,7 @@ router.post('/signin', (req, res) =>
 						})
 					}
 				})
-				
+
 			}
 		})
 	}

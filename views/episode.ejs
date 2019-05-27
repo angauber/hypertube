@@ -54,10 +54,7 @@
 							%>
 						</v-card-text>
 						<video id='my-video' class="video-js vjs-default-skin vjs-big-play-centered" controls preload='auto' width="950" height="450" style="display: block; margin: 0 auto;" poster="https://image.tmdb.org/t/p/w1280/<%= data.still_path %>" data-setup='{}'>
-							<source src="/stream?url=<%= path %>&res=1080" type='video/mp4' label='1080p' res='1080' selected="true" >
-							<source src="/stream?url=<%= path %>&res=720" type='video/mp4' label='720p' res='720' >
-							<source src="/stream?url=<%= path %>&res=480" type='video/mp4' label='480p' res='480' >
-							<source src="/stream?url=<%= path %>&res=144" type='video/mp4' label='144p' res='144' >
+							<source src="/stream?url=<%= path %>" type='video/mp4' >
 							<track kind="captions" src="/tvSrt/<%= data.id %>-<%= language %>.vtt" label="<%= language %>" default>
 						</video>
 						<v-card-text class="body-1 mt-4 font-weight-light" style="color: white;"><%= data.overview %></v-card-text>

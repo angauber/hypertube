@@ -80,6 +80,13 @@ app.get('/', function(req, res) {
 		auth.oauth_42(req, res)
 	}
 })
+.get('/gitauth', function(req, res) {
+	if (req.session.user_id) {
+		res.render('home.ejs');
+	} else {
+		auth.oauth_git(req, res)
+	}
+})
 .get('/tv', function(req, res) {
 	if (req.session.user_id) {
 		res.render('tv.ejs')

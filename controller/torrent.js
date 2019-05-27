@@ -7,6 +7,7 @@ const files = require('../model/files.js')
 
 module.exports = {
 	launch_movie: function (res, movie, language) {
+		console.log('ENTERING');
 		this.movie_exists(movie.imdb_code, function(mv) {
 			let path = mv.path
 			console.log('path:' + path);
@@ -49,7 +50,7 @@ module.exports = {
 			}
 			else {
 				console.log('episode ' + episode.id + ' isn\'t on server');
-				get_episode_magnet(episode).then(function(magnet) {
+				get_episode_magnet(episode, res).then(function(magnet) {
 					console.log('magnet-link:' + magnet)
 					episode.language = language
 					download_torrent(res, episode, magnet, true)
@@ -58,7 +59,7 @@ module.exports = {
 		})
 	},
 	movie_exists: function(imdb_code, callback) {
-		files.find_movie({imdb: imdb_code}).then(function(result) {
+		files.find_movie({id: imdb_code}).then(function(result) {
 			console.log(result);
 			if (typeof result[0] !== "undefined") {
 				callback(result[0]);
@@ -112,7 +113,6 @@ function download_torrent(res, movie, magnet, isTvShow) {
 			if (ext == "mp4" || ext == "mkv") {
 				file.select();
 				console.log(file.path)
-				console.log('FILE SELECTED');
 				please = file.path
 				if (isTvShow) {
 					get_tv_path(res, movie, file, false)
@@ -157,7 +157,6 @@ function download_torrent(res, movie, magnet, isTvShow) {
 				}, 500)
 			}
 			else {
-				// console.log(file.name);
 				file.deselect();
 			}
 		});
@@ -339,7 +338,7 @@ let get_subs = function(imdb, language) {
 	})
 }
 
-let get_episode_magnet = function(show) {
+let get_episode_magnet = function(show, res) {
 	return new Promise(function(resolve, reject) {
 		let season = parseInt(show.season_number)
 		let episode = parseInt(show.episode_number)
@@ -374,8 +373,7 @@ let get_episode_magnet = function(show) {
 			}).then(response => {
 				resolve(response[0].download)
 			}).catch(error => {
-				console.log(error)
-				res.status(404).end()
+				res.render('not_found.ejs')
 			})
 		})
 	})
