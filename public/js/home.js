@@ -46,7 +46,6 @@ new Vue({
 							viewed = true
 						}
 					}
-					console.log(viewed);
 					let apiInfo = {
 						img : api[i].large_cover_image,
 						name : api[i].title,

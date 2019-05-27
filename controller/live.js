@@ -200,11 +200,8 @@ module.exports = {
 	user_stats: function(req, res) {
 		if (typeof req.session.oauth !== "undefined" && typeof req.session.user_id !== "undefined") {
 			users.find({oauth: req.session.oauth, id: req.session.user_id}).then(function(result) {
-				console.log(req.session);
-				const obj = result[0]
-				console.log(obj);
+				let obj = result[0]
 				stat.find({auth: req.session.oauth, id: req.session.user_id}).then(function(result) {
-					console.log(result);
 					// for (let i = 0; i < result.length; i++) {
 					// 	if (result[i].type == "movie") {
 					// 		cloudscraper.get('https://yts.am/api/v2/movie_details.json?movie_id=' + result[i].code).then(function(response) {
@@ -221,9 +218,6 @@ module.exports = {
 					//
 					// 	}
 					// }
-					if (!result)
-					obj.history = []
-					else
 					obj.history = result;
 					res.json(JSON.stringify(obj))
 				})
