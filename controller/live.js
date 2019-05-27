@@ -26,7 +26,6 @@ module.exports = {
 	},
 	pagination: function(req, res) {
 		request('http://ytss.unblocked.is/api/v2/list_movies.json?sort_by=download_count&page=' + req.query.page + '&limit=48', function (error, response, body) {
-			console.log(response);
 			if (!error && response.statusCode == 200) {
 				const info = JSON.parse(body);
 				if (info.data.movies) {
@@ -134,15 +133,12 @@ module.exports = {
 	},
 	size: function(req, res) {
 		if (typeof req.query.tv !== "undefined") {
-			console.log(req.query.id);
 			torrent.episode_exists(parseInt(req.query.id), function(ep) {
-				console.log(ep);
 				let path = ep.path
 				let size = ep.size
 				if (path !== "undefined" && size !== "undefined") {
 					const file = '/sgoinfre/Perso/angauber/hypertube/download/' + path
 					if (!fs.existsSync(file)) {
-						console.log(path);
 						res.json(false)
 					}
 					else {
@@ -158,7 +154,6 @@ module.exports = {
 					}
 				}
 				else {
-					console.log('path/size is null in episodes db');
 					res.json(false)
 				}
 			})
@@ -166,7 +161,6 @@ module.exports = {
 		else {
 			request('http://ytss.unblocked.is/api/v2/movie_details.json?movie_id=' + req.query.id, function (error, response, body) {
 				if (!error && response.statusCode == 200) {
-					console.log(response);
 					const info = JSON.parse(body);
 					if (info.data.movie) {
 						torrent.movie_exists(info.data.movie.imdb_code, function(mv) {
@@ -189,13 +183,11 @@ module.exports = {
 								}
 							}
 							else {
-								console.log('path is null');
 								res.json(false)
 							}
 						})
 					}
 					else {
-						console.log(info);
 						res.json(false);
 					}
 				}

@@ -9,7 +9,6 @@ module.exports = {
 		if (typeof req.session.oauth !== "undefined" && typeof req.session.user_id !== "undefined") {
 			if (typeof req.query.id !== "undefined") {
 				request('http://ytss.unblocked.is/api/v2/movie_details.json?movie_id=' + req.query.id, function (error, response, body) {
-					console.log(response);
 					if (!error && response.statusCode == 200) {
 						const info = JSON.parse(body)
 						if (info.data.movie) {
