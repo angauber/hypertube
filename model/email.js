@@ -14,7 +14,7 @@ module.exports =
 		let txt = `<!DOCTYPE html>
 		<html>
 		<head>
-		<title>Buildfight.com</title>
+		<title>Hypertube.com</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -157,7 +157,7 @@ module.exports =
 		            <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center" style="max-width: 500px;" class="responsive-table">
 		                <tr>
 		                    <td align="center" style="font-size: 12px; line-height: 18px; font-family: Helvetica, Arial, sans-serif; color:#666666;">
-		                        Buildfight, Lyon, France (Sillicon Valley Européenne)
+		                        Hypertube, Lyon, France (Sillicon Valley Européenne)
 		                    </td>
 		                </tr>
 		            </table>
@@ -189,7 +189,7 @@ module.exports =
 		let txt = `<!DOCTYPE html>
 		<html>
 		<head>
-		<title>Buildfight.com</title>
+		<title>Hypertube.com</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -298,10 +298,10 @@ module.exports =
 										<td>
 											<table width="100%" border="0" cellspacing="0" cellpadding="0">
 												<tr>
-													<td align="center" style="font-size: 25px; font-family: Helvetica, Arial, sans-serif; color: #333333; padding-top: 30px;" class="padding">Buildfight</td>
+													<td align="center" style="font-size: 25px; font-family: Helvetica, Arial, sans-serif; color: #333333; padding-top: 30px;" class="padding">Hypertube</td>
 												</tr>
 												<tr>
-													<td align="center" style="padding: 20px 0 0 0; font-size: 16px; line-height: 25px; font-family: Helvetica, Arial, sans-serif; color: #666666;" class="padding">You recently requested to reset your password !<br>Don't forget, be fair, be cool ! =)<br><br>Follow us on social networks !<br>Enjoy your Buildfight!</td>
+													<td align="center" style="padding: 20px 0 0 0; font-size: 16px; line-height: 25px; font-family: Helvetica, Arial, sans-serif; color: #666666;" class="padding">You recently requested to reset your password !<br>Don't forget, be fair, be cool ! =)<br><br>Follow us on social networks !<br>Enjoy your Hypertube!</td>
 												</tr>
 											</table>
 										</td>
@@ -313,7 +313,7 @@ module.exports =
 													<td align="center" style="padding-top: 25px;" class="padding">
 														<table border="0" cellspacing="0" cellpadding="0" class="mobile-button-container">
 															<tr>
-																<td align="center" style="border-radius: 3px;" bgcolor="#256F9C"><a href="` + local + `/form/forget-password?token=` + token + `" style="font-size: 16px; font-family: Helvetica, Arial, sans-serif; color: #ffffff; text-decoration: none; color: #ffffff; text-decoration: none; border-radius: 3px; padding: 15px 25px; border: 1px solid #256F9C; display: inline-block;" class="mobile-button">Change password</a></td>
+																<td align="center" style="border-radius: 3px;" bgcolor="#256F9C"><a href="` + local + `/form/change-password?token=` + token + `" style="font-size: 16px; font-family: Helvetica, Arial, sans-serif; color: #ffffff; text-decoration: none; color: #ffffff; text-decoration: none; border-radius: 3px; padding: 15px 25px; border: 1px solid #256F9C; display: inline-block;" class="mobile-button">Change password</a></td>
 															</tr>
 														</table>
 													</td>
@@ -332,7 +332,7 @@ module.exports =
 					<table width="100%" border="0" cellspacing="0" cellpadding="0" align="center" style="max-width: 500px;" class="responsive-table">
 						<tr>
 							<td align="center" style="font-size: 12px; line-height: 18px; font-family: Helvetica, Arial, sans-serif; color:#666666;">
-								Buildfight, Lyon, France (Sillicon Valley Européenne)
+								Hypertube, Lyon, France (Sillicon Valley Européenne)
 							</td>
 						</tr>
 					</table>

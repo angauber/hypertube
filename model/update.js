@@ -36,5 +36,20 @@ module.exports =
 			}
 		})
 		
+	},
+
+	password(password, email, callback)
+	{
+		Bcrypt.hash(password, SaltRounds, (err, hash) =>
+		{
+			Users.updateOne({ email : email }, { $set: { password : hash } }, (er, resp) =>
+			{
+				if (er)
+					callback('Error update');
+				else
+					callback(null, 1);
+			});
+		});
+		
 	}
 }

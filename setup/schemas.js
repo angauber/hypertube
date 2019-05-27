@@ -39,7 +39,7 @@ let tokenRegister = new mongoose.Schema(
 let tokenForgetPassword = new mongoose.Schema(
 {
 	token : String,
-	email : mongoose.SchemaTypes.Email,
+	email : String,
 	creationDate : { type: Date, default: Date.now }
 },
 	{
