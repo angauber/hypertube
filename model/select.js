@@ -1,6 +1,7 @@
 const	Models = require('../setup/schemas.js'),
 		Users = Models.Users,
 		TokenRegister = Models.TokenRegister,
+		Forget_tokens = Models.Forget_tokens,
 		Bcrypt = require('bcrypt'),
 		SaltRounds = 8;
 
@@ -65,7 +66,20 @@ module.exports =
 				callback(null, 0);
 		})
 	},
-	
+
+	getEmailByToken(token, callback)
+	{
+		Forget_tokens.find({ token : token }, (err, ret) =>
+		{
+			if (err)
+				callback(0);
+			else if (ret)
+				callback(null, ret[0].email);
+			else
+				callback(0);
+		});
+	},
+
 	getLoginByToken(token, callback)
 	{
 		TokenRegister.find({ token : token }, (err, ret) =>
@@ -76,6 +90,32 @@ module.exports =
 				callback(null, ret[0].username);
 			else
 				callback(0);
+		});
+	},
+
+	getLoginByTokenPwd(token, callback)
+	{
+		Forget_tokens.find({ token : token }, (err, ret) =>
+		{
+			if (err)
+				callback(0);
+			else if (ret)
+				callback(null, ret[0].username);
+			else
+				callback('Nobody');
+		});
+	},
+
+	getLoginByEmail(email, callback)
+	{
+		Users.find({ email : email }, (err, ret) =>
+		{
+			if (err)
+				callback(0);
+			else if (ret[0])
+				callback(null, ret[0].username);
+			else
+				callback('Nobody exist with that token');
 		});
 	},
 

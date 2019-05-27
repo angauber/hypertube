@@ -50,6 +50,13 @@ app.get('/', function(req, res) {
 		res.render('register.ejs')
 	}
 })
+.get('/forget-password', function(req, res) {
+	if (req.session.user_id) {
+		res.render('home.ejs');
+	} else {
+		res.render('forget_password.ejs')
+	}
+})
 .get('/stats', function(req, res) {
 	if (req.session.user_id) {
 		res.render('stat.ejs');

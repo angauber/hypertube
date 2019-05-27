@@ -158,4 +158,35 @@ module.exports =
 				})
 		})
 	},
+
+	forgetPassword(email, callback)
+	{
+		Parsing.validEmail(email, (errorParsing, successParsing) =>
+		{
+			
+			if (errorParsing) {
+				callback(errorParsing);
+			}
+			else {
+				let token = Lib.createToken();
+				Insert.insertTokenPwd(email, token, (errToken, successToken) =>
+				{
+					if (errToken) {
+						callback(errToken);
+					}
+					else {
+						Email.forgetPasswordMail(email, token, (errEmail, successEmail) =>
+						{
+							if (errEmail) {
+								callback(errEmail);
+							}
+							else {
+								callback(null, '1');
+							}
+						})
+					}
+				})
+			}
+		})
+	},
 }
