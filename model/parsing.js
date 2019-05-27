@@ -3,12 +3,26 @@ module.exports =
 	validUsername(str, callback)
 	{
 		let strLen = str.length;
-		if (str != undefined && (strLen >= 2 && strLen <= 16) && /^[a-zA-Z]+$/.test(str))
+		if (str != undefined && (strLen >= 2 && strLen <= 16) && /^[a-zA-Z\-]+$/.test(str))
 		{
-			callback(null, 1);
+			let x = 0;
+			for (var i = 0; i < str.length; i++) {
+				if (str[i] == '-') {
+					x++;
+				}
+				if (i == str.length - 1) {
+					if (x >= 2) {
+						callback("Error in string");
+					}
+					else {
+						callback(null, 1);
+					}
+				}
+			}
+			
 		}
 		else
-			callback("Error in name");
+			callback("Error in string");
 	},
 
 	validLogin(str, callback)

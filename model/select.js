@@ -54,6 +54,27 @@ module.exports =
 		})
 	},
 
+	isPasswordViaId(id, password, callback)
+	{
+		Users.find({ id : id }, (err, ret) =>
+		{
+			if (err)
+				callback(0);
+			else if (ret)
+				Bcrypt.compare(password, ret[0].password, function(err, res)
+				{
+					if (err)
+						callback("ERROR BCRYPT")
+					else if (res == true)
+						callback(null, 1);
+					else
+						callback('Mauvais Password');
+				});
+			else
+				callback(null, 0);
+		})
+	},
+
 	isToken(token, callback)
 	{
 		TokenRegister.where({ 'token' : token }).countDocuments((err, count) =>

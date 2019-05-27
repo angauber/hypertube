@@ -65,6 +65,14 @@ app.get('/', function(req, res) {
 		res.render('login.ejs')
 	}
 })
+.get('/update', function(req, res) {
+	if (req.session.user_id) {
+		res.render('update.ejs');
+	}
+	else {
+		res.render('login.ejs')
+	}
+})
 .get('/user', function(req, res) {
 	if (req.session.user_id) {
 		res.render('profile.ejs');
