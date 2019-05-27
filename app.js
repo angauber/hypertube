@@ -153,16 +153,11 @@ app.get('/', function(req, res) {
 	}
 })
 .get('/pagination', function(req, res) {
-	if (req.session.user_id) {
-		if (typeof req.query.page !== "undefined") {
-			live.pagination(req, res)
-		}
-		else {
-			res.render('not_found.ejs')
-		}
+	if (req.session.user_id && typeof req.query.page !== "undefined" && req.query.order !== "undefined" && req.query.genre !== "undefined") {
+		live.pagination(req, res)
 	}
 	else {
-		res.render('login.ejs')
+		res.json(false)
 	}
 })
 .get('/stream', function(req, res) {

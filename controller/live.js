@@ -25,18 +25,35 @@ module.exports = {
 		}
 	},
 	pagination: function(req, res) {
-		request('http://ytss.unblocked.is/api/v2/list_movies.json?sort_by=download_count&page=' + req.query.page + '&limit=48', function (error, response, body) {
+		let order;
+		switch (req.query.order) {
+			case 'Rating':
+				order = 'rating';
+				break;
+			case 'Year':
+				order = 'year';
+				break;
+			case 'Alphabetical':
+				order = 'title';
+				break;
+			default:
+				order = 'download_count';
+		}
+		console.log(order);
+		console.log(req.query.genre);
+		console.log(req.query.page);
+		request('http://ytss.unblocked.is/api/v2/list_movies.json?sort_by=' + order + '&genre=' + req.query.genre.toLowerCase() + '&page=' + req.query.page + '&limit=48', function (error, response, body) {
 			if (!error && response.statusCode == 200) {
 				const info = JSON.parse(body);
 				if (info.data.movies) {
-					res.json({'data' : info.data.movies})
+					res.json({data: info.data.movies})
 				}
 				else {
 					res.json(false)
 				}
 			}
 			else {
-				res.josn(false)
+				res.json(false)
 			}
 		})
 	},

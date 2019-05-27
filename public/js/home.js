@@ -7,6 +7,10 @@ new Vue({
 			load_value: 0,
 			dialog: false,
 			bottom: false,
+			selected: 'Popularity',
+			genre: 'All',
+			genres: ['All', 'Comedy', 'Sci-fi', 'Horror', 'Romance', 'Action', 'Thriller', 'Drama', 'Mystery', 'Crime', 'Animation', 'Adventure', 'Fantasy', 'Comedy-romance', 'Action-comedy'],
+			items: ['Popularity', 'Rating', 'Year', 'Alphabetical'],
 			movies: []
 		}
 	},
@@ -36,7 +40,7 @@ new Vue({
 			}
 		},
 		addNewPage() {
-			axios.get('/pagination?page=' + page).then(response => {
+			axios.get('/pagination?page=' + page + '&order=' + this.selected + '&genre=' + this.genre).then(response => {
 				let api = response.data.data;
 				let viewed;
 				for (let i = 0; i < api.length; i++) {
@@ -58,7 +62,10 @@ new Vue({
 				}
 			})
 		},
-
+		orderBy() {
+			this.movies = [];
+			this.addNewPage();
+		}
 	},
 	watch: {
 		bottom(bottom) {
