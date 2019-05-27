@@ -32,12 +32,12 @@
 					<v-flex xs12>
 						<v-card color="#263238">
 							<v-card-text class="display-3 font-weight-light"><%= data.title %></v-card-text>
-							<video id='my-video' class="video-js vjs-default-skin vjs-big-play-centered" controls preload='auto' width="950" height="450" style="display: block; margin: 0 auto;" poster="https://image.tmdb.org/t/p/w1280/<%= data.backdrop_path %>" data-setup='{}'>
+							<video id='my-video' class="video-js vjs-default-skin vjs-big-play-centered" controls preload='auto' width="950" height="450" style="display: block; margin: 0 auto;" poster="<%= data.background_image %>" data-setup='{}'>
 							<source src="/stream?url=<%= path %>" type='video/mp4'>
 							<!-- <track kind="captions" src="/srt/<%= data.imdb_code %>-en/sub.vtt" srclang="en" label="English" default> -->
-							<track kind="captions" src="/srt/<%= data.imdb_id %>-<%= language %>/sub.vtt" label="<%= language %>" default>
+							<track kind="captions" src="/srt/<%= data.imdb_code %>-<%= language %>/sub.vtt" label="<%= language %>" default>
 							</video>
-								<v-card-text class="body-1 mt-4 font-weight-light" style="color: white;"><%= data.overview %></v-card-text>
+								<v-card-text class="body-1 mt-4 font-weight-light" style="color: white;"><%= data.description_intro %></v-card-text>
 								<div class="text-xs-center mt-2">
 									<v-rating></v-rating>
 								</div>

@@ -188,8 +188,12 @@ app.get('/', function(req, res) {
 .get('/wipe', function(req, res) {
 	movie.clear();
 })
-.get('/try', function(req, res) {
-	movie.try();
+.get('/bitch', function(req, res) {
+	movie.try()
+})
+.get('/disconnect', function(req, res) {
+	req.session.destroy();
+	res.redirect('/');
 })
 .use(function(req, res, next) {
 	res.render('not_found.ejs')

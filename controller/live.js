@@ -25,18 +25,19 @@ module.exports = {
 		}
 	},
 	pagination: function(req, res) {
-		request('https://api.themoviedb.org/3/movie/popular?api_key=425328382852ef8b6cd2922a26662d56&language=en-US&page=' + req.query.page, function (error, response, body) {
+		request('http://ytss.unblocked.is/api/v2/list_movies.json?sort_by=download_count&page=' + req.query.page + '&limit=48', function (error, response, body) {
+			console.log(response);
 			if (!error && response.statusCode == 200) {
-				const info = JSON.parse(body)
-				if (info.results) {
-					res.json({'data' : info.results})
+				const info = JSON.parse(body);
+				if (info.data.movies) {
+					res.json({'data' : info.data.movies})
 				}
 				else {
 					res.json(false)
 				}
 			}
 			else {
-				res.json(false)
+				res.josn(false)
 			}
 		})
 	},
@@ -48,11 +49,11 @@ module.exports = {
 					res.json({'data' : info.results});
 				}
 				else {
-					res.json(false)
+					res.render('not_found.ejs')
 				}
 			}
 			else {
-				res.json(false)
+				res.render('not_found.ejs')
 			}
 		})
 	},
@@ -63,26 +64,37 @@ module.exports = {
 			console.log('error files does not exists');
 		}
 		else {
-			download_finished(req.query.url).then(function(finished) {
-				let split = req.query.url.split(".")
-				let ext = split[split.length - 1]
-				if (finished) {
-					const range = req.headers.range
-					const stat = fs.statSync(path)
-					const fileSize = stat.size
-					if (ext == "mkv") {
-						console.log('finishewd mkv');
-						res.contentType('video/webm');
-						let conversion = ffmpeg(path)
-						.withVideoCodec("libvpx")
-						.withVideoBitrate("3000")
-						.withAudioCodec("libvorbis")
-						.withAudioBitrate("256k")
-						.audioChannels(2)
-						.format("matroska")
-						pump(conversion, res);
-					}
-					else {
+			let split = req.query.url.split(".")
+			let ext = split[split.length - 1]
+			if (ext == "mkv") {
+				console.log('matrsifdb');
+				const stream = growingFile.open(path)
+
+				let conversion = ffmpeg(stream)
+				.withVideoCodec("libvpx")
+				.withVideoBitrate("1500")
+				.withAudioCodec("libvorbis")
+				.withAudioBitrate("256k")
+				.audioChannels(2)
+				.outputOptions([
+					"-preset ultrafast",
+					"-deadline realtime",
+					"-error-resilient 1",
+					"-movflags +faststart",
+				])
+				.format("matroska")
+				const head = {
+					'Content-Type': 'video/webm',
+				}
+				res.writeHead(200, head)
+				pump(conversion, res);
+			}
+			else {
+				download_finished(req.query.url).then(function(finished) {
+					if (finished) {
+						const range = req.headers.range
+						const stat = fs.statSync(path)
+						const fileSize = stat.size
 						if (range) {
 							const parts = range.replace(/bytes=/, "").split("-")
 							const start = parseInt(parts[0], 10)
@@ -107,60 +119,30 @@ module.exports = {
 							fs.createReadStream(path).pipe(res)
 						}
 					}
-				}
-				else {
-					if (ext == "mkv") {
-						console.log('matrsifdb');
-						const stream = growingFile.open(path)
-
-						let conversion = ffmpeg(stream)
-						.withVideoCodec("libvpx")
-						.withVideoBitrate("3000")
-						.withAudioCodec("libvorbis")
-						.withAudioBitrate("256k")
-						.audioChannels(2)
-						.outputOptions([
-							"-preset ultrafast",
-							"-deadline realtime",
-							"-error-resilient 1",
-							"-movflags +faststart",
-						])
-						.format("matroska")
-						res.contentType('video/webm');
-						pump(conversion, res);
-					}
 					else {
 						console.log('mpifour');
 						const stream = growingFile.open(path)
-
-						let conversion = ffmpeg(stream)
-						.withVideoCodec("libx264")
-						.withVideoBitrate("3000")
-						.withAudioCodec("libfaac")
-						.withAudioBitrate("256k")
-						.audioChannels(2)
-						.outputOptions([
-							"-preset ultrafast",
-							"-deadline realtime",
-							"-error-resilient 1",
-							"-movflags +faststart",
-						])
-						.format("mp4")
-						res.contentType('video/mp4');
-						pump(conversion, res);
+						const head = {
+							'Content-Type': 'video/mp4',
+						}
+						res.writeHead(200, head)
+						stream.pipe(res);
 					}
-				}
-			})
+				})
+			}
 		}
 	},
 	size: function(req, res) {
 		if (typeof req.query.tv !== "undefined") {
+			console.log(req.query.id);
 			torrent.episode_exists(parseInt(req.query.id), function(ep) {
+				console.log(ep);
 				let path = ep.path
 				let size = ep.size
 				if (path !== "undefined" && size !== "undefined") {
 					const file = '/sgoinfre/Perso/angauber/hypertube/download/' + path
 					if (!fs.existsSync(file)) {
+						console.log(path);
 						res.json(false)
 					}
 					else {
@@ -176,37 +158,51 @@ module.exports = {
 					}
 				}
 				else {
+					console.log('path/size is null in episodes db');
 					res.json(false)
 				}
 			})
 		}
 		else {
-			if (typeof req.query.id !== "undefined") {
-				torrent.movie_exists(parseInt(req.query.id), function(mv) {
-					let path = mv.path
-					let size = mv.size
-					if (path !== "undefined" && size !== "undefined") {
-						const file = '/sgoinfre/Perso/angauber/hypertube/download/' + path
-						if (!fs.existsSync(file)) {
-							res.json(false)
-						}
-						else {
-							const torrentPSize = size / 100
-							const stats = fs.statSync(file)
-							const fileSize = stats.size
-							if (fileSize > torrentPSize) {
-								res.json('100')
+			request('http://ytss.unblocked.is/api/v2/movie_details.json?movie_id=' + req.query.id, function (error, response, body) {
+				if (!error && response.statusCode == 200) {
+					console.log(response);
+					const info = JSON.parse(body);
+					if (info.data.movie) {
+						torrent.movie_exists(info.data.movie.imdb_code, function(mv) {
+							let path = mv.path
+							if (path) {
+								const file = '/sgoinfre/Perso/angauber/hypertube/download/' + path
+								if (!fs.existsSync(file)) {
+									res.json(false)
+								}
+								else {
+									const torrentPSize = torrent.get_best_torrent(info.data.movie.torrents).size_bytes / 100
+									const stats = fs.statSync(file)
+									const fileSize = stats.size
+									if (fileSize > torrentPSize) {
+										res.json('100')
+									}
+									else {
+										res.json((Math.floor((100 * fileSize / torrentPSize))).toString())
+									}
+								}
 							}
 							else {
-								res.json((Math.floor((100 * fileSize / torrentPSize))).toString())
+								console.log('path is null');
+								res.json(false)
 							}
-						}
+						})
 					}
 					else {
-						res.json(false)
+						console.log(info);
+						res.json(false);
 					}
-				})
-			}
+				}
+				else {
+					res.json(false);
+				}
+			})
 		}
 	},
 	user_stats: function(req, res) {
