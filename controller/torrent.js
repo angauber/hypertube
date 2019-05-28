@@ -7,7 +7,6 @@ const files = require('../model/files.js')
 
 module.exports = {
 	launch_movie: function (res, movie, language) {
-		console.log('ENTERING');
 		this.movie_exists(movie.imdb_code, function(mv) {
 			let path = mv.path
 			console.log('path:' + path);
@@ -106,7 +105,6 @@ function download_torrent(res, movie, magnet, isTvShow) {
 	let called = false;
 	let please;
 
-	console.log('STARTED MEIN FURRER');
 	engine.on('ready', function() {
 		engine.files.forEach(function(file) {
 			let array = file.path.split(".")
@@ -123,7 +121,6 @@ function download_torrent(res, movie, magnet, isTvShow) {
 				}
 				const intervalId = setInterval(function () {
 					if (called) {
-						console.log('FIRST PERCENT');
 						if (isTvShow) {
 							get_tv_path(res, movie, file, true)
 						}
@@ -184,7 +181,6 @@ function get_path(res, movie, file, bool) {
 		setTimeout(function() {res.render('movie.ejs', {'data' : movie, 'path' : file, 'language': movie.language})}, 3000);
 	}
 	else {
-		console.log(movie);
 		files.add_movie(movie.imdb_code, movie.size, file)
 	}
 }
@@ -313,7 +309,7 @@ let get_subs = function(imdb, language) {
 					}
 				}
 				else {
-					if (typeof data.de[0].url !== undefined) {
+					if (typeof data.de[0].url !== "undefined") {
 						fs.mkdir('data/subs/' + imdb + '-de', { recursive: true }, (err) => {
 							if (err) throw err;
 						});

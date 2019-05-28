@@ -48,7 +48,7 @@ module.exports = {
 				{
 					$set: obj
 				}
-			)
+			);
 		})
 	},
 	update_episode: function(path, obj) {
@@ -59,15 +59,19 @@ module.exports = {
 				{
 					$set: obj
 				}
-			)
+			);
 		})
 	},
-	delall: function() {
+	movie_remove: function(obj) {
 		manager.connect().then(function(db) {
-			const collection1 = db.collection('movies');
-			const collection2 = db.collection('episodes');
-			collection1.deleteMany()
-			collection2.deleteMany()
+			const collection = db.collection('movies');
+			collection.deleteMany(obj);
+		})
+	},
+	episode_remove: function(obj) {
+		manager.connect().then(function(db) {
+			const collection = db.collection('episodes');
+			collection.deleteMany(obj);
 		})
 	}
 }

@@ -13,7 +13,6 @@ let vm = new Vue({
 			let msg = this.message;
 
 			if (msg.length > 3 && msg.length < 201) {
-				console.log(msg);
 				axios.post('/comment', {
 					message: msg,
 					type: 'movie',
@@ -24,7 +23,6 @@ let vm = new Vue({
 						type: 'movie',
 						id: id
 					}).then(function(res) {
-						console.log(res.data);
 						vm.messages = res.data;
 					})
 				})
@@ -38,12 +36,10 @@ let vm = new Vue({
 		window.onload = function() {
 			id = window.location.search.split("=")[1];
 
-			console.log(id);
 			axios.post('/comments', {
 				type: 'movie',
 				id: id
 			}).then(function(res) {
-				console.log(res.data);
 				vm.messages = res.data;
 			})
 		}

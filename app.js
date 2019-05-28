@@ -1,6 +1,7 @@
 const express = require('express')
 const session = require('express-session')
 const bodyParser = require('body-parser')
+const cronJob = require('cron').CronJob;
 
 const torrent = require('./controller/torrent')
 const auth = require('./controller/auth')
@@ -8,13 +9,13 @@ const movie = require('./controller/movie')
 const live = require('./controller/live')
 const comment = require('./controller/comment')
 
-const request = require('request')
-
 const app = express();
 
 let formRouter = require('./routes/form');
 
-const Db = require('./setup/setup.js');
+new cronJob('0 0 * * * *', function() {
+	live.checkFiles();
+}, null, true, 'America/Los_Angeles');
 
 app.use(session({
 	secret: 'keyboard hype',
@@ -34,14 +35,15 @@ app.use('/npm', express.static('node_modules'));
 app.use('/form/', formRouter);
 
 app.set('trust proxy', 1) // trust first proxy
-
-
 app.get('/', function(req, res) {
 	if (req.session.user_id) {
 		res.render('home.ejs');
 	} else {
 		res.render('login.ejs')
 	}
+})
+app.get('/plz', function() {
+	live.checkFiles();
 })
 .get('/signup', function(req, res) {
 	if (req.session.user_id) {
@@ -140,16 +142,11 @@ app.get('/', function(req, res) {
 	}
 })
 .get('/tvPagination', function(req, res) {
-	if (req.session.user_id) {
-		if (typeof req.query.page !== "undefined") {
-			live.tv_pagination(req, res)
-		}
-		else {
-			res.render('not_found.ejs')
-		}
+	if (req.session.user_id && typeof req.query.page !== "undefined" && typeof req.query.order !== "undefined") {
+		live.tv_pagination(req, res)
 	}
 	else {
-		res.render('login.ejs')
+		res.josn(false)
 	}
 })
 .get('/pagination', function(req, res) {

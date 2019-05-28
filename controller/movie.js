@@ -14,7 +14,6 @@ module.exports = {
 						if (info.data.movie) {
 							users.find({oauth: req.session.oauth, id: parseInt(req.session.user_id)}).then(function(response) {
 								if (typeof response[0].language !== "undefined") {
-									console.log('launcinggggg');
 									torrent.launch_movie(res, info.data.movie, response[0].language)
 								}
 							})

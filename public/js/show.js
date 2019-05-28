@@ -19,10 +19,6 @@ let vm = new Vue({
 				axios.get('/size?id=' + episode.id + '&tv=true').then(response => {
 					if (response.data != false) {
 						this.load_value = parseInt(response.data);
-						console.log(this.load_value);
-					}
-					else {
-						console.log(response);
 					}
 				})
 			}, 500);
@@ -36,7 +32,6 @@ let vm = new Vue({
 
 				for (let i = 0; i < response.data.episodes.length; i++) {
 					if (today < new Date(response.data.episodes[i].air_date).getTime()) {
-						console.log('episode hasnt aired yet, removing it');
 						response.data.episodes.splice(i);
 					}
 					else {

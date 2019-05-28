@@ -14,7 +14,6 @@ let vm = new Vue({
 	},
 	methods: {
 		change_lang() {
-			console.log(vm.selected);
 			axios.post('change_language', {
 				language: vm.selected
 			})
@@ -26,7 +25,6 @@ window.onload = function() {
 	let params = window.location.search.substring(1).split('&');
 	axios.get('/getUserStatsById?' + params[0] + '&' + params[1]).then(response => {
 		const data = JSON.parse(response.data);
-		console.log(data);
 		if (data != false) {
 			vm.img = data.img;
 			vm.username = data.username;

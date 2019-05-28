@@ -18,15 +18,10 @@ new Vue({
 		goto_movie(id) {
 			this.dialog = true
 			window.location.replace('/movie?id=' + id);
-			console.log(id);
 			setInterval(() => {
 				axios.get('/size?id=' + id).then(response => {
 					if (response.data != false) {
 						this.load_value = parseInt(response.data);
-						console.log(this.load_value);
-					}
-					else {
-						console.log(response);
 					}
 				})
 			}, 500);
@@ -57,12 +52,12 @@ new Vue({
 						movie_id : api[i].id,
 						viewed : viewed
 					};
-					console.log(apiInfo.viewed);
 					this.movies.push(apiInfo);
 				}
 			})
 		},
 		orderBy() {
+			page = 1;
 			this.movies = [];
 			this.addNewPage();
 		}

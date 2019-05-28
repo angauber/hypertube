@@ -6,6 +6,8 @@ new Vue({
 		return {
 			items: ['Movies', 'TV shows'],
 			bottom: false,
+			selected: 'Popularity',
+			items: ['Popularity', 'Rating', 'Latest'],
 			shows: []
 		}
 	},
@@ -23,7 +25,7 @@ new Vue({
 		},
 		addNewPage() {
 			for (let j = 0; j < 3; j++) {
-				axios.get('/tvPagination?page=' + page).then(response => {
+				axios.get('/tvPagination?page=' + page + '&order=' + this.selected).then(response => {
 					let api = response.data.data;
 
 					for (let i = 0; i < api.length; i++) {
@@ -38,6 +40,11 @@ new Vue({
 				})
 				page++;
 			}
+		},
+		orderBy() {
+			page = 1;
+			this.shows = [];
+			this.addNewPage();
 		}
 	},
 	watch: {

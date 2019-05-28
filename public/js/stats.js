@@ -14,7 +14,6 @@ let vm = new Vue({
 	},
 	methods: {
 		change_lang() {
-			console.log(vm.selected);
 			axios.post('change_language', {
 				language: vm.selected
 			})
@@ -25,12 +24,10 @@ let vm = new Vue({
 window.onload = function() {
 	axios.get('/getUserStats').then(response => {
 		const data = JSON.parse(response.data);
-		console.log(data);
 		vm.img = data.img;
 		vm.username = data.username;
 		vm.selected = data.language;
 		let log = data.history;
-		console.log(log);
 
 		let total = 0;
 		for (let i = 0; i < log.length; i++) {

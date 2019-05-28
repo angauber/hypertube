@@ -43,6 +43,17 @@
 				</v-toolbar-items>
 			</v-toolbar>
 			<v-container grid-list-md text-xs-center>
+				<v-layout row wrap>
+					<v-flex md2>
+						<v-select
+						v-on:input="orderBy()"
+						dark
+						v-model="selected"
+						:items="items"
+						label="Order by"
+						></v-select>
+					</v-flex>
+				</v-layout>
 				<v-layout row wrap id="movie_list">
 			<v-flex v-for="show in shows" v-on:click="goto_show(show.show_id)" xs2>
 				<v-hover>

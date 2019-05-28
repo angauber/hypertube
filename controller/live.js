@@ -3,11 +3,10 @@ const fs = require('fs');
 const pump = require('pump');
 const ffmpeg = require('fluent-ffmpeg');
 const growingFile = require('growing-file');
+const rimraf = require('rimraf');
+
 const torrent = require('./torrent');
 const users = require('../model/users');
-
-const tailing = require('tailing-stream');
-
 const stat = require('../model/stat');
 const files = require('../model/files')
 
@@ -28,16 +27,16 @@ module.exports = {
 		let order;
 		switch (req.query.order) {
 			case 'Rating':
-				order = 'rating';
-				break;
+			order = 'rating';
+			break;
 			case 'Year':
-				order = 'year';
-				break;
+			order = 'year';
+			break;
 			case 'Alphabetical':
-				order = 'title';
-				break;
+			order = 'title';
+			break;
 			default:
-				order = 'download_count';
+			order = 'download_count';
 		}
 		console.log(order);
 		console.log(req.query.genre);
@@ -58,18 +57,29 @@ module.exports = {
 		})
 	},
 	tv_pagination: function(req, res) {
-		request('https://api.themoviedb.org/3/tv/popular?api_key=425328382852ef8b6cd2922a26662d56&language=en-US&page=' + req.query.page, function (error, response, body) {
+		let order;
+		switch (req.query.order) {
+			case 'Rating':
+			order = 'top_rated';
+			break;
+			case 'Latest':
+			order = 'latest';
+			break;
+			default:
+			order = 'popular';
+		}
+		request('https://api.themoviedb.org/3/tv/' + order + '?api_key=425328382852ef8b6cd2922a26662d56&language=en-US&page=' + req.query.page, function (error, response, body) {
 			if (!error && response.statusCode == 200) {
 				const info = JSON.parse(body);
 				if (info.results) {
 					res.json({'data' : info.results});
 				}
 				else {
-					res.render('not_found.ejs')
+					res.json(false)
 				}
 			}
 			else {
-				res.render('not_found.ejs')
+				res.json(false)
 			}
 		})
 	},
@@ -281,6 +291,48 @@ module.exports = {
 				users.update(req.session.oauth, req.session.user_id, {language: req.body.language})
 			}
 		}
+	},
+	checkFiles: function() {
+		const dldir = '/sgoinfre/Perso/angauber/hypertube/download/';
+		fs.readdir(dldir, function(err, items) {
+			try {
+				for (let i = 0; i < items.length; i++) {
+					try {
+						fs.stat(dldir + items[i], (err, stats) => {
+							const date1 = stats.atime
+							const date2 = new Date();
+							const diffTime = Math.abs(date2.getTime() - date1.getTime());
+							const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+
+							console.log(items[i] + ' hours: ' + Math.floor((diffTime / (1000 * 60 * 60)) % 24));
+							// console.log(diffTime);
+							console.log(diffDays);
+							if (diffDays > -1) {
+								rimraf(dldir + items[i], function (er) {
+									if (er) {
+										throw er
+									}
+									else {
+										try {
+											files.movie_remove({ path: new RegExp(items[i], 'i') })
+											files.episode_remove({ path: new RegExp(items[i], 'i') })
+											console.log(items[i] + ' -> files deleted ..');
+										}
+										catch (e) {
+											console.log(e);
+										}
+									}
+								})
+							}
+						})
+					} catch (e) {
+						console.log(e)
+					}
+				}
+			} catch (e) {
+				console.log(e)
+			}
+		});
 	}
 }
 
