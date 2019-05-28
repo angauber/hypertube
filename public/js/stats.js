@@ -8,6 +8,7 @@ let vm = new Vue({
 			minutes: '',
 			size: '',
 			selected: '',
+			oauth: '',
 			items: ['en', 'fr', 'es', 'de'],
 			data: {}
 		}
@@ -27,6 +28,7 @@ window.onload = function() {
 		vm.img = data.img;
 		vm.username = data.username;
 		vm.selected = data.language;
+		vm.oauth = data.oauth;
 		let log = data.history;
 
 		let total = 0;
