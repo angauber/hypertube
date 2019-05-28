@@ -45,6 +45,26 @@
 				</v-toolbar-items>
 			</v-toolbar>
 			<v-container grid-list-md text-xs-center>
+				<v-layout row wrap>
+					<v-flex md2>
+						<v-select
+						v-on:input="orderBy()"
+						dark
+						v-model="selected"
+						:items="items"
+						label="Order by"
+						></v-select>
+					</v-flex>
+					<v-flex md2 ml-2>
+						<v-select
+						v-on:input="orderBy()"
+						dark
+						v-model="genre"
+						:items="genres"
+						label="Genre"
+						></v-select>
+					</v-flex>
+				</v-layout>
 				<v-layout row wrap id="movie_list">
 					<v-dialog
 					v-model="dialog"
@@ -96,6 +116,5 @@
 <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script src="/js/home.js"></script>
-<script src="/js/ajax.js"></script>
 </body>
 </html>

@@ -13,7 +13,6 @@ let vm = new Vue({
 			let msg = this.message;
 
 			if (msg.length > 3 && msg.length < 201) {
-				console.log(msg);
 				axios.post('/comment', {
 					message: msg,
 					type: 'tv',
@@ -24,7 +23,6 @@ let vm = new Vue({
 						type: 'tv',
 						id: id
 					}).then(function(res) {
-						console.log(res.data);
 						vm.messages = res.data;
 					})
 				})
@@ -38,12 +36,10 @@ let vm = new Vue({
 		window.onload = function() {
 			id = document.getElementsByClassName('calin')[0].children[0].id;
 
-			console.log(id);
 			axios.post('/comments', {
 				type: 'tv',
 				id: id
 			}).then(function(res) {
-				console.log(res.data);
 				vm.messages = res.data
 			})
 		}

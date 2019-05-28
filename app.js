@@ -1,6 +1,7 @@
 const express = require('express')
 const session = require('express-session')
 const bodyParser = require('body-parser')
+const cronJob = require('cron').CronJob;
 
 const torrent = require('./controller/torrent')
 const auth = require('./controller/auth')
@@ -8,13 +9,13 @@ const movie = require('./controller/movie')
 const live = require('./controller/live')
 const comment = require('./controller/comment')
 
-const request = require('request')
-
 const app = express();
 
 let formRouter = require('./routes/form');
 
-const Db = require('./setup/setup.js');
+new cronJob('0 0 * * * *', function() {
+	live.checkFiles();
+}, null, true, 'America/Los_Angeles');
 
 app.use(session({
 	secret: 'keyboard hype',
@@ -34,14 +35,15 @@ app.use('/npm', express.static('node_modules'));
 app.use('/form/', formRouter);
 
 app.set('trust proxy', 1) // trust first proxy
-
-
 app.get('/', function(req, res) {
 	if (req.session.user_id) {
 		res.render('home.ejs');
 	} else {
 		res.render('login.ejs')
 	}
+})
+app.get('/plz', function() {
+	live.checkFiles();
 })
 .get('/signup', function(req, res) {
 	if (req.session.user_id) {
@@ -120,46 +122,60 @@ app.get('/', function(req, res) {
 	}
 })
 .get('/movie', function(req, res) {
-	movie.start_movie(req, res)
+	if (req.session.user_id) {
+		movie.start_movie(req, res)
+	} else {
+		res.render('login.ejs')
+	}
 })
 .get('/episode', function(req, res) {
-	movie.start_episode(req, res)
-})
-.get('/show', function(req, res) {
-	if (typeof req.query.id !== "undefined") {
-		res.render('show.ejs');
+	if (req.session.user_id) {
+		movie.start_episode(req, res)
 	}
 	else {
-		res.render('not_found.ejs')
+		res.render('login.ejs')
+	}
+})
+.get('/show', function(req, res) {
+	if (req.session.user_id) {
+		if (typeof req.query.id !== "undefined") {
+			res.render('show.ejs');
+		}
+		else {
+			res.render('not_found.ejs')
+		}
+	}
+	else {
+		res.render('login.ejs')
 	}
 })
 .get('/tvPagination', function(req, res) {
-	if (typeof req.query.page !== "undefined") {
+	if (req.session.user_id && typeof req.query.page !== "undefined" && typeof req.query.order !== "undefined") {
 		live.tv_pagination(req, res)
 	}
 	else {
-		res.render('not_found.ejs')
+		res.josn(false)
 	}
 })
 .get('/pagination', function(req, res) {
-	if (typeof req.query.page !== "undefined") {
+	if (req.session.user_id && typeof req.query.page !== "undefined" && req.query.order !== "undefined" && req.query.genre !== "undefined") {
 		live.pagination(req, res)
 	}
 	else {
-		res.render('not_found.ejs')
+		res.json(false)
 	}
-})
-.get('/tryme', function(req, res) {
-	request('https://yts.am/api/v2/list_movies.json?sort_by=download_count&page=1', function (error, response, body) {
-		console.log(response);
-	})
 })
 .get('/stream', function(req, res) {
-	if (typeof req.query.url !== "undefined") {
-		live.stream(req, res)
+	if (req.session.user_id) {
+		if (typeof req.query.url !== "undefined") {
+			live.stream(req, res)
+		}
+		else {
+			res.render('not_found.ejs')
+		}
 	}
 	else {
-		res.render('not_found.ejs')
+		res.render('login.ejs')
 	}
 })
 .get('/size', function(req, res) {
@@ -167,15 +183,14 @@ app.get('/', function(req, res) {
 		live.size(req, res)
 	}
 	else {
-		res.render('not_found.ejs')
+		res.json(false)
 	}
 })
 .get('/time', function(req, res) {
-	if (typeof req.query.type !== "undefined" && typeof req.query.id !== "undefined" && typeof req.query.time !== "undefined") {
-		live.register_time(req.session, req.query.type, req.query.id, req.query.time);
-	}
-	else {
-		res.render('not_found.ejs')
+	if (req.session.user_id) {
+		if (typeof req.query.type !== "undefined" && typeof req.query.id !== "undefined" && typeof req.query.time !== "undefined") {
+			live.register_time(req.session, req.query.type, req.query.id, req.query.time);
+		}
 	}
 })
 .get('/logout', function(req, res) {
@@ -200,12 +215,6 @@ app.get('/', function(req, res) {
 	live.user(req, res)
 })
 // production tests
-.get('/wipe', function(req, res) {
-	movie.clear();
-})
-.get('/bitch', function(req, res) {
-	movie.try()
-})
 .get('/disconnect', function(req, res) {
 	req.session.destroy();
 	res.redirect('/');

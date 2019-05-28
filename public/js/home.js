@@ -7,6 +7,10 @@ new Vue({
 			load_value: 0,
 			dialog: false,
 			bottom: false,
+			selected: 'Popularity',
+			genre: 'All',
+			genres: ['All', 'Comedy', 'Sci-fi', 'Horror', 'Romance', 'Action', 'Thriller', 'Drama', 'Mystery', 'Crime', 'Animation', 'Adventure', 'Fantasy', 'Comedy-romance', 'Action-comedy'],
+			items: ['Popularity', 'Rating', 'Year', 'Alphabetical'],
 			movies: []
 		}
 	},
@@ -14,15 +18,10 @@ new Vue({
 		goto_movie(id) {
 			this.dialog = true
 			window.location.replace('/movie?id=' + id);
-			console.log(id);
 			setInterval(() => {
 				axios.get('/size?id=' + id).then(response => {
 					if (response.data != false) {
 						this.load_value = parseInt(response.data);
-						console.log(this.load_value);
-					}
-					else {
-						console.log(response);
 					}
 				})
 			}, 500);
@@ -36,7 +35,7 @@ new Vue({
 			}
 		},
 		addNewPage() {
-			axios.get('/pagination?page=' + page).then(response => {
+			axios.get('/pagination?page=' + page + '&order=' + this.selected + '&genre=' + this.genre).then(response => {
 				let api = response.data.data;
 				let viewed;
 				for (let i = 0; i < api.length; i++) {
@@ -53,12 +52,15 @@ new Vue({
 						movie_id : api[i].id,
 						viewed : viewed
 					};
-					console.log(apiInfo.viewed);
 					this.movies.push(apiInfo);
 				}
 			})
 		},
-
+		orderBy() {
+			page = 1;
+			this.movies = [];
+			this.addNewPage();
+		}
 	},
 	watch: {
 		bottom(bottom) {

@@ -14,7 +14,6 @@ new Vue({
 				axios.get('/size?id=' + id).then(response => {
 					if (response.data != false) {
 						this.load_value = parseInt(response.data);
-						console.log(this.load_value);
 					}
 				})
 			}, 1000);
