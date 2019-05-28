@@ -42,163 +42,165 @@
 					<v-btn flat v-on:click="window.location.replace('/logout')">logout</v-btn>
 				</v-toolbar-items>
 			</v-toolbar>
-			
-			<v-form
-				ref="update-username"
-				id="update-username"
-			>
-				<v-container>
-					<v-layout column>
-						<v-flex>
-							<v-text-field
-							name="username"
-							label="Username"
-							:rules="[rules.required, rules.username]"
-							dark
-							></v-text-field>
-						</v-flex>
-					</v-layout>
-					<v-layout align-center justify-center>
-						<v-btn type='submit' color="teal">Update Login</v-btn>
-					</v-layout>
-				</v-container>
-			</v-form>
-			<v-form
-				ref="update-firstname"
-				id="update-firstname"
-			>
-				<v-container>
-					<v-layout column>
-						<v-flex>
-							<v-text-field
-							name="firstName"
-							label="First name"
-							:rules="[rules.required, rules.name]"
-							dark
-							></v-text-field>
-						</v-flex>
-					</v-layout>
-					<v-layout align-center justify-center>
-						<v-btn type='submit' color="teal">Update Login</v-btn>
-					</v-layout>
-				</v-container>
-			</v-form>
-			<v-form
-				ref="update-lastname"
-				id="update-lastname"
-			>
-				<v-container>
-					<v-layout column>
-						<v-flex>
-							<v-text-field
-							name="lastName"
-							label="Last name"
-							:rules="[rules.required, rules.name]"
-							dark
-							></v-text-field>
-						</v-flex>
-					</v-layout>
-					<v-layout align-center justify-center>
-						<v-btn type='submit' color="teal">Update Login</v-btn>
-					</v-layout>
-				</v-container>
-			</v-form>
-			<v-form
-				ref="update-email"
-				id="update-email"
-			>
-				<v-container>
-					<v-layout column>
-						<v-flex>
-							<v-text-field
-							dark
-							name="email"
-							label="Email"
-							:rules="[rules.required, rules.email]"
-							>
-							</v-text-field>
-						</v-flex>
-					</v-layout>
-					<v-layout align-center justify-center>
-						<v-btn type='submit' color="teal">Update Email</v-btn>
-					</v-layout>
-				</v-container>
-			</v-form>
-			<v-form
-				ref="update-password"
-				id="update-password"
-			>
-				<v-container>
-					<v-layout column>
-						<v-flex>
-							<v-text-field
-							name="oldPassword"
-							:append-icon="show1 ? 'visibility' : 'visibility_off'"
-							:rules="[rules.required, rules.password]"
-							:type="show1 ? 'text' : 'password'"
-							label="Old Password"
-							hint="At least 8 characters"
-							class="input-group--focused"
-							@click:append="show1 = !show1"
-							dark
-							></v-text-field>
-						</v-flex>
-						<v-flex>
-							<v-text-field
-							name="password"
-							:append-icon="show2 ? 'visibility' : 'visibility_off'"
-							:rules="[rules.required, rules.password]"
-							:type="show2 ? 'text' : 'password'"
-							label="New Password"
-							hint="At least 8 characters"
-							class="input-group--focused"
-							@click:append="show2 = !show2"
-							dark
-							></v-text-field>
-						</v-flex>
-						<v-flex>
-							<v-text-field
-							name="cpassword"
-							:append-icon="show3 ? 'visibility' : 'visibility_off'"
-							:rules="[rules.required, rules.password]"
-							:type="show3 ? 'text' : 'password'"
-							label="Confirm New Password"
-							hint="At least 8 characters"
-							class="input-group--focused"
-							@click:append="show3 = !show3"
-							dark
-							></v-text-field>
-						</v-flex>
-					</v-layout>
-					<v-layout align-center justify-center>
-						<v-btn type='submit' color="teal">Update Password</v-btn>
-					</v-layout>
-				</v-container>
-			</v-form>
-			<v-form
-				ref="update-picture"
-				id="update-picture"
-			>
-				<v-container>
-					<v-layout column>
-						<fieldset>
-							<label>
-								<input type="radio" name="picture" value="1" checked>
-								<img class="img-form" src="/img/1.png">
-							</label>
+			<v-layout align-center justify-center row fill-height>
+				<v-card id="update-form" dark color="primary" id="logbox">
+					<v-form
+						ref="update-username"
+						id="update-username"
+					>
+						<v-container>
+							<v-layout column>
+								<v-flex>
+									<v-text-field
+									name="username"
+									label="Username"
+									:rules="[rules.required, rules.username]"
+									dark
+									></v-text-field>
+								</v-flex>
+							</v-layout>
+							<v-layout align-center justify-center>
+								<v-btn type='submit' color="teal">Update Login</v-btn>
+							</v-layout>
+						</v-container>
+					</v-form>
+					<v-form
+						ref="update-firstname"
+						id="update-firstname"
+					>
+						<v-container>
+							<v-layout column>
+								<v-flex>
+									<v-text-field
+									name="firstName"
+									label="First name"
+									:rules="[rules.required, rules.name]"
+									dark
+									></v-text-field>
+								</v-flex>
+							</v-layout>
+							<v-layout align-center justify-center>
+								<v-btn type='submit' color="teal">Update Login</v-btn>
+							</v-layout>
+						</v-container>
+					</v-form>
+					<v-form
+						ref="update-lastname"
+						id="update-lastname"
+					>
+						<v-container>
+							<v-layout column>
+								<v-flex>
+									<v-text-field
+									name="lastName"
+									label="Last name"
+									:rules="[rules.required, rules.name]"
+									dark
+									></v-text-field>
+								</v-flex>
+							</v-layout>
+							<v-layout align-center justify-center>
+								<v-btn type='submit' color="teal">Update Login</v-btn>
+							</v-layout>
+						</v-container>
+					</v-form>
+					<v-form
+						ref="update-email"
+						id="update-email"
+					>
+						<v-container>
+							<v-layout column>
+								<v-flex>
+									<v-text-field
+									dark
+									name="email"
+									label="Email"
+									:rules="[rules.required, rules.email]"
+									>
+									</v-text-field>
+								</v-flex>
+							</v-layout>
+							<v-layout align-center justify-center>
+								<v-btn type='submit' color="teal">Update Email</v-btn>
+							</v-layout>
+						</v-container>
+					</v-form>
+					<v-form
+						ref="update-password"
+						id="update-password"
+					>
+						<v-container>
+							<v-layout column>
+								<v-flex>
+									<v-text-field
+									name="oldPassword"
+									:append-icon="show1 ? 'visibility' : 'visibility_off'"
+									:rules="[rules.required, rules.password]"
+									:type="show1 ? 'text' : 'password'"
+									label="Old Password"
+									hint="At least 8 characters"
+									class="input-group--focused"
+									@click:append="show1 = !show1"
+									dark
+									></v-text-field>
+								</v-flex>
+								<v-flex>
+									<v-text-field
+									name="password"
+									:append-icon="show2 ? 'visibility' : 'visibility_off'"
+									:rules="[rules.required, rules.password]"
+									:type="show2 ? 'text' : 'password'"
+									label="New Password"
+									hint="At least 8 characters"
+									class="input-group--focused"
+									@click:append="show2 = !show2"
+									dark
+									></v-text-field>
+								</v-flex>
+								<v-flex>
+									<v-text-field
+									name="cpassword"
+									:append-icon="show3 ? 'visibility' : 'visibility_off'"
+									:rules="[rules.required, rules.password]"
+									:type="show3 ? 'text' : 'password'"
+									label="Confirm New Password"
+									hint="At least 8 characters"
+									class="input-group--focused"
+									@click:append="show3 = !show3"
+									dark
+									></v-text-field>
+								</v-flex>
+							</v-layout>
+							<v-layout align-center justify-center>
+								<v-btn type='submit' color="teal">Update Password</v-btn>
+							</v-layout>
+						</v-container>
+					</v-form>
+					<v-form
+						ref="update-picture"
+						id="update-picture"
+					>
+						<v-container>
+							<v-layout column>
+								<fieldset>
+									<label>
+										<input type="radio" name="picture" value="1" checked>
+										<img class="img-form" src="/img/1.png">
+									</label>
 
-							<label>
-								<input type="radio" name="picture" value="2">
-								<img class="img-form" src="/img/2.png">
-							</label>
-						</fieldset>
-					</v-layout>
-					<v-layout align-center justify-center>
-						<v-btn type='submit' color="teal">Update Picture</v-btn>
-					</v-layout>
-				</v-container>
-			</v-form>
-			
+									<label>
+										<input type="radio" name="picture" value="2">
+										<img class="img-form" src="/img/2.png">
+									</label>
+								</fieldset>
+							</v-layout>
+							<v-layout align-center justify-center>
+								<v-btn type='submit' color="teal">Update Picture</v-btn>
+							</v-layout>
+						</v-container>
+					</v-form>
+				</v-card>
+			</v-layout>
 		</template>
 	</v-app>
 	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
@@ -256,5 +258,16 @@
 		}
 	})
 	</script>
+	<style scoped>
+		#update-form {
+			width: 40%;
+		}
+		.img-form {
+			width: 40%;
+		}
+		.flag-img-form {
+			width: 10%;
+		}
+	</style>
 </body>
 </html>
