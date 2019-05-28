@@ -33,7 +33,7 @@ router.get('/active_account', (req, res) =>
 			res.status(200).send(error);
 		}
 		else {
-			res.status(200).send('1');
+			res.redirect('/');
 		}
 	})
 });
@@ -51,6 +51,194 @@ router.post('/forget', (req, res) =>
 	})
 });
 
+router.post('/update-email', (req, res) =>
+{
+	if (req.session.user_id && req.body.email != null && req.body.email != 'undefined')
+	{
+		Parsing.validEmail(req.body.email, (errParse, successParse) =>
+		{
+			if (errParse) {
+				res.status(200).send(errParse);
+			}
+			else {
+				Select.isEmail(req.body.email, (errIs, successIs) =>
+				{
+					if (errIs) {
+						res.status(200).send(errIs);
+					}
+					else if (successIs == 0) {
+						Update.updateEmail(req.body.email, req.session.user_id, (errEmail, successEmail) =>
+						{
+							if (errEmail) {
+								res.status(200).send(errEmail);
+							}
+							else {
+								res.status(200).send('1');
+							}
+						})
+					}
+					else {
+						res.status(200).send('Email already exists');
+					}
+				})
+			}
+		})
+	}
+	else {
+		res.status(200).send('Oups, erreur de connexion ou data manquante');
+	}
+});
+
+router.post('/update-password', (req, res) =>
+{
+	if (req.session.user_id && req.body.password != null && req.body.password != 'undefined' && req.body.cpassword != null && req.body.cpassword != 'undefined' && req.body.oldPassword != null && req.body.oldPassword != 'undefined' && req.body.password == req.body.cpassword)
+	{
+		Parsing.validPassword(req.body.password, (errParse, successParse) =>
+		{
+			if (errParse) {
+				res.status(200).send(errParse);
+			}
+			else {
+				Select.isPasswordViaId(req.session.user_id, req.body.oldPassword, (errPwd, successPwd) =>
+				{
+					if (errPwd) {
+						res.status(200).send(errPwd);
+					}
+					else {
+						Update.passwordViaId(req.body.password, req.session.user_id, (errIs, successIs) =>
+						{
+							if (errIs) {
+								res.status(200).send(errIs);
+							}
+							else {
+								res.status(200).send('1');
+							}
+						})
+					}
+				})
+			}
+		})
+	}
+	else {
+		res.status(200).send('Oups, erreur de connexion ou data manquante');
+	}
+});
+
+router.post('/update-picture', (req, res) =>
+{
+	if (req.session.user_id && req.body.picture != null && req.body.picture != 'undefined' && (req.body.picture == '1' || req.body.picture == '2'))
+	{
+		let img;
+		if (req.body.picture == '1')
+			img = 'https://www.reseau-immd.fr/wp-content/uploads/2017/10/if_users-10_984119.png';
+		else
+			img = 'https://www.reseau-immd.fr/wp-content/uploads/2017/10/if_users-3_984116.png'
+		Update.updatePicture(img, req.session.user_id, (errUpdate, successUpdate) =>
+		{
+			if (errUpdate) {
+				res.status(200).send(errUpdate);
+			}
+			else {
+				res.status(200).send('1');
+			}
+		})
+	}
+	else {
+		res.status(200).send('Oups, erreur de connexion ou data manquante');
+	}
+});
+
+router.post('/update-username', (req, res) =>
+{
+	if (req.session.user_id && req.body.username != null && req.body.username != 'undefined')
+	{
+		Parsing.validLogin(req.body.username, (errLogin, successLogin) =>
+		{
+			if (errLogin) {
+				res.status(200).send(errLogin);
+			}
+			else {
+				Select.isLogin(req.body.username, (errIsLog, successIsLog) =>
+				{
+					if (errIsLog) {
+						res.status(200).send(errIsLog);
+					}
+					else if (successIsLog == '1') {
+						res.status(200).send('Login exist');
+					}
+					else {
+						Update.updateLogin(req.body.username, req.session.user_id, (errUpdate, successUpdate) =>
+						{
+							if (errUpdate) {
+								res.status(200).send(errUpdate);
+							}
+							else {
+								res.status(200).send('1');
+							}
+						})
+					}
+				})
+			}
+		})
+	}
+	else {
+		res.status(200).send('Oups, erreur de connexion ou data manquante');
+	}
+});
+
+router.post('/update-firstname', (req, res) =>
+{
+	if (req.session.user_id && req.body.firstName != null && req.body.firstName != 'undefined')
+	{
+		Parsing.validUsername(req.body.firstName, (errLogin, successLogin) =>
+		{
+			if (errLogin) {
+				res.status(200).send(errLogin);
+			}
+			else {
+				Update.updateFirstname(req.body.firstName, req.session.user_id, (errUpdate, successUpdate) =>
+				{
+					if (errUpdate) {
+						res.status(200).send(errUpdate);
+					}
+					else {
+						res.status(200).send('1');
+					}
+				})
+			}
+		})
+	}
+	else {
+		res.status(200).send('Oups, erreur de connexion ou data manquante');
+	}
+});
+
+router.post('/update-lastname', (req, res) =>
+{
+	if (req.session.user_id && req.body.lastName != null && req.body.lastName != 'undefined')
+	{
+		Parsing.validUsername(req.body.lastName, (errLogin, successLogin) =>
+		{
+			if (errLogin) {
+				res.status(200).send(errLogin);
+			}
+			else {
+				Update.updateLastname(req.body.lastName, req.session.user_id, (errUpdate, successUpdate) =>
+				{
+					if (errUpdate) {
+						res.status(200).send(errUpdate);
+					}
+					else {
+						res.status(200).send('1');
+					}
+				})
+			}
+		})
+	}
+	else {
+		res.status(200).send('Oups, erreur de connexion ou data manquante');
+	}
+});
 
 router.get('/change-password', (req, res) =>
 {

@@ -67,6 +67,14 @@ app.get('/plz', function() {
 		res.render('login.ejs')
 	}
 })
+.get('/update', function(req, res) {
+	if (req.session.user_id) {
+		res.render('update.ejs');
+	}
+	else {
+		res.render('login.ejs')
+	}
+})
 .get('/user', function(req, res) {
 	if (req.session.user_id) {
 		res.render('profile.ejs');
