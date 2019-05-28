@@ -12,7 +12,7 @@ const comment = require('./controller/comment')
 const app = express();
 
 let formRouter = require('./routes/form');
-
+const Db = require('./setup/setup.js');
 new cronJob('0 0 * * * *', function() {
 	live.checkFiles();
 }, null, true, 'America/Los_Angeles');
