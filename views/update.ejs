@@ -35,10 +35,10 @@
 				<v-toolbar-title id="home" style="cursor: pointer" class="display-1 font-weight-light">Hypertube</v-toolbar-title>
 				<v-spacer></v-spacer>
 				<v-toolbar-items class="hidden-sm-and-down">
-					<v-btn flat v-on:click="window.location.replace('/');">Movies</v-btn>
-					<v-btn flat v-on:click="window.location.replace('/tv');">Tv shows</v-btn>
-					<v-btn flat v-on:click="window.location.replace('/stats');">Stats</v-btn>
-					<v-btn flat v-on:click="window.location.replace('/logout')">logout</v-btn>
+					<v-btn flat v-on:click="window.location.href = '/';">Movies</v-btn>
+					<v-btn flat v-on:click="window.location.href = '/tv';">Tv shows</v-btn>
+					<v-btn flat v-on:click="window.location.href = '/stats';">Stats</v-btn>
+					<v-btn flat v-on:click="window.location.href = '/logout';">logout</v-btn>
 				</v-toolbar-items>
 			</v-toolbar>
 			<v-layout align-center justify-center row fill-height>
@@ -79,7 +79,7 @@
 								</v-flex>
 							</v-layout>
 							<v-layout align-center justify-center>
-								<v-btn type='submit' color="teal">Update Login</v-btn>
+								<v-btn type='submit' color="teal">Update firstname</v-btn>
 							</v-layout>
 						</v-container>
 					</v-form>
@@ -99,7 +99,7 @@
 								</v-flex>
 							</v-layout>
 							<v-layout align-center justify-center>
-								<v-btn type='submit' color="teal">Update Login</v-btn>
+								<v-btn type='submit' color="teal">Update lastname</v-btn>
 							</v-layout>
 						</v-container>
 					</v-form>
@@ -114,7 +114,7 @@
 									dark
 									name="email"
 									label="Email"
-									:rules="[rules.required]"
+									:rules="[rules.required, rules.email]"
 									>
 									</v-text-field>
 								</v-flex>
@@ -134,7 +134,7 @@
 									<v-text-field
 									name="oldPassword"
 									:append-icon="show1 ? 'visibility' : 'visibility_off'"
-									:rules="[rules.required]"
+									:rules="[rules.required, rules.password]"
 									:type="show1 ? 'text' : 'password'"
 									label="Old Password"
 									hint="Min 8 characters with 2 at least digits"
@@ -147,7 +147,7 @@
 									<v-text-field
 									name="password"
 									:append-icon="show2 ? 'visibility' : 'visibility_off'"
-									:rules="[rules.required]"
+									:rules="[rules.required, rules.password]"
 									:type="show2 ? 'text' : 'password'"
 									label="New Password"
 									hint="Min 8 characters with 2 at least digits"
@@ -160,7 +160,7 @@
 									<v-text-field
 									name="cpassword"
 									:append-icon="show3 ? 'visibility' : 'visibility_off'"
-									:rules="[rules.required]"
+									:rules="[rules.required, rules.password]"
 									:type="show3 ? 'text' : 'password'"
 									label="Confirm New Password"
 									hint="Min 8 characters with 2 at least digits"
@@ -221,6 +221,10 @@
 				imageFile: '',
 				rules: {
 					required: value => !!value || 'Required.',
+					name: v => (v && v.length >= 2) || 'Min 2 characters',
+					username: v => (v && v.length >= 2) || 'Min 2 characters',
+					email: v => (v && this.validateEmail(v)) || 'Wrong email format',
+					password: v => (v && v.length >= 8) || 'Min 8 characters with 2 at least digits'
 				}
 			}
 		},

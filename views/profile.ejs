@@ -34,10 +34,10 @@
 				<v-toolbar-title id="home" style="cursor: pointer" class="display-1 font-weight-light">Hypertube</v-toolbar-title>
 				<v-spacer></v-spacer>
 				<v-toolbar-items class="hidden-sm-and-down">
-					<v-btn flat v-on:click="window.location.replace('/');">Movies</v-btn>
-					<v-btn flat v-on:click="window.location.replace('/tv');">Tv shows</v-btn>
+					<v-btn flat v-on:click="window.location.href = '/';">Movies</v-btn>
+					<v-btn flat v-on:click="window.location.href = '/tv';">Tv shows</v-btn>
 					<v-btn flat color="#342A21">Stats</v-btn>
-					<v-btn flat v-on:click="window.location.replace('/logout')">logout</v-btn>
+					<v-btn flat v-on:click="window.location.href = '/logout';">logout</v-btn>
 				</v-toolbar-items>
 			</v-toolbar>
 			<v-layout row>

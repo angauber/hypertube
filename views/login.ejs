@@ -34,15 +34,21 @@
 									<v-text-field
 									label="Username"
 									name="username"
+									:rules="[rules.required, rules.username]"
 									solo
 									></v-text-field>
 								</v-flex>
 								<v-flex>
 									<v-text-field
-									solo
 									name="password"
-									type="password"
+									:append-icon="show1 ? 'visibility' : 'visibility_off'"
+									:rules="[rules.required, rules.password]"
+									:type="show1 ? 'text' : 'password'"
 									label="Password"
+									hint="At least 8 characters"
+									class="input-group--focused"
+									@click:append="show1 = !show1"
+									solo
 									></v-text-field>
 								</v-flex>
 							</v-layout>
@@ -57,7 +63,7 @@
 								width="60px"
 								height="60px"
 								class="clickable"
-								v-on:click="window.location.replace('https://api.intra.42.fr/oauth/authorize?client_id=e4c94fbb3b0c602e87b8b6ec7065ed7d474d40adcc4b6450beb63a723d7552a4&redirect_uri=http%3A%2F%2Flocalhost%3A8008%2F42auth&response_type=code');"
+								v-on:click="window.location.href = 'https://api.intra.42.fr/oauth/authorize?client_id=e4c94fbb3b0c602e87b8b6ec7065ed7d474d40adcc4b6450beb63a723d7552a4&redirect_uri=http%3A%2F%2Flocalhost%3A8008%2F42auth&response_type=code';"
 								>
 							</div>
 							<div mx-1 style="width: 50px; height: 60px;">
@@ -67,14 +73,14 @@
 								width="60px"
 								height="60px"
 								class="clickable"
-								v-on:click="window.location.replace('https://github.com/login/oauth/authorize?client_id=065c3a7f21bf12230852&redirect_uri=http://localhost:8008/gitauth&scope=read:user');"
+								v-on:click="window.location.href = 'https://github.com/login/oauth/authorize?client_id=065c3a7f21bf12230852&redirect_uri=http://localhost:8008/gitauth&scope=read:user';"
 								>
 							</div>
 						</v-layout>
 					</v-container>
 					<v-card-text>
-						<p class="clickable body-2 text-xs-center" v-on:click="window.location.replace('/forget-password');">Forgot password ?</p>
-						<p class="clickable body-2 text-xs-center" v-on:click="window.location.replace('/signup');">Sign up</p>
+						<p class="clickable body-2 text-xs-center" v-on:click="window.location.href = '/forget-password';">Forgot password ?</p>
+						<p class="clickable body-2 text-xs-center" v-on:click="window.location.href = '/signup';">Sign up</p>
 					</v-card-text>
 				</v-card>
 			</v-layout>
@@ -85,12 +91,55 @@
 	<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
 	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 	<script src="/js/ajax.js"></script>
-	<script>new Vue({
+	<script>
+	new Vue({
 		el: '#app',
 		data () {
-			return {}
+			return {
+				show1: false,
+				show2: false,
+				imageName: '',
+				imageUrl: '',
+				imageFile: '',
+				rules: {
+					required: value => !!value || 'Required.',
+					name: v => (v && v.length >= 2) || 'Min 2 characters',
+					username: v => (v && v.length >= 2) || 'Min 2 characters',
+					email: v => (v && this.validateEmail(v)) || 'Wrong email format',
+					password: v => (v && v.length >= 8) || 'Min 8 characters with 2 at least digits'
+				}
+			}
+		},
+		methods: {
+			validateEmail: function(email) {
+				var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+				return re.test(email);
+			},
+			pickFile () {
+				this.$refs.image.click ()
+			},
+			onFilePicked (e) {
+				const files = e.target.files
+				if(files[0] !== undefined) {
+					this.imageName = files[0].name
+					if(this.imageName.lastIndexOf('.') <= 0) {
+						return
+					}
+					const fr = new FileReader ()
+					fr.readAsDataURL(files[0])
+					fr.addEventListener('load', () => {
+						this.imageUrl = fr.result
+						this.imageFile = files[0] // this is an image file that can be sent to server...
+					})
+				} else {
+					this.imageName = ''
+					this.imageFile = ''
+					this.imageUrl = ''
+				}
+			}
 		}
 	})
 	</script>
+
 </body>
 </html>

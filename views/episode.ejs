@@ -22,10 +22,10 @@
 				single-line
 				id="search_input"
 				></v-text-field>
-				<v-btn flat v-on:click="window.location.replace('/');">Movies</v-btn>
-				<v-btn flat v-on:click="window.location.replace('/tv');" color="#342A21">Tv shows</v-btn>
-				<v-btn flat v-on:click="window.location.replace('/stats');">Stats</v-btn>
-				<v-btn flat v-on:click="window.location.replace('/logout')">logout</v-btn>
+				<v-btn flat v-on:click="window.location.href = '/';">Movies</v-btn>
+				<v-btn flat v-on:click="window.location.href = '/tv';" color="#342A21">Tv shows</v-btn>
+				<v-btn flat v-on:click="window.location.href = '/stats';">Stats</v-btn>
+				<v-btn flat v-on:click="window.location.href = '/logout';">logout</v-btn>
 			</v-toolbar-items>
 		</v-toolbar>
 		<template>
@@ -61,7 +61,7 @@
 						<div class="text-xs-center mt-2">
 							<v-rating></v-rating>
 						</div>
-						<v-btn mb-5 color="info" v-on:click="window.location.replace('/show?id=' + <%= data.show_id %>);">More episodes</v-btn>
+						<v-btn mb-5 color="info" v-on:click="window.location.href = '/show?id=' + <%= data.show_id %>;">More episodes</v-btn>
 					</v-card>
 				</v-flex>
 			</v-layout>

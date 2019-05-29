@@ -95,19 +95,6 @@
 										<img class="flag-img-form" src="/img/de.png">
 									</label>
 								</fieldset>
-
-								<!-- <v-flex class="text-xs-center text-sm-center text-md-center text-lg-center">
-									<v-text-field label="Select Image" @click='pickFile' v-model='imageName' prepend-icon='attach_file' solo></v-text-field>
-									<input
-									name='file'
-									type="file"
-									style="display: none"
-									ref="image"
-									accept="image/*"
-									@change="onFilePicked"
-									>
-									<img :src="imageUrl" height="150"/>
-								</v-flex> -->
 								<v-flex>
 									<v-text-field
 									name="password"
@@ -125,7 +112,7 @@
 									<v-text-field
 									name="confirmPassword"
 									:append-icon="show2 ? 'visibility' : 'visibility_off'"
-									:rules="[rules.required]"
+									:rules="[rules.required, rules.password]"
 									:type="show2 ? 'text' : 'password'"
 									label="Repeat password"
 									hint="At least 8 characters"
@@ -141,7 +128,7 @@
 						</v-container>
 						</v-form>
 					<v-card-text>
-						<p class="clickable body-2 text-xs-center" v-on:click="window.location.replace('/');">Sign in</p>
+						<p class="clickable body-2 text-xs-center" v-on:click="window.location.href = '/';">Sign in</p>
 					</v-card-text>
 				</v-card>
 			</v-layout>
@@ -161,16 +148,15 @@ new Vue({
 		return {
 			show1: false,
 			show2: false,
-			password: 'Password',
 			imageName: '',
 			imageUrl: '',
 			imageFile: '',
 			rules: {
 				required: value => !!value || 'Required.',
-				name: v => v.length >= 2 || 'Min 2 characters',
-				username: v => v.length >= 4 || 'Min 4 characters',
-				email: v => this.validateEmail(v) || 'Wrong email format',
-				password: v => v.length >= 8 || 'Min 8 characters with 2 at least digits'
+				name: v => (v && v.length >= 2) || 'Min 2 characters',
+				username: v => (v && v.length >= 2) || 'Min 2 characters',
+				email: v => (v && this.validateEmail(v)) || 'Wrong email format',
+				password: v => (v && v.length >= 8) || 'Min 8 characters with 2 at least digits'
 			}
 		}
 	},
