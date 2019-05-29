@@ -5,7 +5,7 @@ const	Models = require('../setup/schemas.js'),
 		Bcrypt = require('bcrypt'),
 		SaltRounds = 8;
 
-module.exports = 
+module.exports =
 {
 	isLogin(username, callback)
 	{

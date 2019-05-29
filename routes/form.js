@@ -283,10 +283,12 @@ router.post('/signin', (req, res) =>
 {
 	if (req.body.username && req.body.password)
 	{
+		console.log('entered');
 		Form.checkSignIn(req.body, (err, success) =>
 		{
-			if (err)
+			if (err) {
 				res.status(200).send(err);
+			}
 			else
 			{
 				Select.getId(req.body.username, (error, success) =>

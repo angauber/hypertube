@@ -40,7 +40,7 @@ $(document).ready(() => {
 			}
 		});
 	}),
-	
+
 	$("#change-form").on("submit", function (e) {
 		e.preventDefault();
 		$.post("/form/change-password", $(this).serialize(), function (data) {
@@ -149,7 +149,7 @@ $(document).ready(() => {
 	$("#disconnect").on("click", function (e) {
 		e.preventDefault();
 		$.get("/disconnect", function (data) {
-			             
+
 		});
 	})
 });

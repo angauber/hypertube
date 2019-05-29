@@ -27,10 +27,14 @@ module.exports =
 						Select.isLogin(body.username, (errLog, successLog) =>
 						{
 							if (errLog)
+								callback(errLog);
+							else if (successLog == 0) {
 								callback("Le username n'existe pas");
+							}
 							else
 								Select.isPassword(body.username, body.password, (errPass, successPass) =>
 								{
+
 									if (errPass)
 										callback(errPass)
 									else if (successPass == 0)

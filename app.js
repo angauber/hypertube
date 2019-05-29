@@ -13,7 +13,10 @@ const app = express();
 
 let formRouter = require('./routes/form');
 
+const Db = require('./setup/setup.js');
+
 new cronJob('0 0 * * * *', function() {
+	console.log('cron checker');
 	live.checkFiles();
 }, null, true, 'America/Los_Angeles');
 
@@ -42,9 +45,6 @@ app.get('/', function(req, res) {
 		res.render('login.ejs')
 	}
 })
-app.get('/plz', function() {
-	live.checkFiles();
-})
 .get('/signup', function(req, res) {
 	if (req.session.user_id) {
 		res.render('home.ejs');
@@ -68,7 +68,7 @@ app.get('/plz', function() {
 	}
 })
 .get('/update', function(req, res) {
-	if (req.session.user_id) {
+	if (req.session.user_id && req.session.oauth == 0) {
 		res.render('update.ejs');
 	}
 	else {

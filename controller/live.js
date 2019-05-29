@@ -3,7 +3,6 @@ const fs = require('fs');
 const pump = require('pump');
 const ffmpeg = require('fluent-ffmpeg');
 const growingFile = require('growing-file');
-const rimraf = require('rimraf');
 
 const torrent = require('./torrent');
 const users = require('../model/users');
@@ -257,25 +256,48 @@ module.exports = {
 	user: function(req, res) {
 		if (typeof req.session.oauth !== "undefined" && typeof req.session.user_id !== "undefined") {
 			if (typeof req.query.type !== "undefined" && typeof req.query.id !== "undefined") {
-				users.find({oauth: req.query.type, id: parseInt(req.query.id)}).then(function(result) {
-					if (result[0]) {
-						const obj = result[0]
-						console.log(obj)
-						stat.find({auth: req.query.type, id: parseInt(req.query.id)}).then(function(result) {
-							console.log(result)
-							if (result) {
-								obj.history = result
-								res.json(JSON.stringify(obj))
-							}
-							else {
-								res.json(false)
-							}
-						})
-					}
-					else {
-						res.json(false)
-					}
-				})
+				if (req.query.type == '0') {
+					users.find({oauth: 0, id: req.query.id}).then(function(result) {
+						if (result[0]) {
+							const obj = result[0]
+							console.log(obj)
+							stat.find({auth: req.query.type, id: parseInt(req.query.id)}).then(function(result) {
+								console.log(result)
+								if (result) {
+									obj.history = result
+									res.json(JSON.stringify(obj))
+								}
+								else {
+									res.json(false)
+								}
+							})
+						}
+						else {
+							res.json(false)
+						}
+					})
+				}
+				else {
+					users.find({oauth: req.query.type, id: parseInt(req.query.id)}).then(function(result) {
+						if (result[0]) {
+							const obj = result[0]
+							console.log(obj)
+							stat.find({auth: req.query.type, id: parseInt(req.query.id)}).then(function(result) {
+								console.log(result)
+								if (result) {
+									obj.history = result
+									res.json(JSON.stringify(obj))
+								}
+								else {
+									res.json(false)
+								}
+							})
+						}
+						else {
+							res.json(false)
+						}
+					})
+				}
 			}
 			else {
 				res.json(false)
@@ -293,46 +315,70 @@ module.exports = {
 		}
 	},
 	checkFiles: function() {
-		const dldir = '/sgoinfre/Perso/angauber/hypertube/download/';
-		fs.readdir(dldir, function(err, items) {
-			try {
-				for (let i = 0; i < items.length; i++) {
-					try {
-						fs.stat(dldir + items[i], (err, stats) => {
-							const date1 = stats.atime
-							const date2 = new Date();
-							const diffTime = Math.abs(date2.getTime() - date1.getTime());
-							const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+		files.find_movie({}).then(function(result) {
+			if (result.length !== 0) {
+				for (let i = 0; i < result.length; i++) {
+					const date1 = new Date(result[i].lastseen);
+					const date2 = new Date();
 
-							console.log(items[i] + ' hours: ' + Math.floor((diffTime / (1000 * 60 * 60)) % 24));
-							// console.log(diffTime);
-							console.log(diffDays);
-							if (diffDays > -1) {
-								rimraf(dldir + items[i], function (er) {
-									if (er) {
-										throw er
-									}
-									else {
-										try {
-											files.movie_remove({ path: new RegExp(items[i], 'i') })
-											files.episode_remove({ path: new RegExp(items[i], 'i') })
-											console.log(items[i] + ' -> files deleted ..');
-										}
-										catch (e) {
-											console.log(e);
-										}
-									}
-								})
+					console.log(date1 + ' ' + date2);
+					const diffTime = Math.abs(date2.getTime() - date1.getTime());
+					const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+					const diffHours = Math.floor((diffTime / (1000 * 60 * 60)) % 24);
+					// console.log(diffTime);
+					// console.log(diffDays);
+					if (diffDays > -1) {
+						fs.unlink('/sgoinfre/Perso/angauber/hypertube/download/' + result[i].path, function (er) {
+							if (er) {
+								throw er
+							}
+							else {
+								try {
+									files.movie_remove({ path: result[i].path })
+									console.log(result[i].path + ' -> files deleted ..');
+								}
+								catch (e) {
+									console.log(e);
+								}
 							}
 						})
-					} catch (e) {
-						console.log(e)
+					}
+					else {
+						console.log(diffHours);
 					}
 				}
-			} catch (e) {
-				console.log(e)
 			}
-		});
+		})
+		files.find_episode({}).then(function(result) {
+			if (result.length !== 0) {
+				for (let i = 0; i < result.length; i++) {
+					const date1 = result.lastseen
+					const date2 = new Date();
+					const diffTime = Math.abs(date2.getTime() - date1.getTime());
+					const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+
+					// console.log(items[i] + ' hours: ' + Math.floor((diffTime / (1000 * 60 * 60)) % 24));
+					// console.log(diffTime);
+					// console.log(diffDays);
+					if (diffDays > -1) {
+						fs.unlink('/sgoinfre/Perso/angauber/hypertube/download/' + result[i].path, function (er) {
+							if (er) {
+								throw er
+							}
+							else {
+								try {
+									files.episode_remove({ path: result[i].path })
+									console.log(result[i] + ' -> files deleted ..');
+								}
+								catch (e) {
+									console.log(e);
+								}
+							}
+						})
+					}
+				}
+			}
+		})
 	}
 }
 

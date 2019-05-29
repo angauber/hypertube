@@ -6,7 +6,7 @@ const	Models = require('../setup/schemas.js'),
 		Select = require("./select.js")
 		SaltRounds = 8;
 
-module.exports = 
+module.exports =
 {
 	activeAccount(username, callback)
 	{
@@ -34,7 +34,7 @@ module.exports =
 						callback(null, 1);
 				});
 			}
-		})	
+		})
 	},
 
 	updateEmail(email, id, callback)

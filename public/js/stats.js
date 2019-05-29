@@ -9,6 +9,7 @@ let vm = new Vue({
 			size: '',
 			selected: '',
 			items: ['en', 'fr', 'es', 'de'],
+			oauth: '',
 			data: {}
 		}
 	},
@@ -25,6 +26,8 @@ window.onload = function() {
 	axios.get('/getUserStats').then(response => {
 		const data = JSON.parse(response.data);
 		vm.img = data.img;
+		vm.oauth = data.oauth;
+		console.log(vm.oauth);
 		vm.username = data.username;
 		vm.selected = data.language;
 		let log = data.history;

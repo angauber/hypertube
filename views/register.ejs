@@ -84,7 +84,7 @@
 										<input type="radio" name="language" value="en">
 										<img class="flag-img-form" src="/img/en.png">
 									</label>
-									
+
 									<label>
 										<input type="radio" name="language" value="es">
 										<img class="flag-img-form" src="/img/es.png">
@@ -95,7 +95,7 @@
 										<img class="flag-img-form" src="/img/de.png">
 									</label>
 								</fieldset>
-								
+
 								<!-- <v-flex class="text-xs-center text-sm-center text-md-center text-lg-center">
 									<v-text-field label="Select Image" @click='pickFile' v-model='imageName' prepend-icon='attach_file' solo></v-text-field>
 									<input
@@ -145,7 +145,7 @@
 					</v-card-text>
 				</v-card>
 			</v-layout>
-		
+
 	</template>
 </v-app>
 
@@ -170,8 +170,7 @@ new Vue({
 				name: v => v.length >= 2 || 'Min 2 characters',
 				username: v => v.length >= 4 || 'Min 4 characters',
 				email: v => this.validateEmail(v) || 'Wrong email format',
-				password: v => v.length >= 8 || 'Min 8 characters',
-				emailMatch: () => ('The email and password you entered don\'t match')
+				password: v => v.length >= 8 || 'Min 8 characters with 2 at least digits'
 			}
 		}
 	},

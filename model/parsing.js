@@ -19,7 +19,7 @@ module.exports =
 					}
 				}
 			}
-			
+
 		}
 		else
 			callback("Error in string");

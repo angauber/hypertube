@@ -17,6 +17,23 @@
 </head>
 <body>
 	<v-app id="app" style="background: #263238;">
+		<v-toolbar dark color="#455B66" style="font-family: roboto;">
+			<v-toolbar-side-icon></v-toolbar-side-icon>
+			<v-toolbar-title id="php" style="cursor: pointer;" class="display-1 font-weight-light">Hypertube</v-toolbar-title>
+			<v-spacer></v-spacer>
+			<v-toolbar-items class="hidden-sm-and-down">
+				<v-text-field
+				hide-details
+				prepend-icon="search"
+				single-line
+				id = "search_input"
+				></v-text-field>
+				<v-btn flat v-on:click="window.location.replace('/');">Movies</v-btn>
+				<v-btn flat v-on:click="window.location.replace('/tv');">Tv shows</v-btn>
+				<v-btn flat v-on:click="window.location.replace('/stats');">Stats</v-btn>
+				<v-btn flat v-on:click="window.location.replace('/logout')">logout</v-btn>
+			</v-toolbar-items>
+		</v-toolbar>
 		<template>
 			<v-layout align-center justify-center column fill-height>
 				<p class="display-4">404 not found</p>

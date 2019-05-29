@@ -38,7 +38,6 @@
 					<v-btn flat v-on:click="window.location.replace('/');">Movies</v-btn>
 					<v-btn flat v-on:click="window.location.replace('/tv');">Tv shows</v-btn>
 					<v-btn flat v-on:click="window.location.replace('/stats');">Stats</v-btn>
-					<v-btn flat color="#342A21">Update</v-btn>
 					<v-btn flat v-on:click="window.location.replace('/logout')">logout</v-btn>
 				</v-toolbar-items>
 			</v-toolbar>
@@ -115,7 +114,7 @@
 									dark
 									name="email"
 									label="Email"
-									:rules="[rules.required, rules.email]"
+									:rules="[rules.required]"
 									>
 									</v-text-field>
 								</v-flex>
@@ -135,10 +134,10 @@
 									<v-text-field
 									name="oldPassword"
 									:append-icon="show1 ? 'visibility' : 'visibility_off'"
-									:rules="[rules.required, rules.password]"
+									:rules="[rules.required]"
 									:type="show1 ? 'text' : 'password'"
 									label="Old Password"
-									hint="At least 8 characters"
+									hint="Min 8 characters with 2 at least digits"
 									class="input-group--focused"
 									@click:append="show1 = !show1"
 									dark
@@ -148,10 +147,10 @@
 									<v-text-field
 									name="password"
 									:append-icon="show2 ? 'visibility' : 'visibility_off'"
-									:rules="[rules.required, rules.password]"
+									:rules="[rules.required]"
 									:type="show2 ? 'text' : 'password'"
 									label="New Password"
-									hint="At least 8 characters"
+									hint="Min 8 characters with 2 at least digits"
 									class="input-group--focused"
 									@click:append="show2 = !show2"
 									dark
@@ -161,10 +160,10 @@
 									<v-text-field
 									name="cpassword"
 									:append-icon="show3 ? 'visibility' : 'visibility_off'"
-									:rules="[rules.required, rules.password]"
+									:rules="[rules.required]"
 									:type="show3 ? 'text' : 'password'"
 									label="Confirm New Password"
-									hint="At least 8 characters"
+									hint="Min 8 characters with 2 at least digits"
 									class="input-group--focused"
 									@click:append="show3 = !show3"
 									dark
@@ -216,15 +215,12 @@
 				show1: false,
 				show2: false,
 				show3: false,
-				password: 'Password',
+				password: '',
 				imageName: '',
 				imageUrl: '',
 				imageFile: '',
 				rules: {
 					required: value => !!value || 'Required.',
-					email: v => this.validateEmail(v) || 'Wrong email format',
-					password: v => v.length >= 8 || 'Min 8 characters',
-					emailMatch: () => ('The email and password you entered don\'t match')
 				}
 			}
 		},
