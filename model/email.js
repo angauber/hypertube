@@ -159,7 +159,6 @@ module.exports =
 			subject: 'Confirmation mail',
 			html: txt,
 		};
-		sgMail.setApiKey('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');
 		if (sgMail.send(msg))
 		{
 			callback(null, 1);
@@ -318,7 +317,6 @@ module.exports =
 			subject: 'Reset password',
 			html: txt,
 		};
-		sgMail.setApiKey('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');
 		if (sgMail.send(msg))
 		{
 			callback(null, '1');
