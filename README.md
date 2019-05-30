@@ -1,7 +1,9 @@
 # Hypertube
 
 Hypertube is a video streaming platform based on [node](https://nodejs.org/en/).\
-It uses the p2p bittorrent protocol to legally fetch movies and Tv shows on server-side
+It uses the p2p bittorrent protocol to fetch Movies and Tv shows on server-side
+
+![Demo](data/demo.gif)
 
 ## Installation
 
