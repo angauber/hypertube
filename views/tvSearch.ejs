@@ -16,22 +16,35 @@
 	<v-app id="app" style="background: #263238;">
 		<template>
 			<v-toolbar dark color="#455B66" style="font-family: roboto;">
-				<v-toolbar-side-icon></v-toolbar-side-icon>
-				<v-toolbar-title id="home" style="cursor: pointer" class="display-1 font-weight-light">Hypertube</v-toolbar-title>
-				<v-spacer></v-spacer>
-				<v-toolbar-items class="hidden-sm-and-down">
-					<v-text-field
-					hide-details
-					prepend-icon="search"
-					single-line
-					id = "search_input"
-					></v-text-field>
-					<v-btn flat v-on:click="window.location.href = '/';">Movies</v-btn>
-					<v-btn flat v-on:click="window.location.href = '/tv';" color="#342A21">Tv shows</v-btn>
-					<v-btn flat v-on:click="window.location.href = '/stats';">Stats</v-btn>
-					<v-btn flat v-on:click="window.location.href = '/logout';">logout</v-btn>
-				</v-toolbar-items>
-			</v-toolbar>
+		      <v-toolbar-title class="hidden-sm-and-down" id="home" style="cursor: pointer" class="display-1 font-weight-light">Hypertube</v-toolbar-title>
+			  <v-flex style="margin-left: 10%;">
+				  <v-text-field
+				  hide-details
+				  prepend-icon="search"
+				  single-line
+				  id = "search_input"
+				  style="width: 70%;"
+				  ></v-text-field>
+			  </v-flex>
+		      <v-spacer></v-spacer>
+		      <v-toolbar-items class="hidden-sm-and-down">
+		         <v-btn
+		          v-for="item in menu"
+		          :href="item.href"
+		          flat
+		        >{{ item.title }}</v-btn>
+		      </v-toolbar-items>
+		      <v-menu dark color="#455B66" class="hidden-md-and-up">
+		        <v-toolbar-side-icon slot="activator"></v-toolbar-side-icon>
+		        <v-list>
+		          <v-list-tile v-for="item in menu" :key="item.icon">
+		            <v-list-tile-content>
+		              <v-list-tile-title><a :href="item.href">{{ item.title }}</a></v-list-tile-title>
+		             </v-list-tile-content>
+		          </v-list-tile>
+		        </v-list>
+		      </v-menu>
+		    </v-toolbar>
 			<v-container grid-list-md text-xs-center>
 				<v-layout row wrap id="movie_list">
 					<v-dialog
@@ -74,7 +87,13 @@
 		</template>
 	</v-app>
 	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
-	<script src="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/vuetify@1.5.10/dist/vuetify.min.js"></script>
 	<script src="/js/search.js"></script>
+	<style scoped>
+		a {
+			text-decoration: none;
+			color: white;
+		}
+	</style>
 </body>
 </html>

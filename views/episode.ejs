@@ -8,25 +8,64 @@
 	<link href="https://unpkg.com/silvermine-videojs-quality-selector@1.1.2/dist/css/quality-selector.css" rel="stylesheet">
 
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+	<style>
+	@media screen and (min-width: 1260px) {
+		#my-video {
+			width: 1100px;
+			height: 500px;
+		}
+	}
+	@media screen and (max-width: 1260px) {
+		#my-video {
+			width: 500px;
+			height: 300px;
+		}
+	}
+	@media screen and (max-width: 600px) {
+		#my-video {
+			width: 400px;
+			height: 250px;
+		}
+	}
+	@media screen and (max-width: 450px) {
+		#my-video {
+			width: 300px;
+			height: 200px;
+		}
+	}
+	</style>
 </head>
 <body>
 	<v-app id="app" style="background: #263238;">
 		<v-toolbar dark color="#455B66" style="font-family: roboto;">
-			<v-toolbar-side-icon></v-toolbar-side-icon>
-			<v-toolbar-title id="php" style="cursor: pointer;" class="display-1 font-weight-light">Hypertube</v-toolbar-title>
-			<v-spacer></v-spacer>
-			<v-toolbar-items class="hidden-sm-and-down">
-				<v-text-field
-				hide-details
-				prepend-icon="search"
-				single-line
-				id="search_input"
-				></v-text-field>
-				<v-btn flat v-on:click="window.location.href = '/';">Movies</v-btn>
-				<v-btn flat v-on:click="window.location.href = '/tv';" color="#342A21">Tv shows</v-btn>
-				<v-btn flat v-on:click="window.location.href = '/stats';">Stats</v-btn>
-				<v-btn flat v-on:click="window.location.href = '/logout';">logout</v-btn>
-			</v-toolbar-items>
+		  <v-toolbar-title class="hidden-sm-and-down" id="home" style="cursor: pointer" class="display-1 font-weight-light">Hypertube</v-toolbar-title>
+		  <v-flex style="margin-left: 10%;">
+			  <v-text-field
+			  hide-details
+			  prepend-icon="search"
+			  single-line
+			  id = "search_input"
+			  style="width: 70%;"
+			  ></v-text-field>
+		  </v-flex>
+		  <v-spacer></v-spacer>
+		  <v-toolbar-items class="hidden-sm-and-down">
+			 <v-btn
+			  v-for="item in menu"
+			  :href="item.href"
+			  flat
+			>{{ item.title }}</v-btn>
+		  </v-toolbar-items>
+		  <v-menu dark color="#455B66" class="hidden-md-and-up">
+			<v-toolbar-side-icon slot="activator"></v-toolbar-side-icon>
+			<v-list>
+			  <v-list-tile v-for="item in menu" :key="item.icon">
+				<v-list-tile-content>
+				  <v-list-tile-title><a :href="item.href">{{ item.title }}</a></v-list-tile-title>
+				 </v-list-tile-content>
+			  </v-list-tile>
+			</v-list>
+		  </v-menu>
 		</v-toolbar>
 		<template>
 			<v-container text-xs-center>
@@ -53,9 +92,15 @@
 							__append(data.episode_number);
 							%>
 						</v-card-text>
-						<video id='my-video' class="video-js vjs-default-skin vjs-big-play-centered" controls preload='auto' width="950" height="450" style="display: block; margin: 0 auto;" poster="https://image.tmdb.org/t/p/w1280/<%= data.still_path %>" data-setup='{}'>
+						<video id='my-video' class="video-js vjs-default-skin vjs-big-play-centered" controls preload style="margin: 0 auto;" poster="https://image.tmdb.org/t/p/w1280/<%= data.still_path %>" data-setup='{}'>
 							<source src="/stream?url=<%= path %>" type='video/mp4' >
-							<track kind="captions" src="/tvSrt/<%= data.id %>-<%= language %>.vtt" label="<%= language %>" default>
+							<%
+							if (language != null) {
+								%>
+									<track kind="captions" src="/tvSrt/<%= data.id %>-<%= language %>.vtt" label="<%= language %>" default>
+								<%
+								}
+							%>
 						</video>
 						<v-card-text class="body-1 mt-4 font-weight-light" style="color: white;"><%= data.overview %></v-card-text>
 						<div class="text-xs-center mt-2">
@@ -100,16 +145,15 @@
 	</template>
 </v-app>
 <script src="npm/video.js/dist/video.min.js"></script>
-<script src="npm/silvermine-videojs-quality-selector/dist/js/silvermine-videojs-quality-selector.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/vue"></script>
-<script src="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vuetify@1.5.10/dist/vuetify.min.js"></script>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-<script>
-window.onload = function() {
-	var player = videojs('my-video');
-	player.controlBar.addChild('QualitySelector');
-}
-</script>
 <script src="/js/episode.js"></script>
+<style scoped>
+	a {
+		text-decoration: none;
+		color: white;
+	}
+</style>
 </body>
 </html>
