@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Material+Icons" rel="stylesheet">
+	<link href="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.min.css" rel="stylesheet">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+	<style>
+	.countup {
+		margin-bottom: 20px;
+	}
+	.countup .timeel {
+		display: inline-block;
+		padding: 10px;
+		background: #151515;
+		margin: 0;
+		color: white;
+		min-width: 2.6rem;
+		margin-left: 13px;
+		border-radius: 10px 0 0 10px;
+	}
+	.countup span[class*="timeRef"] {
+		border-radius: 0 10px 10px 0;
+		margin-left: 0;
+		background: #48BEFF;
+		color: black;
+	}
+	</style>
+</head>
+<body>
+	<v-app id="app" style="background: #263238;">
+		<template>
+			<div class="error" style="text-align: center"></div>
+			<v-toolbar dark color="#455B66" style="font-family: roboto;">
+		      <v-toolbar-title class="hidden-sm-and-down" id="home" style="cursor: pointer" class="display-1 font-weight-light">Hypertube</v-toolbar-title>
+			  <v-flex style="margin-left: 10%;">
+				  <v-text-field
+				  hide-details
+				  prepend-icon="search"
+				  single-line
+				  id = "search_input"
+				  style="width: 70%;"
+				  ></v-text-field>
+			  </v-flex>
+		      <v-spacer></v-spacer>
+		      <v-toolbar-items class="hidden-sm-and-down">
+		         <v-btn
+		          v-for="item in menu"
+		          :href="item.href"
+		          flat
+		        >{{ item.title }}</v-btn>
+		      </v-toolbar-items>
+		      <v-menu dark color="#455B66" class="hidden-md-and-up">
+		        <v-toolbar-side-icon slot="activator"></v-toolbar-side-icon>
+		        <v-list>
+		          <v-list-tile v-for="item in menu" :key="item.icon">
+		            <v-list-tile-content>
+		              <v-list-tile-title><a :href="item.href">{{ item.title }}</a></v-list-tile-title>
+		             </v-list-tile-content>
+		          </v-list-tile>
+		        </v-list>
+		      </v-menu>
+		    </v-toolbar>
+			<v-layout align-center justify-center row fill-height>
+				<v-card id="update-form" dark color="primary" id="logbox">
+					<v-form
+						ref="update-username"
+						id="update-username"
+					>
+						<v-container>
+							<v-layout column>
+								<v-flex>
+									<v-text-field
+									name="username"
+									label="Username"
+									:rules="[rules.required, rules.username]"
+									dark
+									></v-text-field>
+								</v-flex>
+							</v-layout>
+							<v-layout align-center justify-center>
+								<v-btn type='submit' color="teal">Update Login</v-btn>
+							</v-layout>
+						</v-container>
+					</v-form>
+					<v-form
+						ref="update-firstname"
+						id="update-firstname"
+					>
+						<v-container>
+							<v-layout column>
+								<v-flex>
+									<v-text-field
+									name="firstName"
+									label="First name"
+									:rules="[rules.required, rules.name]"
+									dark
+									></v-text-field>
+								</v-flex>
+							</v-layout>
+							<v-layout align-center justify-center>
+								<v-btn type='submit' color="teal">Update firstname</v-btn>
+							</v-layout>
+						</v-container>
+					</v-form>
+					<v-form
+						ref="update-lastname"
+						id="update-lastname"
+					>
+						<v-container>
+							<v-layout column>
+								<v-flex>
+									<v-text-field
+									name="lastName"
+									label="Last name"
+									:rules="[rules.required, rules.name]"
+									dark
+									></v-text-field>
+								</v-flex>
+							</v-layout>
+							<v-layout align-center justify-center>
+								<v-btn type='submit' color="teal">Update lastname</v-btn>
+							</v-layout>
+						</v-container>
+					</v-form>
+					<v-form
+						ref="update-email"
+						id="update-email"
+					>
+						<v-container>
+							<v-layout column>
+								<v-flex>
+									<v-text-field
+									dark
+									name="email"
+									label="Email"
+									:rules="[rules.required, rules.email]"
+									>
+									</v-text-field>
+								</v-flex>
+							</v-layout>
+							<v-layout align-center justify-center>
+								<v-btn type='submit' color="teal">Update Email</v-btn>
+							</v-layout>
+						</v-container>
+					</v-form>
+					<v-form
+						ref="update-password"
+						id="update-password"
+					>
+						<v-container>
+							<v-layout column>
+								<v-flex>
+									<v-text-field
+									name="oldPassword"
+									:append-icon="show1 ? 'visibility' : 'visibility_off'"
+									:rules="[rules.required, rules.password]"
+									:type="show1 ? 'text' : 'password'"
+									label="Old Password"
+									hint="Min 8 characters with 2 at least digits"
+									class="input-group--focused"
+									@click:append="show1 = !show1"
+									dark
+									></v-text-field>
+								</v-flex>
+								<v-flex>
+									<v-text-field
+									name="password"
+									:append-icon="show2 ? 'visibility' : 'visibility_off'"
+									:rules="[rules.required, rules.password]"
+									:type="show2 ? 'text' : 'password'"
+									label="New Password"
+									hint="Min 8 characters with 2 at least digits"
+									class="input-group--focused"
+									@click:append="show2 = !show2"
+									dark
+									></v-text-field>
+								</v-flex>
+								<v-flex>
+									<v-text-field
+									name="cpassword"
+									:append-icon="show3 ? 'visibility' : 'visibility_off'"
+									:rules="[rules.required, rules.password]"
+									:type="show3 ? 'text' : 'password'"
+									label="Confirm New Password"
+									hint="Min 8 characters with 2 at least digits"
+									class="input-group--focused"
+									@click:append="show3 = !show3"
+									dark
+									></v-text-field>
+								</v-flex>
+							</v-layout>
+							<v-layout align-center justify-center>
+								<v-btn type='submit' color="teal">Update Password</v-btn>
+							</v-layout>
+						</v-container>
+					</v-form>
+					<v-form
+						ref="update-picture"
+						id="update-picture"
+					>
+						<v-container>
+							<v-layout column>
+								<fieldset>
+									<label>
+										<input type="radio" name="picture" value="1" checked>
+										<img class="img-form" src="/img/1.png">
+									</label>
+
+									<label>
+										<input type="radio" name="picture" value="2">
+										<img class="img-form" src="/img/2.png">
+									</label>
+								</fieldset>
+							</v-layout>
+							<v-layout align-center justify-center>
+								<v-btn type='submit' color="teal">Update Picture</v-btn>
+							</v-layout>
+						</v-container>
+					</v-form>
+				</v-card>
+			</v-layout>
+		</template>
+	</v-app>
+	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+	<script src="https://cdn.jsdelivr.net/npm/vuetify@1.5.10/dist/vuetify.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+	<script src="/js/ajax.js"></script>
+	<script>
+	new Vue({
+		el: '#app',
+		data () {
+			return {
+				show1: false,
+				show2: false,
+				show3: false,
+				password: '',
+				imageName: '',
+				imageUrl: '',
+				imageFile: '',
+				rules: {
+					required: value => !!value || 'Required.',
+					name: v => (v && v.length >= 2) || 'Min 2 characters',
+					username: v => (v && v.length >= 2) || 'Min 2 characters',
+					email: v => (v && this.validateEmail(v)) || 'Wrong email format',
+					password: v => (v && v.length >= 8) || 'Min 8 characters with 2 at least digits'
+				},
+				menu: [
+			        { href: '/', title: 'Movies' },
+			        { href: 'tv', title: 'Tv shows' },
+			        { href: 'stats', title: 'Stats' },
+					{ href: 'logout', title: 'Logout' }
+		      	]
+			}
+		},
+		methods: {
+			menuItems () {
+				return this.menu
+			},
+			validateEmail: function(email) {
+				var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+				return re.test(email);
+			},
+			pickFile () {
+				this.$refs.image.click ()
+			},
+			onFilePicked (e) {
+				const files = e.target.files
+				if(files[0] !== undefined) {
+					this.imageName = files[0].name
+					if(this.imageName.lastIndexOf('.') <= 0) {
+						return
+					}
+					const fr = new FileReader ()
+					fr.readAsDataURL(files[0])
+					fr.addEventListener('load', () => {
+						this.imageUrl = fr.result
+						this.imageFile = files[0] // this is an image file that can be sent to server...
+					})
+				} else {
+					this.imageName = ''
+					this.imageFile = ''
+					this.imageUrl = ''
+				}
+			}
+		}
+	})
+	</script>
+	<style scoped>
+		#update-form {
+			width: 60%;
+		}
+		.img-form {
+			width: 40%;
+		}
+		.flag-img-form {
+			width: 10%;
+		}
+		a {
+			text-decoration: none;
+			color: white;
+		}
+	</style>
+</body>
+</html>

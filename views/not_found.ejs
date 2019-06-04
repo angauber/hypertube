@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Material+Icons" rel="stylesheet">
+	<link href="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.min.css" rel="stylesheet">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+	<style>
+	.clickable {
+		cursor: pointer;
+	}
+	@media screen and (min-width: 1200px) and (max-width: 10000px) {
+		#logbox {
+			width: 15%;
+		}
+	}
+	</style>
+</head>
+<body>
+	<v-app id="app" style="background: #263238;">
+		<template>
+			<v-toolbar dark color="#455B66" style="font-family: roboto;">
+		      <v-toolbar-title class="hidden-sm-and-down" id="home" style="cursor: pointer" class="display-1 font-weight-light">Hypertube</v-toolbar-title>
+			  <v-flex style="margin-left: 10%;">
+				  <v-text-field
+				  hide-details
+				  prepend-icon="search"
+				  single-line
+				  id = "search_input"
+				  style="width: 70%;"
+				  ></v-text-field>
+			  </v-flex>
+		      <v-spacer></v-spacer>
+		      <v-toolbar-items class="hidden-sm-and-down">
+		         <v-btn
+		          v-for="item in menu"
+		          :href="item.href"
+		          flat
+		        >{{ item.title }}</v-btn>
+		      </v-toolbar-items>
+		      <v-menu dark color="#455B66" class="hidden-md-and-up">
+		        <v-toolbar-side-icon slot="activator"></v-toolbar-side-icon>
+		        <v-list>
+		          <v-list-tile v-for="item in menu" :key="item.icon">
+		            <v-list-tile-content>
+		              <v-list-tile-title><a :href="item.href">{{ item.title }}</a></v-list-tile-title>
+		             </v-list-tile-content>
+		          </v-list-tile>
+		        </v-list>
+		      </v-menu>
+		    </v-toolbar>
+			<v-layout align-center justify-center column fill-height>
+				<p class="display-4">404 not found</p>
+				<img src="https://media3.giphy.com/media/VwoJkTfZAUBSU/giphy.gif?cid=790b76115ccc3b2b424c44652eb2b9dd&rid=giphy.gif">
+			</v-layout>
+		</template>
+	</v-app>
+	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+	<script src="https://cdn.jsdelivr.net/npm/vuetify@1.5.10/dist/vuetify.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+	<script>new Vue({
+		el: '#app',
+		data () {
+			return {
+				menu: [
+			        { href: '/', title: 'Movies' },
+			        { href: 'tv', title: 'Tv shows' },
+			        { href: 'stats', title: 'Stats' },
+					{ href: 'logout', title: 'Logout' }
+		      	]
+			}
+		},
+		methods: {
+			menuItems () {
+				return this.menu
+			}
+		}
+	})
+	</script>
+	<style scoped>
+		a {
+			text-decoration: none;
+			color: white;
+		}
+	</style>
+</body>
+</html>
