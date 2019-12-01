@@ -6,7 +6,7 @@ const users = require('../model/users');
 module.exports = {
 	oauth_42: function(req, res) {
 		if (typeof req.query.code !== "undefined") {
-			request.post({url:'https://api.intra.42.fr/oauth/token', form: {grant_type: 'authorization_code', client_id: process.env.FORTY_TWO_CLIENT_ID, client_secret: process.env.FORTY_TWO_CLIENT_SECRET, code: req.query.code, redirect_uri: '/42auth'}}, function(err,httpResponse,body){
+			request.post({url:'https://api.intra.42.fr/oauth/token', form: {grant_type: 'authorization_code', client_id: process.env.FORTY_TWO_CLIENT_ID, client_secret: process.env.FORTY_TWO_CLIENT_SECRET, code: req.query.code, redirect_uri: process.env.APP_URL + '/42auth'}}, function(err,httpResponse,body){
 				const info = JSON.parse(body)
 				const token = info.access_token
 				if (typeof token !== "undefined") {
@@ -39,7 +39,7 @@ module.exports = {
 	},
 	oauth_git: function(req, res) {
 		if (typeof req.query.code !== "undefined") {
-			request.post({url:'https://github.com/login/oauth/access_token', form: {client_id: process.env.GITHUB_CLIENT_ID, client_secret: process.env.GITHUB_CLIENT_SECRET, code: req.query.code, redirect_uri: '/gitauth'}}, function(err,httpResponse,body) {
+			request.post({url:'https://github.com/login/oauth/access_token', form: {client_id: process.env.GITHUB_CLIENT_ID, client_secret: process.env.GITHUB_CLIENT_SECRET, code: req.query.code, redirect_uri: process.env.APP_URL + '/gitauth'}}, function(err,httpResponse,body) {
 				const parsed = queryString.parse(body);
 
 				const token = parsed.access_token
