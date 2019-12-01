@@ -3,10 +3,6 @@ const	Nodemailer = require('nodemailer'),
 		sgMail = require('@sendgrid/mail');
 let key;
 
-
-let local = "http://localhost:8008";
-
-
 module.exports =
 {
 	accountConfirmationMail(mail, token, callback)
@@ -123,7 +119,7 @@ module.exports =
 		                                            <td align="center" style="padding-top: 25px;" class="padding">
 		                                                <table border="0" cellspacing="0" cellpadding="0" class="mobile-button-container">
 		                                                    <tr>
-		                                                        <td align="center" style="border-radius: 3px;" bgcolor="#256F9C"><a href="` + local + `/form/active_account?token=` + token + `" style="font-size: 16px; font-family: Helvetica, Arial, sans-serif; color: #ffffff; text-decoration: none; color: #ffffff; text-decoration: none; border-radius: 3px; padding: 15px 25px; border: 1px solid #256F9C; display: inline-block;" class="mobile-button">Confirm account</a></td>
+		                                                        <td align="center" style="border-radius: 3px;" bgcolor="#256F9C"><a href="/form/active_account?token=` + token + `" style="font-size: 16px; font-family: Helvetica, Arial, sans-serif; color: #ffffff; text-decoration: none; color: #ffffff; text-decoration: none; border-radius: 3px; padding: 15px 25px; border: 1px solid #256F9C; display: inline-block;" class="mobile-button">Confirm account</a></td>
 		                                                    </tr>
 		                                                </table>
 		                                            </td>
@@ -159,7 +155,7 @@ module.exports =
 			subject: 'Confirmation mail',
 			html: txt,
 		};
-		sgMail.setApiKey('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');
+		sgMail.setApiKey();
 		if (sgMail.send(msg))
 		{
 			callback(null, 1);
@@ -318,7 +314,7 @@ module.exports =
 			subject: 'Reset password',
 			html: txt,
 		};
-		sgMail.setApiKey('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');
+		sgMail.setApiKey();
 		if (sgMail.send(msg))
 		{
 			callback(null, '1');
