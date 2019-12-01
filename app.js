@@ -152,7 +152,7 @@ app.get('/', function(req, res) {
 		live.tv_pagination(req, res)
 	}
 	else {
-		res.josn(false)
+		res.json(false)
 	}
 })
 .get('/pagination', function(req, res) {

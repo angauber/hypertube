@@ -90,7 +90,6 @@ module.exports = {
 			let split = req.query.url.split(".")
 			let ext = split[split.length - 1]
 			if (ext == "mkv") {
-				console.log('matrsifdb');
 				const stream = growingFile.open(path)
 
 				let conversion = ffmpeg(stream)
@@ -288,7 +287,7 @@ module.exports = {
 			}
 		}
 		else {
-			res.josn(false)
+			res.json(false)
 		}
 	},
 	change_language: function(req, res) {

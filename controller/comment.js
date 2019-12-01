@@ -48,7 +48,7 @@ module.exports = {
 					})
 				}
 				else {
-					res.josn('[]')
+					res.json('[]')
 				}
 			})
 		}
