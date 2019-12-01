@@ -152,7 +152,7 @@ function download_torrent(res, movie, magnet, isTvShow) {
 					}
 					else {
 						if (isTvShow) {
-							axios.get('http://localhost:8008/size?id=' + movie.id + '&tv=true').then(response => {
+							axios.get('/size?id=' + movie.id + '&tv=true').then(response => {
 								if (response.data != false) {
 									let progress = parseInt(response.data);
 									console.log(progress);
@@ -163,7 +163,7 @@ function download_torrent(res, movie, magnet, isTvShow) {
 							})
 						}
 						else {
-							axios.get('http://localhost:8008/size?id=' + movie.id).then(response => {
+							axios.get('/size?id=' + movie.id).then(response => {
 								if (response.data != false) {
 									let progress = parseInt(response.data);
 									console.log(progress);
