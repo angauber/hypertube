@@ -36,7 +36,6 @@ window.onload = function() {
 		const data = JSON.parse(response.data);
 		vm.img = data.img;
 		vm.oauth = data.oauth;
-		console.log(vm.oauth);
 		vm.username = data.username;
 		vm.selected = data.language;
 		let log = data.history;

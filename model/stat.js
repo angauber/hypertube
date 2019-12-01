@@ -20,7 +20,6 @@ module.exports = {
 		manager.connect().then(function(db) {
 			const collection = db.collection('stats');
 			collection.insertOne(obj, function(err, result) {
-				console.log("Inserted documents into the `stats` collection");
 			});
 		})
 	},
@@ -31,7 +30,6 @@ module.exports = {
 		manager.connect().then(function(db) {
 			const collection = db.collection('stats');
 			collection.deleteMany(obj, function(err, result) {
-				console.log("Removed the document(s)");
 			});
 		})
 	}

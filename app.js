@@ -16,7 +16,6 @@ let formRouter = require('./routes/form');
 const Db = require('./setup/setup.js');
 
 new cronJob('00 00 00 * * *', function() {
-	console.log('cron checker');
 	live.checkFiles();
 });
 

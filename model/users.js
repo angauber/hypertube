@@ -20,7 +20,6 @@ module.exports = {
 		manager.connect().then(function(db) {
 			const collection = db.collection('users');
 			collection.insertOne(obj, function(err, result) {
-				console.log("Inserted documents into the `users` collection");
 			});
 		})
 	},

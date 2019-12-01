@@ -9,7 +9,6 @@ const 	Register = require('../controller/register.js'),
 
 router.post('/comment', (req, res) =>
 {
-	console.log(req.body);
 });
 
 router.post('/register', (req, res) =>
@@ -295,7 +294,6 @@ router.post('/signin', (req, res) =>
 {
 	if (req.body.username !== 'undefined' && req.body.password !== 'undefined')
 	{
-		console.log('entered');
 		Form.checkSignIn(req.body, (err, success) =>
 		{
 			if (err) {

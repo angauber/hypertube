@@ -120,7 +120,7 @@ module.exports = {
 
 function download_torrent(res, movie, magnet, isTvShow) {
 	const torrentStream = require('torrent-stream');
-	let engine = torrentStream(magnet, {path: '/sgoinfre/Perso/angauber/hypertube/download'});
+	let engine = torrentStream(magnet, {path: process.env.DL_PATH});
 	let called = false;
 	let found = false;
 	let please;

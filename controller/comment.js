@@ -9,7 +9,6 @@ const files = require('../model/files');
 module.exports = {
 	add_comment: function(req, res) {
 		if (typeof req.session.oauth !== "undefined" && typeof req.session.user_id) {
-			console.log('adding comments..');
 			if (typeof req.body.message !== "undefined" && typeof req.body.id !== "undefined" && typeof req.body.type != "undefined" && (req.body.type === 'tv' || req.body.type === 'movie') && typeof req.body.message === 'string' && (req.body.message.length > 3 && req.body.message.length < 151)) {
 				let d = new Date,
 				dformat = [d.getDate(), d.getMonth()+1, d.getFullYear()].join('/')+' '+[d.getHours(),d.getMinutes()].join(':');
@@ -44,9 +43,7 @@ module.exports = {
 						promises.push(promise)
 					}
 					Promise.all(promises).then(function() {
-						console.log(obj);
 						obj.sortOn("sort")
-						console.log(obj);
 						res.json(obj)
 					})
 				}

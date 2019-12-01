@@ -7,7 +7,8 @@ const growingFile = require('growing-file');
 const torrent = require('./torrent');
 const users = require('../model/users');
 const stat = require('../model/stat');
-const files = require('../model/files')
+const files = require('../model/files');
+const dotenv = require('dotenv').config();
 
 module.exports = {
 	register_time: function(session, type, id, time) {
@@ -37,10 +38,7 @@ module.exports = {
 			default:
 			order = 'download_count';
 		}
-		console.log(order);
-		console.log(req.query.genre);
-		console.log(req.query.page);
-		request('http://ytss.unblocked.is/api/v2/list_movies.json?sort_by=' + order + '&genre=' + req.query.genre.toLowerCase() + '&page=' + req.query.page + '&limit=48', function (error, response, body) {
+		request(process.env.YTS_API_URL + 'list_movies.json?sort_by=' + order + '&genre=' + req.query.genre.toLowerCase() + '&page=' + req.query.page + '&limit=48', function (error, response, body) {
 			if (!error && response.statusCode == 200) {
 				const info = JSON.parse(body);
 				if (info.data.movies) {
@@ -67,7 +65,7 @@ module.exports = {
 			default:
 			order = 'popular';
 		}
-		request('https://api.themoviedb.org/3/tv/' + order + '?api_key=425328382852ef8b6cd2922a26662d56&language=en-US&page=' + req.query.page, function (error, response, body) {
+		request('https://api.themoviedb.org/3/tv/' + order + '?api_key=' + process.env.MOVIE_DB_API_KEY + '&language=en-US&page=' + req.query.page, function (error, response, body) {
 			if (!error && response.statusCode == 200) {
 				const info = JSON.parse(body);
 				if (info.results) {
@@ -83,7 +81,7 @@ module.exports = {
 		})
 	},
 	stream: function(req, res) {
-		const path = '/sgoinfre/Perso/angauber/hypertube/download/' + req.query.url
+		const path = process.env.DL_PATH + req.query.url
 		if (!fs.existsSync(path)) {
 			console.log(path);
 			console.log('error files does not exists');
@@ -166,7 +164,7 @@ module.exports = {
 				let path = ep.path
 				let size = ep.size
 				if (path !== "undefined" && size !== "undefined") {
-					const file = '/sgoinfre/Perso/angauber/hypertube/download/' + path
+					const file = process.env.DL_PATH + path
 					if (!fs.existsSync(file)) {
 						res.json(false)
 					}
@@ -188,14 +186,14 @@ module.exports = {
 			})
 		}
 		else {
-			request('http://ytss.unblocked.is/api/v2/movie_details.json?movie_id=' + req.query.id, function (error, response, body) {
+			request(process.env.YTS_API_URL + 'movie_details.json?movie_id=' + req.query.id, function (error, response, body) {
 				if (!error && response.statusCode == 200) {
 					const info = JSON.parse(body);
 					if (info.data.movie) {
 						torrent.movie_exists(info.data.movie.imdb_code, function(mv) {
 							let path = mv.path
 							if (path) {
-								const file = '/sgoinfre/Perso/angauber/hypertube/download/' + path
+								const file = process.env.DL_PATH + path
 								if (!fs.existsSync(file)) {
 									res.json(false)
 								}
@@ -312,7 +310,7 @@ module.exports = {
 						const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
 						const diffHours = Math.floor((diffTime / (1000 * 60 * 60)) % 24);
 						if (diffDays > 30) {
-							fs.unlink('/sgoinfre/Perso/angauber/hypertube/download/' + result[i].path, function (er) {
+							fs.unlink(process.env.DL_PATH + result[i].path, function (er) {
 								if (er) {
 									throw er
 								}
@@ -340,7 +338,7 @@ module.exports = {
 						const diffTime = Math.abs(date2.getTime() - date1.getTime());
 						const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
 						if (diffDays > 30) {
-							fs.unlink('/sgoinfre/Perso/angauber/hypertube/download/' + result[i].path, function (er) {
+							fs.unlink(process.env.DL_PATH + result[i].path, function (er) {
 								if (er) {
 									throw er
 								}
