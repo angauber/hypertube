@@ -20,7 +20,8 @@ npm install ./
 ```
 
 ## Usage
-Firstly you need to setup your .env file with the keys listed in .env.exemple
+You need to setup your .env file with the keys listed in .env.exemple
+The oauth api keys are not mendatory.
 
 You can then launch the app using
 ```bash
